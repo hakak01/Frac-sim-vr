@@ -55,8 +55,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 1. ASSETS (pilot: right knee to ankle) – done, see PROGRESS.md
 2. FRACTURE ENGINE (tibia/fibula 41, 42, 43, 44, 4F + CT-mapped plateau and pilon) – done, see PROGRESS.md
 3. VR VIEWER – done, see PROGRESS.md
-4. REDUCTION
-5. SOFT TISSUE
+4. REDUCTION – done together with 5, see PROGRESS.md
+5. SOFT TISSUE – done together with 4, see PROGRESS.md
 6. SCALE UP, one region per session (femur+patella, humerus, radius+ulna,
    clavicle+scapula, hand, foot)
 
@@ -65,7 +65,9 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | Path | What it is |
 |---|---|
 | `index.html`, `js/viewer.js` | The web page: plain 3D viewer (layers, names, table) with a fracture picker and an explode slider. |
-| `js/xr.js` | VR mode (WebXR): pass-through or plain VR, menu panel, holding fragments and the whole model, two-hand scale. |
+| `js/xr.js` | VR mode (WebXR): pass-through or plain VR, menu panel, readout strip, holding fragments and the whole model, two-hand scale. |
+| `js/reduce.js` | Reduction maths: typical displacement, readout (translation, shortening, angles, step, gap), collision shapes and overlap test. |
+| `js/tissue.js` | Soft tissue follows the fragments (skinning, tied on a 5 mm grid) and the ghost slider. |
 | `fractures.json` | THE fracture data: one row per AO/OTA 2018 code (cuts, fragments, sources). Edit this to add or change a fracture. |
 | `bone_model.json` | Per-region bone settings: modelled cortex thickness (with sources), canal range, joint frames. |
 | `tools/fracture_engine.py` | Cuts the bones into fragments from `fractures.json`. Writes `assets/<region>/fractures/`. |
@@ -168,7 +170,7 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
 - A fragment: `fx.group > holder > node`. `holder` carries the explode offset; `node` carries
   the pose the user gave it. `node` at identity = anatomical home position.
 - VR start: leg lies supine at table height (model centre 0.95 m), knee to the user's left.
-  Only the bones layer is shown in VR until Phase 5.
+  VR starts with only the bones layer; the other layers are switched on the panel.
 - Input: `renderer.xr.getController(i)` ray for controllers and hands. Trigger or pinch on a
   fragment holds it; on empty space, or the grip, holds the whole model; two holds = scale
   (0.25x to 4x). Menu is a canvas-texture panel (no DOM overlay on Quest).
@@ -176,6 +178,28 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
   `new IWER.XRDevice(IWER.metaQuest3).installRuntime({ forceInstall: true })` in an init script.
 - three.js overwrites `camera.fov` while in VR; `xr.js` restores it on exit.
 - The scene has no background colour: the page CSS (or the room in pass-through) shows through.
+
+## Reduction and soft tissue (Phases 4 + 5)
+
+- Typical displacement presets live in `fractures.json` > `displacements` (with sources and
+  `basis`); each fragment row names one with `"displace"`. `fracture_engine.py` copies them,
+  plus each bone's axes (`frames`: distal, anterior, medial in GLB axes), into
+  `assets/<region>/fractures/index.json`. After editing text or presets only, run
+  `python3 tools/fracture_engine.py leg_right --meta` (seconds, no re-cutting).
+- Shaft-type preset (has `shortening_mm`): moves the distal part relative to the proximal
+  part; twist about the axis, tilt about a hinge on the concave cortex. Piece preset
+  (`away_mm`, `proximal_mm`, `use_impaction`): moves the piece itself.
+- The largest fragment of each bone is the main one (fixed); the others are measured against it.
+- Start positions (`placeAll` in viewer.js): largest moving fragment first, each free of
+  everything placed and of the pieces still to come (at home). If the preset overlaps,
+  the cheapest smaller version is used (shortening, deformity and separation each cost).
+- Collision (`advance` in viewer.js): moves a held fragment toward the hand in up to 3
+  steps and stops before it enters a new bone; pairs already touching may stay touching
+  but not get deeper (a second, smaller shape). Collision shapes come from `makeCollider`
+  in reduce.js: one closed surface, moved inward, points merged; sizes by fragment volume.
+- Soft tissue meshes are turned into SkinnedMesh at load (bone 0 = intact skeleton,
+  bone i = fragment i). Ties are recomputed when the fracture changes, in the background.
+- `window.viewer` exposes the functions used by the browser tests.
 
 ## Technical notes
 

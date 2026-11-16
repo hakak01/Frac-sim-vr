@@ -51,7 +51,8 @@
        "name": "capsular avulsion flake",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "tibia",
@@ -120,7 +121,8 @@
        "name": "tibial tubercle",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "tubercle_avulsion"
       },
       {
        "name": "tibia",
@@ -179,7 +181,8 @@
        "name": "tibial spine",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "tibia",
@@ -224,11 +227,13 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_proximal"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -268,11 +273,13 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_proximal"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -312,11 +319,13 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_proximal"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -375,18 +384,21 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_proximal"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -445,7 +457,8 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_proximal"
       },
       {
        "name": "wedge piece",
@@ -456,11 +469,13 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -510,7 +525,8 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_proximal"
       },
       {
        "name": "metaphyseal piece",
@@ -521,11 +537,13 @@
        "shatter": {
         "pieces": 5,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -600,7 +618,8 @@
        "name": "lateral split fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "tibia",
@@ -678,7 +697,8 @@
        "name": "medial split fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "tibia",
@@ -752,7 +772,8 @@
        "name": "medial plateau with tibial spines",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "tibia",
@@ -836,7 +857,8 @@
        "name": "depressed fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -920,7 +942,8 @@
        "name": "depressed fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -1024,14 +1047,16 @@
        "name": "lateral split fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "depressed fragment",
        "sides": {
         "c2": "+",
         "c1": "-"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -1130,14 +1155,16 @@
        "name": "medial split fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "depressed fragment",
        "sides": {
         "c2": "+",
         "c1": "-"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -1260,14 +1287,16 @@
        "name": "depressed fragment",
        "sides": {
         "c2": "+"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "lateral plateau with tibial spines",
        "sides": {
         "c1": "+",
         "c2": "-"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "tibia",
@@ -1329,18 +1358,21 @@
        "sides": {
         "c1": "+",
         "cs": "+"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "lateral condyle",
        "sides": {
         "c1": "+",
         "cs": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -1428,7 +1460,8 @@
        "name": "intercondylar eminence",
        "sides": {
         "c3": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "medial condyle",
@@ -1436,7 +1469,8 @@
         "c1": "+",
         "cs": "+",
         "c3": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "lateral condyle",
@@ -1444,11 +1478,13 @@
         "c1": "+",
         "cs": "-",
         "c3": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -1525,25 +1561,29 @@
        "sides": {
         "c1": "+",
         "cs": "+"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "lateral condyle",
        "sides": {
         "c1": "+",
         "cs": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -1620,14 +1660,16 @@
        "sides": {
         "c1": "+",
         "cs": "+"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "lateral condyle",
        "sides": {
         "c1": "+",
         "cs": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "wedge piece",
@@ -1638,11 +1680,13 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -1710,14 +1754,16 @@
        "sides": {
         "c1": "+",
         "cs": "+"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "lateral condyle",
        "sides": {
         "c1": "+",
         "cs": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "metaphyseal piece",
@@ -1728,11 +1774,13 @@
        "shatter": {
         "pieces": 5,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -1792,7 +1840,8 @@
        "sides": {
         "c1": "+",
         "cs": "+"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "lateral plateau piece",
@@ -1803,11 +1852,13 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -1866,7 +1917,8 @@
        "sides": {
         "c1": "+",
         "cs": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "medial plateau piece",
@@ -1877,11 +1929,13 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -2058,7 +2112,8 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "lateral split fragment",
@@ -2066,7 +2121,8 @@
         "cA": "+",
         "cD": "-",
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "posteromedial fragment",
@@ -2075,7 +2131,8 @@
         "cA": "-",
         "cD": "-",
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "tibial tubercle fragment",
@@ -2085,7 +2142,8 @@
         "cB": "-",
         "cD": "-",
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "anteromedial fragment",
@@ -2095,11 +2153,13 @@
         "cB": "-",
         "cC": "-",
         "cD": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -2218,7 +2278,8 @@
        "sides": {
         "cA": "+",
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "posteromedial fragment",
@@ -2226,7 +2287,8 @@
         "cB": "+",
         "cA": "-",
         "c1": "+"
-       }
+       },
+       "displace": "plateau_split"
       },
       {
        "name": "anteromedial fragment",
@@ -2234,11 +2296,13 @@
         "c1": "+",
         "cA": "-",
         "cB": "-"
-       }
+       },
+       "displace": "condyle"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_proximal"
       }
      ]
     }
@@ -2280,11 +2344,13 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_mid"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_mid"
       }
      ]
     }
@@ -2325,11 +2391,13 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_mid"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_mid"
       }
      ]
     }
@@ -2370,11 +2438,13 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_mid"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_mid"
       }
      ]
     }
@@ -2433,18 +2503,21 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_mid"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_mid"
       }
      ]
     }
@@ -2503,7 +2576,8 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_mid"
       },
       {
        "name": "wedge piece",
@@ -2514,11 +2588,13 @@
        "shatter": {
         "pieces": 3,
         "style": "shards"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_mid"
       }
      ]
     }
@@ -2568,18 +2644,21 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_mid"
       },
       {
        "name": "segment",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_mid"
       }
      ]
     }
@@ -2630,7 +2709,8 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "shaft_mid"
       },
       {
        "name": "segment piece",
@@ -2641,11 +2721,13 @@
        "shatter": {
         "pieces": 6,
         "style": "shards"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "shaft_mid"
       }
      ]
     }
@@ -2686,11 +2768,13 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -2730,11 +2814,13 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -2774,11 +2860,13 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -2836,18 +2924,21 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "posterolateral wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -2905,18 +2996,21 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "anteromedial wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -2974,18 +3068,21 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -3035,7 +3132,8 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "intermediate fragment",
@@ -3046,11 +3144,13 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -3100,7 +3200,8 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "intermediate fragment",
@@ -3111,11 +3212,13 @@
        "shatter": {
         "pieces": 6,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -3165,7 +3268,8 @@
        "name": "shaft",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "distal_meta"
       },
       {
        "name": "intermediate fragment",
@@ -3176,11 +3280,13 @@
        "shatter": {
         "pieces": 5,
         "style": "shards"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -3248,7 +3354,8 @@
        "name": "posterior (Volkmann) fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "tibia",
@@ -3319,7 +3426,8 @@
        "name": "medial fragment with medial malleolus",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "tibia",
@@ -3388,7 +3496,8 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "tibia",
@@ -3479,14 +3588,16 @@
        "name": "anterior split fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "depressed fragment",
        "sides": {
         "c2": "+",
         "c1": "-"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -3577,14 +3688,16 @@
        "name": "medial split fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "depressed fragment",
        "sides": {
         "c2": "+",
         "c1": "-"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -3698,14 +3811,16 @@
        "name": "medial split fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "central fragment",
        "sides": {
         "c2": "+",
         "c1": "-"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -3765,7 +3880,8 @@
        "name": "depressed anterior fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -3825,7 +3941,8 @@
        "name": "depressed medial fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -3919,14 +4036,16 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "depressed fragment",
        "sides": {
         "c2": "+",
         "c1": "-"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "tibia",
@@ -3994,18 +4113,21 @@
        "sides": {
         "c1": "-",
         "cs": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "lateral articular fragment",
        "sides": {
         "c1": "-",
         "cs": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4111,7 +4233,8 @@
        "name": "depressed fragment",
        "sides": {
         "c3": "+"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "medial articular fragment",
@@ -4119,7 +4242,8 @@
         "c1": "-",
         "cs": "+",
         "c3": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "lateral articular fragment",
@@ -4127,11 +4251,13 @@
         "c1": "-",
         "cs": "-",
         "c3": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4189,18 +4315,21 @@
        "sides": {
         "c1": "-",
         "cs": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "lateral articular fragment",
        "sides": {
         "c1": "-",
         "cs": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4274,25 +4403,29 @@
        "shatter": {
         "pieces": 4,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "medial articular fragment",
        "sides": {
         "c2": "-",
         "cs": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "lateral articular fragment",
        "sides": {
         "c2": "-",
         "cs": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4364,25 +4497,29 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "medial articular fragment",
        "sides": {
         "c2": "-",
         "cs": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "lateral articular fragment",
        "sides": {
         "c2": "-",
         "cs": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4454,25 +4591,29 @@
        "shatter": {
         "pieces": 5,
         "style": "shards"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "medial articular fragment",
        "sides": {
         "c2": "-",
         "cs": "+"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "lateral articular fragment",
        "sides": {
         "c2": "-",
         "cs": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4616,7 +4757,8 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "anterior fragment",
@@ -4624,7 +4766,8 @@
         "cA": "+",
         "c2": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "posterior fragment",
@@ -4633,7 +4776,8 @@
         "cA": "-",
         "c2": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "medial fragment",
@@ -4642,11 +4786,13 @@
         "cA": "-",
         "cP": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4800,7 +4946,8 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "anterior fragment",
@@ -4808,7 +4955,8 @@
         "cA": "+",
         "c2": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "posterior fragment",
@@ -4817,7 +4965,8 @@
         "cA": "-",
         "c2": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "medial fragment",
@@ -4826,7 +4975,8 @@
         "cA": "-",
         "cP": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "metaphyseal piece",
@@ -4837,11 +4987,13 @@
        "shatter": {
         "pieces": 4,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -4995,7 +5147,8 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "depressed"
       },
       {
        "name": "anterior fragment",
@@ -5003,7 +5156,8 @@
         "cA": "+",
         "c2": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "posterior fragment",
@@ -5012,7 +5166,8 @@
         "cA": "-",
         "c2": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "medial fragment",
@@ -5021,7 +5176,8 @@
         "cA": "-",
         "cP": "-",
         "cC": "-"
-       }
+       },
+       "displace": "pilon_split"
       },
       {
        "name": "metaphyseal piece",
@@ -5032,11 +5188,13 @@
        "shatter": {
         "pieces": 6,
         "style": "shards"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "shaft",
-       "rest": true
+       "rest": true,
+       "displace": "distal_meta"
       }
      ]
     }
@@ -5095,11 +5253,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "tip of lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "avulsion"
       }
      ]
     }
@@ -5139,11 +5299,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     }
@@ -5191,7 +5353,8 @@
        "name": "medial malleolus (vertical shear)",
        "sides": {
         "m1": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -5235,11 +5398,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "tip of lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "avulsion"
       }
      ]
     },
@@ -5268,7 +5433,8 @@
        "name": "medial malleolus (vertical shear)",
        "sides": {
         "m1": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -5312,11 +5478,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -5345,7 +5513,8 @@
        "name": "medial malleolus (vertical shear)",
        "sides": {
         "m1": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -5411,7 +5580,8 @@
        "name": "posteromedial fragment",
        "sides": {
         "v1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -5455,11 +5625,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "tip of lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "avulsion"
       }
      ]
     },
@@ -5502,7 +5674,8 @@
        "name": "posteromedial fragment",
        "sides": {
         "v1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -5546,11 +5719,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -5593,7 +5768,8 @@
        "name": "posteromedial fragment",
        "sides": {
         "v1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -5637,11 +5813,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     }
@@ -5682,11 +5860,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     }
@@ -5744,18 +5924,21 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     }
@@ -5796,11 +5979,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     }
@@ -5841,11 +6026,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -5892,7 +6079,8 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -5955,18 +6143,21 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -6013,7 +6204,8 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -6069,11 +6261,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -6112,7 +6306,8 @@
        "name": "posterolateral (Volkmann) fragment",
        "sides": {
         "v1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -6167,11 +6362,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -6245,14 +6442,16 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "posterolateral (Volkmann) fragment",
        "sides": {
         "v1": "+",
         "m1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -6325,18 +6524,21 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "lateral malleolus",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -6410,14 +6612,16 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "posterolateral (Volkmann) fragment",
        "sides": {
         "v1": "+",
         "m1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -6463,11 +6667,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "distal fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     }
@@ -6508,11 +6714,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "distal fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -6559,7 +6767,8 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -6615,11 +6824,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "distal fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -6693,14 +6904,16 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "posterolateral (Volkmann) fragment",
        "sides": {
         "v1": "+",
         "m1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -6764,18 +6977,21 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     }
@@ -6834,18 +7050,21 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -6892,7 +7111,8 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -6966,18 +7186,21 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_distal"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -7051,14 +7274,16 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "posterolateral (Volkmann) fragment",
        "sides": {
         "v1": "+",
         "m1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -7103,11 +7328,13 @@
        "name": "fibular head",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -7154,7 +7381,8 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -7200,11 +7428,13 @@
        "name": "fibular head",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -7251,7 +7481,8 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "tibia",
@@ -7307,11 +7538,13 @@
        "name": "fibular head",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_distal"
       }
      ]
     },
@@ -7385,14 +7618,16 @@
        "sides": {
         "m1": "-",
         "m2": "+"
-       }
+       },
+       "displace": "malleolus_medial"
       },
       {
        "name": "posterolateral (Volkmann) fragment",
        "sides": {
         "v1": "+",
         "m1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -7464,7 +7699,8 @@
        "name": "posterior malleolar fragment",
        "sides": {
         "v1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -7544,7 +7780,8 @@
        "name": "posterior malleolar fragment",
        "sides": {
         "v1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -7620,7 +7857,8 @@
        "name": "posterior malleolar fragment",
        "sides": {
         "v1": "+"
-       }
+       },
+       "displace": "posterior_malleolus"
       },
       {
        "name": "tibia",
@@ -7665,11 +7903,13 @@
        "name": "fibular head",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_shaft"
       }
      ]
     }
@@ -7720,7 +7960,8 @@
        "name": "fibular head",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "avulsion"
       },
       {
        "name": "piece",
@@ -7731,11 +7972,13 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "fibula",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_shaft"
       }
      ]
     }
@@ -7776,11 +8019,13 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_shaft"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_shaft"
       }
      ]
     }
@@ -7839,18 +8084,21 @@
        "name": "proximal fragment",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_shaft"
       },
       {
        "name": "wedge",
        "sides": {
         "c1": "-",
         "c2": "+"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_shaft"
       }
      ]
     }
@@ -7890,11 +8138,13 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_shaft"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_shaft"
       }
      ]
     }
@@ -7944,7 +8194,8 @@
        "name": "fibula",
        "sides": {
         "c1": "+"
-       }
+       },
+       "displace": "fibula_shaft"
       },
       {
        "name": "piece",
@@ -7955,15 +8206,161 @@
        "shatter": {
         "pieces": 3,
         "style": "blocks"
-       }
+       },
+       "displace": "wedge"
       },
       {
        "name": "distal fragment",
-       "rest": true
+       "rest": true,
+       "displace": "fibula_shaft"
       }
      ]
     }
    }
   }
- ]
+ ],
+ "displacements": {
+  "_about": "Typical starting displacement (Phase 4). Shaft-type values describe the DISTAL part relative to the proximal part: shortening_mm, lateral_mm, posterior_mm, varus_deg (negative = valgus), apex_anterior_deg (negative = apex posterior), external_rotation_deg. Fragment-type values: away_mm (straight away from the fracture site), proximal_mm, use_impaction (use the impaction stored with a depressed fragment). Shortening is reduced automatically until the bone ends no longer overlap.",
+  "shaft_mid": {
+   "shortening_mm": 8,
+   "lateral_mm": 5,
+   "posterior_mm": 3,
+   "varus_deg": 6,
+   "apex_anterior_deg": 5,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    },
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "shaft_proximal": {
+   "shortening_mm": 4,
+   "posterior_mm": 5,
+   "varus_deg": -8,
+   "apex_anterior_deg": 7,
+   "sources": [
+    {
+     "ref": "Lang GJ et al. Clin Orthop Relat Res 1995;(315):64-74",
+     "pmid": "7634688",
+     "claim": "proximal third: valgus and apex anterior angulation; 1 cm or more displacement in 59 %"
+    },
+    {
+     "ref": "Freedman EL, Johnson EE. Clin Orthop Relat Res 1995;(315):25-33",
+     "pmid": "7634677",
+     "claim": "proximal third: tendency to valgus; anterior bow averaged 7 degrees (5-12)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "distal_meta": {
+   "shortening_mm": 4,
+   "lateral_mm": 4,
+   "varus_deg": 6,
+   "sources": [
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    },
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "plateau_split": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "condyle": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "depressed": {
+   "use_impaction": true,
+   "sources": [],
+   "basis": "Moves into the crushed zone by the impaction depth stored with the fragment (4-6 mm). No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "pilon_split": {
+   "away_mm": 4,
+   "proximal_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "wedge": {
+   "away_mm": 5,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "avulsion": {
+   "away_mm": 4,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "tubercle_avulsion": {
+   "proximal_mm": 8,
+   "away_mm": 2,
+   "sources": [],
+   "basis": "Pulled proximally by the patellar tendon. No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "fibula_distal": {
+   "shortening_mm": 3,
+   "posterior_mm": 2,
+   "lateral_mm": 2,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Yablon IG, Heller FG, Shouse L. J Bone Joint Surg Am 1977;59:169-73",
+     "pmid": "403191",
+     "claim": "the talus follows the displacement of the lateral malleolus"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "fibula_shaft": {
+   "shortening_mm": 4,
+   "lateral_mm": 3,
+   "external_rotation_deg": 8,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "malleolus_medial": {
+   "away_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "posterior_malleolus": {
+   "proximal_mm": 3,
+   "away_mm": 1,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  }
+ }
 }

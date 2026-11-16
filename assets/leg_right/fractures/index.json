@@ -1,6 +1,188 @@
 {
  "region": "leg_right",
  "cortex": "modelled, not measured",
+ "frames": {
+  "tibia": {
+   "mesh": "Tibia.r",
+   "distal": [
+    0.04714,
+    -0.99809,
+    -0.0399
+   ],
+   "anterior": [
+    0.00188,
+    -0.03985,
+    0.9992
+   ],
+   "medial": [
+    0.99889,
+    0.04718,
+    -0.0
+   ]
+  },
+  "fibula": {
+   "mesh": "Fibula.r",
+   "distal": [
+    0.04789,
+    -0.99872,
+    -0.01637
+   ],
+   "anterior": [
+    0.00078,
+    -0.01635,
+    0.99987
+   ],
+   "medial": [
+    0.99885,
+    0.04789,
+    -0.0
+   ]
+  }
+ },
+ "displacements": {
+  "_about": "Typical starting displacement (Phase 4). Shaft-type values describe the DISTAL part relative to the proximal part: shortening_mm, lateral_mm, posterior_mm, varus_deg (negative = valgus), apex_anterior_deg (negative = apex posterior), external_rotation_deg. Fragment-type values: away_mm (straight away from the fracture site), proximal_mm, use_impaction (use the impaction stored with a depressed fragment). Shortening is reduced automatically until the bone ends no longer overlap.",
+  "shaft_mid": {
+   "shortening_mm": 8,
+   "lateral_mm": 5,
+   "posterior_mm": 3,
+   "varus_deg": 6,
+   "apex_anterior_deg": 5,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    },
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "shaft_proximal": {
+   "shortening_mm": 4,
+   "posterior_mm": 5,
+   "varus_deg": -8,
+   "apex_anterior_deg": 7,
+   "sources": [
+    {
+     "ref": "Lang GJ et al. Clin Orthop Relat Res 1995;(315):64-74",
+     "pmid": "7634688",
+     "claim": "proximal third: valgus and apex anterior angulation; 1 cm or more displacement in 59 %"
+    },
+    {
+     "ref": "Freedman EL, Johnson EE. Clin Orthop Relat Res 1995;(315):25-33",
+     "pmid": "7634677",
+     "claim": "proximal third: tendency to valgus; anterior bow averaged 7 degrees (5-12)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "distal_meta": {
+   "shortening_mm": 4,
+   "lateral_mm": 4,
+   "varus_deg": 6,
+   "sources": [
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    },
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "plateau_split": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "condyle": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "depressed": {
+   "use_impaction": true,
+   "sources": [],
+   "basis": "Moves into the crushed zone by the impaction depth stored with the fragment (4-6 mm). No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "pilon_split": {
+   "away_mm": 4,
+   "proximal_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "wedge": {
+   "away_mm": 5,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "avulsion": {
+   "away_mm": 4,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "tubercle_avulsion": {
+   "proximal_mm": 8,
+   "away_mm": 2,
+   "sources": [],
+   "basis": "Pulled proximally by the patellar tendon. No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "fibula_distal": {
+   "shortening_mm": 3,
+   "posterior_mm": 2,
+   "lateral_mm": 2,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Yablon IG, Heller FG, Shouse L. J Bone Joint Surg Am 1977;59:169-73",
+     "pmid": "403191",
+     "claim": "the talus follows the displacement of the lateral malleolus"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "fibula_shaft": {
+   "shortening_mm": 4,
+   "lateral_mm": 3,
+   "external_rotation_deg": 8,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "malleolus_medial": {
+   "away_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "posterior_malleolus": {
+   "proximal_mm": 3,
+   "away_mm": 1,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  }
+ },
  "fractures": [
   {
    "id": "41A1.1",
@@ -28,7 +210,8 @@
      "mesh": "Tibia.r",
      "name": "capsular avulsion flake",
      "volume_cm3": 0.37,
-     "triangles": 1820
+     "triangles": 1820,
+     "displace": "avulsion"
     },
     {
      "bone": "tibia",
@@ -65,7 +248,8 @@
      "mesh": "Tibia.r",
      "name": "tibial tubercle",
      "volume_cm3": 3.16,
-     "triangles": 7296
+     "triangles": 7296,
+     "displace": "tubercle_avulsion"
     },
     {
      "bone": "tibia",
@@ -103,7 +287,8 @@
      "mesh": "Tibia.r",
      "name": "tibial spine",
      "volume_cm3": 2.27,
-     "triangles": 4970
+     "triangles": 4970,
+     "displace": "avulsion"
     },
     {
      "bone": "tibia",
@@ -140,14 +325,16 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 128.97,
-     "triangles": 49788
+     "triangles": 49788,
+     "displace": "shaft_proximal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 188.46,
-     "triangles": 48430
+     "triangles": 48430,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 271316
@@ -177,14 +364,16 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 129.57,
-     "triangles": 12070
+     "triangles": 12070,
+     "displace": "shaft_proximal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 187.86,
-     "triangles": 10804
+     "triangles": 10804,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 86688
@@ -214,14 +403,16 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 121.6,
-     "triangles": 12084
+     "triangles": 12084,
+     "displace": "shaft_proximal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 195.82,
-     "triangles": 10862
+     "triangles": 10862,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 87300
@@ -252,21 +443,24 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 119.26,
-     "triangles": 12372
+     "triangles": 12372,
+     "displace": "shaft_proximal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge",
      "volume_cm3": 15.24,
-     "triangles": 14410
+     "triangles": 14410,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 182.93,
-     "triangles": 10734
+     "triangles": 10734,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 136764
@@ -297,35 +491,40 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 119.02,
-     "triangles": 12310
+     "triangles": 12310,
+     "displace": "shaft_proximal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 1",
      "volume_cm3": 3.53,
-     "triangles": 9754
+     "triangles": 9754,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 2",
      "volume_cm3": 5.02,
-     "triangles": 8308
+     "triangles": 8308,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 3",
      "volume_cm3": 6.7,
-     "triangles": 11158
+     "triangles": 11158,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 183.15,
-     "triangles": 11752
+     "triangles": 11752,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 202296
@@ -355,49 +554,56 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 105.28,
-     "triangles": 13652
+     "triangles": 13652,
+     "displace": "shaft_proximal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 1",
      "volume_cm3": 10.58,
-     "triangles": 14056
+     "triangles": 14056,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 2",
      "volume_cm3": 3.96,
-     "triangles": 11182
+     "triangles": 11182,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 3",
      "volume_cm3": 8.61,
-     "triangles": 10682
+     "triangles": 10682,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 4",
      "volume_cm3": 10.47,
-     "triangles": 17444
+     "triangles": 17444,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 5",
      "volume_cm3": 11.02,
-     "triangles": 12518
+     "triangles": 12518,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 167.5,
-     "triangles": 9782
+     "triangles": 9782,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 312716
@@ -433,7 +639,8 @@
      "mesh": "Tibia.r",
      "name": "lateral split fragment",
      "volume_cm3": 14.95,
-     "triangles": 8558
+     "triangles": 8558,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
@@ -475,7 +682,8 @@
      "mesh": "Tibia.r",
      "name": "medial split fragment",
      "volume_cm3": 13.89,
-     "triangles": 9711
+     "triangles": 9711,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
@@ -513,7 +721,8 @@
      "mesh": "Tibia.r",
      "name": "medial plateau with tibial spines",
      "volume_cm3": 50.21,
-     "triangles": 15738
+     "triangles": 15738,
+     "displace": "avulsion"
     },
     {
      "bone": "tibia",
@@ -555,9 +764,10 @@
      "impaction_mm": 6,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -599,9 +809,10 @@
      "impaction_mm": 5,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -611,7 +822,7 @@
      "triangles": 20068
     }
    ],
-   "bytes": 103496
+   "bytes": 103500
   },
   {
    "id": "41B3.1",
@@ -644,7 +855,8 @@
      "mesh": "Tibia.r",
      "name": "lateral split fragment",
      "volume_cm3": 5.7,
-     "triangles": 6776
+     "triangles": 6776,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
@@ -655,9 +867,10 @@
      "impaction_mm": 6,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -695,7 +908,8 @@
      "mesh": "Tibia.r",
      "name": "medial split fragment",
      "volume_cm3": 2.94,
-     "triangles": 5342
+     "triangles": 5342,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
@@ -706,9 +920,10 @@
      "impaction_mm": 5,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -718,7 +933,7 @@
      "triangles": 18563
     }
    ],
-   "bytes": 124484
+   "bytes": 124488
   },
   {
    "id": "41B3.3",
@@ -750,16 +965,18 @@
      "impaction_mm": 6,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral plateau with tibial spines",
      "volume_cm3": 38.68,
-     "triangles": 35262
+     "triangles": 35262,
+     "displace": "avulsion"
     },
     {
      "bone": "tibia",
@@ -769,7 +986,7 @@
      "triangles": 19062
     }
    ],
-   "bytes": 228432
+   "bytes": 228436
   },
   {
    "id": "41C1.1",
@@ -796,21 +1013,24 @@
      "mesh": "Tibia.r",
      "name": "medial condyle",
      "volume_cm3": 85.31,
-     "triangles": 21616
+     "triangles": 21616,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral condyle",
      "volume_cm3": 41.94,
-     "triangles": 18246
+     "triangles": 18246,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 190.17,
-     "triangles": 10892
+     "triangles": 10892,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 164692
@@ -840,28 +1060,32 @@
      "mesh": "Tibia.r",
      "name": "intercondylar eminence",
      "volume_cm3": 5.4,
-     "triangles": 9050
+     "triangles": 9050,
+     "displace": "avulsion"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial condyle",
      "volume_cm3": 58.55,
-     "triangles": 22742
+     "triangles": 22742,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral condyle",
      "volume_cm3": 63.52,
-     "triangles": 24224
+     "triangles": 24224,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 189.97,
-     "triangles": 11294
+     "triangles": 11294,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 224528
@@ -892,28 +1116,32 @@
      "mesh": "Tibia.r",
      "name": "medial condyle",
      "volume_cm3": 72.05,
-     "triangles": 20338
+     "triangles": 20338,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral condyle",
      "volume_cm3": 51.51,
-     "triangles": 19990
+     "triangles": 19990,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge",
      "volume_cm3": 13.98,
-     "triangles": 13616
+     "triangles": 13616,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 179.88,
-     "triangles": 10562
+     "triangles": 10562,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 221356
@@ -944,42 +1172,48 @@
      "mesh": "Tibia.r",
      "name": "medial condyle",
      "volume_cm3": 71.92,
-     "triangles": 20434
+     "triangles": 20434,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral condyle",
      "volume_cm3": 51.41,
-     "triangles": 19998
+     "triangles": 19998,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 1",
      "volume_cm3": 3.16,
-     "triangles": 7980
+     "triangles": 7980,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 2",
      "volume_cm3": 6.14,
-     "triangles": 10814
+     "triangles": 10814,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 3",
      "volume_cm3": 4.71,
-     "triangles": 14166
+     "triangles": 14166,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 180.08,
-     "triangles": 11148
+     "triangles": 11148,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 288548
@@ -1009,56 +1243,64 @@
      "mesh": "Tibia.r",
      "name": "medial condyle",
      "volume_cm3": 62.7,
-     "triangles": 19840
+     "triangles": 19840,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral condyle",
      "volume_cm3": 48.0,
-     "triangles": 18126
+     "triangles": 18126,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 1",
      "volume_cm3": 8.98,
-     "triangles": 11366
+     "triangles": 11366,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 2",
      "volume_cm3": 6.95,
-     "triangles": 12796
+     "triangles": 12796,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 3",
      "volume_cm3": 8.04,
-     "triangles": 16150
+     "triangles": 16150,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 4",
      "volume_cm3": 6.48,
-     "triangles": 14132
+     "triangles": 14132,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 5",
      "volume_cm3": 12.63,
-     "triangles": 13848
+     "triangles": 13848,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 163.64,
-     "triangles": 10202
+     "triangles": 10202,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 402576
@@ -1090,35 +1332,40 @@
      "mesh": "Tibia.r",
      "name": "medial condyle",
      "volume_cm3": 68.22,
-     "triangles": 20800
+     "triangles": 20800,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral plateau piece 1",
      "volume_cm3": 36.68,
-     "triangles": 15520
+     "triangles": 15520,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral plateau piece 2",
      "volume_cm3": 7.76,
-     "triangles": 12544
+     "triangles": 12544,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral plateau piece 3",
      "volume_cm3": 18.29,
-     "triangles": 18685
+     "triangles": 18685,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 186.47,
-     "triangles": 11538
+     "triangles": 11538,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 262136
@@ -1149,35 +1396,40 @@
      "mesh": "Tibia.r",
      "name": "lateral condyle",
      "volume_cm3": 74.12,
-     "triangles": 21992
+     "triangles": 21992,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial plateau piece 1",
      "volume_cm3": 22.82,
-     "triangles": 16590
+     "triangles": 16590,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial plateau piece 2",
      "volume_cm3": 15.7,
-     "triangles": 17676
+     "triangles": 17676,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial plateau piece 3",
      "volume_cm3": 17.42,
-     "triangles": 17504
+     "triangles": 17504,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 187.36,
-     "triangles": 11650
+     "triangles": 11650,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 281668
@@ -1228,9 +1480,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -1241,9 +1494,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -1254,47 +1508,53 @@
      "impaction_mm": 4,
      "impaction_dir": [
       0.0471,
-      0.0399,
-      -0.9981
-     ]
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral split fragment",
      "volume_cm3": 31.16,
-     "triangles": 15932
+     "triangles": 15932,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posteromedial fragment",
      "volume_cm3": 5.97,
-     "triangles": 7010
+     "triangles": 7010,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "tibial tubercle fragment",
      "volume_cm3": 26.14,
-     "triangles": 18552
+     "triangles": 18552,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anteromedial fragment",
      "volume_cm3": 68.2,
-     "triangles": 48736
+     "triangles": 48736,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 176.85,
-     "triangles": 10576
+     "triangles": 10576,
+     "displace": "shaft_proximal"
     }
    ],
-   "bytes": 436192
+   "bytes": 436196
   },
   {
    "id": "41C-PM",
@@ -1332,28 +1592,32 @@
      "mesh": "Tibia.r",
      "name": "lateral split fragment",
      "volume_cm3": 30.66,
-     "triangles": 16168
+     "triangles": 16168,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posteromedial fragment",
      "volume_cm3": 5.75,
-     "triangles": 6812
+     "triangles": 6812,
+     "displace": "plateau_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anteromedial fragment",
      "volume_cm3": 102.1,
-     "triangles": 28216
+     "triangles": 28216,
+     "displace": "condyle"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 178.91,
-     "triangles": 9730
+     "triangles": 9730,
+     "displace": "shaft_proximal"
     }
    ],
    "bytes": 228004
@@ -1384,14 +1648,16 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 217.43,
-     "triangles": 35798
+     "triangles": 35798,
+     "displace": "shaft_mid"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 100.0,
-     "triangles": 33456
+     "triangles": 33456,
+     "displace": "shaft_mid"
     }
    ],
    "bytes": 207956
@@ -1422,14 +1688,16 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 212.57,
-     "triangles": 8150
+     "triangles": 8150,
+     "displace": "shaft_mid"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 104.85,
-     "triangles": 5840
+     "triangles": 5840,
+     "displace": "shaft_mid"
     }
    ],
    "bytes": 56056
@@ -1460,14 +1728,16 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 214.31,
-     "triangles": 7470
+     "triangles": 7470,
+     "displace": "shaft_mid"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 103.12,
-     "triangles": 5144
+     "triangles": 5144,
+     "displace": "shaft_mid"
     }
    ],
    "bytes": 54408
@@ -1498,21 +1768,24 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 209.21,
-     "triangles": 8278
+     "triangles": 8278,
+     "displace": "shaft_mid"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge",
      "volume_cm3": 8.14,
-     "triangles": 6780
+     "triangles": 6780,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 100.08,
-     "triangles": 5890
+     "triangles": 5890,
+     "displace": "shaft_mid"
     }
    ],
    "bytes": 86792
@@ -1543,35 +1816,40 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 209.79,
-     "triangles": 8148
+     "triangles": 8148,
+     "displace": "shaft_mid"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 1",
      "volume_cm3": 3.57,
-     "triangles": 8292
+     "triangles": 8292,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 2",
      "volume_cm3": 2.14,
-     "triangles": 4846
+     "triangles": 4846,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge piece 3",
      "volume_cm3": 2.5,
-     "triangles": 5834
+     "triangles": 5834,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 99.43,
-     "triangles": 6468
+     "triangles": 6468,
+     "displace": "shaft_mid"
     }
    ],
    "bytes": 134028
@@ -1601,21 +1879,24 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 194.8,
-     "triangles": 7876
+     "triangles": 7876,
+     "displace": "shaft_mid"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "segment",
      "volume_cm3": 31.56,
-     "triangles": 6498
+     "triangles": 6498,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 91.06,
-     "triangles": 5084
+     "triangles": 5084,
+     "displace": "shaft_mid"
     }
    ],
    "bytes": 79568
@@ -1646,56 +1927,64 @@
      "mesh": "Tibia.r",
      "name": "proximal fragment",
      "volume_cm3": 202.71,
-     "triangles": 7662
+     "triangles": 7662,
+     "displace": "shaft_mid"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "segment piece 1",
      "volume_cm3": 5.41,
-     "triangles": 9014
+     "triangles": 9014,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "segment piece 2",
      "volume_cm3": 3.5,
-     "triangles": 5734
+     "triangles": 5734,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "segment piece 3",
      "volume_cm3": 2.05,
-     "triangles": 6874
+     "triangles": 6874,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "segment piece 4",
      "volume_cm3": 4.84,
-     "triangles": 10784
+     "triangles": 10784,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "segment piece 5",
      "volume_cm3": 4.68,
-     "triangles": 6450
+     "triangles": 6450,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "segment piece 6",
      "volume_cm3": 1.83,
-     "triangles": 6238
+     "triangles": 6238,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 92.41,
-     "triangles": 6714
+     "triangles": 6714,
+     "displace": "shaft_mid"
     }
    ],
    "bytes": 231968
@@ -1725,14 +2014,16 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 265.73,
-     "triangles": 47224
+     "triangles": 47224,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 51.69,
-     "triangles": 44170
+     "triangles": 44170,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 251100
@@ -1762,14 +2053,16 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 272.09,
-     "triangles": 12068
+     "triangles": 12068,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 45.34,
-     "triangles": 8838
+     "triangles": 8838,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 78168
@@ -1799,14 +2092,16 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 275.15,
-     "triangles": 10555
+     "triangles": 10555,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 42.28,
-     "triangles": 7302
+     "triangles": 7302,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 68280
@@ -1836,21 +2131,24 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 268.41,
-     "triangles": 10054
+     "triangles": 10054,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterolateral wedge",
      "volume_cm3": 13.26,
-     "triangles": 11884
+     "triangles": 11884,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 35.76,
-     "triangles": 9432
+     "triangles": 9432,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 121708
@@ -1880,21 +2178,24 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 269.41,
-     "triangles": 10292
+     "triangles": 10292,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anteromedial wedge",
      "volume_cm3": 9.43,
-     "triangles": 10656
+     "triangles": 10656,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 38.59,
-     "triangles": 9236
+     "triangles": 9236,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 113132
@@ -1924,21 +2225,24 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 248.56,
-     "triangles": 9684
+     "triangles": 9684,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "wedge",
      "volume_cm3": 12.48,
-     "triangles": 9824
+     "triangles": 9824,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 56.39,
-     "triangles": 7878
+     "triangles": 7878,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 106160
@@ -1968,35 +2272,40 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 261.94,
-     "triangles": 8948
+     "triangles": 8948,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 1",
      "volume_cm3": 8.84,
-     "triangles": 11086
+     "triangles": 11086,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 2",
      "volume_cm3": 5.95,
-     "triangles": 9812
+     "triangles": 9812,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 3",
      "volume_cm3": 10.13,
-     "triangles": 12198
+     "triangles": 12198,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 30.56,
-     "triangles": 10158
+     "triangles": 10158,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 197856
@@ -2026,56 +2335,64 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 261.18,
-     "triangles": 8910
+     "triangles": 8910,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 1",
      "volume_cm3": 3.94,
-     "triangles": 8026
+     "triangles": 8026,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 2",
      "volume_cm3": 4.14,
-     "triangles": 8550
+     "triangles": 8550,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 3",
      "volume_cm3": 5.07,
-     "triangles": 7812
+     "triangles": 7812,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 4",
      "volume_cm3": 2.84,
-     "triangles": 7262
+     "triangles": 7262,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 5",
      "volume_cm3": 5.88,
-     "triangles": 10108
+     "triangles": 10108,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 6",
      "volume_cm3": 3.57,
-     "triangles": 9204
+     "triangles": 9204,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 30.8,
-     "triangles": 11402
+     "triangles": 11402,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 274852
@@ -2105,49 +2422,56 @@
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 243.73,
-     "triangles": 7908
+     "triangles": 7908,
+     "displace": "distal_meta"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 1",
      "volume_cm3": 9.33,
-     "triangles": 11938
+     "triangles": 11938,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 2",
      "volume_cm3": 7.33,
-     "triangles": 10988
+     "triangles": 10988,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 3",
      "volume_cm3": 6.03,
-     "triangles": 9688
+     "triangles": 9688,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 4",
      "volume_cm3": 10.79,
-     "triangles": 11470
+     "triangles": 11470,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "intermediate fragment 5",
      "volume_cm3": 7.1,
-     "triangles": 10948
+     "triangles": 10948,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "distal fragment",
      "volume_cm3": 33.11,
-     "triangles": 10398
+     "triangles": 10398,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 274772
@@ -2184,7 +2508,8 @@
      "mesh": "Tibia.r",
      "name": "posterior (Volkmann) fragment",
      "volume_cm3": 5.12,
-     "triangles": 6018
+     "triangles": 6018,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
@@ -2227,7 +2552,8 @@
      "mesh": "Tibia.r",
      "name": "medial fragment with medial malleolus",
      "volume_cm3": 6.32,
-     "triangles": 4328
+     "triangles": 4328,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
@@ -2264,21 +2590,24 @@
      "mesh": "Tibia.r",
      "name": "medial piece 1",
      "volume_cm3": 2.13,
-     "triangles": 4780
+     "triangles": 4780,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial piece 2",
      "volume_cm3": 1.16,
-     "triangles": 4036
+     "triangles": 4036,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial piece 3",
      "volume_cm3": 3.58,
-     "triangles": 5654
+     "triangles": 5654,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
@@ -2316,7 +2645,8 @@
      "mesh": "Tibia.r",
      "name": "anterior split fragment",
      "volume_cm3": 8.88,
-     "triangles": 9084
+     "triangles": 9084,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
@@ -2327,9 +2657,10 @@
      "impaction_mm": 5,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -2339,7 +2670,7 @@
      "triangles": 22748
     }
    ],
-   "bytes": 143464
+   "bytes": 143460
   },
   {
    "id": "43B2.2",
@@ -2367,7 +2698,8 @@
      "mesh": "Tibia.r",
      "name": "medial split fragment",
      "volume_cm3": 5.79,
-     "triangles": 5420
+     "triangles": 5420,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
@@ -2378,9 +2710,10 @@
      "impaction_mm": 5,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -2417,7 +2750,8 @@
      "mesh": "Tibia.r",
      "name": "medial split fragment",
      "volume_cm3": 4.14,
-     "triangles": 3744
+     "triangles": 3744,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
@@ -2428,9 +2762,10 @@
      "impaction_mm": 5,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -2472,9 +2807,10 @@
      "impaction_mm": 6,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -2516,9 +2852,10 @@
      "impaction_mm": 5,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -2555,21 +2892,24 @@
      "mesh": "Tibia.r",
      "name": "anterior piece 1",
      "volume_cm3": 3.57,
-     "triangles": 7080
+     "triangles": 7080,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anterior piece 2",
      "volume_cm3": 2.9,
-     "triangles": 7604
+     "triangles": 7604,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anterior piece 3",
      "volume_cm3": 3.86,
-     "triangles": 8586
+     "triangles": 8586,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
@@ -2580,9 +2920,10 @@
      "impaction_mm": 6,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -2625,21 +2966,24 @@
      "mesh": "Tibia.r",
      "name": "medial articular fragment",
      "volume_cm3": 19.99,
-     "triangles": 10346
+     "triangles": 10346,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral articular fragment",
      "volume_cm3": 23.67,
-     "triangles": 10576
+     "triangles": 10576,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 273.76,
-     "triangles": 11018
+     "triangles": 11018,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 118800
@@ -2673,30 +3017,34 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial articular fragment",
      "volume_cm3": 20.14,
-     "triangles": 10558
+     "triangles": 10558,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral articular fragment",
      "volume_cm3": 21.35,
-     "triangles": 19066
+     "triangles": 19066,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 273.16,
-     "triangles": 10940
+     "triangles": 10940,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 171992
@@ -2726,21 +3074,24 @@
      "mesh": "Tibia.r",
      "name": "medial articular fragment",
      "volume_cm3": 28.9,
-     "triangles": 17296
+     "triangles": 17296,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral articular fragment",
      "volume_cm3": 40.36,
-     "triangles": 16698
+     "triangles": 16698,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 248.16,
-     "triangles": 10994
+     "triangles": 10994,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 154004
@@ -2772,49 +3123,56 @@
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 1",
      "volume_cm3": 9.58,
-     "triangles": 9782
+     "triangles": 9782,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 2",
      "volume_cm3": 5.59,
-     "triangles": 9088
+     "triangles": 9088,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 3",
      "volume_cm3": 6.12,
-     "triangles": 10466
+     "triangles": 10466,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 4",
      "volume_cm3": 6.29,
-     "triangles": 10184
+     "triangles": 10184,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial articular fragment",
      "volume_cm3": 14.73,
-     "triangles": 8702
+     "triangles": 8702,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral articular fragment",
      "volume_cm3": 13.35,
-     "triangles": 9880
+     "triangles": 9880,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 261.76,
-     "triangles": 9756
+     "triangles": 9756,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 260208
@@ -2844,42 +3202,48 @@
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 1",
      "volume_cm3": 10.11,
-     "triangles": 9690
+     "triangles": 9690,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 2",
      "volume_cm3": 7.34,
-     "triangles": 12496
+     "triangles": 12496,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 3",
      "volume_cm3": 9.16,
-     "triangles": 15186
+     "triangles": 15186,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial articular fragment",
      "volume_cm3": 15.11,
-     "triangles": 8874
+     "triangles": 8874,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral articular fragment",
      "volume_cm3": 13.06,
-     "triangles": 9832
+     "triangles": 9832,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 262.65,
-     "triangles": 9152
+     "triangles": 9152,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 242168
@@ -2909,56 +3273,64 @@
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 1",
      "volume_cm3": 10.24,
-     "triangles": 12098
+     "triangles": 12098,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 2",
      "volume_cm3": 11.22,
-     "triangles": 11702
+     "triangles": 11702,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 3",
      "volume_cm3": 9.77,
-     "triangles": 13830
+     "triangles": 13830,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 4",
      "volume_cm3": 10.94,
-     "triangles": 11576
+     "triangles": 11576,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 5",
      "volume_cm3": 6.65,
-     "triangles": 12896
+     "triangles": 12896,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial articular fragment",
      "volume_cm3": 14.99,
-     "triangles": 8732
+     "triangles": 8732,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "lateral articular fragment",
      "volume_cm3": 12.94,
-     "triangles": 9934
+     "triangles": 9934,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 240.66,
-     "triangles": 9721
+     "triangles": 9721,
+     "displace": "distal_meta"
     }
    ],
    "bytes": 331456
@@ -3003,9 +3375,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -3016,9 +3389,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -3029,40 +3403,45 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anterior fragment",
      "volume_cm3": 8.18,
-     "triangles": 14186
+     "triangles": 14186,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterior fragment",
      "volume_cm3": 11.07,
-     "triangles": 10848
+     "triangles": 10848,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial fragment",
      "volume_cm3": 6.06,
-     "triangles": 8560
+     "triangles": 8560,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 286.84,
-     "triangles": 15398
+     "triangles": 15398,
+     "displace": "distal_meta"
     }
    ],
-   "bytes": 244980
+   "bytes": 244976
   },
   {
    "id": "43C3.2",
@@ -3104,9 +3483,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -3117,9 +3497,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -3130,68 +3511,77 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anterior fragment",
      "volume_cm3": 9.68,
-     "triangles": 15642
+     "triangles": 15642,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterior fragment",
      "volume_cm3": 11.34,
-     "triangles": 10870
+     "triangles": 10870,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial fragment",
      "volume_cm3": 5.22,
-     "triangles": 8062
+     "triangles": 8062,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 1",
      "volume_cm3": 5.94,
-     "triangles": 8772
+     "triangles": 8772,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 2",
      "volume_cm3": 4.33,
-     "triangles": 8792
+     "triangles": 8792,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 3",
      "volume_cm3": 5.52,
-     "triangles": 9888
+     "triangles": 9888,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 4",
      "volume_cm3": 10.06,
-     "triangles": 11224
+     "triangles": 11224,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 260.28,
-     "triangles": 11928
+     "triangles": 11928,
+     "displace": "distal_meta"
     }
    ],
-   "bytes": 382736
+   "bytes": 382732
   },
   {
    "id": "43C3.3",
@@ -3233,9 +3623,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -3246,9 +3637,10 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
@@ -3259,82 +3651,93 @@
      "impaction_mm": 4,
      "impaction_dir": [
       -0.0471,
-      -0.0399,
-      0.9981
-     ]
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "anterior fragment",
      "volume_cm3": 9.35,
-     "triangles": 15502
+     "triangles": 15502,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterior fragment",
      "volume_cm3": 11.1,
-     "triangles": 10326
+     "triangles": 10326,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial fragment",
      "volume_cm3": 5.39,
-     "triangles": 8690
+     "triangles": 8690,
+     "displace": "pilon_split"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 1",
      "volume_cm3": 11.63,
-     "triangles": 15480
+     "triangles": 15480,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 2",
      "volume_cm3": 5.77,
-     "triangles": 10230
+     "triangles": 10230,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 3",
      "volume_cm3": 7.34,
-     "triangles": 12762
+     "triangles": 12762,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 4",
      "volume_cm3": 3.97,
-     "triangles": 9432
+     "triangles": 9432,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 5",
      "volume_cm3": 7.82,
-     "triangles": 13406
+     "triangles": 13406,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "metaphyseal piece 6",
      "volume_cm3": 11.8,
-     "triangles": 12494
+     "triangles": 12494,
+     "displace": "wedge"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "shaft",
      "volume_cm3": 238.32,
-     "triangles": 12716
+     "triangles": 12716,
+     "displace": "distal_meta"
     }
    ],
-   "bytes": 504664
+   "bytes": 504660
   },
   {
    "id": "44A1.1",
@@ -3381,14 +3784,16 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 58.51,
-     "triangles": 6262
+     "triangles": 6262,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "tip of lateral malleolus",
      "volume_cm3": 1.0,
-     "triangles": 2584
+     "triangles": 2584,
+     "displace": "avulsion"
     }
    ],
    "bytes": 40032
@@ -3418,14 +3823,16 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 53.57,
-     "triangles": 6572
+     "triangles": 6572,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 5.95,
-     "triangles": 3902
+     "triangles": 3902,
+     "displace": "fibula_distal"
     }
    ],
    "bytes": 47168
@@ -3456,7 +3863,8 @@
      "mesh": "Tibia.r",
      "name": "medial malleolus (vertical shear)",
      "volume_cm3": 3.58,
-     "triangles": 4038
+     "triangles": 4038,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -3494,21 +3902,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 58.94,
-     "triangles": 6188
+     "triangles": 6188,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "tip of lateral malleolus",
      "volume_cm3": 0.58,
-     "triangles": 2362
+     "triangles": 2362,
+     "displace": "avulsion"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus (vertical shear)",
      "volume_cm3": 4.21,
-     "triangles": 4214
+     "triangles": 4214,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -3546,21 +3957,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 53.66,
-     "triangles": 6554
+     "triangles": 6554,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 5.85,
-     "triangles": 3908
+     "triangles": 3908,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus (vertical shear)",
      "volume_cm3": 3.99,
-     "triangles": 4344
+     "triangles": 4344,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -3598,7 +4012,8 @@
      "mesh": "Tibia.r",
      "name": "posteromedial fragment",
      "volume_cm3": 1.87,
-     "triangles": 3726
+     "triangles": 3726,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -3636,21 +4051,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 58.51,
-     "triangles": 6248
+     "triangles": 6248,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "tip of lateral malleolus",
      "volume_cm3": 1.01,
-     "triangles": 2534
+     "triangles": 2534,
+     "displace": "avulsion"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posteromedial fragment",
      "volume_cm3": 2.36,
-     "triangles": 3792
+     "triangles": 3792,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -3688,21 +4106,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 53.9,
-     "triangles": 6614
+     "triangles": 6614,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 5.61,
-     "triangles": 3920
+     "triangles": 3920,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posteromedial fragment",
      "volume_cm3": 2.52,
-     "triangles": 3908
+     "triangles": 3908,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -3739,14 +4160,16 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.3,
-     "triangles": 6764
+     "triangles": 6764,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 11.21,
-     "triangles": 4890
+     "triangles": 4890,
+     "displace": "fibula_distal"
     }
    ],
    "bytes": 51528
@@ -3777,14 +4200,16 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.0,
-     "triangles": 6256
+     "triangles": 6256,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 11.52,
-     "triangles": 4462
+     "triangles": 4462,
+     "displace": "fibula_distal"
     }
    ],
    "bytes": 47304
@@ -3814,21 +4239,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 46.79,
-     "triangles": 5156
+     "triangles": 5156,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "wedge",
      "volume_cm3": 2.32,
-     "triangles": 4144
+     "triangles": 4144,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 10.41,
-     "triangles": 3970
+     "triangles": 3970,
+     "displace": "fibula_distal"
     }
    ],
    "bytes": 63588
@@ -3859,14 +4287,16 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.35,
-     "triangles": 6356
+     "triangles": 6356,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 11.17,
-     "triangles": 4534
+     "triangles": 4534,
+     "displace": "fibula_distal"
     }
    ],
    "bytes": 48444
@@ -3898,21 +4328,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.23,
-     "triangles": 6362
+     "triangles": 6362,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 11.28,
-     "triangles": 4500
+     "triangles": 4500,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.46,
-     "triangles": 3540
+     "triangles": 3540,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -3951,28 +4384,32 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 46.51,
-     "triangles": 5154
+     "triangles": 5154,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "wedge",
      "volume_cm3": 2.61,
-     "triangles": 4340
+     "triangles": 4340,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 10.39,
-     "triangles": 4094
+     "triangles": 4094,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.46,
-     "triangles": 3430
+     "triangles": 3430,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -4022,21 +4459,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.17,
-     "triangles": 6418
+     "triangles": 6418,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 11.34,
-     "triangles": 4592
+     "triangles": 4592,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterolateral (Volkmann) fragment",
      "volume_cm3": 0.98,
-     "triangles": 2214
+     "triangles": 2214,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4085,28 +4525,32 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.02,
-     "triangles": 6158
+     "triangles": 6158,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 11.49,
-     "triangles": 4392
+     "triangles": 4392,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.61,
-     "triangles": 3422
+     "triangles": 3422,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterolateral (Volkmann) fragment",
      "volume_cm3": 0.78,
-     "triangles": 2042
+     "triangles": 2042,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4155,35 +4599,40 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 46.71,
-     "triangles": 5268
+     "triangles": 5268,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "wedge",
      "volume_cm3": 2.28,
-     "triangles": 4526
+     "triangles": 4526,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "lateral malleolus",
      "volume_cm3": 10.52,
-     "triangles": 4300
+     "triangles": 4300,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.32,
-     "triangles": 3576
+     "triangles": 3576,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterolateral (Volkmann) fragment",
      "volume_cm3": 1.12,
-     "triangles": 2224
+     "triangles": 2224,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4222,14 +4671,16 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 39.07,
-     "triangles": 4008
+     "triangles": 4008,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fibula",
      "volume_cm3": 20.45,
-     "triangles": 3094
+     "triangles": 3094,
+     "displace": "fibula_distal"
     }
    ],
    "bytes": 33252
@@ -4261,21 +4712,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 39.18,
-     "triangles": 4076
+     "triangles": 4076,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fibula",
      "volume_cm3": 20.34,
-     "triangles": 3150
+     "triangles": 3150,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.68,
-     "triangles": 3622
+     "triangles": 3622,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -4325,28 +4779,32 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 39.01,
-     "triangles": 4064
+     "triangles": 4064,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fibula",
      "volume_cm3": 20.51,
-     "triangles": 3162
+     "triangles": 3162,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.52,
-     "triangles": 3570
+     "triangles": 3570,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterolateral (Volkmann) fragment",
      "volume_cm3": 1.0,
-     "triangles": 2206
+     "triangles": 2206,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4385,21 +4843,24 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 37.92,
-     "triangles": 3906
+     "triangles": 3906,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "wedge",
      "volume_cm3": 1.06,
-     "triangles": 2438
+     "triangles": 2438,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fibula",
      "volume_cm3": 20.53,
-     "triangles": 3208
+     "triangles": 3208,
+     "displace": "fibula_distal"
     }
    ],
    "bytes": 47372
@@ -4431,28 +4892,32 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 37.96,
-     "triangles": 3928
+     "triangles": 3928,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "wedge",
      "volume_cm3": 0.99,
-     "triangles": 2438
+     "triangles": 2438,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fibula",
      "volume_cm3": 20.57,
-     "triangles": 3192
+     "triangles": 3192,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.39,
-     "triangles": 3466
+     "triangles": 3466,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -4502,35 +4967,40 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 38.06,
-     "triangles": 3894
+     "triangles": 3894,
+     "displace": "fibula_distal"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "wedge",
      "volume_cm3": 0.89,
-     "triangles": 2420
+     "triangles": 2420,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fibula",
      "volume_cm3": 20.56,
-     "triangles": 3226
+     "triangles": 3226,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.48,
-     "triangles": 3516
+     "triangles": 3516,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterolateral (Volkmann) fragment",
      "volume_cm3": 0.92,
-     "triangles": 2486
+     "triangles": 2486,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4569,21 +5039,24 @@
      "mesh": "Fibula.r",
      "name": "fibular head",
      "volume_cm3": 11.44,
-     "triangles": 3650
+     "triangles": 3650,
+     "displace": "avulsion"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.07,
-     "triangles": 5636
+     "triangles": 5636,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.34,
-     "triangles": 3838
+     "triangles": 3838,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -4623,21 +5096,24 @@
      "mesh": "Fibula.r",
      "name": "fibular head",
      "volume_cm3": 11.43,
-     "triangles": 4406
+     "triangles": 4406,
+     "displace": "avulsion"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.09,
-     "triangles": 6368
+     "triangles": 6368,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.39,
-     "triangles": 3508
+     "triangles": 3508,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
@@ -4687,28 +5163,32 @@
      "mesh": "Fibula.r",
      "name": "fibular head",
      "volume_cm3": 11.35,
-     "triangles": 3674
+     "triangles": 3674,
+     "displace": "avulsion"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.16,
-     "triangles": 5712
+     "triangles": 5712,
+     "displace": "fibula_distal"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "medial malleolus",
      "volume_cm3": 2.47,
-     "triangles": 3380
+     "triangles": 3380,
+     "displace": "malleolus_medial"
     },
     {
      "bone": "tibia",
      "mesh": "Tibia.r",
      "name": "posterolateral (Volkmann) fragment",
      "volume_cm3": 1.0,
-     "triangles": 2244
+     "triangles": 2244,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4756,7 +5236,8 @@
      "mesh": "Tibia.r",
      "name": "posterior malleolar fragment",
      "volume_cm3": 1.17,
-     "triangles": 2280
+     "triangles": 2280,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4804,7 +5285,8 @@
      "mesh": "Tibia.r",
      "name": "posterior malleolar fragment",
      "volume_cm3": 5.43,
-     "triangles": 5906
+     "triangles": 5906,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4852,7 +5334,8 @@
      "mesh": "Tibia.r",
      "name": "posterior malleolar fragment",
      "volume_cm3": 0.33,
-     "triangles": 1458
+     "triangles": 1458,
+     "displace": "posterior_malleolus"
     },
     {
      "bone": "tibia",
@@ -4890,14 +5373,16 @@
      "mesh": "Fibula.r",
      "name": "fibular head",
      "volume_cm3": 10.56,
-     "triangles": 3424
+     "triangles": 3424,
+     "displace": "avulsion"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.96,
-     "triangles": 5614
+     "triangles": 5614,
+     "displace": "fibula_shaft"
     }
    ],
    "bytes": 40940
@@ -4928,35 +5413,40 @@
      "mesh": "Fibula.r",
      "name": "fibular head",
      "volume_cm3": 1.08,
-     "triangles": 3374
+     "triangles": 3374,
+     "displace": "avulsion"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "piece 1",
      "volume_cm3": 4.14,
-     "triangles": 7040
+     "triangles": 7040,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "piece 2",
      "volume_cm3": 0.93,
-     "triangles": 5456
+     "triangles": 5456,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "piece 3",
      "volume_cm3": 4.9,
-     "triangles": 6184
+     "triangles": 6184,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 48.47,
-     "triangles": 5650
+     "triangles": 5650,
+     "displace": "fibula_shaft"
     }
    ],
    "bytes": 123008
@@ -4987,14 +5477,16 @@
      "mesh": "Fibula.r",
      "name": "proximal fragment",
      "volume_cm3": 29.98,
-     "triangles": 3506
+     "triangles": 3506,
+     "displace": "fibula_shaft"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fragment",
      "volume_cm3": 29.54,
-     "triangles": 3604
+     "triangles": 3604,
+     "displace": "fibula_shaft"
     }
    ],
    "bytes": 33192
@@ -5025,21 +5517,24 @@
      "mesh": "Fibula.r",
      "name": "proximal fragment",
      "volume_cm3": 29.86,
-     "triangles": 3620
+     "triangles": 3620,
+     "displace": "fibula_shaft"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "wedge",
      "volume_cm3": 1.07,
-     "triangles": 2674
+     "triangles": 2674,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fragment",
      "volume_cm3": 28.59,
-     "triangles": 3842
+     "triangles": 3842,
+     "displace": "fibula_shaft"
     }
    ],
    "bytes": 49680
@@ -5069,14 +5564,16 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 47.61,
-     "triangles": 5042
+     "triangles": 5042,
+     "displace": "fibula_shaft"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fragment",
      "volume_cm3": 11.9,
-     "triangles": 3276
+     "triangles": 3276,
+     "displace": "fibula_shaft"
     }
    ],
    "bytes": 39868
@@ -5106,35 +5603,40 @@
      "mesh": "Fibula.r",
      "name": "fibula",
      "volume_cm3": 45.6,
-     "triangles": 4592
+     "triangles": 4592,
+     "displace": "fibula_shaft"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "piece 1",
      "volume_cm3": 1.86,
-     "triangles": 3940
+     "triangles": 3940,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "piece 2",
      "volume_cm3": 0.71,
-     "triangles": 2624
+     "triangles": 2624,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "piece 3",
      "volume_cm3": 1.42,
-     "triangles": 3848
+     "triangles": 3848,
+     "displace": "wedge"
     },
     {
      "bone": "fibula",
      "mesh": "Fibula.r",
      "name": "distal fragment",
      "volume_cm3": 9.91,
-     "triangles": 3650
+     "triangles": 3650,
+     "displace": "fibula_shaft"
     }
    ],
    "bytes": 96004

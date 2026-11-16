@@ -4,6 +4,7 @@ Usage:
   python3 tools/fracture_engine.py leg_right              # build every row of fractures.json
   python3 tools/fracture_engine.py leg_right 42A1 41B3.1  # build only these ids
   python3 tools/fracture_engine.py leg_right --preview /tmp/tiles 42A1   # also save check pictures
+  python3 tools/fracture_engine.py leg_right --meta       # only refresh text and displacement data
 
 One engine, data in fractures.json. A row lists, per bone, CUTS (rough cutting
 surfaces) and FRAGMENTS (which side of which cut). Adding a fracture needs no new code.
@@ -363,7 +364,8 @@ def build_fracture(region, row):
             imp = [c for c in voids if sides.get(c) == "+"]
             if imp:
                 f["impaction_mm"] = voids[imp[0]][1]
-                f["impaction_dir"] = [round(float(x), 4) for x in unit(voids[imp[0]][2])]
+                d = unit(voids[imp[0]][2])                     # stored in GLB axes (x, z, -y)
+                f["impaction_dir"] = [round(float(d[0]), 4), round(float(d[2]), 4), round(float(-d[1]), 4)]
             frags.append(f)
         mine = [f for f in frags if f["bone"] == bkey]
         allcut = np.vstack([f.pop("cutv") for f in mine]) if mine else np.zeros((0, 3))
@@ -431,8 +433,11 @@ def main():
         del args[i:i + 2]
         os.makedirs(prev_dir, exist_ok=True)
         import preview
+    meta_only = "--meta" in args                 # refresh names, sources, displacement; cut nothing
+    if meta_only:
+        args.remove("--meta")
     region_id = args[0]
-    only = set(args[1:])
+    only = {"(none)"} if meta_only else set(args[1:])
     data = json.load(open(os.path.join(ROOT, "fractures.json")))
     rows = [r for r in data["fractures"] if r["region"] == region_id]
     region = Region(region_id, ROOT)
@@ -467,10 +472,25 @@ def main():
             entries.append(e)
         if os.listdir(tmp):
             subprocess.run(["node", os.path.join(HERE, "draco_compress.mjs"), tmp, out_dir], check=True)
+    by_id = {r["id"]: r for r in rows}
     for e in entries:
         if e.get("file"):
             e["bytes"] = os.path.getsize(os.path.join(out_dir, e["file"]))
-    json.dump({"region": region_id, "cortex": "modelled, not measured", "fractures": entries},
+        row = by_id[e["id"]]                      # text fields and displacement always follow fractures.json
+        for k in ("code", "name", "segment", "qualification", "sources", "line_basis", "soft_tissue", "note"):
+            if row.get(k):
+                e[k] = row[k]
+        for f in e["fragments"]:
+            base = f["name"].rsplit(" ", 1)[0] if f["name"].rsplit(" ", 1)[-1].isdigit() else f["name"]
+            spec = next((x for x in row["bones"][f["bone"]]["fragments"] if x["name"] == base), {})
+            f.pop("displace", None)
+            if spec.get("displace"):
+                f["displace"] = spec["displace"]
+    gl = lambda v: [round(float(v[0]), 5), round(float(v[2]), 5), round(float(-v[1]), 5)]   # to GLB axes
+    frames = {k: {"mesh": b.cfg["mesh"], "distal": gl(b.d), "anterior": gl(b.e_ant), "medial": gl(b.e_med)}
+              for k, b in region.bones.items()}
+    json.dump({"region": region_id, "cortex": "modelled, not measured", "frames": frames,
+               "displacements": data.get("displacements", {}), "fractures": entries},
               open(index_path, "w"), indent=1)
     with open(os.path.join(out_dir, "FRACTURES.md"), "w") as f:
         f.write(f"# Fractures built for {region_id}\n\nCortex is modelled, not measured. "
@@ -480,7 +500,8 @@ def main():
             f.write(f"| {e['id']} | {e['name']} | {e.get('qualification', '')} | {len(e['fragments'])} | "
                     f"{e['triangles']:,} | {e.get('bytes', 0) / 1024:.0f} |\n")
     built = [e for e in entries if not only or e["id"] in only]
-    print(f"built {len(built)} fractures, {sum(e['triangles'] for e in built):,} triangles, "
+    print(f"index has {len(entries)} fractures; "
+          f"built {len(built)} fractures, {sum(e['triangles'] for e in built):,} triangles, "
           f"{sum(e.get('bytes', 0) for e in built) / 1024:.0f} KB")
     for e in built[:12] if only else []:
         print("  ", e["id"], [(f["name"], f["volume_cm3"]) for f in e["fragments"]])

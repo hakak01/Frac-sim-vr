@@ -105,11 +105,77 @@ Limits the owner should know (Phase 3):
 4. Fragments can pass through each other (collision is Phase 4).
 5. The menu panel stays where it was placed at the start. There is no left-leg mirror button yet.
 
+### Phases 4 + 5 – REDUCTION and SOFT TISSUE (done together, owner's request) – waiting for owner's OK
+
+Reduction (Phase 4)
+- Every fragment's home position is its anatomical position (stored that way in the GLB).
+  "Reduced" puts every fragment home; "Reset view" in VR only resets where the model stands.
+- Each fracture starts in a TYPICAL DISPLACEMENT. The presets are data in `fractures.json`
+  (`displacements`, 14 presets; every moving fragment of every row has one). Each preset
+  says where its direction comes from (PMID) and that the size is a teaching value:
+  - shaft middle third: 8 mm shortening, 5 mm lateral, 3 mm posterior, 6° varus,
+    5° apex anterior, 10° external (Sarmiento 1995, PMID 7634690; Teitz 1980, PMID 7391100);
+  - shaft proximal third: valgus 8° and apex anterior 7° (Lang 1995, PMID 7634688;
+    Freedman 1995, PMID 7634677);
+  - plateau split / condyle: 5 mm widening and 3 mm step, the limits Honkonen 1994
+    (PMID 8168301) found tolerable;
+  - lateral malleolus: shortening and external rotation (Yablon 1977, PMID 403191);
+  - depressed fragments use the impaction depth cut in Phase 2 (4-6 mm);
+  - wedges, pilon splits, medial and posterior malleolus, avulsions: NO published source
+    found; marked as such on the page.
+- Bone cannot start inside bone: fragments are placed largest first; if the full preset
+  would overlap, the cheapest smaller version is used. All 96 fractures start free of
+  overlap. 7 start with under 75 % of the preset deformity (41C1.2, 42A1, 43A1.1, 43A1.2,
+  43A2.1, 43C1.2, 4F1B). Angulation hinges on the cortex of the concave side, so the gap
+  opens on the convex side; in the six 41A fractures this shows as about 8 mm lengthening.
+- Live readout (page panel and a strip under the VR menu), for every moving fragment:
+  - shaft-type fragment: distal part relative to proximal part: translation (mm, with
+    direction), shortening (bone length between points 15 cm each side), angulation
+    (varus/valgus, apex anterior/posterior, degrees), rotation (internal/external);
+  - loose piece (split, depressed, wedge, malleolus): its own movement: translation,
+    along the bone (proximal/distal), tilt, rotation;
+  - joint fractures (41B/C, 43B/C, 44): articular step and gap (mm), from the points
+    where the joint surface meets the fracture.
+- Bone blocks bone: a held fragment stops at contact with other fragments and intact
+  bones. Collision shapes are 0.3-0.8 mm smaller than the bone and lighter (points merged
+  on a 0.6-1.6 mm grid; the bone you see is not simplified). A fragment can always be pulled
+  back out of contact, and the home position is always free. Tests on 9 fractures:
+  fragments seat fully (0 mm left over); pushed 15 mm into bone they stop within 1-3 mm.
+- Speed of the collision test on the build machine: 0.9-6.8 ms on average per move, spikes
+  up to 36 ms. If it averages over 8 ms for about 1.5 seconds, collision switches itself off
+  and the page/VR panel says so. NOT measured on a Quest 3 (see limits).
+
+Soft tissue (Phase 5)
+- Layer toggles for skin, muscles, arteries, veins, nerves on the page and in VR.
+- Soft tissue ghost slider (0-100 %) on the page and in VR.
+- Tissue follows the fragments (skinning): every tissue point is tied to the nearest bone
+  pieces, worked out on a 5 mm grid in the background (under 1 s per fracture on the build
+  machine), only for layers that are shown. In the anatomical position nothing moves.
+- Optional "muscle pull": loose fragments are pulled back toward the typical deformity,
+  stopping at bone contact. It is a spring, not a model of muscle forces.
+- Soft tissue was NOT simplified (0 % reduction).
+
+Tested: all 96 fractures load with no errors; VR run in Meta's emulator (menu, holding a
+fragment against bone, layers, ghost, reduced/displaced, muscle pull, exit), no errors.
+
+Limits the owner should know (Phases 4 + 5):
+1. Not tested on a real Quest 3. 72 fps with collision on is not proven. The comminuted
+   fractures (41C3.3, 43C3.3) are the most likely to switch collision off on the headset.
+2. Typical displacement sizes are teaching values. For wedges, pilon splits, the medial and
+   posterior malleolus and avulsions, the direction has no published source either.
+3. Tissue near the bone shears over a few mm at the fracture (it follows the nearest
+   fragment); it does not stretch like real tissue, and it never tears.
+4. Loading a fracture takes up to 2 s on the build machine (start positions and collision
+   shapes are worked out then).
+5. Ligaments (syndesmosis, deltoid, collaterals) are not in the model, so they do not hold
+   or pull fragments.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
 - 16 Nov 2026: Phase 1 accepted (owner started Phase 2).
 - 16 Nov 2026: Phase 2 accepted (owner started Phase 3).
+- 16 Nov 2026: Phase 3 accepted; owner asked for Phases 4 and 5 together.
 - 16 Nov 2026: **cortex is MODELLED, not measured.** Both bone sources are one outer
   surface, so Phase 2 builds the cortex rim and medullary canal with a thickness formula,
   the same way as the owner's earlier "Tibia Fracture Lab" artifact
@@ -138,7 +204,7 @@ Limits the owner should know (Phase 3):
 
 ## Next
 
-- Phase 4 – REDUCTION (only after the owner says OK to Phase 3).
+- Phase 6 – SCALE UP, one region per session (only after the owner says OK to Phases 4 + 5).
 
 ## Test link
 

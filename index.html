@@ -38,6 +38,12 @@
   #xrbtn { width:100%; margin:10px 0 4px; padding:12px; font:600 16px/1 inherit; color:#06202f; background:var(--accent);
     border:0; border-radius:8px; cursor:pointer; }
   #xrnote { font-size:13px; }
+  .pos { margin:6px 0; color:var(--dim); font-size:14px; }
+  .pos label { margin-left:8px; color:var(--text); cursor:pointer; }
+  .ro { display:grid; grid-template-columns:auto 1fr; gap:1px 10px; font-size:13px; margin:8px 0; padding:8px;
+    background:#232a33; border-radius:6px; }
+  .ro b { grid-column:1 / -1; }
+  .ro span:nth-child(even) { color:var(--dim); }
   #fxinfo { font-size:13px; color:var(--dim); }
   #fxinfo b { color:var(--text); }
   #fxinfo ul { margin:4px 0; padding-left:18px; }
@@ -70,9 +76,18 @@
     <select id="fx"><option value="">Intact bones</option></select>
     <label class="rng">Explode
       <input type="range" id="spread" min="0" max="30" step="1" value="0"><span id="spreadv">0 mm</span></label>
+    <div class="pos">Position:
+      <label><input type="radio" name="pos" value="displaced" checked> Typical displacement</label>
+      <label><input type="radio" name="pos" value="reduced"> Reduced</label></div>
+    <div class="pos"><label><input type="checkbox" id="collide" checked> Bone blocks bone</label>
+      <label><input type="checkbox" id="pull"> Muscle pull (toward the typical deformity)</label></div>
+    <p id="simnote"></p>
+    <div id="readout"></div>
     <div id="fxinfo"></div>
     <h2>Layers</h2>
     <div id="layers"></div>
+    <label class="rng">Soft tissue ghost
+      <input type="range" id="ghost" min="0" max="100" step="5" value="100"><span id="ghostv">100 %</span></label>
     <h2>Structures</h2>
     <table>
       <thead><tr><th>Structure</th><th class="num">Triangles</th><th class="num">Size</th></tr></thead>

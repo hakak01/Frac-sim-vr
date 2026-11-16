@@ -39,6 +39,16 @@ https://creativecommons.org/licenses/by-sa/4.0/
 - Haraguchi N et al. J Bone Joint Surg Am. 2006;88:1085-92. PMID 16651584, doi:10.2106/JBJS.E.00856
 - Mangnus L et al. J Orthop Trauma. 2015;29:428-35. PMID 25785358, doi:10.1097/BOT.0000000000000330
 
+## Typical displacement (Phases 4 + 5)
+
+Directions of the starting displacement; the sizes are teaching values.
+- Sarmiento A et al. Clin Orthop Relat Res. 1995;(315):8-24. PMID 7634690
+- Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am. 1980;62:770-6. PMID 7391100
+- Lang GJ et al. Clin Orthop Relat Res. 1995;(315):64-74. PMID 7634688
+- Freedman EL, Johnson EE. Clin Orthop Relat Res. 1995;(315):25-33. PMID 7634677
+- Honkonen SE. Clin Orthop Relat Res. 1994;(302):199-205. PMID 8168301
+- Yablon IG, Heller FG, Shouse L. J Bone Joint Surg Am. 1977;59:169-73. PMID 403191
+
 ## Modelled cortex (Phase 2)
 
 The cortex thickness is a model, not a measurement. Its shape is supported by:
