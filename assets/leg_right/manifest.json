@@ -15,56 +15,78 @@
   "license": "CC BY-SA 4.0",
   "derived_from": "BodyParts3D, (c) The Database Center for Life Science, CC BY-SA 2.1 Japan"
  },
+ "bone_source": {
+  "name": "BodyParts3D 3.0 (polygon reduction 95% set)",
+  "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+  "mirror": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
+  "mirror_commit": "2c83c698788cff57f6317bddcf712e7acfbea7d8",
+  "license": "CC BY-SA 2.1 Japan",
+  "attribution": "BodyParts3D, (c) The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan"
+ },
  "layers": {
   "bones": {
    "label": "Bones",
    "file": "bones.glb",
-   "bytes": 34376,
-   "triangles": 2934,
+   "bytes": 58496,
+   "triangles": 11472,
    "structures": [
     {
      "name": "Fibula.r",
      "group": "Bones of free part of lower limb.g",
-     "triangles": 1264,
-     "vertices": 653,
+     "triangles": 4622,
+     "vertices": 2313,
      "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24480",
+     "fit_to_z_anatomy": {
+      "scale": 1.03304,
+      "rotation_deg": 0.272,
+      "median_mm": 0.007,
+      "max_mm": 0.734
+     },
      "materials": [
       "Bone",
       "Cartilage"
      ],
      "bbox_min": [
       -0.1248,
-      0.0268,
+      0.0267,
       0.0552
      ],
      "bbox_max": [
       -0.0886,
       0.0597,
-      0.4177
+      0.4178
      ],
-     "bytes_alone": 26760
+     "bytes_alone": 36124
     },
     {
      "name": "Tibia.r",
      "group": "Bones of free part of lower limb.g",
-     "triangles": 1670,
-     "vertices": 837,
+     "triangles": 6850,
+     "vertices": 3427,
      "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24477",
+     "fit_to_z_anatomy": {
+      "scale": 1.033,
+      "rotation_deg": 0.276,
+      "median_mm": 0.006,
+      "max_mm": 0.994
+     },
      "materials": [
       "Bone",
       "Cartilage"
      ],
      "bbox_min": [
       -0.1158,
-      -0.0051,
-      0.0752
+      -0.0052,
+      0.0751
      ],
      "bbox_max": [
-      -0.0373,
+      -0.0372,
       0.063,
       0.4332
      ],
-     "bytes_alone": 28576
+     "bytes_alone": 43340
     }
    ]
   },
@@ -80,6 +102,7 @@
      "triangles": 4377,
      "vertices": 2191,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Tendon"
      ],
@@ -101,6 +124,7 @@
      "triangles": 3176,
      "vertices": 1597,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Extensor extremities",
       "Tendon"
@@ -123,6 +147,7 @@
      "triangles": 2362,
      "vertices": 1183,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Extensor extremities",
       "Tendon"
@@ -145,6 +170,7 @@
      "triangles": 3446,
      "vertices": 1723,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Extension hand/foot",
       "Tendon"
@@ -167,6 +193,7 @@
      "triangles": 5522,
      "vertices": 2739,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "External rotation",
       "Tendon"
@@ -189,6 +216,7 @@
      "triangles": 586,
      "vertices": 294,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Extension hand/foot",
       "Tendon"
@@ -211,6 +239,7 @@
      "triangles": 6836,
      "vertices": 3420,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Flexion fingers",
       "Tendon"
@@ -233,6 +262,7 @@
      "triangles": 5878,
      "vertices": 2941,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Flexion fingers",
       "Tendon"
@@ -255,6 +285,7 @@
      "triangles": 4908,
      "vertices": 2454,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Biarticular",
       "Tendon"
@@ -277,6 +308,7 @@
      "triangles": 6462,
      "vertices": 3233,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Biarticular",
       "Tendon"
@@ -299,6 +331,7 @@
      "triangles": 4698,
      "vertices": 2351,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Biarticular",
       "Tendon"
@@ -321,6 +354,7 @@
      "triangles": 1132,
      "vertices": 566,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "External rotation",
       "Tendon"
@@ -343,6 +377,7 @@
      "triangles": 6774,
      "vertices": 3379,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Extension hand/foot",
       "Tendon"
@@ -365,6 +400,7 @@
      "triangles": 5184,
      "vertices": 2640,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Tendon"
      ],
@@ -386,6 +422,7 @@
      "triangles": 3526,
      "vertices": 1761,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Flexion hand/foot",
       "Tendon"
@@ -408,6 +445,7 @@
      "triangles": 5526,
      "vertices": 2741,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Extension hand/foot",
       "Tendon"
@@ -438,6 +476,7 @@
      "triangles": 4320,
      "vertices": 2172,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Artery"
      ],
@@ -459,6 +498,7 @@
      "triangles": 6336,
      "vertices": 3228,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Artery"
      ],
@@ -480,6 +520,7 @@
      "triangles": 2304,
      "vertices": 1164,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Artery"
      ],
@@ -501,6 +542,7 @@
      "triangles": 2016,
      "vertices": 1020,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Artery"
      ],
@@ -522,6 +564,7 @@
      "triangles": 9504,
      "vertices": 4812,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Artery"
      ],
@@ -543,6 +586,7 @@
      "triangles": 2016,
      "vertices": 1020,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Artery"
      ],
@@ -564,6 +608,7 @@
      "triangles": 4032,
      "vertices": 2028,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Artery"
      ],
@@ -593,6 +638,7 @@
      "triangles": 4608,
      "vertices": 2316,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Vein"
      ],
@@ -614,6 +660,7 @@
      "triangles": 2880,
      "vertices": 1452,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Vein"
      ],
@@ -635,6 +682,7 @@
      "triangles": 10080,
      "vertices": 5088,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Vein"
      ],
@@ -656,6 +704,7 @@
      "triangles": 8352,
      "vertices": 4200,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Vein"
      ],
@@ -677,6 +726,7 @@
      "triangles": 2016,
      "vertices": 1020,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Vein"
      ],
@@ -698,6 +748,7 @@
      "triangles": 4896,
      "vertices": 2460,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Vein"
      ],
@@ -719,6 +770,7 @@
      "triangles": 5760,
      "vertices": 2892,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Vein"
      ],
@@ -748,6 +800,7 @@
      "triangles": 2016,
      "vertices": 1020,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-2"
      ],
@@ -769,6 +822,7 @@
      "triangles": 4320,
      "vertices": 2172,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-2"
      ],
@@ -790,6 +844,7 @@
      "triangles": 576,
      "vertices": 300,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-5"
      ],
@@ -811,6 +866,7 @@
      "triangles": 2592,
      "vertices": 1320,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-2"
      ],
@@ -832,6 +888,7 @@
      "triangles": 4032,
      "vertices": 2064,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-2"
      ],
@@ -853,6 +910,7 @@
      "triangles": 288,
      "vertices": 156,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-6"
      ],
@@ -874,6 +932,7 @@
      "triangles": 6624,
      "vertices": 3360,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-5"
      ],
@@ -895,6 +954,7 @@
      "triangles": 3168,
      "vertices": 1596,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-2"
      ],
@@ -916,6 +976,7 @@
      "triangles": 1152,
      "vertices": 588,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-2"
      ],
@@ -937,6 +998,7 @@
      "triangles": 4032,
      "vertices": 2052,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-8"
      ],
@@ -958,6 +1020,7 @@
      "triangles": 2592,
      "vertices": 1308,
      "source_type": "curve",
+     "source": "Z-Anatomy",
      "materials": [
       "Nerve-6"
      ],
@@ -987,6 +1050,7 @@
      "triangles": 544,
      "vertices": 274,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-2",
       "Skin-3",
@@ -1013,6 +1077,7 @@
      "triangles": 748,
      "vertices": 376,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-1",
       "Skin-3",
@@ -1037,6 +1102,7 @@
      "triangles": 1252,
      "vertices": 628,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-2",
       "Skin-3",
@@ -1061,6 +1127,7 @@
      "triangles": 192,
      "vertices": 98,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-2",
       "Skin-3",
@@ -1086,6 +1153,7 @@
      "triangles": 212,
      "vertices": 108,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-3",
       "Skin-6",
@@ -1109,6 +1177,7 @@
      "triangles": 152,
      "vertices": 78,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-2",
       "Skin-5",
@@ -1132,6 +1201,7 @@
      "triangles": 232,
      "vertices": 118,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-6",
       "Skin-5",
@@ -1155,6 +1225,7 @@
      "triangles": 120,
      "vertices": 62,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-1",
       "Skin-2",
@@ -1180,6 +1251,7 @@
      "triangles": 644,
      "vertices": 324,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-2",
       "Skin-3",
@@ -1205,6 +1277,7 @@
      "triangles": 1220,
      "vertices": 612,
      "source_type": "mesh",
+     "source": "Z-Anatomy",
      "materials": [
       "Skin-3",
       "Skin-5",

@@ -4,27 +4,33 @@
 
 ### Phase 1 – ASSETS (pilot: right leg, knee to ankle) – waiting for owner's OK
 
-- Source: Z-Anatomy, commit `cf19678` (pinned in `tools/fetch_zanatomy.sh`).
-- Exported 53 structures, 179,155 triangles, 686 KB in 6 files (`assets/leg_right/`).
+- Soft tissue: Z-Anatomy, commit `cf19678` (pinned in `tools/fetch_zanatomy.sh`).
+- Bones: BodyParts3D 3.0 (owner's decision, 16 Nov 2026; pinned in
+  `tools/fetch_bodyparts3d.sh`). Rule 1 in CLAUDE.md was reworded to allow this.
+- Exported 53 structures, 187,693 triangles, 710 KB in 6 files (`assets/leg_right/`).
   Full table: `assets/leg_right/STRUCTURES.md` (also shown on the page).
 
-| Layer | Structures | Triangles | File size |
-|---|---:|---:|---:|
-| Bones (tibia, fibula) | 2 | 2,934 | 34 KB |
-| Muscles and tendons | 16 | 70,393 | 273 KB |
-| Arteries | 7 | 30,528 | 103 KB |
-| Veins | 7 | 38,592 | 118 KB |
-| Nerves | 11 | 31,392 | 87 KB |
-| Skin | 10 | 5,316 | 72 KB |
+| Layer | Source | Structures | Triangles | File size |
+|---|---|---:|---:|---:|
+| Bones (tibia, fibula) | BodyParts3D 3.0 | 2 | 11,472 | 57 KB |
+| Muscles and tendons | Z-Anatomy | 16 | 70,393 | 273 KB |
+| Arteries | Z-Anatomy | 7 | 30,528 | 103 KB |
+| Veins | Z-Anatomy | 7 | 38,592 | 118 KB |
+| Nerves | Z-Anatomy | 11 | 31,392 | 87 KB |
+| Skin | Z-Anatomy | 10 | 5,316 | 72 KB |
 
+- Bones: tibia 6,850 triangles (was 1,670), fibula 4,622 (was 1,264).
+  Fitted onto the Z-Anatomy bones with one scale (x1.033), a 0.27 degree turn and a shift.
+  Fit: tibia median 0.006 mm, max 0.99 mm; fibula median 0.007 mm, max 0.73 mm.
+- Cartilage marking copied from Z-Anatomy onto the new bones (edge is jagged, about 2 mm).
 - No triangle reduction anywhere (bone 0 %, soft tissue 0 %).
-- True scale checked: tibia 358 mm long.
+- Tibia is 358 mm long at Z-Anatomy scale (347 mm in the BodyParts3D file).
 - Simple viewer page: layer tick boxes, tap a structure for its name, table.
-  Tested in headless Chromium (desktop and phone size), no errors.
+  Tested in headless Chromium (desktop and phone size), no errors. Not tested on a Quest.
 - LICENSE (code MIT, assets CC BY-SA 4.0) and CREDITS.md added.
 
 How structures were chosen (`regions/leg_right.json`):
-- Bones: Tibia, Fibula.
+- Bones: Tibia (FMA24477), Fibula (FMA24480).
 - Muscles: everything in Z-Anatomy's groups "Anterior / Lateral / Posterior compartment of leg".
 - Arteries, veins, nerves: every right-side structure with at least 20 mm of its course
   between the top of the tibia and the tip of the medial malleolus, plus 4 added by name
@@ -34,13 +40,17 @@ How structures were chosen (`regions/leg_right.json`):
 
 ## Open points for the owner (decide before Phase 2)
 
-1. **Bone detail is low in Z-Anatomy itself**: tibia 1,670 triangles, fibula 1,264.
-   Nothing was reduced; this is all the source has. The shape is correct but the
-   surface is coarse (few facets on the plateau and plafond). Rough fracture surfaces
-   in Phase 2 will be much finer than the bone surface around them.
-2. Z-Anatomy bones are one outer surface: no medullary canal and no cortex thickness.
-   For rule 3 (cortex rim + cancellous interior) Phase 2 must get cortex thickness
-   from somewhere. Needs a decision and a source.
+1. **Cortex thickness has no data source yet.** Both bone sources are one outer surface:
+   no medullary canal, no cortex. Rule 3 needs a cortex rim on cut faces. Options seen so far:
+   - Modelled thickness, as in the owner's earlier "Tibia Fracture Lab" artifact
+     (claude.ai/artifact/Drn4rNfCEJtJpKHT7f5EJ7). There the cortex was a formula, not a
+     measurement: tibia 5.0 mm at mid-shaft falling to 1.2 mm at the ends, thicker
+     anteriorly; fibula 2.6 mm falling to 0.9 mm. Its bones were Visible Human female CT
+     meshes (Sreenivasa and Gonzalez-Alvarado, BMFToolkit, zlib licence), turned into volumes.
+   - Measured thickness from Keast 2023 (PeerJ, PMID 36811007): 30 cadaver CTs with separate
+     cortical and trabecular tibia surfaces. Hosted on SimTK; not reachable from the build
+     machine, so licence, format and detail are unconfirmed. Tibia and fibula only.
+2. Bone surface is better but still not CT grade (tibia 6,850 triangles, edges about 2 mm).
 3. Arteries, veins and nerves in Z-Anatomy are drawn tubes (curves), not scanned shapes.
 4. Great saphenous vein and saphenous nerve were exported whole, so they run up to
    the groin, above the knee. Not trimmed (no cutting of anatomy without OK).
@@ -48,25 +58,16 @@ How structures were chosen (`regions/leg_right.json`):
    knee and ankle ligaments, menisci, crural fascia and septa, retinacula, muscle
    attachment areas, femur, patella, talus, thigh muscles that cross the knee.
 
-## Other bone sources checked (owner asked; no decision yet, nothing changed)
+## Other bone sources checked and not used
 
-- **BodyParts3D 3.0, "95 %" set** (parent of Z-Anatomy, CC BY-SA 2.1 JP; mirror
-  github.com/Kevin-Mattheus-Moerman/BodyParts3D, files `FMA<id>.stl`, mm).
-  Right tibia FMA24477 = 6,850 triangles, right fibula FMA24480 = 4,622 (about 4x Z-Anatomy).
-  Same bone as Z-Anatomy: Z-Anatomy = BodyParts3D scaled x1.0325 and moved; after that
-  scale + shift the two surfaces agree (median 0.04 mm, max 1.0 mm). No materials
-  (no cartilage marking). Outer shell only. Whole body, 934 parts.
 - **Fischer 2023 CT bones** (Sci Data 10:763, doi 10.1038/s41597-023-02669-z;
   github.com/MCM-Fischer/VSDFullBodyBoneModels). 30 cadavers, pelvis to foot only.
   Tibia about 32,000 triangles, fibula about 23,000. CC BY-NC-SA 4.0. Other people,
   so Z-Anatomy soft tissue would not fit. Outer shell only.
-- **Keast 2023 tibia-fibula set** (PeerJ, PMID 36811007). 30 cadaver CTs, tibia has
-  separate cortical and trabecular surfaces (only source found for cortex thickness).
-  Hosted on SimTK; could not be opened from the build machine, so not checked.
 
 ## Next
 
-- Phase 2 – FRACTURE ENGINE (only after the owner says OK and answers points 1 and 2).
+- Phase 2 – FRACTURE ENGINE (only after the owner says OK and answers open point 1).
 
 ## Test link
 

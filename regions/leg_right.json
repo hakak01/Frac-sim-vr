@@ -7,7 +7,7 @@
   "layers": {
     "bones": {
       "label": "Bones",
-      "names": ["Tibia.r", "Fibula.r"]
+      "bodyparts3d": { "Tibia.r": "FMA24477", "Fibula.r": "FMA24480" }
     },
     "muscles": {
       "label": "Muscles and tendons",

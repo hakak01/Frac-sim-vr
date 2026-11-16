@@ -14,10 +14,13 @@ Owner: an orthopaedic surgeon, no programming experience. Personal self-study. P
 
 ## Realism rules (never break)
 
-1. All anatomy comes from Z-Anatomy (github.com/Z-Anatomy/Models-of-human-anatomy,
-   CC BY-SA 4.0, derived from BodyParts3D). Never build bone, muscle, nerve, vessel
-   or skin from geometric shapes. If an asset is missing or export fails: stop and
-   tell the owner. Do not substitute.
+1. Soft tissue (muscle, nerve, vessel, skin) comes from Z-Anatomy
+   (github.com/Z-Anatomy/Models-of-human-anatomy, CC BY-SA 4.0, derived from BodyParts3D).
+   Bones come from BodyParts3D 3.0, the parent of Z-Anatomy (same person, about 4x the
+   triangles; owner's decision, 16 Nov 2026), scaled and moved to match Z-Anatomy.
+   Never build anatomy from geometric shapes. If an asset is missing, export fails,
+   or a BodyParts3D bone does not match its Z-Anatomy bone: stop and tell the owner.
+   Do not substitute.
 2. Fracture lines follow the AO/OTA Compendium 2018 (Meinberg et al., J Orthop Trauma
    2018;32 Suppl 1). For joint-end fractures also use published CT fracture-mapping
    studies (e.g. tibial plateau: Yao et al., Bone Joint Res 2020, PMID 32728424).
@@ -59,12 +62,13 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | Path | What it is |
 |---|---|
 | `index.html`, `js/viewer.js` | The web page. Phase 1: simple asset viewer (layers, names, table). |
-| `assets/<region>/*.glb` | Exported anatomy, one Draco-compressed GLB per layer. |
+| `assets/<region>/*.glb` | Exported anatomy, one Draco-compressed GLB per layer. `bones.glb` is BodyParts3D, the rest Z-Anatomy. |
 | `assets/<region>/manifest.json` | List of structures: name, layer, triangles, sizes, bounding box. The page reads this. |
 | `assets/<region>/STRUCTURES.md` | The same list as a readable table. |
 | `regions/<region>.json` | Which Z-Anatomy structures belong to a region (data, no code). |
 | `tools/fetch_zanatomy.sh` | Downloads the pinned Z-Anatomy Blender file into `_source/` (not committed). |
-| `tools/export_region.py` | Blender (bpy) script: region JSON -> GLB layers + manifest. Run once per region. |
+| `tools/fetch_bodyparts3d.sh` | Downloads the BodyParts3D bone files a region lists into `_source/bodyparts3d/stl`. |
+| `tools/export_region.py` | Blender (bpy) script: region JSON -> GLB layers + manifest. Fits BodyParts3D bones onto Z-Anatomy. Run once per region. |
 | `tools/draco_compress.mjs` | Node script: Draco compression + material clean-up. Called by the export script. |
 | `vendor/three/` | three.js r180 (MIT) and the Draco decoder. Do not edit. |
 | `LICENSE`, `CREDITS.md` | Code MIT; anatomy assets CC BY-SA 4.0 with attribution. |
@@ -75,6 +79,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 pip install bpy            # Blender as a Python module (5.3 used)
 (cd tools && npm install)  # once
 bash tools/fetch_zanatomy.sh
+bash tools/fetch_bodyparts3d.sh regions/leg_right.json
 python3 tools/export_region.py _source/blend/Z-Anatomy/Startup.blend regions/leg_right.json assets/leg_right
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
@@ -93,8 +98,22 @@ python3 -m http.server 8000   # then open http://localhost:8000
 - Bone meshes have two materials: `Bone` and `Cartilage` (cartilage = articular surface).
   Muscles have `Tendon` plus a muscle material. Material names are kept in the GLB.
 - Each GLB node keeps its Z-Anatomy name in `extras.za_name` (three.js: `userData.za_name`).
-- Bones are a single outer surface. There is no medullary canal or cortex thickness.
-- Bones are low-polygon in the source (tibia 1,670 triangles, fibula 1,264).
+- Bones are a single outer surface. There is no medullary canal or cortex thickness
+  (true for Z-Anatomy and for BodyParts3D).
+- Z-Anatomy bones are low-polygon (tibia 1,670 triangles, fibula 1,264), so they are
+  used only as the target for fitting and for the cartilage marking.
+
+## Facts about BodyParts3D bones (bone source since 16 Nov 2026)
+
+- Version 3.0, "95 %" polygon set, from the mirror github.com/Kevin-Mattheus-Moerman/BodyParts3D
+  (pinned commit in `tools/fetch_bodyparts3d.sh`). Files `FMA<id>.stl`, millimetres,
+  same axes as Z-Anatomy. Whole body, 934 parts. The unreduced original is not published.
+- Z-Anatomy = BodyParts3D x 1.033, rotated 0.27 degrees and moved. The export script finds
+  this per bone (ICP) and stops if the fit is worse than 2 mm. Leg: max 1.0 mm, median 0.01 mm.
+- A region lists bones as `"bodyparts3d": { "<Z-Anatomy name>": "<FMA id>" }`.
+  Right tibia FMA24477, right fibula FMA24480. Find other ids in the mirror's `FMA.csv`.
+- BodyParts3D has no materials. `Cartilage` faces are copied from the nearest Z-Anatomy
+  face, so the cartilage edge is jagged at triangle size (about 2 mm).
 
 ## Technical notes
 
