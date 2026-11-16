@@ -8,7 +8,7 @@ Personal self-study project of an orthopaedic surgeon.
 - Fracture patterns: AO/OTA Fracture and Dislocation Classification Compendium 2018
   (Meinberg et al., J Orthop Trauma 2018;32 Suppl 1) and published CT fracture-mapping studies.
 
-Status: Phase 1 (assets for the right leg, knee to ankle). See [PROGRESS.md](PROGRESS.md).
+Status: Phase 2 (fracture engine and 96 pre-cut tibia and fibula fractures, right leg). See [PROGRESS.md](PROGRESS.md).
 
 Open the page: https://hakak01.github.io/Frac-sim-vr/
 

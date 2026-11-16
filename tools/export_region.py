@@ -124,6 +124,8 @@ def similarity(A, B):
     s = np.trace(np.diag(D) @ S) / (A0 ** 2).sum(1).mean()
     return s, R, mb - s * R @ ma
 
+RAW = {}
+
 def bodyparts3d_mesh(src, fma):
     path = os.path.join(bp3d_dir, fma + ".stl")
     if not os.path.exists(path):
@@ -168,8 +170,13 @@ def bodyparts3d_mesh(src, fma):
     for m in zme.materials:
         me.materials.append(m)
     cen = W[F].mean(1)
-    me.polygons.foreach_set("material_index",
-        [zme.polygons[za_tree.find_nearest(Vector(c))[2]].material_index for c in cen])
+    mat = [zme.polygons[za_tree.find_nearest(Vector(c))[2]].material_index for c in cen]
+    me.polygons.foreach_set("material_index", mat)
+    # raw copy for the fracture engine (metres, Z-Anatomy axes, no compression)
+    names = [m.name for m in zme.materials]
+    RAW[src.name + "|V"] = W
+    RAW[src.name + "|F"] = F.astype("i4")
+    RAW[src.name + "|cartilage"] = np.array([names[i] == "Cartilage" for i in mat])
     return me, fit
 
 # --- make clean copies (modifiers applied, world coordinates) ---------------
@@ -254,6 +261,9 @@ with tempfile.TemporaryDirectory() as tmp:
             "triangles": sum(r["triangles"] for r in rows), "structures": rows,
         }
 json.dump(manifest, open(os.path.join(out_dir, "manifest.json"), "w"), indent=1)
+if RAW:   # input of tools/fracture_engine.py
+    os.makedirs(os.path.join("model", region["id"]), exist_ok=True)
+    np.savez_compressed(os.path.join("model", region["id"], "bones.npz"), **RAW)
 with open(os.path.join(out_dir, "STRUCTURES.md"), "w") as f:   # same table, readable on GitHub
     f.write(f"# {region['title']} - exported structures\n\n"
             "Soft tissue: Z-Anatomy (CC BY-SA 4.0). Bones: BodyParts3D 3.0 (CC BY-SA 2.1 Japan), "

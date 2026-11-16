@@ -1,3 +1,4 @@
 _source/
 node_modules/
 __pycache__/
+model/*/*_inner_*.npz

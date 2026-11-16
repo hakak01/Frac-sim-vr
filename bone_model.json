@@ -1,0 +1,39 @@
+{
+  "_about": "Per-region bone settings for the fracture engine. All values are data; change them here, not in code.",
+  "leg_right": {
+    "side": "right",
+    "bones": {
+      "tibia": {
+        "mesh": "Tibia.r",
+        "cortex": {
+          "_note": "MODELLED cortex (owner's decision). Thickness in mm against position along the bone (0 = proximal end, 1 = distal end), straight lines between points. Same peak and end values as the owner's earlier Tibia Fracture Lab.",
+          "profile": [[0.0, 1.2], [0.10, 1.2], [0.22, 2.6], [0.38, 5.0], [0.62, 5.0], [0.80, 2.8], [0.90, 1.4], [1.0, 1.2]],
+          "anterior_boost": 0.35,
+          "canal_from_to": [0.2, 0.85],
+          "sources": [
+            {"claim": "Cortex is thickest toward the mid-diaphysis", "ref": "Capozza RF et al. J Anat 2010;216:470-81", "doi": "10.1111/j.1469-7580.2009.01201.x"},
+            {"claim": "Anterior cortex is thicker than posterior; medial and lateral do not differ", "ref": "Maeda K et al. J Exp Orthop 2020;7:78", "doi": "10.1186/s40634-020-00297-9"},
+            {"claim": "Medullary diameter 13-32 mm between 20 and 80 % of tibial length (used as a check of the model)", "ref": "Taylor CE et al. Anat Rec 2020;303:2847-56", "doi": "10.1002/ar.24479"}
+          ],
+          "values_measured": false
+        }
+      },
+      "fibula": {
+        "mesh": "Fibula.r",
+        "cortex": {
+          "_note": "MODELLED cortex. Same values as the owner's earlier Tibia Fracture Lab. No published source found for these numbers.",
+          "profile": [[0.0, 0.9], [0.10, 0.9], [0.25, 2.6], [0.75, 2.6], [0.90, 0.9], [1.0, 0.9]],
+          "anterior_boost": 0.0,
+          "canal_from_to": [0.15, 0.85],
+          "sources": [],
+          "values_measured": false
+        }
+      }
+    },
+    "landmark_bone": "tibia",
+    "frames": {
+      "plateau": {"bone": "tibia", "level": {"ref": "knee", "distal_mm": 0}, "band_mm": [0, 14], "into": "distal"},
+      "plafond": {"bone": "tibia", "level": {"ref": "ankle", "distal_mm": 0}, "band_mm": [-14, -3], "into": "proximal"}
+    }
+  }
+}

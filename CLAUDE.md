@@ -53,7 +53,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 ## Phases
 
 1. ASSETS (pilot: right knee to ankle) – done, see PROGRESS.md
-2. FRACTURE ENGINE (tibia/fibula 41, 42, 43, 44, 4F + CT-mapped plateau and pilon)
+2. FRACTURE ENGINE (tibia/fibula 41, 42, 43, 44, 4F + CT-mapped plateau and pilon) – done, see PROGRESS.md
 3. VR VIEWER
 4. REDUCTION
 5. SOFT TISSUE
@@ -64,7 +64,14 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 
 | Path | What it is |
 |---|---|
-| `index.html`, `js/viewer.js` | The web page. Phase 1: simple asset viewer (layers, names, table). |
+| `index.html`, `js/viewer.js` | The web page: plain 3D viewer (layers, names, table) with a fracture picker and a spread slider. |
+| `fractures.json` | THE fracture data: one row per AO/OTA 2018 code (cuts, fragments, sources). Edit this to add or change a fracture. |
+| `bone_model.json` | Per-region bone settings: modelled cortex thickness (with sources), canal range, joint frames. |
+| `tools/fracture_engine.py` | Cuts the bones into fragments from `fractures.json`. Writes `assets/<region>/fractures/`. |
+| `tools/bone_model.py` | Used by the engine: bone axes, joint lines, AO square rule, modelled cortex (inner surface). |
+| `tools/preview.py` | Quick picture tiles of cut fractures for checking by eye (`--preview <dir>`). |
+| `model/<region>/bones.npz` | Raw bones (metres) + cartilage marking, written by `export_region.py`, read by the engine. |
+| `assets/<region>/fractures/*.glb` | Pre-cut fragments, one Draco GLB per fracture. `index.json` lists them; `FRACTURES.md` is the table. |
 | `assets/<region>/*.glb` | Exported anatomy, one Draco-compressed GLB per layer. `bones.glb` is BodyParts3D, the rest Z-Anatomy. |
 | `assets/<region>/manifest.json` | List of structures: name, layer, triangles, sizes, bounding box. The page reads this. |
 | `assets/<region>/STRUCTURES.md` | The same list as a readable table. |
@@ -85,6 +92,15 @@ bash tools/fetch_zanatomy.sh
 bash tools/fetch_bodyparts3d.sh regions/leg_right.json
 python3 tools/export_region.py _source/blend/Z-Anatomy/Startup.blend regions/leg_right.json assets/leg_right
 python3 -m http.server 8000   # then open http://localhost:8000
+```
+
+## How to rebuild fractures (no Blender needed)
+
+```
+pip install trimesh manifold3d rtree scipy scikit-image pillow
+python3 tools/fracture_engine.py leg_right                      # all rows, about 6 minutes
+python3 tools/fracture_engine.py leg_right 42A1 41B3.1          # only these ids
+python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save check pictures
 ```
 
 ## Facts about the Z-Anatomy file (learned in Phase 1)
@@ -118,7 +134,37 @@ python3 -m http.server 8000   # then open http://localhost:8000
 - BodyParts3D has no materials. `Cartilage` faces are copied from the nearest Z-Anatomy
   face, so the cartilage edge is jagged at triangle size (about 2 mm).
 
+## Fracture data (Phase 2)
+
+- A row: `id`, `code`, `name` (wording as printed in the Compendium), `qualification`
+  (the one that is modelled), `sources` (PMID, DOI, page), `line_basis`, `bones`.
+- Per bone: `cuts` and `fragments`. Cut types: `plane` (transverse, oblique, any split
+  plane), `spiral`, `prism` (outline on a joint surface pushed in: deep and tapering =
+  split, shallow + `impaction_mm` = depression), `plug` (outline on the side of the bone).
+- Fragment: `sides` {cut id: "+" or "-"} (+ = proximal side of a plane or spiral, inside
+  of a prism or plug), or `rest: true`, optional `shatter` {pieces, style}.
+- Positions are anatomical, never raw coordinates: `level` = {ref: knee | ankle |
+  prox_end | dist_end, distal_mm} or {ref: diaphysis, frac}; angles: tilt 0 = transverse,
+  azimuth 0 anterior, 90 medial, 180 posterior, 270 lateral. Joint outlines use (u, v):
+  u -1 lateral edge .. +1 medial edge, v -1 posterior edge .. +1 anterior edge.
+- Every cut surface is noise-displaced. Each fragment is cut from the cortex shell and the
+  inner bone separately, so cut faces have the materials `FractureCortex`,
+  `FractureCancellous`, `FractureMarrow` (plus `Bone`, `Cartilage` outside).
+- Fragments are stored in the anatomical (reduced) position. GLB node extras: `fragment`,
+  `bone`, `za_name`, `volume_cm3`, `centroid`, `site`, and for depressed fragments
+  `impaction_mm` + `impaction_dir`. The bone under a depressed fragment is already removed.
+- Ids that are not AO/OTA codes: `41C-PM`, `44-PM-I/II/III` (CT-mapped patterns).
+- AO/OTA text source: the owner uploaded the Tibia, Fibula and Malleolar chapters and the
+  introduction (pages S49-S69). They are NOT in the repo (journal copyright).
+- Cloud environment `frac-sim-vr` belongs to this repo (hosts ota.org, journals.lww.com,
+  www.aofoundation.org allowed; setup script installs the Python and Node tools).
+
 ## Technical notes
+
+- Engine works in millimetres, Z-Anatomy axes; GLB output is metres, Y up, like Phase 1.
+- manifold3d needs fresh C-contiguous arrays (`np.array(..., order="C")`), not views.
+- Browser screenshots of heavy fractures are very slow in headless Chromium; use
+  `--preview` pictures for checking and the browser only for a few functional tests.
 
 - The pip build of Blender has no Draco library, so compression is done in Node.
 - In `export_region.py`, set `bpy.context.window.scene` before exporting. Using

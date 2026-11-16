@@ -38,9 +38,49 @@ How structures were chosen (`regions/leg_right.json`):
   intermediate dorsal cutaneous nerve of foot).
 - Skin: Z-Anatomy surface patches of the knee, leg and ankle regions.
 
+### Phase 2 – FRACTURE ENGINE – waiting for owner's OK
+
+- Engine `tools/fracture_engine.py` + data `fractures.json`. Adding a fracture = adding a row.
+- 96 rows built, 0 errors: 41 (25 subgroups), 42 (7 groups), 43 (27), 44 (27), 4F (6),
+  plus 4 CT-mapped patterns (`41C-PM`, `44-PM-I`, `44-PM-II`, `44-PM-III`).
+  95 have fragments; 44A1.1 is a ligament injury only. Table: `assets/leg_right/fractures/FRACTURES.md`.
+- Total 3.5 million triangles, 13.3 MB. One fracture: 7,000 to 134,000 triangles, 32 to 492 KB.
+  Only the chosen fracture is loaded.
+- All ten cutting types work: transverse, oblique, spiral, wedge, multifragmentary,
+  segmental, partial articular split, depression, split-depression, complete articular.
+- Cut surfaces are noise-displaced (about 1 mm rough, waves 3.5 to 28 mm). Cut faces show
+  cortex rim, cancellous bone, and marrow in the shaft.
+- Codes and names were checked against the printed Compendium pages S49-S69, which the
+  owner uploaded (not in the repo). Where a drawing shows one qualification in bold, that
+  one is modelled and named in the row.
+- Modelled cortex: tibia 5.0 mm mid-shaft to 1.2 mm at the ends, 35 % thicker anteriorly;
+  fibula 2.6 to 0.9 mm (`bone_model.json`). Check: the modelled tibial canal is 12-35 mm wide
+  between 20 and 80 % of the length; Taylor 2020 measured 13-32 mm (doi 10.1002/ar.24479).
+- AO square rule measured on this leg: proximal end segment 88 mm, distal 64 mm.
+- Footprints matched to published sizes: posterolateral posterior malleolus fragment covers
+  11.6 % of the plafond (Haraguchi 2006: 11.7 %), medial-extension type about 30 % (29.8 %),
+  posteromedial plateau fragment about 58 % of the medial plateau (Barei 2008: 58 %).
+- Test page: fracture picker, spread slider, tap a fragment for its name. Tested in headless
+  Chromium, no errors. Not tested on a Quest.
+
+Limits the owner should know (Phase 2):
+1. Fracture lines were placed by reading the Compendium drawings and the ABSTRACTS of the
+   mapping papers. Nothing was traced from a map figure, and the full texts were not read.
+   Every row says so in `line_basis`. The owner should review the lines.
+2. One qualification per code. Shaft rows are the middle third only.
+3. Subgroups that differ only by a ligament injury share the same bone cut (for example
+   44B1.1 and 44B1.2). The ligament part is text only (`soft_tissue`).
+4. Subgroups defined by displacement (43C2.1 asymmetric impaction, 44C3.2 shortening) are
+   cut in the reduced position; the displacement belongs to Phase 4.
+5. No mapping paper was looked for yet for the medial malleolus, the lateral malleolus and
+   the proximal fibula. Those rows rest on the Compendium only.
+6. 41C3 group name is kept as printed ("fragmentary or multifragmentary metaphyseal fracture").
+7. Fibula cortex values have no published source.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
+- 16 Nov 2026: Phase 1 accepted (owner started Phase 2).
 - 16 Nov 2026: **cortex is MODELLED, not measured.** Both bone sources are one outer
   surface, so Phase 2 builds the cortex rim and medullary canal with a thickness formula,
   the same way as the owner's earlier "Tibia Fracture Lab" artifact
@@ -69,7 +109,7 @@ How structures were chosen (`regions/leg_right.json`):
 
 ## Next
 
-- Phase 2 – FRACTURE ENGINE (only after the owner says OK to start it).
+- Phase 3 – VR VIEWER (only after the owner says OK to Phase 2).
 
 ## Test link
 

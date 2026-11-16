@@ -25,14 +25,29 @@ Because of the share-alike terms, the files in `assets/` (and any models derived
 from them) are licensed **CC BY-SA 4.0**:
 https://creativecommons.org/licenses/by-sa/4.0/
 
-## Fracture classification (from Phase 2)
+## Fracture classification and fracture maps (Phase 2)
 
 - Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation
-  Classification Compendium – 2018. J Orthop Trauma. 2018;32 Suppl 1:S1–S170.
-  doi:10.1097/BOT.0000000000001063
+  Classification Compendium - 2018. J Orthop Trauma. 2018;32 Suppl 1:S1-S170.
+  PMID 29256945, doi:10.1097/BOT.0000000000001063. Codes and names are used as printed.
+  Copyright AO Foundation and Orthopaedic Trauma Association; the text and drawings are not in this repo.
+- Molenaars RJ et al. J Bone Joint Surg Am. 2015;97:1512-20. PMID 26378267, doi:10.2106/JBJS.N.00866
+- Yao X et al. Bone Joint Res. 2020;9:258-67. PMID 32728424, doi:10.1302/2046-3758.96.BJR-2019-0382.R2
+- Barei DP et al. J Orthop Trauma. 2008;22:176-82. PMID 18317051, doi:10.1097/BOT.0b013e318169ef08
+- Cole PA et al. J Orthop Trauma. 2013;27:e152-6. PMID 23360909, doi:10.1097/BOT.0b013e318288a7e9
+- Topliss CJ, Jackson M, Atkins RM. J Bone Joint Surg Br. 2005;87:692-7. PMID 15855374, doi:10.1302/0301-620X.87B5.15982
+- Haraguchi N et al. J Bone Joint Surg Am. 2006;88:1085-92. PMID 16651584, doi:10.2106/JBJS.E.00856
+- Mangnus L et al. J Orthop Trauma. 2015;29:428-35. PMID 25785358, doi:10.1097/BOT.0000000000000330
+
+## Modelled cortex (Phase 2)
+
+The cortex thickness is a model, not a measurement. Its shape is supported by:
+Capozza RF et al. J Anat 2010 (thickest toward mid-diaphysis); Maeda K et al. J Exp Orthop 2020
+(anterior thicker than posterior); Taylor CE et al. Anat Rec 2020 (canal diameter, used as a check).
+Details and DOIs are in `bone_model.json`.
 
 ## Software
 
 - three.js r180 – MIT licence – https://threejs.org (in `vendor/three/`)
 - Draco decoder – Apache-2.0 – https://github.com/google/draco (in `vendor/three/examples/jsm/libs/draco/`)
-- Build tools only: Blender (GPL, used as a tool), glTF-Transform (MIT)
+- Build tools only: Blender (GPL, used as a tool), glTF-Transform (MIT), manifold3d (Apache-2.0), trimesh (MIT), SciPy, scikit-image (BSD)
