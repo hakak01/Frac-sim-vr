@@ -49,5 +49,6 @@ Details and DOIs are in `bone_model.json`.
 ## Software
 
 - three.js r180 – MIT licence – https://threejs.org (in `vendor/three/`)
+- three-mesh-bvh 0.9.1 – MIT licence – https://github.com/gkjohnson/three-mesh-bvh (in `vendor/three-mesh-bvh/`)
 - Draco decoder – Apache-2.0 – https://github.com/google/draco (in `vendor/three/examples/jsm/libs/draco/`)
 - Build tools only: Blender (GPL, used as a tool), glTF-Transform (MIT), manifold3d (Apache-2.0), trimesh (MIT), SciPy, scikit-image (BSD)

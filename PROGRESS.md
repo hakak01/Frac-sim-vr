@@ -77,10 +77,39 @@ Limits the owner should know (Phase 2):
 6. 41C3 group name is kept as printed ("fragmentary or multifragmentary metaphyseal fracture").
 7. Fibula cortex values have no published source.
 
+### Phase 3 – VR VIEWER – waiting for owner's OK
+
+- "Enter VR" button on the page. Pass-through (`immersive-ar`) when the headset offers it,
+  else plain VR with a floor grid. On a phone or desktop the page stays a plain 3D view.
+- The leg starts lying supine at table height (centre 0.95 m above the floor, 45 cm in
+  front), knee to the left, front of the leg up, true scale.
+- Controllers and hand tracking:
+  - trigger (or pinch) while pointing at a fragment: hold and move that fragment;
+  - trigger (or pinch) on empty space, or the grip button: hold and move the whole model;
+  - both hands on the whole model: turn it and scale it (0.25x to 4x).
+- Floating menu panel (left of the model): Intact, segment tabs 41 / 42 / 43 / 44 / 4F,
+  one button per AO/OTA code, explode slider (0-30 mm), Reset, Exit VR. It also shows the
+  code, the printed name and the fragment being pointed at.
+- Reset puts every fragment home, explode to 0, and the model back at table height, scale 1.
+- Tested with Meta's WebXR emulator (IWER, Quest 3 profile) in headless Chromium: session
+  start in pass-through mode, menu, fragment hold (moved exactly as the hand moved), whole
+  model hold, two-hand scale (2.0 for doubled hand distance), explode, pinch with an
+  emulated hand, reset, exit, and the page returning to normal. No errors.
+
+Limits the owner should know (Phase 3):
+1. NOT tested on a real Quest 3. Frame rate (72 fps target) and how pass-through looks are
+   unknown until the owner tries it. Heaviest fracture: 134,000 triangles.
+2. In VR only bones are shown. Soft tissue layers come in Phase 5.
+3. No hand or controller models are drawn, only a thin pointing line and a dot. In
+   pass-through the real hands are visible; in plain VR they are not.
+4. Fragments can pass through each other (collision is Phase 4).
+5. The menu panel stays where it was placed at the start. There is no left-leg mirror button yet.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
 - 16 Nov 2026: Phase 1 accepted (owner started Phase 2).
+- 16 Nov 2026: Phase 2 accepted (owner started Phase 3).
 - 16 Nov 2026: **cortex is MODELLED, not measured.** Both bone sources are one outer
   surface, so Phase 2 builds the cortex rim and medullary canal with a thickness formula,
   the same way as the owner's earlier "Tibia Fracture Lab" artifact
@@ -109,7 +138,7 @@ Limits the owner should know (Phase 2):
 
 ## Next
 
-- Phase 3 – VR VIEWER (only after the owner says OK to Phase 2).
+- Phase 4 – REDUCTION (only after the owner says OK to Phase 3).
 
 ## Test link
 

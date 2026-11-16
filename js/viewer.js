@@ -1,9 +1,15 @@
-// Plain 3D viewer: loads one region (manifest.json + one GLB per layer), shows layer
-// toggles, a table of structures and (Phase 2) the pre-cut fractures. No VR yet (Phase 3).
+// The page: loads one region (manifest.json + one GLB per layer), shows layer toggles,
+// a table of structures and the pre-cut fractures. Plain 3D view here; VR mode is in xr.js.
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { computeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
+import { initXR } from './xr.js';
+
+// fast pointing at big meshes (needed for VR rays)
+THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
+THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
 const REGION = './assets/leg_right/';
 const LAYERS_ON = { bones: true, muscles: true, arteries: true, veins: true, nerves: true, skin: false };
@@ -24,12 +30,13 @@ function colourKey(layer, matName) {
 
 const view = document.getElementById('view');
 const label = document.getElementById('label');
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });   // alpha: pass-through shows behind
+renderer.setClearColor(0x000000, 0);
+renderer.xr.enabled = true;
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 view.prepend(renderer.domElement);
 
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x14171c);
+const scene = new THREE.Scene();          // no background: the page colour (or the room in VR) shows
 scene.add(new THREE.HemisphereLight(0xffffff, 0x3a3f48, 1.6));
 const sun = new THREE.DirectionalLight(0xffffff, 1.8);
 const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 20);
@@ -39,8 +46,10 @@ scene.add(camera);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
+const stage = new THREE.Group();  // where the model stands in the room (moved, turned, scaled in VR)
 const root = new THREE.Group();   // holds the whole region; true scale, 1 unit = 1 metre
-scene.add(root);
+scene.add(stage);
+stage.add(root);
 
 const materials = {};
 function material(key) {
@@ -143,11 +152,15 @@ async function main() {
   document.getElementById('sub').textContent = `${manifest.title} · true scale (tibia ${mm} mm long)`;
   select(null);
   await initFractures(loader);
-  window.viewer = { camera, controls, scene, root, showFracture, setSpread, fx, ready: true };   // for testing
+  xr = initXR({ renderer, scene, camera, controls, stage, layerGroups, fx, showFracture, setSpread,
+    resetFragments, resize });
+  window.viewer = { THREE, camera, controls, scene, stage, root, showFracture, setSpread, resetFragments, fx, xr,
+    ready: true };   // for testing
 }
 
 // ---- Phase 2: pre-cut fractures -------------------------------------------
-const fx = { index: {}, group: null, hidden: [], fragments: [], loader: null, spread: 0 };
+const fx = { index: {}, group: null, hidden: [], fragments: [], loader: null, spread: 0, token: 0, current: '' };
+let xr = { update() {} };
 const SEGMENTS = { 41: '41 Proximal tibia', 42: '42 Tibial shaft', 43: '43 Distal tibia',
   44: '44 Malleolar segment', '4F': '4F Fibula' };
 
@@ -176,11 +189,25 @@ async function initFractures(loader) {
 
 function setSpread(mm) {
   fx.spread = mm;
+  document.getElementById('spread').value = mm;
   document.getElementById('spreadv').textContent = mm + ' mm';
-  for (const f of fx.fragments) f.node.position.copy(f.dir).multiplyScalar(f.fixed ? 0 : mm / 1000);
+  // the explode offset is on the holder; the fragment itself keeps the pose the user gave it
+  for (const f of fx.fragments) f.holder.position.copy(f.dir).multiplyScalar(f.fixed ? 0 : mm / 1000);
+}
+
+// put every fragment back to its anatomical home position
+function resetFragments() {
+  for (const f of fx.fragments) {
+    f.node.position.set(0, 0, 0);
+    f.node.quaternion.identity();
+    f.node.scale.set(1, 1, 1);
+  }
 }
 
 async function showFracture(id) {
+  const token = ++fx.token;
+  fx.current = id || '';
+  document.getElementById('fx').value = fx.current;
   if (fx.group) fx.group.removeFromParent();
   fx.hidden.forEach((n) => { n.visible = true; });
   Object.assign(fx, { group: null, hidden: [], fragments: [] });
@@ -198,7 +225,7 @@ async function showFracture(id) {
     + '<p>Cortex thickness is modelled, not measured.</p>';
   if (!e.file) return;
   const gltf = await fx.loader.loadAsync(REGION + 'fractures/' + e.file);
-  if (document.getElementById('fx').value !== id && document.getElementById('fx').value !== '') return;
+  if (token !== fx.token) return;                  // another fracture was chosen meanwhile
   fx.group = gltf.scene;
   layerGroups.bones.add(fx.group);                 // follows the Bones tick box
   for (const name of e.bones) {
@@ -206,15 +233,21 @@ async function showFracture(id) {
     if (s && s.node) { s.node.visible = false; fx.hidden.push(s.node); }
   }
   const biggest = {};
-  for (const node of fx.group.children) {
+  for (const node of [...fx.group.children]) {
     const u = node.userData;
     node.traverse((o) => {
       if (!o.isMesh) return;
       o.material = material(FX_MATERIAL[o.material.name] || 'bones');
       o.userData.fragLabel = `${e.id} · ${u.bone}: ${u.fragment}`;
+      o.geometry.computeBoundsTree();
     });
+    const holder = new THREE.Group();              // carries the explode offset
+    fx.group.add(holder);
+    holder.add(node);
     const dir = new THREE.Vector3(...u.centroid).sub(new THREE.Vector3(...u.site));
-    const f = { node, dir: dir.lengthSq() ? dir.normalize() : dir, vol: u.volume_cm3, bone: u.bone, fixed: false };
+    const f = { node, holder, dir: dir.lengthSq() ? dir.normalize() : dir, vol: u.volume_cm3, bone: u.bone,
+      label: `${u.bone}: ${u.fragment}`, fixed: false };
+    node.userData.frag = f;
     fx.fragments.push(f);
     if (!biggest[u.bone] || f.vol > biggest[u.bone].vol) biggest[u.bone] = f;
   }
@@ -239,6 +272,7 @@ renderer.domElement.addEventListener('pointerup', (e) => {
 });
 
 function resize() {
+  if (renderer.xr.isPresenting) return;
   const w = view.clientWidth, h = view.clientHeight;
   renderer.setSize(w, h, false);
   camera.aspect = w / h;
@@ -246,6 +280,9 @@ function resize() {
 }
 new ResizeObserver(resize).observe(view);
 resize();
-renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+renderer.setAnimationLoop(() => {
+  if (renderer.xr.isPresenting) xr.update(); else controls.update();
+  renderer.render(scene, camera);
+});
 
 main().catch((err) => { label.textContent = 'Could not load assets: ' + err.message; console.error(err); });

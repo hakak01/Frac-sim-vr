@@ -54,7 +54,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 
 1. ASSETS (pilot: right knee to ankle) – done, see PROGRESS.md
 2. FRACTURE ENGINE (tibia/fibula 41, 42, 43, 44, 4F + CT-mapped plateau and pilon) – done, see PROGRESS.md
-3. VR VIEWER
+3. VR VIEWER – done, see PROGRESS.md
 4. REDUCTION
 5. SOFT TISSUE
 6. SCALE UP, one region per session (femur+patella, humerus, radius+ulna,
@@ -64,7 +64,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 
 | Path | What it is |
 |---|---|
-| `index.html`, `js/viewer.js` | The web page: plain 3D viewer (layers, names, table) with a fracture picker and a spread slider. |
+| `index.html`, `js/viewer.js` | The web page: plain 3D viewer (layers, names, table) with a fracture picker and an explode slider. |
+| `js/xr.js` | VR mode (WebXR): pass-through or plain VR, menu panel, holding fragments and the whole model, two-hand scale. |
 | `fractures.json` | THE fracture data: one row per AO/OTA 2018 code (cuts, fragments, sources). Edit this to add or change a fracture. |
 | `bone_model.json` | Per-region bone settings: modelled cortex thickness (with sources), canal range, joint frames. |
 | `tools/fracture_engine.py` | Cuts the bones into fragments from `fractures.json`. Writes `assets/<region>/fractures/`. |
@@ -81,6 +82,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | `tools/export_region.py` | Blender (bpy) script: region JSON -> GLB layers + manifest. Fits BodyParts3D bones onto Z-Anatomy. Run once per region. |
 | `tools/draco_compress.mjs` | Node script: Draco compression + material clean-up. Called by the export script. |
 | `vendor/three/` | three.js r180 (MIT) and the Draco decoder. Do not edit. |
+| `vendor/three-mesh-bvh/` | three-mesh-bvh 0.9.1 (MIT): fast ray hits on big meshes. Do not edit. |
 | `LICENSE`, `CREDITS.md` | Code MIT; anatomy assets CC BY-SA 4.0 with attribution. |
 
 ## How to rebuild a region
@@ -158,6 +160,22 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
   introduction (pages S49-S69). They are NOT in the repo (journal copyright).
 - Cloud environment `frac-sim-vr` belongs to this repo (hosts ota.org, journals.lww.com,
   www.aofoundation.org allowed; setup script installs the Python and Node tools).
+
+## VR mode (Phase 3)
+
+- Scene: `scene > stage > root > layer groups`. `stage` is the model's place in the room
+  (moved, turned, scaled by the user; identity on the plain page). `root` only centres the model.
+- A fragment: `fx.group > holder > node`. `holder` carries the explode offset; `node` carries
+  the pose the user gave it. `node` at identity = anatomical home position.
+- VR start: leg lies supine at table height (model centre 0.95 m), knee to the user's left.
+  Only the bones layer is shown in VR until Phase 5.
+- Input: `renderer.xr.getController(i)` ray for controllers and hands. Trigger or pinch on a
+  fragment holds it; on empty space, or the grip, holds the whole model; two holds = scale
+  (0.25x to 4x). Menu is a canvas-texture panel (no DOM overlay on Quest).
+- Test without a headset: Playwright + the `iwer` npm package (Meta's WebXR emulator),
+  `new IWER.XRDevice(IWER.metaQuest3).installRuntime({ forceInstall: true })` in an init script.
+- three.js overwrites `camera.fov` while in VR; `xr.js` restores it on exit.
+- The scene has no background colour: the page CSS (or the room in pass-through) shows through.
 
 ## Technical notes
 

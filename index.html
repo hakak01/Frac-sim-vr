@@ -35,6 +35,9 @@
   #fx { width:100%; padding:8px; font:inherit; color:var(--text); background:#262d36; border:1px solid var(--line); border-radius:6px; }
   .rng { display:flex; align-items:center; gap:8px; margin:8px 0 4px; color:var(--dim); }
   .rng input { flex:1; accent-color:var(--accent); }
+  #xrbtn { width:100%; margin:10px 0 4px; padding:12px; font:600 16px/1 inherit; color:#06202f; background:var(--accent);
+    border:0; border-radius:8px; cursor:pointer; }
+  #xrnote { font-size:13px; }
   #fxinfo { font-size:13px; color:var(--dim); }
   #fxinfo b { color:var(--text); }
   #fxinfo ul { margin:4px 0; padding-left:18px; }
@@ -47,7 +50,8 @@
 <script type="importmap">
 { "imports": {
     "three": "./vendor/three/build/three.module.min.js",
-    "three/addons/": "./vendor/three/examples/jsm/"
+    "three/addons/": "./vendor/three/examples/jsm/",
+    "three-mesh-bvh": "./vendor/three-mesh-bvh/index.module.js"
 } }
 </script>
 </head>
@@ -59,10 +63,12 @@
   </div>
   <div id="panel">
     <h1>Fracture VR – fracture viewer</h1>
-    <p id="sub">Phase 2 · right leg, knee to ankle</p>
+    <p id="sub">Right leg, knee to ankle</p>
+    <button id="xrbtn" hidden>Enter VR</button>
+    <p id="xrnote"></p>
     <h2>Fracture (AO/OTA 2018)</h2>
     <select id="fx"><option value="">Intact bones</option></select>
-    <label class="rng">Spread fragments
+    <label class="rng">Explode
       <input type="range" id="spread" min="0" max="30" step="1" value="0"><span id="spreadv">0 mm</span></label>
     <div id="fxinfo"></div>
     <h2>Layers</h2>
