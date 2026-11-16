@@ -48,6 +48,22 @@ How structures were chosen (`regions/leg_right.json`):
    knee and ankle ligaments, menisci, crural fascia and septa, retinacula, muscle
    attachment areas, femur, patella, talus, thigh muscles that cross the knee.
 
+## Other bone sources checked (owner asked; no decision yet, nothing changed)
+
+- **BodyParts3D 3.0, "95 %" set** (parent of Z-Anatomy, CC BY-SA 2.1 JP; mirror
+  github.com/Kevin-Mattheus-Moerman/BodyParts3D, files `FMA<id>.stl`, mm).
+  Right tibia FMA24477 = 6,850 triangles, right fibula FMA24480 = 4,622 (about 4x Z-Anatomy).
+  Same bone as Z-Anatomy: Z-Anatomy = BodyParts3D scaled x1.0325 and moved; after that
+  scale + shift the two surfaces agree (median 0.04 mm, max 1.0 mm). No materials
+  (no cartilage marking). Outer shell only. Whole body, 934 parts.
+- **Fischer 2023 CT bones** (Sci Data 10:763, doi 10.1038/s41597-023-02669-z;
+  github.com/MCM-Fischer/VSDFullBodyBoneModels). 30 cadavers, pelvis to foot only.
+  Tibia about 32,000 triangles, fibula about 23,000. CC BY-NC-SA 4.0. Other people,
+  so Z-Anatomy soft tissue would not fit. Outer shell only.
+- **Keast 2023 tibia-fibula set** (PeerJ, PMID 36811007). 30 cadaver CTs, tibia has
+  separate cortical and trabecular surfaces (only source found for cortex thickness).
+  Hosted on SimTK; could not be opened from the build machine, so not checked.
+
 ## Next
 
 - Phase 2 – FRACTURE ENGINE (only after the owner says OK and answers points 1 and 2).
