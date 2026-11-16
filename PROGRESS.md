@@ -38,18 +38,20 @@ How structures were chosen (`regions/leg_right.json`):
   intermediate dorsal cutaneous nerve of foot).
 - Skin: Z-Anatomy surface patches of the knee, leg and ankle regions.
 
-## Open points for the owner (decide before Phase 2)
+## Decisions by the owner
 
-1. **Cortex thickness has no data source yet.** Both bone sources are one outer surface:
-   no medullary canal, no cortex. Rule 3 needs a cortex rim on cut faces. Options seen so far:
-   - Modelled thickness, as in the owner's earlier "Tibia Fracture Lab" artifact
-     (claude.ai/artifact/Drn4rNfCEJtJpKHT7f5EJ7). There the cortex was a formula, not a
-     measurement: tibia 5.0 mm at mid-shaft falling to 1.2 mm at the ends, thicker
-     anteriorly; fibula 2.6 mm falling to 0.9 mm. Its bones were Visible Human female CT
-     meshes (Sreenivasa and Gonzalez-Alvarado, BMFToolkit, zlib licence), turned into volumes.
-   - Measured thickness from Keast 2023 (PeerJ, PMID 36811007): 30 cadaver CTs with separate
-     cortical and trabecular tibia surfaces. Hosted on SimTK; not reachable from the build
-     machine, so licence, format and detail are unconfirmed. Tibia and fibula only.
+- 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
+- 16 Nov 2026: **cortex is MODELLED, not measured.** Both bone sources are one outer
+  surface, so Phase 2 builds the cortex rim and medullary canal with a thickness formula,
+  the same way as the owner's earlier "Tibia Fracture Lab" artifact
+  (claude.ai/artifact/Drn4rNfCEJtJpKHT7f5EJ7). Values used there, with no source cited:
+  tibia 5.0 mm at mid-shaft falling to 1.2 mm at the ends, thicker anteriorly;
+  fibula 2.6 mm falling to 0.9 mm. In Phase 2: keep thickness values as DATA (per bone),
+  check them against a published source and store its PMID/DOI, and say on the page
+  that the cortex is modelled. Not chosen: measured cortex from Keast 2023 (PeerJ, PMID 36811007).
+
+## Open points for the owner
+
 2. Bone surface is better but still not CT grade (tibia 6,850 triangles, edges about 2 mm).
 3. Arteries, veins and nerves in Z-Anatomy are drawn tubes (curves), not scanned shapes.
 4. Great saphenous vein and saphenous nerve were exported whole, so they run up to
@@ -67,7 +69,7 @@ How structures were chosen (`regions/leg_right.json`):
 
 ## Next
 
-- Phase 2 – FRACTURE ENGINE (only after the owner says OK and answers open point 1).
+- Phase 2 – FRACTURE ENGINE (only after the owner says OK to start it).
 
 ## Test link
 

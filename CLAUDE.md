@@ -28,6 +28,9 @@ Owner: an orthopaedic surgeon, no programming experience. Personal self-study. P
    region, tell the owner. Do not guess.
 3. Fracture surfaces are rough and irregular (noise-displaced cutting surfaces).
    Cut faces show a cortex rim and a cancellous interior. No flat knife cuts.
+   The cortex is MODELLED with a thickness formula (owner's decision, 16 Nov 2026),
+   because the bone meshes are outer surfaces only. Keep the thickness values as data
+   with a source, and say on the page that the cortex is modelled, not measured.
 4. True scale. Build the right limb; mirror for left.
 5. Do not reduce bone detail. Load one limb region at a time instead. Simplify soft
    tissue only if needed for 72 fps, and report how much.
