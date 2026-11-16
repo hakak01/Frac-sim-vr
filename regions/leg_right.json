@@ -1,0 +1,43 @@
+{
+  "id": "leg_right",
+  "title": "Right leg (knee to ankle)",
+  "side_suffix": ".r",
+  "z_window_from": ["Tibia.r"],
+  "min_overlap_mm": 20,
+  "layers": {
+    "bones": {
+      "label": "Bones",
+      "names": ["Tibia.r", "Fibula.r"]
+    },
+    "muscles": {
+      "label": "Muscles and tendons",
+      "descendants_of": [
+        "Anterior compartment of leg.g",
+        "Lateral compartment of leg.g",
+        "Posterior compartment of leg.g"
+      ]
+    },
+    "arteries": {
+      "label": "Arteries",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Artery",
+      "include": ["Inferior lateral genicular artery.r", "Inferior medial genicular artery.r"]
+    },
+    "veins": {
+      "label": "Veins",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Vein"
+    },
+    "nerves": {
+      "label": "Nerves",
+      "collection": "7: Nervous system & Sense organs",
+      "material_prefix": "Nerve",
+      "include": ["Infrapatellar branch of saphenous nerve.r", "Intermediate dorsal cutaneous nerve of foot.r"]
+    },
+    "skin": {
+      "label": "Skin",
+      "descendants_of": ["Knee region.g", "Leg region.g", "Talocrural region.g"],
+      "material_prefix": "Skin"
+    }
+  }
+}

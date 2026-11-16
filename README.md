@@ -1,1 +1,16 @@
-# Frac-sim-vr
+# Fracture VR
+
+A limb fracture simulator for Meta Quest 3 that runs in the browser (WebXR, pass-through).
+Personal self-study project of an orthopaedic surgeon.
+
+- Anatomy: [Z-Anatomy](https://github.com/Z-Anatomy/Models-of-human-anatomy) (CC BY-SA 4.0), true scale.
+- Fracture patterns: AO/OTA Fracture and Dislocation Classification Compendium 2018
+  (Meinberg et al., J Orthop Trauma 2018;32 Suppl 1) and published CT fracture-mapping studies.
+
+Status: Phase 1 (assets for the right leg, knee to ankle). See [PROGRESS.md](PROGRESS.md).
+
+Open the page: https://hakak01.github.io/Frac-sim-vr/
+
+Not a medical device. For study only.
+
+Licence: code MIT, anatomy assets CC BY-SA 4.0. See [LICENSE](LICENSE) and [CREDITS.md](CREDITS.md).
