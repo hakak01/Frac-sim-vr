@@ -17,164 +17,164 @@
  "pcsa": {
   "Gluteus maximus muscle.r": {
    "pcsa_cm2": 33.4,
-   "status": "quoted",
-   "note": "Ward 2009 value as quoted in Parvaresh 2019 (text).",
-   "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
+   "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Gluteus medius muscle.r": {
    "pcsa_cm2": 33.8,
-   "status": "quoted",
-   "note": "Ward 2009 value as quoted in Parvaresh 2019 (text).",
-   "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
+   "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Gluteus minimus muscle.r": {
    "pcsa_cm2": 8.29,
    "status": "read",
-   "note": "Parvaresh 2019 abstract.",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Obturator externus.r": {
    "pcsa_cm2": 4.54,
    "status": "read",
-   "note": "Parvaresh 2019 abstract.",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Superior gemellus muscle.r": {
    "pcsa_cm2": 0.68,
    "status": "read",
-   "note": "Parvaresh 2019 abstract.",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Obturator internus.r": {
-   "pcsa_cm2": 3.8,
-   "status": "derived",
-   "note": "Gemelli + obturators together 10.0 (Parvaresh 2019); minus obturator externus 4.54 and superior gemellus 0.68 leaves 4.78 for obturator internus + inferior gemellus; split 3.8 / 1.0 by the author.",
+   "pcsa_cm2": 3.76,
+   "status": "read",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Inferior gemellus muscle.r": {
-   "pcsa_cm2": 1.0,
-   "status": "derived",
-   "note": "See obturator internus.",
+   "pcsa_cm2": 1.02,
+   "status": "read",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Pectineus muscle.r": {
-   "pcsa_cm2": 2.9,
-   "status": "quoted",
-   "note": "Parvaresh 2019 text: their pectineus PCSA is 'nearly identical' to Wickiewicz (2.9).",
+   "pcsa_cm2": 2.27,
+   "status": "read",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Piriformis muscle.r": {
-   "pcsa_cm2": 2.9,
-   "status": "estimated",
-   "note": "Parvaresh 2019 text puts piriformis in the same 'small' group as pectineus; table value not reachable.",
+   "pcsa_cm2": 2.17,
+   "status": "read",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Quadratus femoris muscle.r": {
-   "pcsa_cm2": 4.5,
-   "status": "estimated",
-   "note": "Parvaresh 2019 text puts quadratus femoris in the same 'moderate' group as the obturators; table value not reachable.",
+   "pcsa_cm2": 3.75,
+   "status": "read",
+   "note": "Read in Table 1 (mean of 10 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Parvaresh KC et al. Architecture of the short external rotator muscles of the hip. BMC Musculoskelet Disord 2019;20:611. PMID 31862009, doi 10.1186/s12891-019-2995-0"
   },
   "Psoas major.r": {
    "pcsa_cm2": 7.7,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Iliacus muscle.r": {
    "pcsa_cm2": 9.9,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Rectus femoris muscle.r": {
    "pcsa_cm2": 13.5,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Vastus lateralis muscle.r": {
    "pcsa_cm2": 35.1,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Vastus intermedius muscle.r": {
    "pcsa_cm2": 16.7,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Vastus medialis muscle.r": {
    "pcsa_cm2": 20.6,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Sartorius muscle.r": {
    "pcsa_cm2": 1.9,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Gracilis muscle.r": {
    "pcsa_cm2": 2.2,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Adductor longus.r": {
    "pcsa_cm2": 6.5,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Adductor brevis.r": {
    "pcsa_cm2": 5.0,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Adductor magnus.r": {
    "pcsa_cm2": 20.5,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Long head of biceps femoris.r": {
    "pcsa_cm2": 11.3,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Short head of biceps femoris.r": {
    "pcsa_cm2": 5.1,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Semitendinosus muscle.r": {
    "pcsa_cm2": 4.8,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Semimembranosus muscle.r": {
    "pcsa_cm2": 18.4,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Medial head of gastrocnemius.r": {
    "pcsa_cm2": 21.1,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Lateral head of gastrocnemius.r": {
    "pcsa_cm2": 9.7,
-   "status": "unverified",
-   "note": "UNVERIFIED: value from the author's memory of Ward 2009 Table 1 (full text not reachable here). Owner to check against the table.",
+   "status": "read",
+   "note": "Read in the PCSA column of the architecture table (mean of 16-21 specimens); checked against the PDF uploaded by the owner, 18 Nov 2026.",
    "source": "Ward SR, Eng CM, Smallwood LH, Lieber RL. Are current measurements of lower extremity muscle architecture accurate? Clin Orthop Relat Res 2009;467:1074-82. PMID 18972175, doi 10.1007/s11999-008-0594-8"
   },
   "Tensor fasciae latae.r": {

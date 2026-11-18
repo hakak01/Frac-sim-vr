@@ -60,8 +60,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 6. SCALE UP, one region per session (femur+patella, humerus, radius+ulna,
    clavicle+scapula, hand, foot). Femur split by the owner (18 Nov 2026):
    6a assets – done; 6b fractures 31 + 32 – done; 6c fractures 33 + 34 – done;
-   6d muscle pull from attachment areas + femur readouts – done (see PROGRESS.md); 6e mixed reality (real table,
-   hand occlusion, traction, haptics). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
+   6d muscle pull from attachment areas + femur readouts – done; 6e mixed reality (real table,
+   hand occlusion, traction, haptics) – done (see PROGRESS.md). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 
 ## File map
 
@@ -251,6 +251,21 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
   `new IWER.XRDevice(IWER.metaQuest3).installRuntime({ forceInstall: true })` in an init script.
 - three.js overwrites `camera.fov` while in VR; `xr.js` restores it on exit.
 - The scene has no background colour: the page CSS (or the room in pass-through) shows through.
+
+## Mixed reality (Phase 6e, all in `js/xr.js`)
+
+- Session (pass-through only): optional `hit-test`, `depth-sensing` (`usagePreference: ['gpu-optimized']`).
+  three.js r180 draws the depth-sensing mesh itself (real things hide the model); `mr.occlude` toggles
+  its visibility. Buttons appear only when available (`mr.canPlace`, `mr.canOcclude`).
+- "Place on table": hit-test sources from each controller's `targetRaySpace`; flat surfaces only;
+  `placeOnTable` puts the skin's lowest point 2 mm above the hit, supine, across in front of the user.
+- Two hands on one fragment (`twoF`): midpoint moves, the line between the hands turns, no scaling.
+  Pointing at a follower (tibia, fibula) grabs its knee fragment.
+- `carry`: with `sim.pull` on, the target lags `RESIST` (0.2) toward `displacedM`; haptics through
+  `inputSource.gamepad.hapticActuators[0].pulse` (knock on contact, buzz while pulling).
+- Test hooks: `viewer.xr.mr`, `viewer.xr.placeOnTable`. In the emulator keep the IWER device on
+  `window.__dev` to move controllers and press `updateButtonValue('trigger', 1)`; IWER has no depth image.
+- In the thigh region the hip lies to the user's LEFT, so "toward the foot" is +x at the start.
 
 ## Reduction and soft tissue (Phases 4 + 5)
 

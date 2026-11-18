@@ -7,6 +7,12 @@
 //   Point at the panel + trigger or pinch          -> menu: fracture, explode, ghost, layers,
 //                                                     displaced / reduced, collision, muscle pull
 // The strip under the panel is the live readout of the fragment last held or pointed at.
+// Mixed reality (Phase 6e, pass-through only where the headset offers it):
+//   "Place on table"  -> a ring follows the pointer on real surfaces (hit-test); trigger lays the limb there
+//   "Hands in front"  -> real hands and objects hide the model (depth sensing), on / off
+//   Both hands on one fragment (or on the leg)   -> hold it with two hands: pull (traction) and turn
+//   With "Muscle pull" on, the muscles hold a carried fragment back (it lags 20 % toward its displaced pose)
+//   Vibration (controllers): a knock when bone meets bone, a soft buzz while pulling against the muscles
 import * as THREE from 'three';
 
 const TABLE_HEIGHT = 0.95;                 // metres from the floor to the middle of the model
@@ -17,6 +23,7 @@ const PW = 1240, PH = 880, SH = 240;       // panel and readout strip, canvas pi
 const LAYERS = [['bones', 'Bones'], ['muscles', 'Muscles'], ['joints', 'Joints'], ['arteries', 'Arteries'], ['veins', 'Veins'], ['nerves', 'Nerves'], ['skin', 'Skin']];
 const MAX_EXPLODE = 30;                    // mm
 const SCALE_LIMITS = [0.25, 4];
+const RESIST = 0.2;                        // muscle pull while carried: share of the way back to the displaced pose
 
 export function initXR(v) {
   const { renderer, scene, stage, fx, sim } = v;
@@ -46,6 +53,8 @@ export function initXR(v) {
   // segment tabs come from the region's fracture list (41-44, 4F for the leg; 31-34 for the thigh)
   const tabs = () => ['', ...new Set(Object.values(fx.index).map((x) => x.segment))];
   const ui = { tab: tabs()[1] || '', sel: null, regions: [] };
+  const mr = { placing: false, sources: [], hit: null, occlude: true, canPlace: false, canOcclude: false };   // Phase 6e
+  let twoF = null;                                         // two hands on one fragment (Phase 6e)
 
   function wrap(ctx, text, maxw, lines) {
     const out = []; let cur = '';
@@ -104,13 +113,17 @@ export function initXR(v) {
     ], 24);
     const bq = fx.index[fx.current] && fx.index[fx.current].files ? [[`Bone: ${fx.shownQuality === 'elderly' ? 'elderly' : 'young'}`,
       async () => { await v.setQuality(fx.shownQuality === 'elderly' ? 'young' : 'elderly'); draw(); }, false]] : [];
-    row(772, 84, [['Reset view', resetView, false], ...bq, ['Exit VR', () => renderer.xr.getSession().end(), false]], 32);
+    const mrb = [...(mr.canPlace ? [[mr.placing ? 'Cancel placing' : 'Place on table', () => (mr.placing ? stopPlacing() : startPlacing()), mr.placing]] : []),
+      ...(mr.canOcclude ? [[`Hands in front: ${mr.occlude ? 'on' : 'off'}`, () => { mr.occlude = !mr.occlude; draw(); }, mr.occlude]] : [])];
+    const bottom = [['Reset view', resetView, false], ...bq, ...mrb, ['Exit VR', () => renderer.xr.getSession().end(), false]];
+    row(772, 84, bottom, bottom.length > 3 ? 24 : 32);
     P.tex.needsUpdate = true;
   }
   let stripText = '';
   function drawStrip() {                                  // live readout
     const f = ui.sel && fx.fragments.includes(ui.sel) ? ui.sel : null;
-    const lines = f && !f.fixed ? v.readoutLines(v.measure(f, f.ref)) : (v.femurLines ? v.femurLines() : []);   // femur summary otherwise
+    let lines = f && !f.fixed ? v.readoutLines(v.measure(f, f.ref)) : (v.femurLines ? v.femurLines() : []);   // femur summary otherwise
+    if (f && f.held && f.carry && sim.pull) lines = [['Muscles pull back', `${f.carry.pullMm.toFixed(0)} mm`], ...lines].slice(0, 6);
     const head = f ? `${f.label}${f.fixed ? '  (main fragment: the others are measured against it)' : ''}` : 'Point at a fragment to see its displacement.';
     const foot = `${Math.round(sim.fps)} fps` + (v.tissue().busy ? ' · tying soft tissue to the fragments…' : '') + (sim.note ? ' · ' + sim.note : '');
     const text = head + lines.map((l) => l.join(' ')).join('|') + foot;
@@ -167,8 +180,8 @@ export function initXR(v) {
     c.add(line);
     scene.add(c, dot);
     Object.assign(c.userData, { line, dot, hold: null, slider: null, over: null, connected: false });
-    c.addEventListener('connected', () => { c.userData.connected = true; });
-    c.addEventListener('disconnected', () => { c.userData.connected = false; drop(c); c.userData.slider = null; dot.visible = false; });
+    c.addEventListener('connected', (e) => { c.userData.connected = true; c.userData.source = e.data; });
+    c.addEventListener('disconnected', () => { c.userData.connected = false; c.userData.source = null; drop(c); c.userData.slider = null; dot.visible = false; });
     c.addEventListener('selectstart', () => press(c, false));
     c.addEventListener('squeezestart', () => press(c, true));
     c.addEventListener('selectend', () => release(c));
@@ -189,10 +202,12 @@ export function initXR(v) {
       return { panel: true, x, y, region: ui.regions.find((r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h), point: p.point, distance: p.distance };
     }
     if (!fx.fragments.length || !v.layerGroups.bones.visible) return null;
-    const h = caster.intersectObjects(fx.fragments.map((f) => f.node), true)[0];
+    const legs = (fx.followers || []).map((x) => x.node);            // the leg moves with the knee fragment
+    const h = caster.intersectObjects([...fx.fragments.map((f) => f.node), ...legs], true)[0];
     if (!h) return null;
     let n = h.object;
-    while (n && !n.userData.frag) n = n.parent;
+    while (n && !n.userData.frag && !legs.includes(n)) n = n.parent;
+    if (n && legs.includes(n)) return { frag: fx.followers.find((x) => x.node === n).frag, point: h.point, distance: h.distance, leg: true };
     return n ? { frag: n.userData.frag, point: h.point, distance: h.distance } : null;
   }
 
@@ -210,6 +225,12 @@ export function initXR(v) {
 
   function press(c, grip) {
     if (c.userData.hold || c.userData.slider) return;
+    if (mr.placing && !grip) {                     // lay the limb on the real surface under the ring
+      const hit = point(c);
+      if (hit && hit.panel) { if (hit.region) hit.region.action(); return; }
+      if (mr.hit) placeOnTable(mr.hit);
+      return;
+    }
     const hit = grip ? null : point(c);
     if (hit && hit.panel) {
       if (hit.region && hit.region.slider) c.userData.slider = hit.region;
@@ -223,6 +244,9 @@ export function initXR(v) {
       f.touch = null;
       c.userData.hold = { frag: f, offset: M().copy(c.matrix).invert().multiply(f.node.matrixWorld) };
       ui.sel = f;
+    } else if (hit && hit.frag && hit.frag.held) {   // second hand on the same fragment: hold it with both hands
+      c.userData.hold = { frag: hit.frag };
+      startTwoHands(hit.frag);
     } else {
       c.userData.hold = { model: true };
       rebase();
@@ -231,7 +255,13 @@ export function initXR(v) {
   function drop(c) {
     const h = c.userData.hold;
     c.userData.hold = null;
-    if (h && h.frag) { h.frag.held = false; v.updateReadout(); }
+    if (h && h.frag) {
+      const other = ctrls.find((k) => k.userData.hold && k.userData.hold.frag === h.frag);
+      if (other) {                                 // one hand left: it carries on alone
+        other.userData.hold = { frag: h.frag, offset: M().copy(other.matrix).invert().multiply(h.frag.node.matrixWorld) };
+        twoF = null;
+      } else { h.frag.held = false; v.updateReadout(); }
+    }
     if (h && h.model) rebase();
   }
   function release(c) {
@@ -247,12 +277,14 @@ export function initXR(v) {
       if (!u.connected) continue;
       c.updateMatrix();
       if (u.hold && u.hold.frag) {                               // carry one fragment (bone stops at bone)
-        const n = u.hold.frag.node;
-        tmp.m.multiplyMatrices(c.matrix, u.hold.offset);
-        n.parent.updateWorldMatrix(true, false);
-        tmp.m.premultiply(tmp.inv.copy(n.parent.matrixWorld).invert());
-        v.advance(u.hold.frag, tmp.m);
+        const f = u.hold.frag, n = f.node;
         u.dot.visible = false; u.line.scale.z = 0.05;
+        const both = ctrls.filter((k) => k.userData.hold && k.userData.hold.frag === f);
+        if (both.length === 2 && both[1] === c) continue;      // a two-hand hold is worked out once, by the first hand
+        n.parent.updateWorldMatrix(true, false);
+        if (both.length === 2 && twoF) tmp.m.copy(twoHandTarget(both));
+        else tmp.m.multiplyMatrices(c.matrix, u.hold.offset).premultiply(tmp.inv.copy(n.parent.matrixWorld).invert());
+        carry(f, tmp.m, both);
         continue;
       }
       if (u.hold) { u.dot.visible = false; u.line.scale.z = 0.05; continue; }
@@ -282,7 +314,121 @@ export function initXR(v) {
     }
     const now = performance.now();
     if (now - stripAt > 120) { stripAt = now; drawStrip(); }      // readout about 8 times a second
+    updateMR();
   };
+
+  // ---------------------------------------------------------------- Phase 6e: carrying with resistance, vibration
+  const T6 = { p: new THREE.Vector3(), q: new THREE.Quaternion(), s: new THREE.Vector3(), dp: new THREE.Vector3(), dq: new THREE.Quaternion(), ds: new THREE.Vector3() };
+  function buzz(c, strength, ms) {                         // controllers only; hands have no motors
+    const gp = c.userData.source && c.userData.source.gamepad, h = gp && gp.hapticActuators && gp.hapticActuators[0];
+    if (h && h.pulse) { try { const r = h.pulse(strength, ms); if (r && r.catch) r.catch(() => {}); } catch (e) { /* no haptics */ } }
+  }
+  function carry(f, target, hands) {
+    let pullMm = 0;
+    if (sim.pull && f.displacedM && !f.fixed) {             // the muscles hold it back toward its displaced pose
+      target.decompose(T6.p, T6.q, T6.s);
+      f.displacedM.decompose(T6.dp, T6.dq, T6.ds);
+      const p0 = T6.p.clone();
+      T6.p.lerp(T6.dp, RESIST); T6.q.slerp(T6.dq, RESIST);
+      pullMm = p0.distanceTo(T6.p) * 1000;
+      target.compose(T6.p, T6.q, T6.s);
+    }
+    const before = f.touch ? f.touch.size : 0;
+    v.advance(f, target);
+    target.decompose(T6.p, T6.q, T6.s);
+    const stopped = sim.collide && f.node.position.distanceTo(T6.p) > 0.001;
+    const now = performance.now();
+    f.carry = { pullMm, stopped };
+    for (const c of hands) {
+      const u = c.userData;
+      if (((f.touch ? f.touch.size : 0) > before || stopped) && now - (u.knock || 0) > 180) { buzz(c, 0.9, 35); u.knock = now; }
+      else if (pullMm > 0.5 && now - (u.hum || 0) > 110) { buzz(c, Math.min(0.6, 0.05 + pullMm / 25), 60); u.hum = now; }
+    }
+  }
+
+  // two hands on one fragment: their midpoint moves it, the line between them turns it (no scaling)
+  function handsIn(parent, hs) {
+    const inv = M().copy(parent.matrixWorld).invert();
+    return hs.map((k) => new THREE.Vector3().setFromMatrixPosition(k.matrix).applyMatrix4(inv));
+  }
+  function startTwoHands(f) {
+    const hs = ctrls.filter((k) => k.userData.hold && k.userData.hold.frag === f);
+    if (hs.length !== 2) return;
+    f.node.parent.updateWorldMatrix(true, false);
+    const [a, b] = handsIn(f.node.parent, hs);
+    twoF = { frag: f, mid0: a.clone().add(b).multiplyScalar(0.5), vec0: b.clone().sub(a), n0: f.node.matrix.clone() };
+  }
+  function twoHandTarget(hs) {
+    const [a, b] = handsIn(twoF.frag.node.parent, hs);
+    const mid = a.clone().add(b).multiplyScalar(0.5), vec = b.clone().sub(a);
+    const q = new THREE.Quaternion().setFromUnitVectors(twoF.vec0.clone().normalize(), vec.normalize());
+    return M().makeTranslation(mid.x, mid.y, mid.z).multiply(M().makeRotationFromQuaternion(q))
+      .multiply(M().makeTranslation(-twoF.mid0.x, -twoF.mid0.y, -twoF.mid0.z)).multiply(twoF.n0);
+  }
+
+  // ---------------------------------------------------------------- Phase 6e: real table, real hands in front
+  const ring = new THREE.Mesh(new THREE.RingGeometry(0.035, 0.045, 40).rotateX(-Math.PI / 2),
+    new THREE.MeshBasicMaterial({ color: 0x4fb3ff, side: THREE.DoubleSide }));
+  ring.visible = false;
+  scene.add(ring);
+  async function startPlacing() {
+    const session = renderer.xr.getSession();
+    if (!session || !session.requestHitTestSource) return;
+    mr.placing = true; mr.hit = null;
+    mr.sources = [];
+    for (const c of ctrls) {
+      const s = c.userData.source;
+      if (!s) continue;
+      try { mr.sources.push(await session.requestHitTestSource({ space: s.targetRaySpace })); } catch (e) { /* not available */ }
+    }
+    if (!mr.sources.length) { mr.placing = false; sim.note = 'No real surface found (hit-test not available).'; }
+    draw();
+  }
+  function stopPlacing() {
+    for (const s of mr.sources) { try { s.cancel(); } catch (e) { /* gone */ } }
+    mr.sources = []; mr.placing = false; mr.hit = null; ring.visible = false;
+    draw();
+  }
+  // The limb lies supine, skin on the surface, across in front of the user (knee to the left as at the start).
+  function placeOnTable(hitM) {
+    const pos = new THREE.Vector3().setFromMatrixPosition(hitM);
+    const cam = renderer.xr.getCamera();
+    const fwd = new THREE.Vector3(0, 0, -1).applyQuaternion(cam.quaternion); fwd.y = 0;
+    const yaw = Math.atan2(-fwd.x, -fwd.z);
+    const s = stage.scale.x;
+    const rot = M().makeRotationY(yaw).multiply(M().makeBasis(new THREE.Vector3(0, 0, -1), new THREE.Vector3(-1, 0, 0), new THREE.Vector3(0, 1, 0)));
+    // thickness under the centre: the model's lowest point (skin if exported, else every layer) below its centre
+    const box = new THREE.Box3();
+    const skin = v.layerGroups.skin;
+    const src = skin ? [skin] : Object.values(v.layerGroups);
+    const inv = M().copy(stage.matrixWorld).invert();
+    for (const gr of src) { gr.updateWorldMatrix(true, true); gr.traverse((o) => { if (o.isMesh) box.expandByObject(o); }); }
+    box.applyMatrix4(inv);                                  // stage space (the model's own axes, scaled)
+    const halfUp = -box.min.z * s;                          // model z (front) points up when supine
+    setStage(M().makeTranslation(pos.x, pos.y + halfUp + 0.002, pos.z).multiply(rot).multiply(M().makeScale(s, s, s)));
+    stopPlacing();
+    sim.note = 'Placed on the real surface.';
+  }
+  function updateMR() {
+    const dm = renderer.xr.getDepthSensingMesh ? renderer.xr.getDepthSensingMesh() : null;
+    mr.canOcclude = !!dm;
+    if (dm) dm.visible = mr.occlude;
+    if (!mr.placing) return;
+    const frame = renderer.xr.getFrame(), ref = renderer.xr.getReferenceSpace();
+    mr.hit = null;
+    for (const s of mr.sources) {
+      const r = frame && frame.getHitTestResults ? frame.getHitTestResults(s) : [];
+      const pose = r.length ? r[0].getPose(ref) : null;
+      if (!pose) continue;
+      const m = M().fromArray(pose.transform.matrix);
+      const up = new THREE.Vector3(0, 1, 0).applyMatrix4(M().extractRotation(m));
+      if (up.y < 0.8) continue;                             // only flat, upward surfaces (table, bed, floor)
+      mr.hit = m;
+      break;
+    }
+    ring.visible = !!mr.hit;
+    if (mr.hit) ring.position.setFromMatrixPosition(mr.hit);
+  }
 
   // ---------------------------------------------------------------- start and stop
   const floor = new THREE.GridHelper(4, 16, 0x3a4450, 0x2a323b);   // only in plain VR (no pass-through)
@@ -291,7 +437,11 @@ export function initXR(v) {
   let saved = null;
 
   api.enter = async () => {
-    const session = await navigator.xr.requestSession(api.mode, { requiredFeatures: ['local-floor'], optionalFeatures: ['hand-tracking'] });
+    const session = await navigator.xr.requestSession(api.mode, {
+      requiredFeatures: ['local-floor'],
+      optionalFeatures: api.mode === 'immersive-ar' ? ['hand-tracking', 'hit-test', 'depth-sensing'] : ['hand-tracking'],
+      depthSensing: { usagePreference: ['gpu-optimized'], dataFormatPreference: [] } });
+    mr.canPlace = api.mode === 'immersive-ar' && !!session.requestHitTestSource;
     saved = { layers: Object.fromEntries(Object.entries(v.layerGroups).map(([k, gr]) => [k, gr.visible])),
       cam: [v.camera.position.clone(), v.camera.quaternion.clone(), v.camera.fov] };
     for (const k of Object.keys(v.layerGroups)) v.setLayer(k, k === 'bones');   // start with bones; layers are on the panel
@@ -311,6 +461,7 @@ export function initXR(v) {
       api.active = false;
       panel.visible = false; floor.visible = false;
       for (const c of ctrls) { c.visible = false; c.userData.dot.visible = false; drop(c); c.userData.slider = null; }
+      mr.sources = []; mr.placing = false; ring.visible = false; twoF = null;
       setStage(M());
       for (const k of Object.keys(v.layerGroups)) v.setLayer(k, saved.layers[k]);
       v.camera.position.copy(saved.cam[0]); v.camera.quaternion.copy(saved.cam[1]);
@@ -331,6 +482,8 @@ export function initXR(v) {
   });
   api.panel = panel;
   api.ui = ui;
+  api.mr = mr;                                 // for the browser tests
+  api.placeOnTable = placeOnTable;
   api.draw = draw;
   return api;
 }

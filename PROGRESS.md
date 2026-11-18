@@ -409,9 +409,7 @@ Model against the textbook picture (typical displacement, young bone):
   Leg region: start positions identical to before (checked 42A1, 41C3.3, 44-PM-I).
 
 Limits the owner should know (Phase 6d):
-1. 17 muscle strengths are unverified (from memory of Ward 2009 Table 1) and 3 have no source.
-   Please upload Ward 2009 Table 1 (and Parvaresh 2019 Table 1) to check them; changing them needs
-   only an engine rebuild of the index, no new anatomy.
+1. (Closed in 6e) Muscle strengths checked against the uploaded papers; 3 still have no source.
 2. All displacement SIZES are teaching values; only directions come from the anatomy.
 3. Not modelled: gravity (the foot falling outwards), ligaments and capsule (except the patellar
    ligament), bone crushing (varus collapse), muscle activity differing between muscles.
@@ -420,6 +418,44 @@ Limits the owner should know (Phase 6d):
 6. Not tested on a Quest 3.
 7. Seen while testing (older, tibia region): the 44-PM-I posterior malleolar piece starts unmoved
    (no free start position found); unchanged by this phase.
+
+### Phase 6e – MIXED REALITY – waiting for owner's OK
+
+- Muscle strengths (6d open point) checked against the PDFs the owner uploaded (not in the repo,
+  copyright): all 17 values from Ward 2009 match the PCSA column exactly; Parvaresh 2019 Table 1
+  corrected 4 estimates (pectineus 2.9 -> 2.27, piriformis 2.9 -> 2.17, quadratus femoris
+  4.5 -> 3.75, obturator internus / inferior gemellus 3.8 / 1.0 -> 3.76 / 1.02). Status now: 27 read
+  in the source, 3 with no source (TFL, plantaris, popliteus: in neither paper). All 80 thigh
+  fractures rebuilt (0 problems); the deformities barely change (subtrochanteric proximal fragment
+  now 1 deg abducted instead of 0).
+- VR panel, bottom row (pass-through only, shown only if the headset offers it):
+  - "Place on table": a ring follows the pointer on real flat surfaces (WebXR hit-test, surfaces
+    tilted less than about 37 degrees); trigger lays the limb there, supine, skin on the surface,
+    across in front of the user (hip to the left in the thigh, knee to the left in the leg).
+  - "Hands in front: on/off": real hands and objects hide the model (WebXR depth sensing, drawn by
+    three.js itself); shown only when the headset gives a depth image.
+- Two hands on one fragment, or on the leg (the tibia and fibula grab the knee fragment): the
+  midpoint of the hands moves it, the line between them turns it, no scaling. One hand off: the
+  other carries on alone.
+- Traction against the muscles: with "Muscle pull" on, a carried fragment lags 20 % of the way
+  back toward its displaced pose (teaching value). The strip shows "Muscles pull back: x mm".
+  The user has to over-pull, as in real traction; on release the fragment springs back.
+- Vibration (controllers only, hands have no motors): a knock when bone meets bone (the fragment
+  stops short of the hand or touches a new bone), a soft buzz that grows with the muscle pull
+  being held (up to 60 % strength).
+- Tested in Meta's emulator (Quest 3 profile): the panel shows "Place on table"; placing on a
+  synthetic surface at 0.750 m puts the lowest skin point at 0.752 m (bones 58 mm higher); both
+  hands grabbed the distal fragment through the tibia; pulling the hands 30 mm toward the foot
+  moved the fragment 24 mm (6 mm held back) and took the femur from 410 mm (displaced) to 434 mm
+  (normal 429, so over-pulled); no errors. "Hands in front" is hidden in the emulator (no depth).
+
+Limits the owner should know (Phase 6e):
+1. NOT tested on a Quest 3: the real-surface ring (needs the room set up in the headset), the
+   depth occlusion (quality of hand edges) and the vibration can only be judged on the headset.
+2. The 20 % hold-back is a teaching value, not a force model; there is no force number (kg).
+3. The limb is placed across in front of the user; turn it with the grip (two hands) if needed.
+   It is not anchored to the room: if the headset's tracking shifts, the limb shifts with it.
+4. In plain VR (no pass-through) the new buttons are hidden.
 
 ## Decisions by the owner
 
@@ -450,6 +486,7 @@ Limits the owner should know (Phase 6d):
 - 18 Nov 2026: 6a accepted; owner started 6b.
 - 18 Nov 2026: 6b accepted; owner uploaded the Compendium appendix (S167-S169) and started 6c.
 - 18 Nov 2026: 6c accepted; owner started 6d.
+- 18 Nov 2026: 6d accepted; owner uploaded Ward 2009 and Parvaresh 2019 (PDFs, not in the repo) and started 6e.
 - 18 Nov 2026: **femur fit exception.** BodyParts3D femur accepted with max 2.43 mm (limit
   2 mm) because the misfit is one small spot at the adductor tubercle; limit for the femur
   set to 2.5 mm in `regions/thigh_right.json` (`fit_max_mm`). The 2 mm limit stays for every
@@ -476,7 +513,9 @@ Limits the owner should know (Phase 6d):
 
 ## Next
 
-- Phase 6e – mixed reality: real table, hand occlusion, traction, haptics.
+- Femur region (6a-6e) complete, waiting for the owner's OK and a Quest 3 test.
+- Phase 6 continues with the next region the owner names (humerus, radius+ulna, clavicle+scapula,
+  hand, foot), one region per session.
 
 ## Test link
 
