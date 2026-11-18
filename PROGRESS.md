@@ -502,6 +502,12 @@ Limits the owner should know (Phase 6e):
   X-ray views with the later C-arm phase; reduction stays free-hand (no guided manoeuvres);
   MR overlay on the owner's Sawbones foot model; positions supine, lateral decubitus, prone.
   AO/OTA foot chapter (S89-S100) uploaded by the owner, NOT in the repo (copyright).
+- 18 Nov 2026: Phase 7 follow-up answers: cuneiforms (85) and phalanges (88) have no drawings in the
+  chapter, so they are cut from the written type definitions with the same line rules as other bones,
+  `line_basis` "text definition only"; phalanx rows = all 18 of the great toe + proximal phalanx of
+  toes 2-5 (54 rows); Lisfranc rows = Myerson types A, B1, B2, C1, C2 + one purely ligamentous
+  ("subtle") Lisfranc (PMID to be checked in 7d); the Sawbones model is bare bone (no foam or skin):
+  overlay lines up on bony landmarks (side and product still to ask, needed in 7f only).
 
 ## Open points for the owner
 
