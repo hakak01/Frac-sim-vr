@@ -8403,29 +8403,29 @@
        "azimuth_deg": 150,
        "outline_mm": [
         [
-         -14,
-         16
+         -17,
+         20
         ],
         [
-         14,
-         16
+         17,
+         20
         ],
         [
-         16,
-         -14
+         19,
+         -18
         ],
         [
-         -16,
-         -16
+         -19,
+         -20
         ]
        ],
-       "depth_mm": 22,
+       "depth_mm": 26,
        "taper": {
         "to": [
          0,
          0
         ],
-        "amount": 0.5
+        "amount": 0.45
        }
       }
      ],
@@ -8433,13 +8433,13 @@
       {
        "name": "head and neck fragment",
        "sides": {
-        "c1": "+"
+        "c1": "+",
+        "lt": "-"
        }
       },
       {
        "name": "lesser trochanter fragment",
        "sides": {
-        "c1": "-",
         "lt": "+"
        }
       },
@@ -8616,29 +8616,29 @@
        "azimuth_deg": 150,
        "outline_mm": [
         [
-         -14,
-         16
+         -17,
+         20
         ],
         [
-         14,
-         16
+         17,
+         20
         ],
         [
-         16,
-         -14
+         19,
+         -18
         ],
         [
-         -16,
-         -16
+         -19,
+         -20
         ]
        ],
-       "depth_mm": 22,
+       "depth_mm": 26,
        "taper": {
         "to": [
          0,
          0
         ],
-        "amount": 0.5
+        "amount": 0.45
        }
       }
      ],
@@ -8646,14 +8646,16 @@
       {
        "name": "head and neck fragment",
        "sides": {
-        "c1": "+"
+        "c1": "+",
+        "lt": "-"
        }
       },
       {
        "name": "greater trochanter and lateral wall fragment",
        "sides": {
         "c1": "-",
-        "c2": "+"
+        "c2": "+",
+        "lt": "-"
        },
        "shatter": {
         "pieces": 2,
@@ -8663,8 +8665,6 @@
       {
        "name": "lesser trochanter fragment",
        "sides": {
-        "c1": "-",
-        "c2": "-",
         "lt": "+"
        }
       },
@@ -8828,29 +8828,29 @@
        "azimuth_deg": 150,
        "outline_mm": [
         [
-         -14,
-         16
+         -17,
+         20
         ],
         [
-         14,
-         16
+         17,
+         20
         ],
         [
-         16,
-         -14
+         19,
+         -18
         ],
         [
-         -16,
-         -16
+         -19,
+         -20
         ]
        ],
-       "depth_mm": 22,
+       "depth_mm": 26,
        "taper": {
         "to": [
          0,
          0
         ],
-        "amount": 0.5
+        "amount": 0.45
        }
       }
      ],
@@ -8858,13 +8858,13 @@
       {
        "name": "proximal fragment",
        "sides": {
-        "c1": "+"
+        "c1": "+",
+        "lt": "-"
        }
       },
       {
        "name": "lesser trochanter wedge",
        "sides": {
-        "c1": "-",
         "lt": "+"
        },
        "shatter": {

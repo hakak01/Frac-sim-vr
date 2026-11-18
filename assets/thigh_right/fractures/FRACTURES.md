@@ -6,12 +6,12 @@ Cortex is modelled, not measured. Sizes are Draco-compressed.
 |---|---|---|---:|---:|---:|
 | 31A1.1(n) | Femur, proximal end segment, trochanteric region, simple pertrochanteric fracture, isolated single trochanter fracture | n Greater trochanter | 2 | 31,046 | 102 |
 | 31A1.2 | Femur, proximal end segment, trochanteric region, simple pertrochanteric fracture, two-part fracture |  | 2 | 31,722 | 104 |
-| 31A1.3 | Femur, proximal end segment, trochanteric region, simple pertrochanteric fracture, lateral wall intact (>20.5 mm) fracture |  | 3 | 55,178 | 177 |
+| 31A1.3 | Femur, proximal end segment, trochanteric region, simple pertrochanteric fracture, lateral wall intact (>20.5 mm) fracture |  | 3 | 62,324 | 199 |
 | 31A2.2 | Femur, proximal end segment, trochanteric region, multifragmentary pertrochanteric, lateral wall incompetent (≤ 20.5 mm) fracture, with 1 intermediate fragment |  | 3 | 47,376 | 163 |
-| 31A2.3 | Femur, proximal end segment, trochanteric region, multifragmentary pertrochanteric, lateral wall incompetent (≤ 20.5 mm) fracture, with 2 or more intermediate fragments |  | 5 | 90,204 | 303 |
+| 31A2.3 | Femur, proximal end segment, trochanteric region, multifragmentary pertrochanteric, lateral wall incompetent (≤ 20.5 mm) fracture, with 2 or more intermediate fragments |  | 5 | 95,662 | 319 |
 | 31A3.1 | Femur, proximal end segment, trochanteric region, intertrochanteric (reverse obliquity) fracture, simple oblique fracture |  | 2 | 28,206 | 102 |
 | 31A3.2 | Femur, proximal end segment, trochanteric region, intertrochanteric (reverse obliquity) fracture, simple transverse fracture |  | 2 | 27,186 | 99 |
-| 31A3.3 | Femur, proximal end segment, trochanteric region, intertrochanteric (reverse obliquity) fracture, wedge or multifragmentary fracture |  | 4 | 40,604 | 150 |
+| 31A3.3 | Femur, proximal end segment, trochanteric region, intertrochanteric (reverse obliquity) fracture, wedge or multifragmentary fracture |  | 4 | 60,040 | 208 |
 | 31B1.1 | Femur, proximal end segment, femoral neck, subcapital fracture, valgus impacted fracture |  | 2 | 29,538 | 98 |
 | 31B1.2 | Femur, proximal end segment, femoral neck, subcapital fracture, nondisplaced fracture |  | 2 | 28,434 | 94 |
 | 31B1.3 | Femur, proximal end segment, femoral neck, subcapital fracture, displaced fracture |  | 2 | 28,610 | 96 |

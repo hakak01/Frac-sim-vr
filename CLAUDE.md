@@ -59,8 +59,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 5. SOFT TISSUE – done together with 4, see PROGRESS.md
 6. SCALE UP, one region per session (femur+patella, humerus, radius+ulna,
    clavicle+scapula, hand, foot). Femur split by the owner (18 Nov 2026):
-   6a assets – done; 6b fractures 31 + 32 – done; 6c fractures 33 + 34 – done (see PROGRESS.md);
-   6d muscle pull from attachment areas + femur readouts; 6e mixed reality (real table,
+   6a assets – done; 6b fractures 31 + 32 – done; 6c fractures 33 + 34 – done;
+   6d muscle pull from attachment areas + femur readouts – done (see PROGRESS.md); 6e mixed reality (real table,
    hand occlusion, traction, haptics). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 
 ## File map
@@ -83,6 +83,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | `assets/<region>/STRUCTURES.md` | The same list as a readable table. |
 | `regions/<region>.json` | Which Z-Anatomy structures belong to a region (data, no code). |
 | `assets/regions.json` | List of regions for the page's region picker (`?region=<id>`, default `leg_right`). |
+| `tools/export_muscles.py` | Blender (bpy) script: muscle attachments + lines of action from Z-Anatomy -> `model/<region>/muscles.json`. |
+| `muscle_model.json` | Muscle pull data: PCSA per muscle (with status and source), end shares, teaching sizes, rules. |
 | `tools/femur_geometry.py` | Measures a femur (head, neck and shaft axes, neck-shaft angle, version, bow) and compares with published values. Writes `model/<region>/femur_geometry.json`. |
 | `tools/fetch_zanatomy.sh` | Downloads the pinned Z-Anatomy Blender file into `_source/` (not committed). |
 | `tools/fetch_bodyparts3d.sh` | Downloads the BodyParts3D bone files a region lists into `_source/bodyparts3d/stl`. |
@@ -111,6 +113,7 @@ python3 tools/fracture_engine.py leg_right                      # all rows, abou
 python3 tools/fracture_engine.py leg_right 42A1 41B3.1          # only these ids
 python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save check pictures
 python3 tools/femur_geometry.py thigh_right   # once, before the femur engine (axes, head, knee)
+python3 tools/export_muscles.py _source/blend/Z-Anatomy/Startup.blend regions/thigh_right.json  # once (bpy)
 python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualities, patella x 1), about 15 minutes
 ```
 
@@ -215,6 +218,23 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
   the opposite side (A + 180). A medial wedge therefore uses A = 270.
 - Patella: `bones.patella` in `thigh_right`; level `{"s": 0..1}` along its own axis (tilted about
   24 degrees backwards), sides lateral 270 / medial 90. Its cartilage marking reaches the tip.
+
+## Muscle pull (Phase 6d)
+
+- `model/<region>/muscles.json` (from `export_muscles.py`): per muscle `ends` [{bone, points (mm, Z-Anatomy
+  axes), dir (line of action), method}]. Mapping of shared / missing areas: region JSON `muscle_attachments`.
+  Z-Anatomy attachment areas end in `.or/.er` (origin / insertion, also `.o1r` ...); use the PARENT bone for
+  the side (some right-side areas are named `.el`).
+- `fracture_engine.py` > `muscle_poses`: anchor = fragment with the femoral head (turns about the head
+  centre only) or, for the patella, the fragment holding the patellar ligament; `followers` (tibia,
+  fibula, intact patella) move with the knee fragment; `carriers` name the fragments for the femur
+  readout; `pose` per fragment {unit head/leg/piece, t, axis, deg, pivot, muscles} in GLB axes, metres.
+  Sizes and rules in `muscle_model.json`. Changing PCSA values needs a rebuild (poses are computed
+  while cutting).
+- Viewer: preset `{pose}` in `displacedMatrix`; main fragment = `anchor`; `updateFollowers` each frame
+  (knee fragment pose without its tilt about the medial axis, pivot = knee centre); followers are left
+  out of bone collision and tied to the knee fragment for the soft tissue; `femurState`/`femurLines`
+  give neck-shaft angle, version, head-knee length against `index.femur.intact`.
 
 ## VR mode (Phase 3)
 

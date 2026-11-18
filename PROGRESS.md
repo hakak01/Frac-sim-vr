@@ -353,6 +353,74 @@ Limits the owner should know (Phase 6c):
    wide; check whether you want them smaller.
 7. Not tested on a Quest 3.
 
+### Phase 6d – MUSCLE PULL + FEMUR READOUTS – waiting for owner's OK
+
+- Muscle attachments from Z-Anatomy (`tools/export_muscles.py` -> `model/thigh_right/muscles.json`):
+  32 muscles + the patellar ligament. Ends come from Z-Anatomy's own attachment areas (shared ones
+  mapped in `regions/thigh_right.json` > `muscle_attachments`, e.g. "Iliopsoas muscle.er" for iliacus
+  and psoas, "Trochanteric insertion.er" = conjoint tendon of obturator internus and gemelli); ends
+  missing in Z-Anatomy (gluteus minimus and obturator externus on the femur, adductor brevis, the
+  iliotibial tract on the tibia) are taken where the muscle mesh touches the bone. Each end pulls
+  along the muscle's own path 25-80 mm from it (so iliopsoas pulls over the pelvic brim). Checked by
+  eye: e.g. gluteus medius pulls up-medial, iliopsoas up-medial-anterior, gastrocnemius down-back.
+- Strength = PCSA (all muscles equally active), data in `muscle_model.json` with a status per value:
+  3 read in the source, 3 quoted, 2 derived, 2 estimated, 17 UNVERIFIED (author's recall of Ward 2009
+  Table 1: the full text was not reachable), 3 with no source (TFL, plantaris, popliteus).
+  Sources: Ward 2009 (PMID 18972175), Parvaresh 2019 (PMID 31862009).
+- Gluteus maximus: 25 % on the gluteal tuberosity, 75 % through the iliotibial tract to the tibia
+  (most of it inserts into the tract, Gray's Anatomy; the split itself is the author's).
+- Rules (data in `muscle_model.json`):
+  - the fragment with the femoral head stays in the acetabulum and may only turn (15 deg) about the
+    head centre; if it also carries the knee it stays still;
+  - the leg (tibia, fibula, intact patella) follows the femur fragment that carries the knee, except
+    the forwards/backwards tilt, which the knee joint takes up; soft tissue of the leg follows too;
+  - that leg-carrying fragment: shift 20 mm along the net muscle force; turn about its long axis
+    15 deg, sideways 5 deg, forwards/backwards 10 deg only within 120 mm of the knee (the bed);
+  - loose pieces with muscles: 8 mm along the force, 15 deg about the turning axis; loose pieces with
+    no muscle: the old "wedge" preset (5 mm away); patella: the piece holding the patellar
+    ligament stays, the quadriceps pulls the other;
+  - directions come from the muscles; ALL sizes are teaching values (no published source).
+  - start position: if the pose would put bone into bone, the fragment first tries sliding sideways
+    (up to 16 mm), then a smaller pose (for example the neck stump rides up beside the head).
+- New readout (page and VR strip): neck-shaft angle, femoral version (anteversion / retroversion)
+  and length head centre to knee centre, each against the normal side (= this femur intact:
+  123.5 deg, 12.5 deg anteversion, 429 mm).
+- Engine: index entries get `anchor`, `followers`, `carriers` and a `pose` per fragment; the index
+  gets `femur` landmarks. All 80 thigh fractures rebuilt, 0 problems, lateral walls unchanged.
+  The lesser trochanter piece of 31A1.3 / 31A2.3 / 31A3.3 is now the whole cut-out (it carries the
+  iliopsoas insertion).
+
+Model against the textbook picture (typical displacement, young bone):
+
+| Fracture | Model | Textbook |
+|---|---|---|
+| Femoral neck 31B2.1(q) | leg 16 mm short, 15 deg external rotation, 5 deg valgus, neck stump beside the head | shortened, externally rotated: matches |
+| Subtrochanteric 32A3(a) | proximal fragment flexed 14 deg, externally rotated 4 deg; distal shortened, externally rotated, 5 deg abducted | proximal flexed, abducted, externally rotated; distal adducted: flexion and rotation match, abduction / adduction do NOT |
+| Pertrochanteric 31A1.2 | 17 mm short, externally rotated, neck-shaft angle 138 deg (valgus) | shortened, externally rotated, VARUS: varus does not match (it comes from medial crushing, not modelled) |
+| Mid-shaft 32A3(b) | 19 mm short, 14 deg external rotation | shortening: matches |
+| Lesser trochanter piece | pulled up, medial, forward (iliopsoas) | matches |
+| Greater trochanter piece | pulled up and medial (gluteus medius, minimus) | matches |
+| Transverse patella 34C1.1 | proximal piece 7-8 mm up (quadriceps), distal piece held | matches |
+| Supracondylar 33A2.3 | 18 mm short, 2 mm posterior, distal piece tilted 10 deg | shortening and posterior shift match; tilt direction to be checked by the owner |
+
+- Tested in headless Chromium: thigh fractures load and start in the muscle pose with no errors;
+  the tibia, fibula and patella move with the knee fragment; readouts as above; "Reduced" gives
+  123.5 deg / 12.5 deg / 429 mm. VR in Meta's emulator: the femur summary shows on the strip.
+  Leg region: start positions identical to before (checked 42A1, 41C3.3, 44-PM-I).
+
+Limits the owner should know (Phase 6d):
+1. 17 muscle strengths are unverified (from memory of Ward 2009 Table 1) and 3 have no source.
+   Please upload Ward 2009 Table 1 (and Parvaresh 2019 Table 1) to check them; changing them needs
+   only an engine rebuild of the index, no new anatomy.
+2. All displacement SIZES are teaching values; only directions come from the anatomy.
+3. Not modelled: gravity (the foot falling outwards), ligaments and capsule (except the patellar
+   ligament), bone crushing (varus collapse), muscle activity differing between muscles.
+4. The two mismatches above (subtrochanteric abduction, pertrochanteric varus).
+5. Soft tissue at the knee follows the knee fragment fully, including the tilt the tibia does not follow.
+6. Not tested on a Quest 3.
+7. Seen while testing (older, tibia region): the 44-PM-I posterior malleolar piece starts unmoved
+   (no free start position found); unchanged by this phase.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
@@ -381,6 +449,7 @@ Limits the owner should know (Phase 6c):
   floating knee.
 - 18 Nov 2026: 6a accepted; owner started 6b.
 - 18 Nov 2026: 6b accepted; owner uploaded the Compendium appendix (S167-S169) and started 6c.
+- 18 Nov 2026: 6c accepted; owner started 6d.
 - 18 Nov 2026: **femur fit exception.** BodyParts3D femur accepted with max 2.43 mm (limit
   2 mm) because the misfit is one small spot at the adductor tubercle; limit for the femur
   set to 2.5 mm in `regions/thigh_right.json` (`fit_max_mm`). The 2 mm limit stays for every
@@ -407,8 +476,6 @@ Limits the owner should know (Phase 6c):
 
 ## Next
 
-- Phase 6d – muscle pull from attachment areas, femur readouts (neck-shaft angle, version,
-  leg length).
 - Phase 6e – mixed reality: real table, hand occlusion, traction, haptics.
 
 ## Test link

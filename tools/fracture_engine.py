@@ -470,6 +470,121 @@ def lateral_wall_mm(region, bone, parts):
     return round(float(steps[after[0]]), 1) if len(after) else None
 
 
+# ---------------------------------------------------------------- muscle pull (Phase 6d)
+GLB = lambda v: [round(float(v[0]), 5), round(float(v[2]), 5), round(float(-v[1]), 5)]       # Z-Anatomy -> GLB axes
+GLBm = lambda v: GLB(np.asarray(v) / 1000.0)                                                 # and mm -> m
+
+
+def muscle_poses(region, frags, musc, model):
+    """Typical displacement from the muscles (see muscle_model.json). Returns entry-level data and
+    a pose per fragment (GLB axes, metres): {t, axis, deg, pivot, unit, muscles}."""
+    cut = {f["mesh"] for f in frags}
+    trees = {i: cKDTree(np.vstack([p[1] for p in f["prims"]])) for i, f in enumerate(frags)}
+    by_bone = {}
+    for i, f in enumerate(frags):
+        by_bone.setdefault(f["mesh"], []).append(i)
+    def nearest(points, mesh):                 # fragment index of each point on a cut bone
+        ids = by_bone[mesh]
+        d = np.array([trees[i].query(points)[0] for i in ids])
+        return np.array(ids)[np.argmin(d, axis=0)]
+    out = {"followers": {}, "carriers": {}}
+    anchor, knee = None, None
+    femur = region.bones.get("femur")
+    if "Femur.r" in cut and femur is not None and hasattr(region, "head"):
+        h = region.head
+        anchor = int(nearest(np.array([h["centre"] + 0.8 * h["r"] * h["up"]]), "Femur.r")[0])
+        b = femur
+        n = b.tri.face_normals
+        joint = b.cart & (b.s_of(b.centroids) > 0.9) & (n @ b.d > 0.5)        # tibiofemoral cartilage
+        k = nearest(b.centroids[joint], "Femur.r")
+        knee = int(np.bincount(k).argmax())
+        lt = region.points["lesser_trochanter"] + 30 * b.d                       # proximal shaft, below the trochanters
+        out["carriers"] = {"head": frags[anchor]["name"], "shaft": frags[int(nearest(np.array([lt]), "Femur.r")[0])]["name"],
+                           "knee": frags[knee]["name"]}
+        for m in ("Tibia.r", "Fibula.r", "Patella.r"):
+            if m not in cut:
+                out["followers"][m] = frags[knee]["name"]
+    elif "Patella.r" in cut:
+        pl = musc["Patellar ligament"]["ends"]
+        e = next(x for x in pl if x["bone"] == "Patella.r")
+        anchor = int(nearest(np.array([e["centre"]]), "Patella.r")[0])
+    if anchor is not None:
+        out["anchor"] = frags[anchor]["name"]
+    unit_of = lambda mesh: ("knee" if knee is not None and mesh in out["followers"] else None)
+    F = {i: np.zeros(3) for i in range(len(frags))}
+    piv = {i: (region.head["centre"] if i == anchor and "Femur.r" in cut else frags[i]["site"]) for i in range(len(frags))}
+    T = {i: np.zeros(3) for i in range(len(frags))}
+    S = {i: {} for i in range(len(frags))}
+    for name, mu in musc.items():
+        if mu["kind"] != "muscle":
+            continue
+        pcsa0 = model["pcsa"].get(name, {}).get("pcsa_cm2", 0.0)
+        if not pcsa0:
+            continue
+        share = model.get("end_share", {}).get(name, {})
+        for e in mu["ends"]:
+            P, d = np.array(e["points"]), np.array(e["dir"])
+            pcsa = pcsa0 * share.get(e["bone"], 1.0)
+            if e["bone"] in cut:
+                ids = nearest(P, e["bone"])
+            elif unit_of(e["bone"]) == "knee":
+                ids = np.full(len(P), knee)
+            else:
+                continue                                  # pelvis or an intact, unmoving bone
+            for i in np.unique(ids):
+                sel = ids == i
+                f = pcsa * sel.mean() * d
+                F[i] += f
+                T[i] += np.cross(P[sel].mean(0) - piv[i], f)
+                S[i][name] = S[i].get(name, 0) + pcsa * sel.mean()
+    sz = model["sizes"]
+    for i, fr in enumerate(frags):
+        if i == anchor and "Femur.r" not in cut:
+            continue                                      # patella held by the patellar ligament
+        unit = "head" if i == anchor else ("leg" if i == knee else "piece")
+        if i == anchor and anchor == knee:
+            continue                                      # head and knee on one fragment: the femur stays
+        tot = sum(S[i].values())
+        if not tot:
+            fr["no_muscle"] = unit == "piece"
+            continue
+        tn = np.linalg.norm(T[i])
+        small = sz["min_turn_share"] * tot * 30.0
+        if unit == "leg" and femur is not None:          # each part of the leg's turn on its own (see muscle_model.json)
+            near_knee = femur.t_of(region.points["knee"]) - femur.t_of(piv[i]) <= sz["leg_sagittal_free_within_mm"]
+            w = np.zeros(3)
+            for ax, size, ok in ((femur.d, sz["leg_axial_deg"], True), (femur.e_ant, sz["leg_coronal_deg"], True),
+                                 (femur.e_med, sz["leg_sagittal_deg"], near_knee)):
+                c = T[i] @ ax
+                if ok and abs(c) > small:
+                    w += np.sign(c) * size * ax
+            deg = float(np.linalg.norm(w))
+            T[i], tn = (w, deg) if deg else (T[i], tn)
+        else:
+            deg = {"head": sz["head_rotation_deg"], "piece": sz["piece_rotation_deg"]}[unit] * (1.0 if tn > small else 0.0)
+        tmm = 0.0 if unit == "head" else {"leg": sz["leg_translation_mm"], "piece": sz["piece_translation_mm"]}[unit]
+        fdir = F[i] / np.linalg.norm(F[i]) if np.linalg.norm(F[i]) else np.zeros(3)
+        top = sorted(S[i].items(), key=lambda x: -x[1])[:4]
+        fr["pose"] = {"unit": unit, "t": GLBm(fdir * tmm), "axis": GLB(T[i] / tn if tn else np.array([1.0, 0, 0])),
+                      "deg": round(float(deg), 1), "pivot": GLBm(piv[i]),
+                      "muscles": [[n.replace(".r", ""), round(v / tot, 2)] for n, v in top]}
+    return out
+
+
+def femur_landmarks(region, root):
+    """Points and axes for the femur readout (neck-shaft angle, version, length), GLB axes."""
+    g = json.load(open(os.path.join(root, "model", region.id, region.cfg["geometry"])))
+    b = region.bones["femur"]
+    hc, kc = np.array(g["head_centre"]), np.array(g["knee_centre"])
+    return {"head_centre": GLBm(hc), "knee_centre": GLBm(kc), "neck_dir": GLB(region.head["axis"]),
+            "shaft_dir": GLB(np.array(g["shaft_axis_to_knee"])),
+            "cond_med": GLBm(g["posterior_condyle_medial"]), "cond_lat": GLBm(g["posterior_condyle_lateral"]),
+            "anterior": GLB(b.e_ant),
+            "intact": {"neck_shaft_deg": g["neck_shaft_angle_deg"], "version_deg": g["version_deg"],
+                       "length_mm": round(float(np.linalg.norm(hc - kc)), 1)},
+            "source": "Measured on this femur by tools/femur_geometry.py (intact values = the normal side)"}
+
+
 # ---------------------------------------------------------------- GLB output
 def write_glb(path, row, frags):
     """Minimal GLB writer. Metres, Y up (x, z, -y), same axes as the Phase 1 files."""
@@ -539,6 +654,9 @@ def main():
     for pr in profiles[1:]:
         regions[pr] = Region(region_id, ROOT, pr)
     default_of = lambda r: r.get("bone_quality") or region.cfg.get("default_profile", {}).get(r["segment"]) or profiles[0]
+    mpath = os.path.join(ROOT, "model", region_id, "muscles.json")      # muscle pull, if the region has one
+    musc = json.load(open(mpath))["muscles"] if os.path.exists(mpath) else None
+    mmodel = json.load(open(os.path.join(ROOT, "muscle_model.json"))) if musc else None
     out_dir = os.path.join(ROOT, "assets", region_id, "fractures")
     os.makedirs(out_dir, exist_ok=True)
     index_path = os.path.join(out_dir, "index.json")
@@ -578,6 +696,8 @@ def main():
                 continue
             if row.get("_measured"):
                 e["measured"] = row.pop("_measured")
+            if musc and frags:
+                e.update({k: v for k, v in muscle_poses(regions[dq], frags, musc, mmodel).items() if v})
             if frags:
                 e["file"] = files[dq]
                 if multi:
@@ -602,12 +722,22 @@ def main():
             f.pop("displace", None)
             if spec.get("displace"):
                 f["displace"] = spec["displace"]
+            elif f.get("pose"):
+                f["displace"] = "muscle"              # computed from the muscles (muscle_model.json)
+            elif f.get("no_muscle"):
+                f["displace"] = "wedge"               # loose piece with no muscle on it
     gl = lambda v: [round(float(v[0]), 5), round(float(v[2]), 5), round(float(-v[1]), 5)]   # to GLB axes
     frames = {k: {"mesh": b.cfg["mesh"], "distal": gl(b.d), "anterior": gl(b.e_ant), "medial": gl(b.e_med)}
               for k, b in region.bones.items()}
-    json.dump({"region": region_id, "cortex": "modelled, not measured", "frames": frames,
+    disp = dict(data.get("displacements", {}))
+    if musc:
+        disp["muscle"] = {"basis": mmodel["_about"] + " Sizes: " + mmodel["sizes"]["_basis"],
+                          "sources": [{"ref": "Muscle force = PCSA; see muscle_model.json for each value and its status",
+                                       "pmid": "18972175 / 31862009", "claim": "Ward 2009 (27 lower-limb muscles), Parvaresh 2019 (short external rotators)"}]}
+    extra = {"femur": femur_landmarks(region, ROOT)} if region.cfg.get("landmarks") == "femur" else {}
+    json.dump({"region": region_id, "cortex": "modelled, not measured", "frames": frames, **extra,
                **({"bone_quality": profiles} if len(profiles) > 1 else {}),
-               "displacements": data.get("displacements", {}), "fractures": entries},
+               "displacements": disp, "fractures": entries},
               open(index_path, "w"), indent=1)
     with open(os.path.join(out_dir, "FRACTURES.md"), "w") as f:
         f.write(f"# Fractures built for {region_id}\n\nCortex is modelled, not measured. "

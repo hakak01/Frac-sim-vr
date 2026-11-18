@@ -61,6 +61,12 @@ export function cortexPoints(node, max = 600) {
 export function displacedMatrix(f, preset, shorten = 1, amount = 1) {
   const m = new THREE.Matrix4();
   if (!preset) return m;
+  if (preset.pose) {                      // Phase 6d: pose worked out from the muscles (index.json)
+    const q = preset.pose, pv = V(q.pivot), t = V(q.t).multiplyScalar(shorten);
+    const R = new THREE.Matrix4().makeRotationAxis(V(q.axis).normalize(), THREE.MathUtils.degToRad(q.deg * amount));
+    return new THREE.Matrix4().makeTranslation(t.x + pv.x, t.y + pv.y, t.z + pv.z).multiply(R)
+      .multiply(new THREE.Matrix4().makeTranslation(-pv.x, -pv.y, -pv.z));
+  }
   const p = { shortening_mm: (preset.shortening_mm || 0) * shorten };
   for (const k of ['lateral_mm', 'posterior_mm', 'varus_deg', 'apex_anterior_deg', 'external_rotation_deg', 'away_mm', 'proximal_mm']) {
     p[k] = (preset[k] || 0) * amount;
@@ -111,7 +117,7 @@ export function modelMatrix(f) {
 // A "piece" (split, depressed fragment, wedge, malleolus, avulsion) is described by its own
 // movement. A shaft-type fragment is described as the distal part relative to the proximal
 // part, as in clinical practice, whichever of the two was moved.
-export const isPiece = (preset) => !(preset && preset.shortening_mm);
+export const isPiece = (preset) => (preset && preset.pose ? preset.pose.unit === 'piece' : !(preset && preset.shortening_mm));
 
 export function measure(f, ref) {
   f.holder.updateMatrix(); f.node.updateMatrix(); ref.holder.updateMatrix(); ref.node.updateMatrix();

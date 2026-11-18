@@ -161,7 +161,7 @@ async function main() {
   initRegions();
   select(null);
   await initFractures(loader);
-  tissue = initTissue({ layerGroups, fx, collider, boneColliders,
+  tissue = initTissue({ layerGroups, fx, collider, boneColliders, followerBone,
     softMaterials: () => ['muscles', 'tendon', 'joints', 'arteries', 'veins', 'nerves', 'skin'].map(material) });
   tissue.rebind();
   const gh = document.getElementById('ghost');
@@ -170,14 +170,14 @@ async function main() {
   document.getElementById('collide').addEventListener('change', (ev) => { sim.collide = ev.target.checked; sim.note = ''; sim.slow = 0; syncToggles(); });
   xr = initXR({ renderer, scene, camera, controls, stage, layerGroups, fx, showFracture, setSpread,
     resetFragments, setPosition, collider, boneColliders, updateReadout, resize, advance, sim, measure, readoutLines,
-    setGhost, syncToggles, tissue: () => tissue, setLayer, setQuality });
+    setGhost, syncToggles, tissue: () => tissue, setLayer, setQuality, femurLines });
   window.viewer = { THREE, camera, controls, scene, stage, root, showFracture, setSpread, resetFragments, setPosition,
-    measure, collider, overlap, advance, sim, tissue, setGhost, setLayer, setQuality, fx, xr,
+    measure, collider, overlap, advance, sim, tissue, setGhost, setLayer, setQuality, femurState, fx, xr,
     layerGroups, renderer, ready: true };   // for testing
 }
 
 // ---- Phase 2: pre-cut fractures -------------------------------------------
-const fx = { index: {}, data: null, group: null, hidden: [], fragments: [], loader: null, spread: 0, token: 0, current: '',
+const fx = { index: {}, data: null, group: null, hidden: [], fragments: [], followers: [], loader: null, spread: 0, token: 0, current: '',
   position: 'displaced',        // position: 'displaced' (typical displacement) or 'reduced' (anatomical)
   quality: '', shownQuality: '' };   // bone quality chosen ('' = the fracture's default) and the one shown
 let xr = { update() {} };
@@ -247,8 +247,64 @@ function colliderSize(x) {
   return x.vol > 2 ? [0.0005, 0.001] : [0.0003, 0.0006];
 }
 function collider(x) { return (x.collider ||= makeCollider(x.node, ...colliderSize(x))); }
-function boneColliders() {          // intact bones that are on screen (not replaced by fragments)
-  return Object.values(structures).filter((s) => s.layer === 'bones' && s.node && s.node.visible).map(collider);
+function boneColliders(withFollowers = false) {   // intact bones on screen (not replaced by fragments)
+  return Object.values(structures).filter((s) => s.layer === 'bones' && s.node && s.node.visible
+    && (withFollowers || !isFollower(s.node))).map(collider);
+}
+
+// ---- Phase 6d: the leg (tibia, fibula, intact patella) moves with the femur fragment that carries the knee ----
+const isFollower = (node) => fx.followers.some((x) => x.node === node);
+function followerBone(c) {           // for the soft tissue: a follower counts as the knee fragment
+  const k = fx.followers.find((x) => x.node === c.obj);
+  return k ? fx.fragments.indexOf(k.frag) + 1 : 0;
+}
+const FW = { m: new THREE.Matrix4(), q: new THREE.Quaternion(), tw: new THREE.Quaternion(), p: new THREE.Vector3(), s: new THREE.Vector3() };
+function updateFollowers() {
+  if (!fx.followers.length) return;
+  const f = fx.followers[0].frag, ax = f.frame.M;
+  f.holder.updateMatrix(); f.node.updateMatrix();
+  FW.m.copy(f.holder.matrix).multiply(f.node.matrix);
+  FW.m.decompose(FW.p, FW.q, FW.s);
+  // the knee joint takes up the forwards/backwards tilt: keep the turn without its part about the medial-lateral axis
+  const d = FW.q.x * ax.x + FW.q.y * ax.y + FW.q.z * ax.z;
+  FW.tw.set(ax.x * d, ax.y * d, ax.z * d, FW.q.w).normalize();
+  const swing = FW.q.clone().multiply(FW.tw.clone().invert());
+  const k0 = new THREE.Vector3(...fx.data.femur.knee_centre), k1 = k0.clone().applyMatrix4(FW.m);
+  const F = new THREE.Matrix4().makeTranslation(k1.x, k1.y, k1.z).multiply(new THREE.Matrix4().makeRotationFromQuaternion(swing))
+    .multiply(new THREE.Matrix4().makeTranslation(-k0.x, -k0.y, -k0.z));
+  for (const x of fx.followers) {
+    x.node.matrixAutoUpdate = false;
+    x.node.matrix.copy(F).multiply(x.home);
+    x.node.matrixWorldNeedsUpdate = true;
+  }
+}
+
+// ---- Phase 6d: femur readout (neck-shaft angle, version, length) against the intact femur ----
+function femurState() {
+  const L = fx.data && fx.data.femur, e = fx.index[fx.current], c = e && e.carriers;
+  if (!L || !c) return null;
+  const find = (n) => fx.fragments.find((f) => f.bone === 'femur' && f.node.userData.fragment === n);
+  const h = find(c.head), s = find(c.shaft), k = find(c.knee);
+  if (!h || !s || !k) return null;
+  const M = (f) => { f.holder.updateMatrix(); f.node.updateMatrix(); return f.holder.matrix.clone().multiply(f.node.matrix); };
+  const Mh = M(h), Ms = M(s), Mk = M(k);
+  const P = (m, a) => new THREE.Vector3(...a).applyMatrix4(m);
+  const D = (m, a) => new THREE.Vector3(...a).applyMatrix3(new THREE.Matrix3().setFromMatrix4(m)).normalize();
+  const hc = P(Mh, L.head_centre), kc = P(Mk, L.knee_centre), neck = D(Mh, L.neck_dir), shaft = D(Ms, L.shaft_dir);
+  const mech = kc.clone().sub(hc).normalize();
+  const flat = (v) => v.clone().sub(mech.clone().multiplyScalar(v.dot(mech))).normalize();
+  const pn = flat(neck), pc = flat(P(Mk, L.cond_med).sub(P(Mk, L.cond_lat)));
+  const ver = THREE.MathUtils.radToDeg(pn.angleTo(pc)) * (pn.dot(flat(D(Mk, L.anterior))) >= 0 ? 1 : -1);
+  return { nsa: THREE.MathUtils.radToDeg(neck.angleTo(shaft)), ver, len: hc.distanceTo(kc) * 1000, intact: L.intact };
+}
+function femurLines() {
+  const s = femurState();
+  if (!s) return [];
+  const i = s.intact, dl = s.len - i.length_mm;
+  const verTxt = (x) => `${Math.abs(x).toFixed(0)}° ${x >= 0 ? 'anteversion' : 'retroversion'}`;
+  return [['Neck-shaft angle', `${s.nsa.toFixed(0)}° (normal side ${i.neck_shaft_deg}°)`],
+    ['Femoral version', `${verTxt(s.ver)} (normal side ${verTxt(i.version_deg)})`],
+    ['Length, head to knee centre', `${s.len.toFixed(0)} mm (normal side ${i.length_mm.toFixed(0)}; ${Math.abs(dl) < 0.5 ? 'equal' : `${Math.abs(dl).toFixed(0)} mm ${dl < 0 ? 'short' : 'long'}`})`]];
 }
 
 // Collision shapes are slightly smaller than the bone. Where two fragments still touch in the
@@ -282,10 +338,17 @@ function typicalPose(f, placed, waiting) {
   // Not free: try smaller versions of the deformity, cheapest first. Cost in "mm": shortening
   // given up counts 1 per mm; deformity given up counts 10 per 100 %; moving the fragment
   // further apart counts 1.5 per mm along the bone, 1 per mm outward (small pieces only).
-  const axial = f.frame.D.clone().multiplyScalar(f.isDistal ? 1 : -1), sh = f.preset.shortening_mm || 0;
+  const axial = f.frame.D.clone().multiplyScalar(f.isDistal ? 1 : -1);
+  const pose = f.preset.pose, sh = f.preset.shortening_mm || (pose ? Math.hypot(...pose.t) * 1000 : 0);
   const piece = !!(f.preset.away_mm || f.preset.proximal_mm || f.preset.use_impaction);
   const moves = [[null, 0, 0]];
-  for (let d = 1; d <= 10; d++) moves.push([axial, d, 1.5 * d]);
+  if (pose) {                                // muscle pose: slide sideways past the other fragment (cheaper than losing the shift)
+    for (const dir of [f.frame.M, f.frame.M.clone().negate(), f.frame.A, f.frame.A.clone().negate()]) {
+      for (let d = 2; d <= 16; d += 2) moves.push([dir, d, 0.8 * d]);
+    }
+  } else {
+    for (let d = 1; d <= 10; d++) moves.push([axial, d, 1.5 * d]);
+  }
   if (piece) for (let d = 1; d <= 15; d++) moves.push([f.dir, d, d]);
   const tries = [];
   for (const k of [1, 0.75, 0.5, 0.25, 0]) {
@@ -309,7 +372,11 @@ function placeAll() {
   fx.group.updateWorldMatrix(true, false);
   const toGroup = new THREE.Matrix4().copy(fx.group.matrixWorld).invert();
   const placed = boneColliders().map((c) => [c, toGroup.clone().multiply(c.obj.matrixWorld)]);
-  for (const f of fx.fragments) if (f.fixed) { f.displacedM = I.clone(); placed.push([collider(f), I]); }
+  for (const f of fx.fragments) {      // main fragments: home, or turned in the hip socket (Phase 6d)
+    if (!f.fixed) continue;
+    f.displacedM = f.preset && f.preset.pose ? displacedMatrix(f, f.preset) : I.clone();
+    placed.push([collider(f), f.displacedM]);
+  }
   const order = fx.fragments.filter((x) => !x.fixed).sort((x, y) => y.vol - x.vol);
   order.forEach((f, i) => {
     f.startNote = null;
@@ -338,7 +405,7 @@ const T = { p: new THREE.Vector3(), q: new THREE.Quaternion(), s: new THREE.Vect
 
 function others(f) {                          // everything fragment f could hit: [collider, owner]
   return [...fx.fragments.filter((o) => o !== f).map((o) => [collider(o), o]),
-    ...Object.values(structures).filter((s) => s.layer === 'bones' && s.node && s.node.visible).map((s) => [collider(s), s])];
+    ...Object.values(structures).filter((s) => s.layer === 'bones' && s.node && s.node.visible && !isFollower(s.node)).map((s) => [collider(s), s])];
 }
 function touchingSet(f, local) {              // what fragment f would overlap at the pose `local`
   f.holder.updateWorldMatrix(true, false);
@@ -418,7 +485,10 @@ const resetFragments = () => setPosition('reduced');
 // numbers for every moving fragment, on the page
 function updateReadout() {
   const el = document.getElementById('readout');
-  el.innerHTML = fx.fragments.filter((f) => !f.fixed).map((f) => `<div class="ro"><b>${f.label}</b>`
+  const fl = femurLines();
+  el.innerHTML = (fl.length ? '<div class="ro"><b>Femur (against the normal side)</b>'
+    + fl.map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join('') + '</div>' : '')
+    + fx.fragments.filter((f) => !f.fixed).map((f) => `<div class="ro"><b>${f.label}</b>`
     + readoutLines(measure(f, f.ref)).map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join('') + '</div>').join('');
 }
 
@@ -435,6 +505,11 @@ async function showFracture(id) {
   document.getElementById('fx').value = fx.current;
   if (fx.group) fx.group.removeFromParent();
   fx.hidden.forEach((n) => { n.visible = true; });
+  for (const x of fx.followers) {                 // the leg goes back home
+    x.node.matrix.copy(x.home); x.node.matrix.decompose(x.node.position, x.node.quaternion, x.node.scale);
+    x.node.matrixAutoUpdate = x.auto; x.node.updateMatrixWorld(true);
+  }
+  fx.followers = [];
   Object.assign(fx, { group: null, hidden: [], fragments: [] });
   const info = document.getElementById('fxinfo');
   info.innerHTML = '';
@@ -450,6 +525,9 @@ async function showFracture(id) {
     + (e.note ? `<p>${e.note}</p>` : '') + `<p>${e.line_basis}</p><ul>${src}</ul>`
     + '<p>Cortex thickness is modelled, not measured.</p>';
   // where the typical displacement of each moving fragment comes from
+  const pulled = e.fragments.filter((x) => x.pose && x.pose.muscles && x.pose.muscles.length);
+  if (pulled.length) info.innerHTML += '<p><b>Muscle pull</b> (direction from the muscles, size a teaching value)</p><ul>'
+    + pulled.map((x) => `<li>${x.name}: ${x.pose.muscles.map(([m, s]) => `${m.replace(/ muscle$/, '')} ${Math.round(s * 100)} %`).join(', ')}</li>`).join('') + '</ul>';
   const used = [...new Set(e.fragments.map((x) => x.displace).filter(Boolean))];
   if (used.length) {
     info.innerHTML += '<p><b>Typical displacement</b></p><ul>' + used.map((k) => {
@@ -497,13 +575,19 @@ async function showFracture(id) {
     const f = { node, holder, dir: dir.lengthSq() ? dir.normalize() : dir, vol: u.volume_cm3, bone: u.bone,
       label: `${u.bone}: ${u.fragment}`, fixed: false, frame, site,
       isDistal: new THREE.Vector3(...u.centroid).sub(site).dot(frame.D) > 0,
-      preset: fx.data.displacements[meta.displace] || null, presetName: meta.displace || '',
+      preset: meta.pose ? { pose: meta.pose } : (fx.data.displacements[meta.displace] || null), presetName: meta.displace || '',
       edge: articular && u.bone === 'tibia' ? articularEdge(node) : [], cortex: cortexPoints(node), ref: null, collider: null };
     node.userData.frag = f;
     fx.fragments.push(f);
     if (!biggest[u.bone] || f.vol > biggest[u.bone].vol) biggest[u.bone] = f;
   }
+  // the main fragment: the one that carries the femoral head (in the hip socket) or holds the patella, else the largest
+  if (e.anchor) for (const f of fx.fragments) if (f.node.userData.fragment === e.anchor) biggest[f.bone] = f;
   Object.values(biggest).forEach((f) => { f.fixed = true; });   // the main fragment stays in place
+  for (const [name, fragName] of Object.entries(e.followers || {})) {
+    const s = structures[name], frag = fx.fragments.find((f) => f.bone === 'femur' && f.node.userData.fragment === fragName);
+    if (s && s.node && frag && fx.data.femur) fx.followers.push({ node: s.node, frag, home: s.node.matrix.clone(), auto: s.node.matrixAutoUpdate });
+  }
   for (const f of fx.fragments) f.ref = biggest[f.bone];
   fitColliders();
   placeAll();
@@ -551,6 +635,7 @@ renderer.setAnimationLoop(() => {
   sim.fps = sim.fps ? sim.fps * 0.95 + (1 / Math.max(dt, 1e-3)) * 0.05 : 60;
   if (renderer.xr.isPresenting) xr.update(); else controls.update();
   if (stepPull(dt) && now - readoutAt > 200) { readoutAt = now; updateReadout(); }
+  updateFollowers();
   tissue.update(4);
   renderer.render(scene, camera);
 });

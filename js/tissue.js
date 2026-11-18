@@ -141,7 +141,8 @@ export function initTissue(v) {
     const list = meshes.filter((m) => m.token !== token && v.layerGroups[m.layer].visible);
     if (!list.length) return;
     if (!ctx.cols) {
-      ctx.cols = [...v.fx.fragments.map((f, i) => ({ c: v.collider(f), bone: i + 1 })), ...v.boneColliders().map((c) => ({ c, bone: 0 }))];
+      ctx.cols = [...v.fx.fragments.map((f, i) => ({ c: v.collider(f), bone: i + 1 })),
+        ...v.boneColliders(true).map((c) => ({ c, bone: v.followerBone ? v.followerBone(c) : 0 }))];   // the leg follows the knee fragment
     }
     job = { list, mi: 0, vi: 0, acc: new Float32Array(ctx.nb) };
     api.busy = true;

@@ -110,7 +110,7 @@ export function initXR(v) {
   let stripText = '';
   function drawStrip() {                                  // live readout
     const f = ui.sel && fx.fragments.includes(ui.sel) ? ui.sel : null;
-    const lines = f && !f.fixed ? v.readoutLines(v.measure(f, f.ref)) : [];
+    const lines = f && !f.fixed ? v.readoutLines(v.measure(f, f.ref)) : (v.femurLines ? v.femurLines() : []);   // femur summary otherwise
     const head = f ? `${f.label}${f.fixed ? '  (main fragment: the others are measured against it)' : ''}` : 'Point at a fragment to see its displacement.';
     const foot = `${Math.round(sim.fps)} fps` + (v.tissue().busy ? ' · tying soft tissue to the fragments…' : '') + (sim.note ? ' · ' + sim.note : '');
     const text = head + lines.map((l) => l.join(' ')).join('|') + foot;
