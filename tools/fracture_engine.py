@@ -571,6 +571,53 @@ def muscle_poses(region, frags, musc, model):
     return out
 
 
+def joint_followers(region, frags):
+    """Context bones that move with the fragment carrying a joint surface (bone_model.json 'followers'),
+    e.g. the talus with the tibial fragment that holds the plafond. A follower stays put if its bone is not cut."""
+    out = {}
+    for mesh, spec in region.cfg.get("followers", {}).items():
+        if mesh.startswith("_"):
+            continue
+        b = region.bones[spec["bone"]]
+        ids = [i for i, f in enumerate(frags) if f["mesh"] == b.cfg["mesh"]]
+        if not ids:
+            continue
+        n, s = b.tri.face_normals, b.s_of(b.centroids)
+        joint = b.cart & ((s > 0.8) & (n @ b.d > 0.7) if spec["end"] == "distal" else (s < 0.2) & (n @ -b.d > 0.5))
+        trees = [cKDTree(np.vstack([p[1] for p in frags[i]["prims"]])) for i in ids]
+        d = np.array([t.query(b.centroids[joint])[0] for t in trees])
+        k = np.bincount(np.argmin(d, axis=0), weights=b.tri.area_faces[joint], minlength=len(ids))
+        out[mesh] = frags[ids[int(k.argmax())]]["name"]
+    return out
+
+
+def follower_pivots(region, root):
+    """Pivot of each follower, GLB metres: the centre of its joint arc. For the talus: circle fitted to the
+    trochlea cartilage (faces pointing up) in the sagittal plane of the bone it follows."""
+    out = {}
+    raw = None
+    for mesh, spec in region.cfg.get("followers", {}).items():
+        if mesh.startswith("_"):
+            continue
+        raw = raw if raw is not None else np.load(os.path.join(root, "model", region.id, "bones.npz"))
+        b = region.bones[spec["bone"]]
+        V, F, cart = raw[mesh + "|V"] * 1000.0, raw[mesh + "|F"], raw[mesh + "|cartilage"]
+        T = V[F]
+        nrm = np.cross(T[:, 1] - T[:, 0], T[:, 2] - T[:, 0])
+        nrm /= np.linalg.norm(nrm, axis=1, keepdims=True) + 1e-12
+        up = -b.d if spec["end"] == "distal" else b.d             # the follower's joint surface faces the cut bone
+        dome = cart & (nrm @ up > 0.7)
+        P = T[dome].mean(1)
+        x, y = P @ b.e_ant, P @ up
+        A = np.c_[2 * x, 2 * y, np.ones(len(x))]
+        (cx, cy, c0), *_ = np.linalg.lstsq(A, x ** 2 + y ** 2, rcond=None)   # circle fit (Kasa)
+        r = float(np.sqrt(c0 + cx ** 2 + cy ** 2))
+        c = cx * b.e_ant + cy * up + float(np.mean(P @ b.e_med)) * b.e_med
+        out[mesh] = {"bone": spec["bone"], "pivot": GLBm(c), "arc_radius_mm": round(r, 1),
+                     "basis": spec.get("basis", "")}
+    return out
+
+
 def femur_landmarks(region, root):
     """Points and axes for the femur readout (neck-shaft angle, version, length), GLB axes."""
     g = json.load(open(os.path.join(root, "model", region.id, region.cfg["geometry"])))
@@ -698,6 +745,10 @@ def main():
                 e["measured"] = row.pop("_measured")
             if musc and frags:
                 e.update({k: v for k, v in muscle_poses(regions[dq], frags, musc, mmodel).items() if v})
+            if frags and region.cfg.get("followers"):           # e.g. the talus moves with the plafond fragment
+                fol = joint_followers(regions[dq], frags)
+                if fol:
+                    e["followers"] = {**e.get("followers", {}), **fol}
             if frags:
                 e["file"] = files[dq]
                 if multi:
@@ -735,6 +786,8 @@ def main():
                           "sources": [{"ref": "Muscle force = PCSA; see muscle_model.json for each value and its status",
                                        "pmid": "18972175 / 31862009", "claim": "Ward 2009 (27 lower-limb muscles), Parvaresh 2019 (short external rotators)"}]}
     extra = {"femur": femur_landmarks(region, ROOT)} if region.cfg.get("landmarks") == "femur" else {}
+    if region.cfg.get("followers"):
+        extra["follow"] = follower_pivots(region, ROOT)
     json.dump({"region": region_id, "cortex": "modelled, not measured", "frames": frames, **extra,
                **({"bone_quality": profiles} if len(profiles) > 1 else {}),
                "displacements": disp, "fractures": entries},

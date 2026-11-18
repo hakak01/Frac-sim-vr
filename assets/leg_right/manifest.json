@@ -28,8 +28,8 @@
   "bones": {
    "label": "Bones",
    "file": "bones.glb",
-   "bytes": 58496,
-   "triangles": 11472,
+   "bytes": 81308,
+   "triangles": 17434,
    "structures": [
     {
      "name": "Fibula.r",
@@ -42,7 +42,8 @@
       "scale": 1.03304,
       "rotation_deg": 0.272,
       "median_mm": 0.007,
-      "max_mm": 0.734
+      "max_mm": 0.734,
+      "limit_mm": 2.0
      },
      "materials": [
       "Bone",
@@ -61,6 +62,37 @@
      "bytes_alone": 36124
     },
     {
+     "name": "Talus.r",
+     "group": "Tarsal bones.g",
+     "triangles": 5962,
+     "vertices": 2983,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24482",
+     "fit_to_z_anatomy": {
+      "scale": 1.03007,
+      "rotation_deg": 0.418,
+      "median_mm": 0.056,
+      "max_mm": 1.707,
+      "limit_mm": 2.0
+     },
+     "context_only": true,
+     "materials": [
+      "Bone-1",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0958,
+      0.0069,
+      0.0497
+     ],
+     "bbox_max": [
+      -0.0537,
+      0.0661,
+      0.0857
+     ],
+     "bytes_alone": 43592
+    },
+    {
      "name": "Tibia.r",
      "group": "Bones of free part of lower limb.g",
      "triangles": 6850,
@@ -71,7 +103,8 @@
       "scale": 1.033,
       "rotation_deg": 0.276,
       "median_mm": 0.006,
-      "max_mm": 0.994
+      "max_mm": 0.994,
+      "limit_mm": 2.0
      },
      "materials": [
       "Bone",

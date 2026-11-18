@@ -39,6 +39,18 @@
    ]
   }
  },
+ "follow": {
+  "Talus.r": {
+   "bone": "tibia",
+   "pivot": [
+    -0.0728,
+    0.06181,
+    -0.03317
+   ],
+   "arc_radius_mm": 23.9,
+   "basis": "Ankle joint intact: talus follows the plafond fragment; pivot = circle fitted to the trochlea cartilage in the sagittal plane"
+  }
+ },
  "displacements": {
   "_about": "Typical starting displacement (Phase 4). Shaft-type values describe the DISTAL part relative to the proximal part: shortening_mm, lateral_mm, posterior_mm, varus_deg (negative = valgus), apex_anterior_deg (negative = apex posterior), external_rotation_deg. Fragment-type values: away_mm (straight away from the fracture site), proximal_mm, use_impaction (use the impaction stored with a depressed fragment). Shortening is reduced automatically until the bone ends no longer overlap.",
   "shaft_mid": {
@@ -199,6 +211,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41A1_1.glb",
    "bones": [
     "Tibia.r"
@@ -237,6 +252,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41A1_2.glb",
    "bones": [
     "Tibia.r"
@@ -276,6 +294,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41A1_3.glb",
    "bones": [
     "Tibia.r"
@@ -314,6 +335,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41A2_1.glb",
    "bones": [
     "Tibia.r"
@@ -353,6 +377,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41A2_2.glb",
    "bones": [
     "Tibia.r"
@@ -392,6 +419,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41A2_3.glb",
    "bones": [
     "Tibia.r"
@@ -432,6 +462,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41A3_1.glb",
    "bones": [
     "Tibia.r"
@@ -480,6 +513,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41A3_2.glb",
    "bones": [
     "Tibia.r"
@@ -543,6 +579,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41A3_3.glb",
    "bones": [
     "Tibia.r"
@@ -628,6 +667,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Molenaars 2015: a lateral split fragment was present in 75 % of 127 plateau fractures.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B1_1.glb",
    "bones": [
     "Tibia.r"
@@ -671,6 +713,9 @@
     }
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B1_2.glb",
    "bones": [
     "Tibia.r"
@@ -710,6 +755,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B1_3.glb",
    "bones": [
     "Tibia.r"
@@ -749,6 +797,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B2_1.glb",
    "bones": [
     "Tibia.r"
@@ -794,6 +845,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B2_2.glb",
    "bones": [
     "Tibia.r"
@@ -844,6 +898,9 @@
     }
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B3_1.glb",
    "bones": [
     "Tibia.r"
@@ -897,6 +954,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B3_2.glb",
    "bones": [
     "Tibia.r"
@@ -950,6 +1010,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "41B3_3.glb",
    "bones": [
     "Tibia.r"
@@ -1002,6 +1065,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C1_1.glb",
    "bones": [
     "Tibia.r"
@@ -1049,6 +1115,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C1_2.glb",
    "bones": [
     "Tibia.r"
@@ -1105,6 +1174,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C2_1.glb",
    "bones": [
     "Tibia.r"
@@ -1161,6 +1233,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C2_2.glb",
    "bones": [
     "Tibia.r"
@@ -1232,6 +1307,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C2_3.glb",
    "bones": [
     "Tibia.r"
@@ -1321,6 +1399,9 @@
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
    "note": "Group name is printed this way in the Compendium (S52).",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C3_1.glb",
    "bones": [
     "Tibia.r"
@@ -1385,6 +1466,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C3_2.glb",
    "bones": [
     "Tibia.r"
@@ -1465,6 +1549,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Built from the four recurrent features of Molenaars 2015 (lateral split 75 %, posteromedial fragment 43 %, tibial tubercle fragment 16 %, central comminution with the tibial spine 28 %). Posteromedial fragment sized after Barei 2008 (about 58 % of the medial plateau surface, about 42 mm high). Yao 2020: fracture lines concentrate around the cruciate insertions and the inner lateral condyle.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C3_3.glb",
    "bones": [
     "Tibia.r"
@@ -1581,6 +1668,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Not a separate AO/OTA code. Barei 2008: a posteromedial fragment in 42 of 57 C-type fractures with medial articular involvement; mean 58 % of the medial plateau surface, mean height 42 mm, mean sagittal fracture angle 81 degrees.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
    "file": "41C-PM.glb",
    "bones": [
     "Tibia.r"
@@ -1637,6 +1727,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "42A1.glb",
    "bones": [
     "Tibia.r"
@@ -1677,6 +1770,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "42A2.glb",
    "bones": [
     "Tibia.r"
@@ -1717,6 +1813,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "42A3.glb",
    "bones": [
     "Tibia.r"
@@ -1757,6 +1856,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "42B2.glb",
    "bones": [
     "Tibia.r"
@@ -1805,6 +1907,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "42B3.glb",
    "bones": [
     "Tibia.r"
@@ -1868,6 +1973,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "42C2.glb",
    "bones": [
     "Tibia.r"
@@ -1916,6 +2024,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "42C3.glb",
    "bones": [
     "Tibia.r"
@@ -2003,6 +2114,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A1_1.glb",
    "bones": [
     "Tibia.r"
@@ -2042,6 +2156,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A1_2.glb",
    "bones": [
     "Tibia.r"
@@ -2081,6 +2198,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A1_3.glb",
    "bones": [
     "Tibia.r"
@@ -2120,6 +2240,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A2_1.glb",
    "bones": [
     "Tibia.r"
@@ -2167,6 +2290,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A2_2.glb",
    "bones": [
     "Tibia.r"
@@ -2214,6 +2340,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A2_3.glb",
    "bones": [
     "Tibia.r"
@@ -2261,6 +2390,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A3_1.glb",
    "bones": [
     "Tibia.r"
@@ -2324,6 +2456,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A3_2.glb",
    "bones": [
     "Tibia.r"
@@ -2411,6 +2546,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
    "file": "43A3_3.glb",
    "bones": [
     "Tibia.r"
@@ -2497,6 +2635,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Topliss 2005: pilon fractures fall into a coronal and a sagittal family.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "43B1_1.glb",
    "bones": [
     "Tibia.r"
@@ -2541,6 +2682,9 @@
     }
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "43B1_2.glb",
    "bones": [
     "Tibia.r"
@@ -2579,6 +2723,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "43B1_3.glb",
    "bones": [
     "Tibia.r"
@@ -2634,6 +2781,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "depressed fragment"
+   },
    "file": "43B2_1.glb",
    "bones": [
     "Tibia.r"
@@ -2687,6 +2837,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "depressed fragment"
+   },
    "file": "43B2_2.glb",
    "bones": [
     "Tibia.r"
@@ -2739,6 +2892,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "central fragment"
+   },
    "file": "43B2_3.glb",
    "bones": [
     "Tibia.r"
@@ -2792,6 +2948,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "43B3_1.glb",
    "bones": [
     "Tibia.r"
@@ -2837,6 +2996,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "43B3_2.glb",
    "bones": [
     "Tibia.r"
@@ -2881,6 +3043,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "anterior piece 3"
+   },
    "file": "43B3_3.glb",
    "bones": [
     "Tibia.r"
@@ -2955,6 +3120,9 @@
     }
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
    "file": "43C1_1.glb",
    "bones": [
     "Tibia.r"
@@ -3002,6 +3170,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "medial articular fragment"
+   },
    "file": "43C1_2.glb",
    "bones": [
     "Tibia.r"
@@ -3063,6 +3234,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
    "file": "43C1_3.glb",
    "bones": [
     "Tibia.r"
@@ -3112,6 +3286,9 @@
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
    "note": "The asymmetric impaction is a displacement (Phase 4); the fragments are cut in the reduced position.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
    "file": "43C2_1.glb",
    "bones": [
     "Tibia.r"
@@ -3191,6 +3368,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
    "file": "43C2_2.glb",
    "bones": [
     "Tibia.r"
@@ -3262,6 +3442,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
    "file": "43C2_3.glb",
    "bones": [
     "Tibia.r"
@@ -3360,6 +3543,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Cole 2013 (38 type 43C3 fractures): a constant Y pattern from the fibular incisura, exiting in front of and behind the medial malleolus, gives three main fragments (anterior, posterior, medial); comminution in 95 %, mostly central and anterolateral.",
+   "followers": {
+    "Talus.r": "posterior fragment"
+   },
    "file": "43C3_1.glb",
    "bones": [
     "Tibia.r"
@@ -3468,6 +3654,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Cole 2013 (38 type 43C3 fractures): a constant Y pattern from the fibular incisura, exiting in front of and behind the medial malleolus, gives three main fragments (anterior, posterior, medial); comminution in 95 %, mostly central and anterolateral.",
+   "followers": {
+    "Talus.r": "comminuted piece 3"
+   },
    "file": "43C3_2.glb",
    "bones": [
     "Tibia.r"
@@ -3608,6 +3797,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Cole 2013 (38 type 43C3 fractures): a constant Y pattern from the fibular incisura, exiting in front of and behind the medial malleolus, gives three main fragments (anterior, posterior, medial); comminution in 95 %, mostly central and anterolateral.",
+   "followers": {
+    "Talus.r": "posterior fragment"
+   },
    "file": "43C3_3.glb",
    "bones": [
     "Tibia.r"
@@ -3852,6 +4044,9 @@
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
    "soft_tissue": "Rupture of the lateral collateral ligament (no bone cut).",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44A2_1.glb",
    "bones": [
     "Tibia.r"
@@ -3890,6 +4085,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44A2_2.glb",
    "bones": [
     "Fibula.r",
@@ -3945,6 +4143,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44A2_3.glb",
    "bones": [
     "Fibula.r",
@@ -4001,6 +4202,9 @@
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
    "soft_tissue": "Rupture of the lateral collateral ligament (no bone cut).",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44A3_1.glb",
    "bones": [
     "Tibia.r"
@@ -4039,6 +4243,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44A3_2.glb",
    "bones": [
     "Fibula.r",
@@ -4094,6 +4301,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44A3_3.glb",
    "bones": [
     "Fibula.r",
@@ -4316,6 +4526,9 @@
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
    "soft_tissue": "Rupture of the anterior syndesmosis (no bone cut).",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44B2_2.glb",
    "bones": [
     "Fibula.r",
@@ -4372,6 +4585,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44B2_3.glb",
    "bones": [
     "Fibula.r",
@@ -4447,6 +4663,9 @@
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "soft_tissue": "Rupture of the deltoid ligament (no bone cut).",
    "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44B3_1.glb",
    "bones": [
     "Fibula.r",
@@ -4513,6 +4732,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44B3_2.glb",
    "bones": [
     "Fibula.r",
@@ -4587,6 +4809,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44B3_3.glb",
    "bones": [
     "Fibula.r",
@@ -4700,6 +4925,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44C1_2.glb",
    "bones": [
     "Fibula.r",
@@ -4767,6 +4995,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44C1_3.glb",
    "bones": [
     "Fibula.r",
@@ -4880,6 +5111,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44C2_2.glb",
    "bones": [
     "Fibula.r",
@@ -4955,6 +5189,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44C2_3.glb",
    "bones": [
     "Fibula.r",
@@ -5027,6 +5264,9 @@
     }
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44C3_1.glb",
    "bones": [
     "Fibula.r",
@@ -5084,6 +5324,9 @@
    ],
    "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
    "note": "Shortening is a displacement (Phase 4); the fragments are the same as 44C3.1.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44C3_2.glb",
    "bones": [
     "Fibula.r",
@@ -5151,6 +5394,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44C3_3.glb",
    "bones": [
     "Fibula.r",
@@ -5225,6 +5471,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Not a separate AO/OTA code. Haraguchi type I: 38 of 57 (67 %); mean 11.7 % of the plafond cross-section.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44-PM-I.glb",
    "bones": [
     "Tibia.r"
@@ -5274,6 +5523,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Not a separate AO/OTA code. Haraguchi type II: 11 of 57 (19 %); mean 29.8 % of the plafond cross-section; the line reaches the medial malleolus. Mangnus 2015 found type II to be a separate pattern.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44-PM-II.glb",
    "bones": [
     "Tibia.r"
@@ -5323,6 +5575,9 @@
    ],
    "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
    "note": "Not a separate AO/OTA code. Haraguchi type III: 8 of 57 (14 %); small shell-shaped fragments at the posterior lip.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
    "file": "44-PM-III.glb",
    "bones": [
     "Tibia.r"

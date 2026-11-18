@@ -5,8 +5,9 @@ Size = Draco-compressed size. For one structure it is the size if stored alone; 
 
 | Structure (Z-Anatomy name) | Source | Triangles | Size (KB) |
 |---|---|---:|---:|
-| **Bones (2) - bones.glb** | | **11,472** | **57** |
+| **Bones (3) - bones.glb** | | **17,434** | **79** |
 | Fibula.r | BodyParts3D 3.0 FMA24480 | 4,622 | 35 |
+| Talus.r | BodyParts3D 3.0 FMA24482 | 5,962 | 43 |
 | Tibia.r | BodyParts3D 3.0 FMA24477 | 6,850 | 42 |
 | **Muscles and tendons (16) - muscles.glb** | | **70,393** | **273** |
 | Calcaneal tendon.r | Z-Anatomy | 4,377 | 35 |
@@ -64,4 +65,4 @@ Size = Draco-compressed size. For one structure it is the size if stored alone; 
 | Popliteal fossa.r | Z-Anatomy | 120 | 25 |
 | Posterior region of knee.r | Z-Anatomy | 644 | 27 |
 | Posterior region of leg.r | Z-Anatomy | 1,220 | 28 |
-| **Total (53)** | | **187,693** | **710** |
+| **Total (54)** | | **193,655** | **732** |

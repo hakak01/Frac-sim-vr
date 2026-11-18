@@ -1,0 +1,4612 @@
+{
+ "id": "foot_right",
+ "title": "Right foot and ankle (talus to toes)",
+ "main_bone": "Calcaneus.r",
+ "units": "metres (true scale)",
+ "compression": "Draco, 14-bit positions (about 0.02 mm steps)",
+ "axes_glb": "x: patient left is +, y: up, z: patient front is +",
+ "z_window_m": [
+  0.0099,
+  0.0855
+ ],
+ "source": {
+  "name": "Z-Anatomy",
+  "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+  "commit": "cf1967839387baf412c50b47fc6a63fff30618a3",
+  "license": "CC BY-SA 4.0",
+  "derived_from": "BodyParts3D, (c) The Database Center for Life Science, CC BY-SA 2.1 Japan"
+ },
+ "bone_source": {
+  "name": "BodyParts3D 3.0 (polygon reduction 95% set)",
+  "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+  "mirror": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
+  "mirror_commit": "2c83c698788cff57f6317bddcf712e7acfbea7d8",
+  "license": "CC BY-SA 2.1 Japan",
+  "attribution": "BodyParts3D, (c) The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan"
+ },
+ "layers": {
+  "bones": {
+   "label": "Bones",
+   "file": "bones.glb",
+   "bytes": 309612,
+   "triangles": 68476,
+   "structures": [
+    {
+     "name": "Calcaneus.r",
+     "group": "Tarsal bones.g",
+     "triangles": 5448,
+     "vertices": 2726,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24497",
+     "fit_to_z_anatomy": {
+      "scale": 1.03318,
+      "rotation_deg": 0.367,
+      "median_mm": 0.024,
+      "max_mm": 1.011,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-5",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1022,
+      0.0158,
+      0.0114
+     ],
+     "bbox_max": [
+      -0.0547,
+      0.0916,
+      0.0627
+     ],
+     "bytes_alone": 40972
+    },
+    {
+     "name": "Cuboid bone.r",
+     "group": "Tarsal bones.g",
+     "triangles": 3634,
+     "vertices": 1819,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24528",
+     "fit_to_z_anatomy": {
+      "scale": 1.0308,
+      "rotation_deg": 0.38,
+      "median_mm": 0.045,
+      "max_mm": 1.2,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-6",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1119,
+      -0.0107,
+      0.029
+     ],
+     "bbox_max": [
+      -0.0794,
+      0.0238,
+      0.0597
+     ],
+     "bytes_alone": 36176
+    },
+    {
+     "name": "Distal phalanx of fifth finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 274,
+     "vertices": 141,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32658",
+     "fit_to_z_anatomy": {
+      "scale": 1.03283,
+      "rotation_deg": 0.349,
+      "median_mm": 0.006,
+      "max_mm": 0.403,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-8",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1464,
+      -0.0965,
+      0.0091
+     ],
+     "bbox_max": [
+      -0.1385,
+      -0.0856,
+      0.0149
+     ],
+     "bytes_alone": 23584
+    },
+    {
+     "name": "Distal phalanx of first finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 1606,
+     "vertices": 805,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32650",
+     "fit_to_z_anatomy": {
+      "scale": 1.03377,
+      "rotation_deg": 0.711,
+      "median_mm": 0.014,
+      "max_mm": 0.357,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-8",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0904,
+      -0.1346,
+      0.0098
+     ],
+     "bbox_max": [
+      -0.0696,
+      -0.1077,
+      0.0214
+     ],
+     "bytes_alone": 28492
+    },
+    {
+     "name": "Distal phalanx of fourth finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 362,
+     "vertices": 183,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32656",
+     "fit_to_z_anatomy": {
+      "scale": 1.03349,
+      "rotation_deg": 0.271,
+      "median_mm": 0.001,
+      "max_mm": 0.153,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-8",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1366,
+      -0.1154,
+      0.0092
+     ],
+     "bbox_max": [
+      -0.1277,
+      -0.1037,
+      0.0166
+     ],
+     "bytes_alone": 23988
+    },
+    {
+     "name": "Distal phalanx of second finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 466,
+     "vertices": 235,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32652",
+     "fit_to_z_anatomy": {
+      "scale": 1.03193,
+      "rotation_deg": 0.494,
+      "median_mm": 0.016,
+      "max_mm": 0.268,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-8",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1089,
+      -0.1373,
+      0.0095
+     ],
+     "bbox_max": [
+      -0.0985,
+      -0.1236,
+      0.0172
+     ],
+     "bytes_alone": 24420
+    },
+    {
+     "name": "Distal phalanx of third finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 334,
+     "vertices": 169,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32654",
+     "fit_to_z_anatomy": {
+      "scale": 1.03354,
+      "rotation_deg": 0.129,
+      "median_mm": 0.004,
+      "max_mm": 0.196,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-8",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1233,
+      -0.1303,
+      0.0095
+     ],
+     "bbox_max": [
+      -0.1144,
+      -0.1183,
+      0.0156
+     ],
+     "bytes_alone": 23868
+    },
+    {
+     "name": "Fibula.r",
+     "group": "Bones of free part of lower limb.g",
+     "triangles": 4622,
+     "vertices": 2313,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24480",
+     "fit_to_z_anatomy": {
+      "scale": 1.03304,
+      "rotation_deg": 0.272,
+      "median_mm": 0.007,
+      "max_mm": 0.734,
+      "limit_mm": 2.0
+     },
+     "context_only": true,
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1248,
+      0.0267,
+      0.0552
+     ],
+     "bbox_max": [
+      -0.0886,
+      0.0597,
+      0.4178
+     ],
+     "bytes_alone": 36124
+    },
+    {
+     "name": "Fifth metatarsal bone.r",
+     "group": "Metatarsal bones.g",
+     "triangles": 3432,
+     "vertices": 1718,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24515",
+     "fit_to_z_anatomy": {
+      "scale": 1.03269,
+      "rotation_deg": 0.315,
+      "median_mm": 0.007,
+      "max_mm": 0.287,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.138,
+      -0.0597,
+      0.0099
+     ],
+     "bbox_max": [
+      -0.1009,
+      0.014,
+      0.0412
+     ],
+     "bytes_alone": 33924
+    },
+    {
+     "name": "First metatarsal bone.r",
+     "group": "Metatarsal bones.g",
+     "triangles": 4886,
+     "vertices": 2445,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24507",
+     "fit_to_z_anatomy": {
+      "scale": 1.03291,
+      "rotation_deg": 0.246,
+      "median_mm": 0.002,
+      "max_mm": 0.233,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0822,
+      -0.0844,
+      0.0146
+     ],
+     "bbox_max": [
+      -0.0603,
+      -0.0208,
+      0.0596
+     ],
+     "bytes_alone": 39064
+    },
+    {
+     "name": "Fourth metatarsal bone.r",
+     "group": "Metatarsal bones.g",
+     "triangles": 2918,
+     "vertices": 1461,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24513",
+     "fit_to_z_anatomy": {
+      "scale": 1.03301,
+      "rotation_deg": 0.535,
+      "median_mm": 0.016,
+      "max_mm": 0.872,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1243,
+      -0.0723,
+      0.0124
+     ],
+     "bbox_max": [
+      -0.0941,
+      -0.0037,
+      0.0494
+     ],
+     "bytes_alone": 32676
+    },
+    {
+     "name": "Intermediate cuneiform bone.r",
+     "group": "Tarsal bones.g",
+     "triangles": 1948,
+     "vertices": 976,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24523",
+     "fit_to_z_anatomy": {
+      "scale": 1.03298,
+      "rotation_deg": 0.271,
+      "median_mm": 0.0,
+      "max_mm": 0.034,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-3",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0934,
+      -0.0227,
+      0.0466
+     ],
+     "bbox_max": [
+      -0.0738,
+      0.0002,
+      0.0707
+     ],
+     "bytes_alone": 30196
+    },
+    {
+     "name": "Lateral cuneiform bone.r",
+     "group": "Tarsal bones.g",
+     "triangles": 2702,
+     "vertices": 1353,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24525",
+     "fit_to_z_anatomy": {
+      "scale": 1.0154,
+      "rotation_deg": 2.445,
+      "median_mm": 0.237,
+      "max_mm": 1.875,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-3",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1056,
+      -0.0203,
+      0.0408
+     ],
+     "bbox_max": [
+      -0.0813,
+      0.0058,
+      0.0672
+     ],
+     "bytes_alone": 33132
+    },
+    {
+     "name": "Medial cuneiform bone.r",
+     "group": "Tarsal bones.g",
+     "triangles": 4114,
+     "vertices": 2059,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24521",
+     "fit_to_z_anatomy": {
+      "scale": 1.0324,
+      "rotation_deg": 0.37,
+      "median_mm": 0.009,
+      "max_mm": 0.485,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-3",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0832,
+      -0.0321,
+      0.0355
+     ],
+     "bbox_max": [
+      -0.058,
+      0.0011,
+      0.0678
+     ],
+     "bytes_alone": 37396
+    },
+    {
+     "name": "Middle phalanx of fifth finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 294,
+     "vertices": 149,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA230986",
+     "fit_to_z_anatomy": {
+      "scale": 1.0341,
+      "rotation_deg": 0.319,
+      "median_mm": 0.018,
+      "max_mm": 0.32,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-7",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1454,
+      -0.0877,
+      0.0095
+     ],
+     "bbox_max": [
+      -0.1368,
+      -0.0798,
+      0.0162
+     ],
+     "bytes_alone": 23868
+    },
+    {
+     "name": "Middle phalanx of fourth finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 520,
+     "vertices": 262,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32646",
+     "fit_to_z_anatomy": {
+      "scale": 1.03307,
+      "rotation_deg": 0.206,
+      "median_mm": 0.007,
+      "max_mm": 0.242,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-7",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1355,
+      -0.1063,
+      0.0098
+     ],
+     "bbox_max": [
+      -0.1243,
+      -0.0923,
+      0.0182
+     ],
+     "bytes_alone": 24716
+    },
+    {
+     "name": "Middle phalanx of second finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 652,
+     "vertices": 328,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32642",
+     "fit_to_z_anatomy": {
+      "scale": 1.03217,
+      "rotation_deg": 0.269,
+      "median_mm": 0.012,
+      "max_mm": 0.512,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-7",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1072,
+      -0.1265,
+      0.0118
+     ],
+     "bbox_max": [
+      -0.0948,
+      -0.1089,
+      0.021
+     ],
+     "bytes_alone": 25260
+    },
+    {
+     "name": "Middle phalanx of third finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 634,
+     "vertices": 319,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32644",
+     "fit_to_z_anatomy": {
+      "scale": 1.0322,
+      "rotation_deg": 0.205,
+      "median_mm": 0.005,
+      "max_mm": 0.289,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-7",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1216,
+      -0.1209,
+      0.0108
+     ],
+     "bbox_max": [
+      -0.1104,
+      -0.1034,
+      0.0193
+     ],
+     "bytes_alone": 25140
+    },
+    {
+     "name": "Navicular bone.r",
+     "group": "Tarsal bones.g",
+     "triangles": 3022,
+     "vertices": 1513,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24500",
+     "fit_to_z_anatomy": {
+      "scale": 1.04264,
+      "rotation_deg": 1.102,
+      "median_mm": 0.079,
+      "max_mm": 2.302,
+      "limit_mm": 2.5
+     },
+     "materials": [
+      "Bone-2",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0936,
+      -0.009,
+      0.0496
+     ],
+     "bbox_max": [
+      -0.0523,
+      0.0151,
+      0.0761
+     ],
+     "bytes_alone": 33888
+    },
+    {
+     "name": "Proximal phalanx of fifth finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 1148,
+     "vertices": 576,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32640",
+     "fit_to_z_anatomy": {
+      "scale": 1.03242,
+      "rotation_deg": 0.181,
+      "median_mm": 0.009,
+      "max_mm": 0.223,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-6",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1446,
+      -0.0818,
+      0.0097
+     ],
+     "bbox_max": [
+      -0.1263,
+      -0.055,
+      0.0202
+     ],
+     "bytes_alone": 26920
+    },
+    {
+     "name": "Proximal phalanx of first finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 2106,
+     "vertices": 1055,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA43253",
+     "fit_to_z_anatomy": {
+      "scale": 1.03224,
+      "rotation_deg": 0.331,
+      "median_mm": 0.012,
+      "max_mm": 0.532,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-6",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0871,
+      -0.1144,
+      0.0113
+     ],
+     "bbox_max": [
+      -0.0608,
+      -0.0799,
+      0.0294
+     ],
+     "bytes_alone": 30516
+    },
+    {
+     "name": "Proximal phalanx of fourth finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 1094,
+     "vertices": 549,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32638",
+     "fit_to_z_anatomy": {
+      "scale": 1.03282,
+      "rotation_deg": 0.233,
+      "median_mm": 0.004,
+      "max_mm": 0.116,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-6",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1324,
+      -0.0945,
+      0.01
+     ],
+     "bbox_max": [
+      -0.1141,
+      -0.0683,
+      0.0237
+     ],
+     "bytes_alone": 26804
+    },
+    {
+     "name": "Proximal phalanx of second finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 1362,
+     "vertices": 683,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32634",
+     "fit_to_z_anatomy": {
+      "scale": 1.03293,
+      "rotation_deg": 0.3,
+      "median_mm": 0.001,
+      "max_mm": 0.121,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-6",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1045,
+      -0.1118,
+      0.013
+     ],
+     "bbox_max": [
+      -0.0865,
+      -0.0824,
+      0.026
+     ],
+     "bytes_alone": 27632
+    },
+    {
+     "name": "Proximal phalanx of third finger of foot.r",
+     "group": "Phalanges of foot.g",
+     "triangles": 1222,
+     "vertices": 613,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA32636",
+     "fit_to_z_anatomy": {
+      "scale": 1.03273,
+      "rotation_deg": 0.277,
+      "median_mm": 0.003,
+      "max_mm": 0.273,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-6",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1189,
+      -0.1063,
+      0.0122
+     ],
+     "bbox_max": [
+      -0.1024,
+      -0.0761,
+      0.0244
+     ],
+     "bytes_alone": 27176
+    },
+    {
+     "name": "Second metatarsal bone.r",
+     "group": "Metatarsal bones.g",
+     "triangles": 3258,
+     "vertices": 1631,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24509",
+     "fit_to_z_anatomy": {
+      "scale": 1.03285,
+      "rotation_deg": 0.252,
+      "median_mm": 0.004,
+      "max_mm": 0.182,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0982,
+      -0.0852,
+      0.0135
+     ],
+     "bbox_max": [
+      -0.0807,
+      -0.0147,
+      0.0634
+     ],
+     "bytes_alone": 34176
+    },
+    {
+     "name": "Sesamoid bones of foot.r",
+     "group": "Bones of foot.g",
+     "triangles": 576,
+     "vertices": 292,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA45097",
+     "fit_to_z_anatomy": {
+      "scale": 1.03132,
+      "rotation_deg": 0.202,
+      "median_mm": 0.02,
+      "max_mm": 0.205,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-1",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0805,
+      -0.0774,
+      0.0106
+     ],
+     "bbox_max": [
+      -0.063,
+      -0.0637,
+      0.0188
+     ],
+     "bytes_alone": 24896
+    },
+    {
+     "name": "Talus.r",
+     "group": "Tarsal bones.g",
+     "triangles": 5962,
+     "vertices": 2983,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24482",
+     "fit_to_z_anatomy": {
+      "scale": 1.03007,
+      "rotation_deg": 0.418,
+      "median_mm": 0.056,
+      "max_mm": 1.707,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-1",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0958,
+      0.0069,
+      0.0497
+     ],
+     "bbox_max": [
+      -0.0537,
+      0.0661,
+      0.0857
+     ],
+     "bytes_alone": 43592
+    },
+    {
+     "name": "Third metatarsal bone.r",
+     "group": "Metatarsal bones.g",
+     "triangles": 3030,
+     "vertices": 1517,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24511",
+     "fit_to_z_anatomy": {
+      "scale": 1.03303,
+      "rotation_deg": 0.27,
+      "median_mm": 0.004,
+      "max_mm": 0.387,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1122,
+      -0.0813,
+      0.0133
+     ],
+     "bbox_max": [
+      -0.0891,
+      -0.0134,
+      0.0579
+     ],
+     "bytes_alone": 33140
+    },
+    {
+     "name": "Tibia.r",
+     "group": "Bones of free part of lower limb.g",
+     "triangles": 6850,
+     "vertices": 3427,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24477",
+     "fit_to_z_anatomy": {
+      "scale": 1.033,
+      "rotation_deg": 0.276,
+      "median_mm": 0.006,
+      "max_mm": 0.994,
+      "limit_mm": 2.0
+     },
+     "context_only": true,
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1158,
+      -0.0052,
+      0.0751
+     ],
+     "bbox_max": [
+      -0.0372,
+      0.063,
+      0.4332
+     ],
+     "bytes_alone": 43340
+    }
+   ]
+  },
+  "muscles": {
+   "label": "Muscles, tendons and retinacula",
+   "file": "muscles.glb",
+   "bytes": 419324,
+   "triangles": 100897,
+   "structures": [
+    {
+     "name": "(Opponens digiti minimi muscle of foot).r",
+     "group": "Muscles of foot.g",
+     "triangles": 236,
+     "vertices": 120,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1282,
+      -0.0388,
+      0.0156
+     ],
+     "bbox_max": [
+      -0.1056,
+      0.0045,
+      0.0272
+     ],
+     "bytes_alone": 22480
+    },
+    {
+     "name": "Abductor digiti minimi of foot.r",
+     "group": "Muscles of foot.g",
+     "triangles": 1280,
+     "vertices": 640,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Abductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1394,
+      -0.0589,
+      0.0102
+     ],
+     "bbox_max": [
+      -0.0684,
+      0.0686,
+      0.0267
+     ],
+     "bytes_alone": 25968
+    },
+    {
+     "name": "Abductor hallucis.r",
+     "group": "Muscles of foot.g",
+     "triangles": 1688,
+     "vertices": 844,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Abductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0755,
+      -0.0847,
+      0.0144
+     ],
+     "bbox_max": [
+      -0.0551,
+      0.0605,
+      0.0414
+     ],
+     "bytes_alone": 28812
+    },
+    {
+     "name": "Calcaneal tendon.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 4377,
+     "vertices": 2191,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1154,
+      0.065,
+      0.0252
+     ],
+     "bbox_max": [
+      -0.0523,
+      0.0922,
+      0.2453
+     ],
+     "bytes_alone": 36104
+    },
+    {
+     "name": "Common tendon sheath of fibularis muscles.r",
+     "group": "Fibular tarsal tendon sheaths.g",
+     "triangles": 1536,
+     "vertices": 770,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.1042,
+      0.0395,
+      0.0406
+     ],
+     "bbox_max": [
+      -0.0908,
+      0.0637,
+      0.0834
+     ],
+     "bytes_alone": 26404
+    },
+    {
+     "name": "Dorsal interossei muscles of foot.r",
+     "group": "Muscles of foot.g",
+     "triangles": 1946,
+     "vertices": 975,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Abductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1274,
+      -0.0891,
+      0.0176
+     ],
+     "bbox_max": [
+      -0.0761,
+      -0.0169,
+      0.0544
+     ],
+     "bytes_alone": 28560
+    },
+    {
+     "name": "Extensor digitorum brevis.r",
+     "group": "Muscles of foot.g",
+     "triangles": 3184,
+     "vertices": 1596,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extensor extremities",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1335,
+      -0.1172,
+      0.0153
+     ],
+     "bbox_max": [
+      -0.0906,
+      0.0368,
+      0.074
+     ],
+     "bytes_alone": 34592
+    },
+    {
+     "name": "Extensor digitorum longus.r",
+     "group": "Anterior compartment of leg.g",
+     "triangles": 3176,
+     "vertices": 1597,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extensor extremities",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1196,
+      0.0123,
+      0.0907
+     ],
+     "bbox_max": [
+      -0.0872,
+      0.0454,
+      0.4187
+     ],
+     "bytes_alone": 33224
+    },
+    {
+     "name": "Extensor hallucis brevis.r",
+     "group": "Muscles of foot.g",
+     "triangles": 1118,
+     "vertices": 561,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extensor extremities",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1014,
+      -0.0921,
+      0.0271
+     ],
+     "bbox_max": [
+      -0.0675,
+      0.0297,
+      0.0751
+     ],
+     "bytes_alone": 26524
+    },
+    {
+     "name": "Extensor hallucis longus.r",
+     "group": "Anterior compartment of leg.g",
+     "triangles": 2362,
+     "vertices": 1183,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extensor extremities",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1116,
+      -0.1002,
+      0.0239
+     ],
+     "bbox_max": [
+      -0.0689,
+      0.0415,
+      0.3044
+     ],
+     "bytes_alone": 30596
+    },
+    {
+     "name": "Fibularis brevis muscle.r",
+     "group": "Lateral compartment of leg.g",
+     "triangles": 3446,
+     "vertices": 1723,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension hand/foot",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1194,
+      0.0108,
+      0.0258
+     ],
+     "bbox_max": [
+      -0.091,
+      0.0655,
+      0.2947
+     ],
+     "bytes_alone": 34192
+    },
+    {
+     "name": "Fibularis longus muscle.r",
+     "group": "Lateral compartment of leg.g",
+     "triangles": 5522,
+     "vertices": 2739,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "External rotation",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1351,
+      -0.0259,
+      0.0289
+     ],
+     "bbox_max": [
+      -0.0763,
+      0.0638,
+      0.408
+     ],
+     "bytes_alone": 40628
+    },
+    {
+     "name": "Fibularis tertius muscle.r",
+     "group": "Anterior compartment of leg.g",
+     "triangles": 586,
+     "vertices": 294,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension hand/foot",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1181,
+      -0.0137,
+      0.0325
+     ],
+     "bbox_max": [
+      -0.0927,
+      0.0416,
+      0.1553
+     ],
+     "bytes_alone": 24672
+    },
+    {
+     "name": "Flexor digiti minimi of foot.r",
+     "group": "Muscles of foot.g",
+     "triangles": 464,
+     "vertices": 230,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1385,
+      -0.0671,
+      0.0089
+     ],
+     "bbox_max": [
+      -0.1055,
+      0.0056,
+      0.0272
+     ],
+     "bytes_alone": 23236
+    },
+    {
+     "name": "Flexor digitorum brevis.r",
+     "group": "Muscles of foot.g",
+     "triangles": 3224,
+     "vertices": 1610,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1436,
+      -0.1196,
+      0.0069
+     ],
+     "bbox_max": [
+      -0.0651,
+      0.0684,
+      0.0269
+     ],
+     "bytes_alone": 34392
+    },
+    {
+     "name": "Flexor digitorum longus.r",
+     "group": "Deep part of posterior compartment of leg.g",
+     "triangles": 6836,
+     "vertices": 3420,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1433,
+      -0.1284,
+      0.0078
+     ],
+     "bbox_max": [
+      -0.0488,
+      0.0647,
+      0.3514
+     ],
+     "bytes_alone": 45220
+    },
+    {
+     "name": "Flexor hallucis longus.r",
+     "group": "Deep part of posterior compartment of leg.g",
+     "triangles": 5878,
+     "vertices": 2941,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1148,
+      -0.1175,
+      0.0085
+     ],
+     "bbox_max": [
+      -0.0582,
+      0.0672,
+      0.3262
+     ],
+     "bytes_alone": 41900
+    },
+    {
+     "name": "Flexor retinaculum of ankle.r",
+     "group": "Fasciae of lower limb.g",
+     "triangles": 696,
+     "vertices": 350,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0622,
+      0.03,
+      0.0136
+     ],
+     "bbox_max": [
+      -0.0463,
+      0.0844,
+      0.0931
+     ],
+     "bytes_alone": 24132
+    },
+    {
+     "name": "Inferior extensor retinaculum of ankle.r",
+     "group": "Fasciae of lower limb.g",
+     "triangles": 316,
+     "vertices": 160,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1061,
+      0.0065,
+      0.0781
+     ],
+     "bbox_max": [
+      -0.0532,
+      0.0434,
+      0.1065
+     ],
+     "bytes_alone": 22884
+    },
+    {
+     "name": "Inferior fibular retinaculum.r",
+     "group": "Fasciae of lower limb.g",
+     "triangles": 35,
+     "vertices": 32,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1202,
+      -0.0185,
+      0.0249
+     ],
+     "bbox_max": [
+      -0.0927,
+      0.0097,
+      0.0737
+     ],
+     "bytes_alone": 21784
+    },
+    {
+     "name": "Lateral head of flexor hallucis brevis.r",
+     "group": "Flexor hallucis brevis.g",
+     "triangles": 966,
+     "vertices": 481,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0809,
+      -0.0873,
+      0.0089
+     ],
+     "bbox_max": [
+      -0.06,
+      -0.006,
+      0.0474
+     ],
+     "bytes_alone": 25032
+    },
+    {
+     "name": "Lateral head of gastrocnemius.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 4908,
+     "vertices": 2454,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Biarticular",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1346,
+      0.0285,
+      0.2201
+     ],
+     "bbox_max": [
+      -0.0805,
+      0.1064,
+      0.4894
+     ],
+     "bytes_alone": 39348
+    },
+    {
+     "name": "Lumbrical muscles of foot.r",
+     "group": "Muscles of foot.g",
+     "triangles": 418,
+     "vertices": 207,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0885,
+      -0.0885,
+      0.0129
+     ],
+     "bbox_max": [
+      -0.0728,
+      0.0055,
+      0.0332
+     ],
+     "bytes_alone": 23040
+    },
+    {
+     "name": "Medial head of flexor hallucis brevis.r",
+     "group": "Flexor hallucis brevis.g",
+     "triangles": 514,
+     "vertices": 259,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0721,
+      -0.0873,
+      0.0108
+     ],
+     "bbox_max": [
+      -0.0591,
+      -0.004,
+      0.0506
+     ],
+     "bytes_alone": 23452
+    },
+    {
+     "name": "Medial head of gastrocnemius.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 6462,
+     "vertices": 3233,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Biarticular",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0859,
+      0.0181,
+      0.2065
+     ],
+     "bbox_max": [
+      -0.0348,
+      0.1041,
+      0.5061
+     ],
+     "bytes_alone": 44564
+    },
+    {
+     "name": "Oblique head of adductor hallucis.r",
+     "group": "Adductor hallucis.g",
+     "triangles": 904,
+     "vertices": 454,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1046,
+      -0.0679,
+      0.0142
+     ],
+     "bbox_max": [
+      -0.0766,
+      -0.0011,
+      0.0443
+     ],
+     "bytes_alone": 24844
+    },
+    {
+     "name": "Plantar aponeurosis.r",
+     "group": "Fasciae of lower limb.g",
+     "triangles": 406,
+     "vertices": 240,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1268,
+      -0.0734,
+      0.0067
+     ],
+     "bbox_max": [
+      -0.0631,
+      0.0693,
+      0.026
+     ],
+     "bytes_alone": 23092
+    },
+    {
+     "name": "Plantar interossei muscles.r",
+     "group": "Muscles of foot.g",
+     "triangles": 1242,
+     "vertices": 627,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1365,
+      -0.0842,
+      0.0156
+     ],
+     "bbox_max": [
+      -0.0936,
+      -0.0124,
+      0.0419
+     ],
+     "bytes_alone": 25976
+    },
+    {
+     "name": "Plantar tendon sheath of fibularis longus muscle.r",
+     "group": "Fibular tarsal tendon sheaths.g",
+     "triangles": 640,
+     "vertices": 322,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.1057,
+      -0.0032,
+      0.0287
+     ],
+     "bbox_max": [
+      -0.0918,
+      0.0238,
+      0.0358
+     ],
+     "bytes_alone": 23712
+    },
+    {
+     "name": "Plantaris muscle.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 4698,
+     "vertices": 2351,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Biarticular",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1046,
+      0.0056,
+      0.0282
+     ],
+     "bbox_max": [
+      -0.0497,
+      0.0853,
+      0.5105
+     ],
+     "bytes_alone": 38088
+    },
+    {
+     "name": "Quadratus plantae muscle.r",
+     "group": "Muscles of foot.g",
+     "triangles": 1176,
+     "vertices": 590,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion fingers",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1018,
+      -0.0148,
+      0.0174
+     ],
+     "bbox_max": [
+      -0.0662,
+      0.062,
+      0.0344
+     ],
+     "bytes_alone": 25792
+    },
+    {
+     "name": "Soleus muscle.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 6774,
+     "vertices": 3379,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension hand/foot",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1288,
+      0.0238,
+      0.1338
+     ],
+     "bbox_max": [
+      -0.0437,
+      0.079,
+      0.4095
+     ],
+     "bytes_alone": 45208
+    },
+    {
+     "name": "Subcutaneous bursa of lateral malleolus.r",
+     "group": "Bursae of lower limb.g",
+     "triangles": 656,
+     "vertices": 330,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Bursa"
+     ],
+     "bbox_min": [
+      -0.1101,
+      0.041,
+      0.0596
+     ],
+     "bbox_max": [
+      -0.1059,
+      0.0591,
+      0.0798
+     ],
+     "bytes_alone": 23760
+    },
+    {
+     "name": "Subcutaneous bursa of medial malleolus.r",
+     "group": "Bursae of lower limb.g",
+     "triangles": 656,
+     "vertices": 330,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Bursa"
+     ],
+     "bbox_min": [
+      -0.0524,
+      0.0249,
+      0.0778
+     ],
+     "bbox_max": [
+      -0.0454,
+      0.0474,
+      0.1013
+     ],
+     "bytes_alone": 23768
+    },
+    {
+     "name": "Subcutaneous calcaneal bursa.r",
+     "group": "Bursae of lower limb.g",
+     "triangles": 544,
+     "vertices": 274,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Bursa"
+     ],
+     "bbox_min": [
+      -0.0799,
+      0.0846,
+      0.0288
+     ],
+     "bbox_max": [
+      -0.059,
+      0.0943,
+      0.0571
+     ],
+     "bytes_alone": 23376
+    },
+    {
+     "name": "Subtendinous bursa of tibialis anterior.r",
+     "group": "Bursae of lower limb.g",
+     "triangles": 704,
+     "vertices": 354,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Bursa"
+     ],
+     "bbox_min": [
+      -0.0656,
+      -0.0245,
+      0.0473
+     ],
+     "bbox_max": [
+      -0.0581,
+      -0.013,
+      0.0597
+     ],
+     "bytes_alone": 23904
+    },
+    {
+     "name": "Subtendinous calcaneal bursa.r",
+     "group": "Bursae of lower limb.g",
+     "triangles": 544,
+     "vertices": 274,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Bursa"
+     ],
+     "bbox_min": [
+      -0.0842,
+      0.0712,
+      0.0525
+     ],
+     "bbox_max": [
+      -0.0648,
+      0.0804,
+      0.0792
+     ],
+     "bytes_alone": 23396
+    },
+    {
+     "name": "Superficial transverse metatarsal ligament.r",
+     "group": "Fasciae of lower limb.g",
+     "triangles": 99,
+     "vertices": 66,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1357,
+      -0.0805,
+      0.0064
+     ],
+     "bbox_max": [
+      -0.0664,
+      -0.0469,
+      0.0122
+     ],
+     "bytes_alone": 22048
+    },
+    {
+     "name": "Superior extensor retinaculum of ankle.r",
+     "group": "Fasciae of lower limb.g",
+     "triangles": 260,
+     "vertices": 132,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1062,
+      0.0151,
+      0.1101
+     ],
+     "bbox_max": [
+      -0.0688,
+      0.044,
+      0.1417
+     ],
+     "bytes_alone": 22704
+    },
+    {
+     "name": "Superior fibular retinaculum.r",
+     "group": "Fasciae of lower limb.g",
+     "triangles": 652,
+     "vertices": 328,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1084,
+      -0.0188,
+      0.0363
+     ],
+     "bbox_max": [
+      -0.0511,
+      0.0623,
+      0.096
+     ],
+     "bytes_alone": 24140
+    },
+    {
+     "name": "Tendon of extensor digitorum longus.r",
+     "group": "__src__Extensor digitorum longus.r",
+     "triangles": 5184,
+     "vertices": 2640,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1442,
+      -0.1263,
+      0.0128
+     ],
+     "bbox_max": [
+      -0.0871,
+      0.0182,
+      0.0949
+     ],
+     "bytes_alone": 36732
+    },
+    {
+     "name": "Tendon sheath of extensor digitorum longus.r",
+     "group": "Anterior tarsal tendon sheaths.g",
+     "triangles": 2064,
+     "vertices": 1034,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.102,
+      -0.0091,
+      0.0701
+     ],
+     "bbox_max": [
+      -0.0853,
+      0.0373,
+      0.1391
+     ],
+     "bytes_alone": 27704
+    },
+    {
+     "name": "Tendon sheath of extensor hallucis longus.r",
+     "group": "Anterior tarsal tendon sheaths.g",
+     "triangles": 592,
+     "vertices": 298,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.0954,
+      -0.0281,
+      0.0616
+     ],
+     "bbox_max": [
+      -0.0688,
+      0.0341,
+      0.1398
+     ],
+     "bytes_alone": 23572
+    },
+    {
+     "name": "Tendon sheath of flexor digitorum longus.r",
+     "group": "Tibial tarsal tendon sheaths.g",
+     "triangles": 256,
+     "vertices": 130,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.0695,
+      0.0313,
+      0.0325
+     ],
+     "bbox_max": [
+      -0.0484,
+      0.0649,
+      0.0991
+     ],
+     "bytes_alone": 22504
+    },
+    {
+     "name": "Tendon sheath of flexor hallucis longus.r",
+     "group": "Tibial tarsal tendon sheaths.g",
+     "triangles": 1728,
+     "vertices": 866,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.0783,
+      0.0348,
+      0.0433
+     ],
+     "bbox_max": [
+      -0.058,
+      0.0676,
+      0.0938
+     ],
+     "bytes_alone": 27068
+    },
+    {
+     "name": "Tendon sheath of tibialis anterior.r",
+     "group": "Anterior tarsal tendon sheaths.g",
+     "triangles": 240,
+     "vertices": 122,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.0907,
+      -0.0027,
+      0.0712
+     ],
+     "bbox_max": [
+      -0.0606,
+      0.0277,
+      0.1444
+     ],
+     "bytes_alone": 22416
+    },
+    {
+     "name": "Tendon sheath of tibialis posterior muscle.r",
+     "group": "Tibial tarsal tendon sheaths.g",
+     "triangles": 286,
+     "vertices": 145,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.065,
+      0.0287,
+      0.0567
+     ],
+     "bbox_max": [
+      -0.048,
+      0.0587,
+      0.0963
+     ],
+     "bytes_alone": 22632
+    },
+    {
+     "name": "Tibialis anterior muscle.r",
+     "group": "Anterior compartment of leg.g",
+     "triangles": 3526,
+     "vertices": 1761,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion hand/foot",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1175,
+      -0.0388,
+      0.0423
+     ],
+     "bbox_max": [
+      -0.0567,
+      0.0349,
+      0.4111
+     ],
+     "bytes_alone": 34588
+    },
+    {
+     "name": "Tibialis posterior muscle.r",
+     "group": "Deep part of posterior compartment of leg.g",
+     "triangles": 5526,
+     "vertices": 2741,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension hand/foot",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1079,
+      -0.0232,
+      0.0389
+     ],
+     "bbox_max": [
+      -0.049,
+      0.058,
+      0.3827
+     ],
+     "bytes_alone": 41168
+    },
+    {
+     "name": "Transverse head of adductor hallucis.r",
+     "group": "Adductor hallucis.g",
+     "triangles": 366,
+     "vertices": 181,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1248,
+      -0.0729,
+      0.0145
+     ],
+     "bbox_max": [
+      -0.0766,
+      -0.0505,
+      0.022
+     ],
+     "bytes_alone": 22932
+    }
+   ]
+  },
+  "joints": {
+   "label": "Joint capsules and ligaments",
+   "file": "joints.glb",
+   "bytes": 125096,
+   "triangles": 18886,
+   "structures": [
+    {
+     "name": "Anterior talocalcaneal ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 104,
+     "vertices": 54,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0928,
+      0.018,
+      0.0539
+     ],
+     "bbox_max": [
+      -0.085,
+      0.0364,
+      0.0693
+     ],
+     "bytes_alone": 21948
+    },
+    {
+     "name": "Anterior talofibular ligament.r",
+     "group": "Lateral collateral ligament of ankle.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1015,
+      0.033,
+      0.0604
+     ],
+     "bbox_max": [
+      -0.0906,
+      0.0408,
+      0.0715
+     ],
+     "bytes_alone": 21672
+    },
+    {
+     "name": "Anterior tibiofibular ligament.r",
+     "group": "Tibiofibular syndesmosis.g",
+     "triangles": 248,
+     "vertices": 126,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1067,
+      0.0252,
+      0.0738
+     ],
+     "bbox_max": [
+      -0.0966,
+      0.0414,
+      0.1003
+     ],
+     "bytes_alone": 22444
+    },
+    {
+     "name": "Articular capsule of interphalangeal joint of great toe.r",
+     "group": "Interphalangeal joints of foot.g",
+     "triangles": 384,
+     "vertices": 216,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.0898,
+      -0.1187,
+      0.0095
+     ],
+     "bbox_max": [
+      -0.0687,
+      -0.0994,
+      0.0234
+     ],
+     "bytes_alone": 23088
+    },
+    {
+     "name": "Articular capsules of distal interphalangeal joints of foot.r",
+     "group": "Interphalangeal joints of foot.g",
+     "triangles": 1424,
+     "vertices": 796,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.1466,
+      -0.1288,
+      0.009
+     ],
+     "bbox_max": [
+      -0.0975,
+      -0.0836,
+      0.0177
+     ],
+     "bytes_alone": 26480
+    },
+    {
+     "name": "Articular capsules of metatarsophalangeal joints.r",
+     "group": "Metatarsophalangeal joints.g",
+     "triangles": 1752,
+     "vertices": 984,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.1402,
+      -0.0915,
+      0.0091
+     ],
+     "bbox_max": [
+      -0.0595,
+      -0.0461,
+      0.0338
+     ],
+     "bytes_alone": 27696
+    },
+    {
+     "name": "Articular capsules of proximal interphalangeal joints of foot.r",
+     "group": "Interphalangeal joints of foot.g",
+     "triangles": 1464,
+     "vertices": 818,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.1453,
+      -0.1154,
+      0.0094
+     ],
+     "bbox_max": [
+      -0.0936,
+      -0.0746,
+      0.022
+     ],
+     "bytes_alone": 26620
+    },
+    {
+     "name": "Calcaneocuboid ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0973,
+      0.0144,
+      0.0568
+     ],
+     "bbox_max": [
+      -0.0888,
+      0.0219,
+      0.0588
+     ],
+     "bytes_alone": 21660
+    },
+    {
+     "name": "Calcaneofibular ligament.r",
+     "group": "Lateral collateral ligament of ankle.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1047,
+      0.0555,
+      0.0529
+     ],
+     "bbox_max": [
+      -0.0866,
+      0.0618,
+      0.0657
+     ],
+     "bytes_alone": 21660
+    },
+    {
+     "name": "Calcaneonavicular ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 96,
+     "vertices": 50,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.093,
+      0.0097,
+      0.0558
+     ],
+     "bbox_max": [
+      -0.0833,
+      0.0215,
+      0.0644
+     ],
+     "bytes_alone": 21896
+    },
+    {
+     "name": "Collateral interphalangeal ligaments of foot.r",
+     "group": "Interphalangeal joints of foot.g",
+     "triangles": 2696,
+     "vertices": 1384,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1468,
+      -0.1287,
+      0.0103
+     ],
+     "bbox_max": [
+      -0.0687,
+      -0.0742,
+      0.0196
+     ],
+     "bytes_alone": 30084
+    },
+    {
+     "name": "Collateral metatarsophalangeal ligaments.r",
+     "group": "Metatarsophalangeal joints.g",
+     "triangles": 1616,
+     "vertices": 828,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1408,
+      -0.0897,
+      0.0124
+     ],
+     "bbox_max": [
+      -0.0587,
+      -0.0473,
+      0.0313
+     ],
+     "bytes_alone": 26876
+    },
+    {
+     "name": "Cuneocuboid interosseous ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 80,
+     "vertices": 42,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0952,
+      -0.0043,
+      0.0452
+     ],
+     "bbox_max": [
+      -0.0914,
+      -0.0019,
+      0.0492
+     ],
+     "bytes_alone": 21876
+    },
+    {
+     "name": "Cuneometatarsal interosseous ligaments.r",
+     "group": "Tarsometatarsal joints.g",
+     "triangles": 36,
+     "vertices": 24,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0959,
+      -0.027,
+      0.0452
+     ],
+     "bbox_max": [
+      -0.0711,
+      -0.0151,
+      0.0555
+     ],
+     "bytes_alone": 21764
+    },
+    {
+     "name": "Deep transverse metatarsal ligament.r",
+     "group": "Metatarsophalangeal joints.g",
+     "triangles": 152,
+     "vertices": 84,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.132,
+      -0.0851,
+      0.0094
+     ],
+     "bbox_max": [
+      -0.0779,
+      -0.0563,
+      0.016
+     ],
+     "bytes_alone": 22144
+    },
+    {
+     "name": "Dorsal calcaneocuboid ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 12,
+     "vertices": 8,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1044,
+      0.0208,
+      0.0455
+     ],
+     "bbox_max": [
+      -0.1008,
+      0.0315,
+      0.0529
+     ],
+     "bytes_alone": 21592
+    },
+    {
+     "name": "Dorsal cuboideonavicular ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 12,
+     "vertices": 8,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.096,
+      0.0079,
+      0.0567
+     ],
+     "bbox_max": [
+      -0.0889,
+      0.0171,
+      0.0633
+     ],
+     "bytes_alone": 21604
+    },
+    {
+     "name": "Dorsal cuneocuboid ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 12,
+     "vertices": 8,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.105,
+      -0.0065,
+      0.0519
+     ],
+     "bbox_max": [
+      -0.0983,
+      0.0058,
+      0.0616
+     ],
+     "bytes_alone": 21588
+    },
+    {
+     "name": "Dorsal cuneonavicular ligaments.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 60,
+     "vertices": 36,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0965,
+      -0.0132,
+      0.0631
+     ],
+     "bbox_max": [
+      -0.0651,
+      0.008,
+      0.0732
+     ],
+     "bytes_alone": 21808
+    },
+    {
+     "name": "Dorsal intercuneiform ligaments.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 24,
+     "vertices": 16,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0965,
+      -0.0207,
+      0.0628
+     ],
+     "bbox_max": [
+      -0.0742,
+      -0.0048,
+      0.0692
+     ],
+     "bytes_alone": 21660
+    },
+    {
+     "name": "Dorsal metatarsal ligaments.r",
+     "group": "Intermetatarsal joints.g",
+     "triangles": 56,
+     "vertices": 36,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1146,
+      -0.0377,
+      0.0381
+     ],
+     "bbox_max": [
+      -0.0778,
+      -0.0058,
+      0.0602
+     ],
+     "bytes_alone": 21800
+    },
+    {
+     "name": "Dorsal tarsometatarsal ligaments.r",
+     "group": "Tarsometatarsal joints.g",
+     "triangles": 392,
+     "vertices": 204,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1144,
+      -0.0355,
+      0.0349
+     ],
+     "bbox_max": [
+      -0.0703,
+      0.0055,
+      0.0655
+     ],
+     "bytes_alone": 22984
+    },
+    {
+     "name": "Intercuneiform interosseous ligaments.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 24,
+     "vertices": 16,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0926,
+      -0.0188,
+      0.0515
+     ],
+     "bbox_max": [
+      -0.0748,
+      -0.0066,
+      0.0631
+     ],
+     "bytes_alone": 21684
+    },
+    {
+     "name": "Intersesamoid ligament.r",
+     "group": "Intermetatarsal joints.g",
+     "triangles": 56,
+     "vertices": 30,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.081,
+      -0.0745,
+      0.0104
+     ],
+     "bbox_max": [
+      -0.0721,
+      -0.0664,
+      0.0141
+     ],
+     "bytes_alone": 21752
+    },
+    {
+     "name": "Lateral talocalcaneal ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 56,
+     "vertices": 30,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0953,
+      0.0441,
+      0.0452
+     ],
+     "bbox_max": [
+      -0.0918,
+      0.0602,
+      0.0581
+     ],
+     "bytes_alone": 21776
+    },
+    {
+     "name": "Long plantar ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 3486,
+     "vertices": 1741,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1153,
+      -0.0326,
+      0.0191
+     ],
+     "bbox_max": [
+      -0.0645,
+      0.0672,
+      0.0445
+     ],
+     "bytes_alone": 33428
+    },
+    {
+     "name": "Medial talocalcaneal ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 136,
+     "vertices": 70,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0591,
+      0.0381,
+      0.0518
+     ],
+     "bbox_max": [
+      -0.0542,
+      0.0528,
+      0.0624
+     ],
+     "bytes_alone": 22052
+    },
+    {
+     "name": "Metatarsal interosseous ligaments.r",
+     "group": "Intermetatarsal joints.g",
+     "triangles": 48,
+     "vertices": 32,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1102,
+      -0.0339,
+      0.0344
+     ],
+     "bbox_max": [
+      -0.0805,
+      -0.009,
+      0.0537
+     ],
+     "bytes_alone": 21812
+    },
+    {
+     "name": "Plantar calcaneocuboid ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 136,
+     "vertices": 70,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0967,
+      0.0169,
+      0.0279
+     ],
+     "bbox_max": [
+      -0.0796,
+      0.0316,
+      0.0338
+     ],
+     "bytes_alone": 22060
+    },
+    {
+     "name": "Plantar calcaneonavicular ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0714,
+      0.0093,
+      0.0488
+     ],
+     "bbox_max": [
+      -0.062,
+      0.0302,
+      0.0536
+     ],
+     "bytes_alone": 21692
+    },
+    {
+     "name": "Plantar cuboideonavicular ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 12,
+     "vertices": 8,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0824,
+      0.0046,
+      0.0472
+     ],
+     "bbox_max": [
+      -0.0754,
+      0.0122,
+      0.0533
+     ],
+     "bytes_alone": 21608
+    },
+    {
+     "name": "Plantar cuneocuboid ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 96,
+     "vertices": 50,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0929,
+      -0.0098,
+      0.0388
+     ],
+     "bbox_max": [
+      -0.0865,
+      -0.0013,
+      0.0413
+     ],
+     "bytes_alone": 21912
+    },
+    {
+     "name": "Plantar cuneonavicular ligaments.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 52,
+     "vertices": 32,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0851,
+      -0.0043,
+      0.0418
+     ],
+     "bbox_max": [
+      -0.0623,
+      0.0057,
+      0.0542
+     ],
+     "bytes_alone": 21816
+    },
+    {
+     "name": "Plantar intercuneiform ligaments.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 24,
+     "vertices": 16,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0864,
+      -0.0136,
+      0.0441
+     ],
+     "bbox_max": [
+      -0.0739,
+      -0.0064,
+      0.0497
+     ],
+     "bytes_alone": 21672
+    },
+    {
+     "name": "Plantar interphalangeal ligaments.r",
+     "group": "Interphalangeal joints of foot.g",
+     "triangles": 1616,
+     "vertices": 826,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.144,
+      -0.1283,
+      0.0087
+     ],
+     "bbox_max": [
+      -0.071,
+      -0.0739,
+      0.0167
+     ],
+     "bytes_alone": 26592
+    },
+    {
+     "name": "Plantar metatarsal ligaments.r",
+     "group": "Intermetatarsal joints.g",
+     "triangles": 48,
+     "vertices": 32,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1051,
+      -0.0286,
+      0.0278
+     ],
+     "bbox_max": [
+      -0.0801,
+      -0.0053,
+      0.0451
+     ],
+     "bytes_alone": 21780
+    },
+    {
+     "name": "Plantar metatarsophalangeal ligaments.r",
+     "group": "Metatarsophalangeal joints.g",
+     "triangles": 880,
+     "vertices": 450,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1363,
+      -0.0874,
+      0.0087
+     ],
+     "bbox_max": [
+      -0.0681,
+      -0.0434,
+      0.0231
+     ],
+     "bytes_alone": 24484
+    },
+    {
+     "name": "Plantar tarsometatarsal ligaments.r",
+     "group": "Tarsometatarsal joints.g",
+     "triangles": 100,
+     "vertices": 60,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.108,
+      -0.0257,
+      0.026
+     ],
+     "bbox_max": [
+      -0.0682,
+      0.0074,
+      0.0486
+     ],
+     "bytes_alone": 21976
+    },
+    {
+     "name": "Posterior talocalcaneal ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 80,
+     "vertices": 42,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0658,
+      0.0541,
+      0.0462
+     ],
+     "bbox_max": [
+      -0.0571,
+      0.0632,
+      0.0605
+     ],
+     "bytes_alone": 21864
+    },
+    {
+     "name": "Posterior talofibular ligament.r",
+     "group": "Lateral collateral ligament of ankle.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1032,
+      0.0535,
+      0.0602
+     ],
+     "bbox_max": [
+      -0.0855,
+      0.0596,
+      0.0693
+     ],
+     "bytes_alone": 21676
+    },
+    {
+     "name": "Posterior tibiofibular ligament.r",
+     "group": "Tibiofibular syndesmosis.g",
+     "triangles": 248,
+     "vertices": 126,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0973,
+      0.0542,
+      0.0835
+     ],
+     "bbox_max": [
+      -0.0809,
+      0.0617,
+      0.1039
+     ],
+     "bytes_alone": 22456
+    },
+    {
+     "name": "Posterior tibiotalar ligament.r",
+     "group": "Medial collateral ligament of ankle.g",
+     "triangles": 56,
+     "vertices": 30,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0561,
+      0.0331,
+      0.0668
+     ],
+     "bbox_max": [
+      -0.0522,
+      0.0466,
+      0.0806
+     ],
+     "bytes_alone": 21764
+    },
+    {
+     "name": "Talocalcaneal interosseous ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 424,
+     "vertices": 216,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0848,
+      0.0308,
+      0.0489
+     ],
+     "bbox_max": [
+      -0.0639,
+      0.0422,
+      0.0621
+     ],
+     "bytes_alone": 23072
+    },
+    {
+     "name": "Talonavicular ligament.r",
+     "group": "Intertarsal joints.g",
+     "triangles": 136,
+     "vertices": 70,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0801,
+      0.0033,
+      0.0703
+     ],
+     "bbox_max": [
+      -0.0655,
+      0.0146,
+      0.0785
+     ],
+     "bytes_alone": 22032
+    },
+    {
+     "name": "Tibiocalcaneal ligament.r",
+     "group": "Medial collateral ligament of ankle.g",
+     "triangles": 56,
+     "vertices": 30,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0597,
+      0.0268,
+      0.0538
+     ],
+     "bbox_max": [
+      -0.0503,
+      0.041,
+      0.0813
+     ],
+     "bytes_alone": 21752
+    },
+    {
+     "name": "Tibionavicular ligament.r",
+     "group": "Medial collateral ligament of ankle.g",
+     "triangles": 232,
+     "vertices": 120,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0603,
+      0.0179,
+      0.0566
+     ],
+     "bbox_max": [
+      -0.054,
+      0.0319,
+      0.0861
+     ],
+     "bytes_alone": 22380
+    },
+    {
+     "name": "Transverse tibiofibular ligament.r",
+     "group": "Tibiofibular syndesmosis.g",
+     "triangles": 104,
+     "vertices": 54,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0957,
+      0.0485,
+      0.082
+     ],
+     "bbox_max": [
+      -0.0564,
+      0.0589,
+      0.0882
+     ],
+     "bytes_alone": 21944
+    }
+   ]
+  },
+  "arteries": {
+   "label": "Arteries",
+   "file": "arteries.glb",
+   "bytes": 240116,
+   "triangles": 79776,
+   "structures": [
+    {
+     "name": "Anterior tibial artery.r",
+     "group": "Popliteal artery.r",
+     "triangles": 4320,
+     "vertices": 2172,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1081,
+      0.0081,
+      0.0844
+     ],
+     "bbox_max": [
+      -0.0701,
+      0.0547,
+      0.388
+     ],
+     "bytes_alone": 31720
+    },
+    {
+     "name": "Arcuate artery.r",
+     "group": "Dorsalis pedis artery.r",
+     "triangles": 1440,
+     "vertices": 732,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1102,
+      -0.0219,
+      0.0369
+     ],
+     "bbox_max": [
+      -0.0797,
+      0.0147,
+      0.067
+     ],
+     "bytes_alone": 25876
+    },
+    {
+     "name": "Calcaneal branches of fibular artery.r",
+     "group": "Fibular artery.r",
+     "triangles": 576,
+     "vertices": 300,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0856,
+      0.0655,
+      0.0441
+     ],
+     "bbox_max": [
+      -0.077,
+      0.0728,
+      0.0549
+     ],
+     "bytes_alone": 23468
+    },
+    {
+     "name": "Calcaneal branches of posterior tibial artery.r",
+     "group": "Posterior tibial artery.r",
+     "triangles": 864,
+     "vertices": 444,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0634,
+      0.0534,
+      0.0386
+     ],
+     "bbox_max": [
+      -0.0542,
+      0.0756,
+      0.0503
+     ],
+     "bytes_alone": 24384
+    },
+    {
+     "name": "Common plantar digital arteries.r",
+     "group": "Plantar metatarsal arteries.r",
+     "triangles": 2880,
+     "vertices": 1488,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.123,
+      -0.083,
+      0.012
+     ],
+     "bbox_max": [
+      -0.0833,
+      -0.0423,
+      0.0259
+     ],
+     "bytes_alone": 30196
+    },
+    {
+     "name": "Deep plantar artery.r",
+     "group": "Dorsalis pedis artery.r",
+     "triangles": 1152,
+     "vertices": 588,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0883,
+      -0.0374,
+      0.0397
+     ],
+     "bbox_max": [
+      -0.0794,
+      -0.016,
+      0.0577
+     ],
+     "bytes_alone": 25216
+    },
+    {
+     "name": "Dorsal digital arteries of foot.r",
+     "group": "Dorsal metatarsal arteries.r",
+     "triangles": 19008,
+     "vertices": 9600,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1464,
+      -0.1316,
+      0.0117
+     ],
+     "bbox_max": [
+      -0.0833,
+      0.0147,
+      0.0382
+     ],
+     "bytes_alone": 65652
+    },
+    {
+     "name": "Dorsal metatarsal arteries.r",
+     "group": "__src__Arcuate artery.r",
+     "triangles": 4032,
+     "vertices": 2064,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1213,
+      -0.0829,
+      0.019
+     ],
+     "bbox_max": [
+      -0.0808,
+      0.0055,
+      0.0623
+     ],
+     "bytes_alone": 32388
+    },
+    {
+     "name": "Dorsalis pedis artery.r",
+     "group": "__src__Anterior tibial artery.r",
+     "triangles": 1440,
+     "vertices": 732,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0839,
+      -0.0495,
+      0.0516
+     ],
+     "bbox_max": [
+      -0.0701,
+      0.0163,
+      0.0853
+     ],
+     "bytes_alone": 25832
+    },
+    {
+     "name": "Fibular artery.r",
+     "group": "Posterior tibial artery.r",
+     "triangles": 6336,
+     "vertices": 3228,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1131,
+      0.0477,
+      0.0546
+     ],
+     "bbox_max": [
+      -0.0898,
+      0.0768,
+      0.3751
+     ],
+     "bytes_alone": 36480
+    },
+    {
+     "name": "Lateral plantar artery.r",
+     "group": "Posterior tibial artery.r",
+     "triangles": 864,
+     "vertices": 444,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1038,
+      0.0107,
+      0.02
+     ],
+     "bbox_max": [
+      -0.0631,
+      0.0311,
+      0.0405
+     ],
+     "bytes_alone": 24164
+    },
+    {
+     "name": "Lateral tarsal artery.r",
+     "group": "__src__Dorsalis pedis artery.r",
+     "triangles": 1152,
+     "vertices": 588,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1093,
+      0.0133,
+      0.0368
+     ],
+     "bbox_max": [
+      -0.0706,
+      0.0225,
+      0.0861
+     ],
+     "bytes_alone": 25060
+    },
+    {
+     "name": "Medial plantar artery.r",
+     "group": "Posterior tibial artery.r",
+     "triangles": 1440,
+     "vertices": 732,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.068,
+      -0.0102,
+      0.0367
+     ],
+     "bbox_max": [
+      -0.0591,
+      0.031,
+      0.0436
+     ],
+     "bytes_alone": 25880
+    },
+    {
+     "name": "Perforating branches of plantar metatarsal arteries.r",
+     "group": "Plantar metatarsal arteries.r",
+     "triangles": 2880,
+     "vertices": 1536,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.121,
+      -0.0717,
+      0.0158
+     ],
+     "bbox_max": [
+      -0.0809,
+      -0.0059,
+      0.0434
+     ],
+     "bytes_alone": 29876
+    },
+    {
+     "name": "Plantar arch.r",
+     "group": "__src__Lateral plantar artery.r",
+     "triangles": 2304,
+     "vertices": 1164,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1041,
+      -0.018,
+      0.0199
+     ],
+     "bbox_max": [
+      -0.0598,
+      0.0117,
+      0.0429
+     ],
+     "bytes_alone": 28384
+    },
+    {
+     "name": "Plantar metatarsal arteries.r",
+     "group": "__src__Plantar arch.r",
+     "triangles": 5760,
+     "vertices": 2928,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1154,
+      -0.064,
+      0.0155
+     ],
+     "bbox_max": [
+      -0.0829,
+      0.0014,
+      0.0428
+     ],
+     "bytes_alone": 37040
+    },
+    {
+     "name": "Posterior tibial artery.r",
+     "group": "Popliteal artery.r",
+     "triangles": 4032,
+     "vertices": 2028,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0965,
+      0.0303,
+      0.0386
+     ],
+     "bbox_max": [
+      -0.0527,
+      0.0618,
+      0.3751
+     ],
+     "bytes_alone": 32024
+    },
+    {
+     "name": "Proper plantar digital arteries.r",
+     "group": "__src__Common plantar digital arteries.r",
+     "triangles": 17280,
+     "vertices": 8748,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1437,
+      -0.1319,
+      0.0081
+     ],
+     "bbox_max": [
+      -0.0833,
+      0.0117,
+      0.0212
+     ],
+     "bytes_alone": 62176
+    },
+    {
+     "name": "Superficial branch of medial plantar artery.r",
+     "group": "__src__Medial plantar artery.r",
+     "triangles": 2016,
+     "vertices": 1020,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0634,
+      -0.0734,
+      0.0201
+     ],
+     "bbox_max": [
+      -0.0587,
+      -0.0098,
+      0.0385
+     ],
+     "bytes_alone": 27252
+    }
+   ]
+  },
+  "veins": {
+   "label": "Veins",
+   "file": "veins.glb",
+   "bytes": 261328,
+   "triangles": 93024,
+   "structures": [
+    {
+     "name": "Dorsal digital veins of foot.r",
+     "group": "Dorsal metatarsal veins.r",
+     "triangles": 16704,
+     "vertices": 8448,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1464,
+      -0.1316,
+      0.0136
+     ],
+     "bbox_max": [
+      -0.0833,
+      -0.0546,
+      0.0303
+     ],
+     "bytes_alone": 62944
+    },
+    {
+     "name": "Dorsal metatarsal veins.r",
+     "group": "Dorsal venous arch of foot.r",
+     "triangles": 5184,
+     "vertices": 2652,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1385,
+      -0.0829,
+      0.0195
+     ],
+     "bbox_max": [
+      -0.0774,
+      0.0008,
+      0.0636
+     ],
+     "bytes_alone": 35492
+    },
+    {
+     "name": "Dorsal venous arch of foot.r",
+     "group": "Small saphenous vein.r",
+     "triangles": 2304,
+     "vertices": 1164,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1127,
+      -0.0345,
+      0.0439
+     ],
+     "bbox_max": [
+      -0.0672,
+      0.0302,
+      0.0639
+     ],
+     "bytes_alone": 28248
+    },
+    {
+     "name": "Fibular veins.r",
+     "group": "Posterior tibial veins.r",
+     "triangles": 2880,
+     "vertices": 1452,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1072,
+      0.0407,
+      0.033
+     ],
+     "bbox_max": [
+      -0.0838,
+      0.0731,
+      0.3544
+     ],
+     "bytes_alone": 28956
+    },
+    {
+     "name": "Great saphenous vein.r",
+     "group": "Femoral vein.r",
+     "triangles": 8352,
+     "vertices": 4200,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0719,
+      -0.0575,
+      0.0583
+     ],
+     "bbox_max": [
+      -0.0193,
+      0.0616,
+      0.8552
+     ],
+     "bytes_alone": 39952
+    },
+    {
+     "name": "Intercapitular veins of foot.r",
+     "group": "__src__Dorsal venous arch of foot.r",
+     "triangles": 7776,
+     "vertices": 3984,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1239,
+      -0.0721,
+      0.0134
+     ],
+     "bbox_max": [
+      -0.0816,
+      -0.0015,
+      0.0439
+     ],
+     "bytes_alone": 41972
+    },
+    {
+     "name": "Lateral plantar veins.r",
+     "group": "Posterior tibial veins.r",
+     "triangles": 1152,
+     "vertices": 588,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1028,
+      0.0106,
+      0.015
+     ],
+     "bbox_max": [
+      -0.0631,
+      0.0307,
+      0.036
+     ],
+     "bytes_alone": 25008
+    },
+    {
+     "name": "Medial plantar veins.r",
+     "group": "Posterior tibial veins.r",
+     "triangles": 2304,
+     "vertices": 1164,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.068,
+      -0.0688,
+      0.0182
+     ],
+     "bbox_max": [
+      -0.0586,
+      0.031,
+      0.0391
+     ],
+     "bytes_alone": 27860
+    },
+    {
+     "name": "Plantar digital veins.r",
+     "group": "Plantar metatarsal veins.r",
+     "triangles": 25344,
+     "vertices": 12792,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.144,
+      -0.1363,
+      0.0034
+     ],
+     "bbox_max": [
+      -0.0611,
+      0.0116,
+      0.0195
+     ],
+     "bytes_alone": 80444
+    },
+    {
+     "name": "Plantar metatarsal veins.r",
+     "group": "Plantar venous arch.r",
+     "triangles": 8640,
+     "vertices": 4368,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.123,
+      -0.083,
+      0.0088
+     ],
+     "bbox_max": [
+      -0.0829,
+      0.0014,
+      0.0396
+     ],
+     "bytes_alone": 43672
+    },
+    {
+     "name": "Plantar venous arch.r",
+     "group": "__src__Lateral plantar veins.r",
+     "triangles": 1728,
+     "vertices": 876,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1032,
+      -0.0184,
+      0.015
+     ],
+     "bbox_max": [
+      -0.0588,
+      0.0117,
+      0.0387
+     ],
+     "bytes_alone": 26724
+    },
+    {
+     "name": "Posterior tibial veins.r",
+     "group": "Popliteal vein.r",
+     "triangles": 4896,
+     "vertices": 2460,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1017,
+      0.0307,
+      0.034
+     ],
+     "bbox_max": [
+      -0.0486,
+      0.0629,
+      0.3755
+     ],
+     "bytes_alone": 33600
+    },
+    {
+     "name": "Small saphenous vein.r",
+     "group": "Popliteal vein.r",
+     "triangles": 5760,
+     "vertices": 2892,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1082,
+      0.0287,
+      0.0341
+     ],
+     "bbox_max": [
+      -0.0731,
+      0.1042,
+      0.4905
+     ],
+     "bytes_alone": 35100
+    }
+   ]
+  },
+  "nerves": {
+   "label": "Nerves",
+   "file": "nerves.glb",
+   "bytes": 135964,
+   "triangles": 52416,
+   "structures": [
+    {
+     "name": "Common plantar digital branches of lateral plantar nerve.r",
+     "group": "Lateral plantar nerve.r",
+     "triangles": 1440,
+     "vertices": 756,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.1339,
+      -0.0673,
+      0.0132
+     ],
+     "bbox_max": [
+      -0.0949,
+      -0.003,
+      0.023
+     ],
+     "bytes_alone": 24744
+    },
+    {
+     "name": "Common plantar digital branches of medial plantar nerve",
+     "group": "Medial plantar nerve.r",
+     "triangles": 1728,
+     "vertices": 900,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.0984,
+      -0.0759,
+      0.0139
+     ],
+     "bbox_max": [
+      -0.0596,
+      -0.024,
+      0.031
+     ],
+     "bytes_alone": 25484
+    },
+    {
+     "name": "Deep fibular nerve.r",
+     "group": "Common fibular nerve.r",
+     "triangles": 4320,
+     "vertices": 2172,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.1232,
+      -0.0564,
+      0.0434
+     ],
+     "bbox_max": [
+      -0.0687,
+      0.0469,
+      0.3856
+     ],
+     "bytes_alone": 29172
+    },
+    {
+     "name": "Dorsal digital branches of deep fibular nerve.r",
+     "group": "__src__Deep fibular nerve.r",
+     "triangles": 3168,
+     "vertices": 1608,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.0977,
+      -0.1268,
+      0.0145
+     ],
+     "bbox_max": [
+      -0.0762,
+      -0.0558,
+      0.0443
+     ],
+     "bytes_alone": 28140
+    },
+    {
+     "name": "Dorsal digital branches of superficial fibular nerve.r",
+     "group": "Superficial fibular nerve.r",
+     "triangles": 8352,
+     "vertices": 4260,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.1376,
+      -0.1248,
+      0.0137
+     ],
+     "bbox_max": [
+      -0.0611,
+      -0.0403,
+      0.0385
+     ],
+     "bytes_alone": 37724
+    },
+    {
+     "name": "Intermediate dorsal cutaneous nerve of foot.r",
+     "group": "Superficial fibular nerve.r",
+     "triangles": 2592,
+     "vertices": 1320,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.1216,
+      -0.0529,
+      0.029
+     ],
+     "bbox_max": [
+      -0.1042,
+      0.0322,
+      0.0951
+     ],
+     "bytes_alone": 26892
+    },
+    {
+     "name": "Lateral plantar nerve.r",
+     "group": "Tibial nerve.r",
+     "triangles": 1152,
+     "vertices": 588,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.0958,
+      -0.0037,
+      0.022
+     ],
+     "bbox_max": [
+      -0.0574,
+      0.0553,
+      0.058
+     ],
+     "bytes_alone": 23984
+    },
+    {
+     "name": "Medial dorsal cutaneous nerve of foot.r",
+     "group": "Superficial fibular nerve.r",
+     "triangles": 4032,
+     "vertices": 2064,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.1059,
+      -0.0822,
+      0.0269
+     ],
+     "bbox_max": [
+      -0.0611,
+      0.0321,
+      0.0953
+     ],
+     "bytes_alone": 29020
+    },
+    {
+     "name": "Medial plantar nerve.r",
+     "group": "Tibial nerve.r",
+     "triangles": 1152,
+     "vertices": 600,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.077,
+      -0.0247,
+      0.0257
+     ],
+     "bbox_max": [
+      -0.0574,
+      0.0553,
+      0.058
+     ],
+     "bytes_alone": 24044
+    },
+    {
+     "name": "Muscular branches of deep fibular nerve.r",
+     "group": "__src__Deep fibular nerve.r",
+     "triangles": 864,
+     "vertices": 444,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.1053,
+      0.0106,
+      0.0503
+     ],
+     "bbox_max": [
+      -0.0832,
+      0.0145,
+      0.0799
+     ],
+     "bytes_alone": 23508
+    },
+    {
+     "name": "Proper plantar digital branches of lateral plantar nerve.r",
+     "group": "__src__Common plantar digital branches of lateral plantar nerve.r",
+     "triangles": 7488,
+     "vertices": 3804,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.1463,
+      -0.1188,
+      0.0069
+     ],
+     "bbox_max": [
+      -0.1088,
+      -0.0471,
+      0.022
+     ],
+     "bytes_alone": 36188
+    },
+    {
+     "name": "Proper plantar digital branches of medial plantar nerve.r",
+     "group": "__src__Common plantar digital branches of medial plantar nerve",
+     "triangles": 6336,
+     "vertices": 3228,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.1146,
+      -0.1303,
+      0.0089
+     ],
+     "bbox_max": [
+      -0.0592,
+      -0.0637,
+      0.0201
+     ],
+     "bytes_alone": 34352
+    },
+    {
+     "name": "Superficial fibular nerve.r",
+     "group": "Common fibular nerve.r",
+     "triangles": 3168,
+     "vertices": 1596,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.1232,
+      0.0312,
+      0.0948
+     ],
+     "bbox_max": [
+      -0.1029,
+      0.047,
+      0.3855
+     ],
+     "bytes_alone": 26832
+    },
+    {
+     "name": "Sural nerve.r",
+     "group": "Medial sural cutaneous nerve.r",
+     "triangles": 4032,
+     "vertices": 2052,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-8"
+     ],
+     "bbox_min": [
+      -0.1448,
+      -0.0794,
+      0.013
+     ],
+     "bbox_max": [
+      -0.0703,
+      0.1027,
+      0.4103
+     ],
+     "bytes_alone": 28892
+    },
+    {
+     "name": "Tibial nerve.r",
+     "group": "Sciatic nerve.r",
+     "triangles": 2592,
+     "vertices": 1308,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-6"
+     ],
+     "bbox_min": [
+      -0.0961,
+      0.0378,
+      0.0575
+     ],
+     "bbox_max": [
+      -0.0563,
+      0.0659,
+      0.5405
+     ],
+     "bytes_alone": 26524
+    }
+   ]
+  },
+  "skin": {
+   "label": "Skin",
+   "file": "skin.glb",
+   "bytes": 102880,
+   "triangles": 9397,
+   "structures": [
+    {
+     "name": "Anterior region of ankle.r",
+     "group": "Talocrural region.g",
+     "triangles": 544,
+     "vertices": 274,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-3",
+      "Skin-6",
+      "Skin-5",
+      "Skin-in",
+      "Skin-8"
+     ],
+     "bbox_min": [
+      -0.1158,
+      -0.0013,
+      0.0564
+     ],
+     "bbox_max": [
+      -0.0457,
+      0.0796,
+      0.1263
+     ],
+     "bytes_alone": 28572
+    },
+    {
+     "name": "Distal transverse arch of foot.r",
+     "group": "Sole.r",
+     "triangles": 80,
+     "vertices": 42,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1454,
+      -0.0844,
+      -0.0004
+     ],
+     "bbox_max": [
+      -0.0867,
+      -0.0391,
+      0.0095
+     ],
+     "bytes_alone": 22872
+    },
+    {
+     "name": "Dorsal surfaces of digits of foot.r",
+     "group": "Regions of digits of foot.g",
+     "triangles": 1157,
+     "vertices": 648,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-4",
+      "Skin-8",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1492,
+      -0.1456,
+      0.0114
+     ],
+     "bbox_max": [
+      -0.0628,
+      -0.0473,
+      0.0382
+     ],
+     "bytes_alone": 27980
+    },
+    {
+     "name": "Dorsum of foot.r",
+     "group": "Regions of foot.g",
+     "triangles": 348,
+     "vertices": 176,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-8",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1213,
+      -0.0296,
+      0.0325
+     ],
+     "bbox_max": [
+      -0.0457,
+      0.0513,
+      0.0921
+     ],
+     "bytes_alone": 24904
+    },
+    {
+     "name": "Hallucial eminence.r",
+     "group": "Metatarsal region.r",
+     "triangles": 260,
+     "vertices": 132,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-1",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.089,
+      -0.1005,
+      0.0003
+     ],
+     "bbox_max": [
+      -0.0522,
+      -0.0488,
+      0.031
+     ],
+     "bytes_alone": 24508
+    },
+    {
+     "name": "Heel region.r",
+     "group": "Regions of foot.g",
+     "triangles": 624,
+     "vertices": 314,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-6",
+      "Skin-5",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1115,
+      0.0457,
+      0.0016
+     ],
+     "bbox_max": [
+      -0.0435,
+      0.1088,
+      0.0693
+     ],
+     "bytes_alone": 26760
+    },
+    {
+     "name": "Lateral border of foot.r",
+     "group": "Regions of foot.g",
+     "triangles": 304,
+     "vertices": 154,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-6",
+      "Skin-8",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.149,
+      -0.0586,
+      0.0068
+     ],
+     "bbox_max": [
+      -0.1019,
+      0.0681,
+      0.05
+     ],
+     "bytes_alone": 24740
+    },
+    {
+     "name": "Lateral malleolus.r",
+     "group": "Talocrural region.g",
+     "triangles": 192,
+     "vertices": 98,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-3",
+      "Skin-8",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1193,
+      0.0383,
+      0.0471
+     ],
+     "bbox_max": [
+      -0.0936,
+      0.0751,
+      0.1003
+     ],
+     "bytes_alone": 25948
+    },
+    {
+     "name": "Lateral part of longitudinal arch of foot.r",
+     "group": "Sole.r",
+     "triangles": 156,
+     "vertices": 80,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1454,
+      -0.048,
+      0.0028
+     ],
+     "bbox_max": [
+      -0.0992,
+      0.0646,
+      0.0142
+     ],
+     "bytes_alone": 24104
+    },
+    {
+     "name": "Lateral retromalleolar region.r",
+     "group": "Posterior region of ankle.g",
+     "triangles": 212,
+     "vertices": 108,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-3",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1143,
+      0.0569,
+      0.0423
+     ],
+     "bbox_max": [
+      -0.0656,
+      0.0987,
+      0.1198
+     ],
+     "bytes_alone": 24328
+    },
+    {
+     "name": "Medial border of foot.r",
+     "group": "Regions of foot.g",
+     "triangles": 308,
+     "vertices": 156,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-2",
+      "Skin-5",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.0631,
+      -0.068,
+      0.0065
+     ],
+     "bbox_max": [
+      -0.0424,
+      0.0634,
+      0.0779
+     ],
+     "bytes_alone": 25616
+    },
+    {
+     "name": "Medial malleolus.r",
+     "group": "Talocrural region.g",
+     "triangles": 152,
+     "vertices": 78,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-5",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.0511,
+      0.0213,
+      0.055
+     ],
+     "bbox_max": [
+      -0.0421,
+      0.0636,
+      0.0981
+     ],
+     "bytes_alone": 24092
+    },
+    {
+     "name": "Medial part of longitudinal arch of foot.r",
+     "group": "Sole.r",
+     "triangles": 108,
+     "vertices": 56,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.0921,
+      -0.0627,
+      0.0021
+     ],
+     "bbox_max": [
+      -0.0474,
+      0.0459,
+      0.0285
+     ],
+     "bytes_alone": 23040
+    },
+    {
+     "name": "Medial retromalleolar region.r",
+     "group": "Posterior region of ankle.g",
+     "triangles": 232,
+     "vertices": 118,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-6",
+      "Skin-5",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.0733,
+      0.0374,
+      0.0476
+     ],
+     "bbox_max": [
+      -0.0434,
+      0.0987,
+      0.1181
+     ],
+     "bytes_alone": 24420
+    },
+    {
+     "name": "Metatarsal region.r",
+     "group": "Regions of foot.g",
+     "triangles": 492,
+     "vertices": 248,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-8",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.142,
+      -0.0848,
+      0.0201
+     ],
+     "bbox_max": [
+      -0.0557,
+      0.0147,
+      0.0718
+     ],
+     "bytes_alone": 25396
+    },
+    {
+     "name": "Nail plate (foot).r",
+     "group": "__src__Dorsal surfaces of digits of foot.r",
+     "triangles": 1936,
+     "vertices": 978,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nail"
+     ],
+     "bbox_min": [
+      -0.1486,
+      -0.1441,
+      0.0151
+     ],
+     "bbox_max": [
+      -0.0808,
+      -0.0859,
+      0.0257
+     ],
+     "bytes_alone": 27420
+    },
+    {
+     "name": "Plantar surfaces of digits of foot.r",
+     "group": "Regions of digits of foot.g",
+     "triangles": 2028,
+     "vertices": 1016,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-2",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1494,
+      -0.1456,
+      -0.0004
+     ],
+     "bbox_max": [
+      -0.0643,
+      -0.0476,
+      0.0185
+     ],
+     "bytes_alone": 31288
+    },
+    {
+     "name": "Proximal transverse arch of foot.r",
+     "group": "Sole.r",
+     "triangles": 88,
+     "vertices": 46,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1085,
+      0.0282,
+      0.0028
+     ],
+     "bbox_max": [
+      -0.0474,
+      0.0646,
+      0.0277
+     ],
+     "bytes_alone": 23756
+    },
+    {
+     "name": "Sole.r",
+     "group": "Regions of foot.g",
+     "triangles": 176,
+     "vertices": 90,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1236,
+      -0.0608,
+      0.0028
+     ],
+     "bbox_max": [
+      -0.0619,
+      0.0421,
+      0.0153
+     ],
+     "bytes_alone": 23156
+    }
+   ]
+  }
+ }
+}

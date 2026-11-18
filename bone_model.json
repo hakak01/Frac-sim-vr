@@ -31,6 +31,10 @@
       }
     },
     "landmark_bone": "tibia",
+    "followers": {
+      "_note": "Phase 7a: intact context bones that move with the fragment carrying a joint surface. The ankle is intact, so the talus goes with the tibial fragment that holds the plafond (most plafond cartilage) and keeps its own sagittal angle (the ankle takes up the tilt). Pivot = centre of the talar trochlea arc, measured on this talus. Talar shift from torn ligaments (44 fractures) is NOT modelled here: Phase 7b.",
+      "Talus.r": {"bone": "tibia", "end": "distal", "basis": "Ankle joint intact: talus follows the plafond fragment; pivot = circle fitted to the trochlea cartilage in the sagittal plane"}
+    },
     "frames": {
       "plateau": {"bone": "tibia", "level": {"ref": "knee", "distal_mm": 0}, "band_mm": [0, 14], "into": "distal"},
       "plafond": {"bone": "tibia", "level": {"ref": "ankle", "distal_mm": 0}, "band_mm": [-14, -3], "into": "proximal"}

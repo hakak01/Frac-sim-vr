@@ -1,4 +1,5 @@
 [
- { "id": "leg_right", "title": "Right leg (knee to ankle)" },
- { "id": "thigh_right", "title": "Right thigh (hip to knee)" }
+ {"id": "leg_right", "title": "Right leg (knee to ankle)"},
+ {"id": "thigh_right", "title": "Right thigh (hip to knee)"},
+ {"id": "foot_right", "title": "Right foot and ankle (talus to toes)"}
 ]

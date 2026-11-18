@@ -63,7 +63,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
    6d muscle pull from attachment areas + femur readouts – done; 6e mixed reality (real table,
    hand occlusion, traction, haptics) – done (see PROGRESS.md). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 7. FOOT AND ANKLE (owner's plan, 18 Nov 2026, answers in PROGRESS.md > Decisions):
-   7a assets (`foot_right` + talus as context in `leg_right`); 7b joints + ligament tethers
+   7a assets (`foot_right` + talus as context in `leg_right`) – done (see PROGRESS.md); 7b joints + ligament tethers
    (also for 43/44); 7c talus 81 + calcaneus 82 (CT-mapped); 7d 83-89 + dislocations;
    7e tendon pull, readouts, CT slice plane; 7f VR/MR (grips, positions, Sawbones overlay, haptics).
 
@@ -87,6 +87,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | `assets/<region>/STRUCTURES.md` | The same list as a readable table. |
 | `regions/<region>.json` | Which Z-Anatomy structures belong to a region (data, no code). |
 | `assets/regions.json` | List of regions for the page's region picker (`?region=<id>`, default `leg_right`). |
+| `regions/foot_right.json` | Foot and ankle region (7a): 26 foot bones + sesamoids, tibia and fibula whole as context. |
 | `tools/export_muscles.py` | Blender (bpy) script: muscle attachments + lines of action from Z-Anatomy -> `model/<region>/muscles.json`. |
 | `muscle_model.json` | Muscle pull data: PCSA per muscle (with status and source), end shares, teaching sizes, rules. |
 | `tools/femur_geometry.py` | Measures a femur (head, neck and shaft axes, neck-shaft angle, version, bow) and compares with published values. Writes `model/<region>/femur_geometry.json`. |
@@ -106,6 +107,8 @@ pip install bpy            # Blender as a Python module (5.3 used)
 bash tools/fetch_zanatomy.sh
 bash tools/fetch_bodyparts3d.sh regions/leg_right.json
 python3 tools/export_region.py _source/blend/Z-Anatomy/Startup.blend regions/leg_right.json assets/leg_right
+bash tools/fetch_bodyparts3d.sh regions/foot_right.json      # foot (7a): 29 bone files
+python3 tools/export_region.py _source/blend/Z-Anatomy/Startup.blend regions/foot_right.json assets/foot_right
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
@@ -150,7 +153,9 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
 - `x_window_from` + `x_margin_mm` – side-to-side window; only the part of a structure inside it
   counts (keeps the hanging hand out of the thigh). Layer `exclude` / `include` – by name.
 - Bones layer: `context_only` – bones shown intact, never cut in this region (manifest flag);
-  `fit_max_mm` – per-bone fit limit, ONLY by the owner's decision (femur 2.5 mm, 18 Nov 2026).
+  `fit_max_mm` – per-bone fit limit, ONLY by the owner's decision (femur 2.5 mm, navicular 2.5 mm, 18 Nov 2026).
+- `min_overlap_mm`: 20 for leg and thigh; 3 for the foot (foot vessels and nerves run flat, so their height
+  range is small; nothing but ankle and foot lies below the talus).
 
 ## Facts about BodyParts3D bones (bone source since 16 Nov 2026)
 
@@ -161,7 +166,10 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
   this per bone (ICP) and stops if the fit is worse than 2 mm. Leg: max 1.0 mm, median 0.01 mm.
 - A region lists bones as `"bodyparts3d": { "<Z-Anatomy name>": "<FMA id>" }`.
   Right tibia FMA24477, right fibula FMA24480, right femur FMA24474, right patella FMA24486,
-  right hip bone FMA16586. Find other ids in the mirror's `FMA.csv` (it lists all of FMA,
+  right hip bone FMA16586. Right foot (7a): talus FMA24482, calcaneus FMA24497, navicular FMA24500, cuboid
+  FMA24528, cuneiforms medial/intermediate/lateral FMA24521/24523/24525, metatarsals 1-5 FMA24507/09/11/13/15,
+  proximal phalanges 1-5 FMA43253/32634/32636/32638/32640, middle 2-5 FMA32642/32644/32646/230986, distal 1-5
+  FMA32650/52/54/56/58, sesamoids (both in one file) FMA45097. Find other ids in the mirror's `FMA.csv` (it lists all of FMA,
   not only the 934 parts that have files: check the `stl/` folder).
 - BodyParts3D has no materials. `Cartilage` faces are copied from the nearest Z-Anatomy
   face, so the cartilage edge is jagged at triangle size (about 2 mm).
@@ -210,6 +218,29 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
 - 89 crush, multiple fractures of the foot: A hindfoot, B midfoot, C forefoot.
 - * = qualification a simple / b multifragmentary. There is no code for the tarsometatarsal (Lisfranc)
   joint or for pure dislocations (no 86): those rows get non-AO ids, like `41C-PM`.
+
+## Foot region and talus follower (Phase 7a)
+
+- Z-Anatomy foot names: toes are "fingers of foot" (`Proximal phalanx of first finger of foot.r`; no middle
+  phalanx of the first toe), `Navicular bone.r`, `Cuboid bone.r`, `Medial cuneiform bone.r`, `Sesamoid bones of foot.r`
+  (both sesamoids, one mesh). Groups: `Bones of foot.g`, `Muscles of foot.g`, `Ankle joint.g` (lateral collateral:
+  ATFL, CFL, PTFL; medial collateral = deltoid: posterior tibiotalar, tibiocalcaneal, tibionavicular only - no
+  anterior tibiotalar, no ankle capsule in Z-Anatomy), `Tibiofibular syndesmosis.g` (anterior, posterior, transverse),
+  `Joints of foot.g` (Lisfranc ligament = `Cuneometatarsal interosseous ligaments.r`, spring ligament =
+  `Plantar calcaneonavicular ligament.r`, bifurcate = `Calcaneonavicular ligament.r` + `Calcaneocuboid ligament.r`).
+  Skin: `Regions of foot.g`, `Talocrural region.g`; nails `Nail plate (foot).r` (material Nail, added by name).
+- Z-Anatomy's saphenous nerve ends 104 mm above the floor (does not reach the foot). `Common plantar digital
+  branches of medial plantar nerve` has no `.r` ending (added by name).
+- Page (viewer.js): the start view frames the region's own bones (context bones left out); the subtitle length is
+  measured along the main bone's principal axis (`axisLength`), so the calcaneus reads 81 mm (tibia unchanged 358,
+  femur 454 -> 456 because it is slightly oblique).
+- Followers are data: `bone_model.json` > region > `followers` {mesh: {bone, end}}. `fracture_engine.py`
+  `joint_followers` gives each row `followers` {mesh: fragment with the most joint cartilage of that end};
+  `follower_pivots` writes index `follow` {mesh: {bone, pivot (GLB m), arc_radius_mm}}. Talus pivot = circle fitted to
+  the trochlea cartilage in the sagittal plane (radius 23.9 mm on this talus). The viewer moves a follower with its
+  fragment without the tilt about the medial axis (the joint takes it up); femur rows (no `follow`) still use
+  `femur.knee_centre`. A follower is out of bone collision; if its bone is not cut (4F, fibula-only 44), the talus
+  stays home and IS a collider. Followers need a full re-cut (not `--meta`).
 
 ## Femur fractures (Phase 6b)
 

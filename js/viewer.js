@@ -144,19 +144,23 @@ async function main() {
   t.innerHTML = `<td>Total (${count})</td><td class="num">${num(totalTris)}</td><td class="num">${kb(totalBytes)}</td>`;
   rowsEl.append(t);
 
-  // centre the region and frame it (front view: patient faces the camera)
-  const box = new THREE.Box3().setFromObject(layerGroups.bones);
+  // centre the region and frame it (front view: patient faces the camera).
+  // Bones shown only for context (e.g. the whole tibia in the foot region) stay out of the frame.
+  const box = new THREE.Box3();
+  for (const s of manifest.layers.bones.structures) if (!s.context_only && structures[s.name]) box.expandByObject(structures[s.name].node);
+  if (box.isEmpty()) box.setFromObject(layerGroups.bones);
   const c = box.getCenter(new THREE.Vector3());
   const size = box.getSize(new THREE.Vector3());
+  const d = Math.max(size.x, size.y, size.z);       // = the height for leg and thigh, the length for the foot
   root.position.sub(c);
-  camera.position.set(0.25 * size.y, 0.1 * size.y, 2.6 * size.y);
+  camera.position.set(0.25 * d, 0.1 * d, 2.6 * d);
   controls.target.set(0, 0, 0);
   controls.update();
   // the region's main bone (data: main_bone in regions/<id>.json), for the length in the subtitle
   const len = (s) => s.bbox_max[2] - s.bbox_min[2];
   const bones = manifest.layers.bones.structures;
   const main = bones.find((s) => s.name === manifest.main_bone) || bones.filter((s) => !s.context_only).sort((a, b) => len(b) - len(a))[0];
-  const mm = (len(main) * 1000).toFixed(0);
+  const mm = (axisLength(structures[main.name]) * 1000).toFixed(0);
   document.getElementById('sub').textContent = `${manifest.title} · true scale (${main.name.replace(/\.[rl]$/, '').toLowerCase()} ${mm} mm long)`;
   initRegions();
   select(null);
@@ -247,6 +251,28 @@ function colliderSize(x) {
   return x.vol > 2 ? [0.0005, 0.001] : [0.0003, 0.0006];
 }
 function collider(x) { return (x.collider ||= makeCollider(x.node, ...colliderSize(x))); }
+// length of a bone along its own long axis (principal axis of its points), metres.
+// For upright long bones this equals the height; for the calcaneus it is the heel-to-front length.
+function axisLength(st) {
+  const p = [], v = new THREE.Vector3();
+  for (const m of st.meshes) {
+    const a = m.geometry.attributes.position;
+    m.updateWorldMatrix(true, false);
+    for (let i = 0; i < a.count; i++) { v.fromBufferAttribute(a, i).applyMatrix4(m.matrixWorld); p.push(v.x, v.y, v.z); }
+  }
+  const n = p.length / 3, mu = [0, 0, 0], C = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for (let i = 0; i < n; i++) for (let k = 0; k < 3; k++) mu[k] += p[3 * i + k] / n;
+  for (let i = 0; i < n; i++) for (let r = 0; r < 3; r++) for (let k = 0; k < 3; k++) C[3 * r + k] += (p[3 * i + r] - mu[r]) * (p[3 * i + k] - mu[k]);
+  let u = [0.3, 1, 0.2];
+  for (let it = 0; it < 100; it++) {          // power iteration: the direction of largest spread
+    const w = [0, 1, 2].map((r) => C[3 * r] * u[0] + C[3 * r + 1] * u[1] + C[3 * r + 2] * u[2]);
+    const l = Math.hypot(...w) || 1; u = w.map((x) => x / l);
+  }
+  let lo = Infinity, hi = -Infinity;
+  for (let i = 0; i < n; i++) { const t = p[3 * i] * u[0] + p[3 * i + 1] * u[1] + p[3 * i + 2] * u[2]; lo = Math.min(lo, t); hi = Math.max(hi, t); }
+  return hi - lo;
+}
+
 function boneColliders(withFollowers = false) {   // intact bones on screen (not replaced by fragments)
   return Object.values(structures).filter((s) => s.layer === 'bones' && s.node && s.node.visible
     && (withFollowers || !isFollower(s.node))).map(collider);
@@ -260,19 +286,19 @@ function followerBone(c) {           // for the soft tissue: a follower counts a
 }
 const FW = { m: new THREE.Matrix4(), q: new THREE.Quaternion(), tw: new THREE.Quaternion(), p: new THREE.Vector3(), s: new THREE.Vector3() };
 function updateFollowers() {
-  if (!fx.followers.length) return;
-  const f = fx.followers[0].frag, ax = f.frame.M;
-  f.holder.updateMatrix(); f.node.updateMatrix();
-  FW.m.copy(f.holder.matrix).multiply(f.node.matrix);
-  FW.m.decompose(FW.p, FW.q, FW.s);
-  // the knee joint takes up the forwards/backwards tilt: keep the turn without its part about the medial-lateral axis
-  const d = FW.q.x * ax.x + FW.q.y * ax.y + FW.q.z * ax.z;
-  FW.tw.set(ax.x * d, ax.y * d, ax.z * d, FW.q.w).normalize();
-  const swing = FW.q.clone().multiply(FW.tw.clone().invert());
-  const k0 = new THREE.Vector3(...fx.data.femur.knee_centre), k1 = k0.clone().applyMatrix4(FW.m);
-  const F = new THREE.Matrix4().makeTranslation(k1.x, k1.y, k1.z).multiply(new THREE.Matrix4().makeRotationFromQuaternion(swing))
-    .multiply(new THREE.Matrix4().makeTranslation(-k0.x, -k0.y, -k0.z));
   for (const x of fx.followers) {
+    const f = x.frag, ax = f.frame.M;
+    f.holder.updateMatrix(); f.node.updateMatrix();
+    FW.m.copy(f.holder.matrix).multiply(f.node.matrix);
+    FW.m.decompose(FW.p, FW.q, FW.s);
+    // the joint (knee, or ankle for the talus) takes up the forwards/backwards tilt:
+    // keep the turn without its part about the medial-lateral axis, pivot = the joint centre
+    const d = FW.q.x * ax.x + FW.q.y * ax.y + FW.q.z * ax.z;
+    FW.tw.set(ax.x * d, ax.y * d, ax.z * d, FW.q.w).normalize();
+    const swing = FW.q.clone().multiply(FW.tw.clone().invert());
+    const k0 = new THREE.Vector3(...x.pivot), k1 = k0.clone().applyMatrix4(FW.m);
+    const F = new THREE.Matrix4().makeTranslation(k1.x, k1.y, k1.z).multiply(new THREE.Matrix4().makeRotationFromQuaternion(swing))
+      .multiply(new THREE.Matrix4().makeTranslation(-k0.x, -k0.y, -k0.z));
     x.node.matrixAutoUpdate = false;
     x.node.matrix.copy(F).multiply(x.home);
     x.node.matrixWorldNeedsUpdate = true;
@@ -585,8 +611,11 @@ async function showFracture(id) {
   if (e.anchor) for (const f of fx.fragments) if (f.node.userData.fragment === e.anchor) biggest[f.bone] = f;
   Object.values(biggest).forEach((f) => { f.fixed = true; });   // the main fragment stays in place
   for (const [name, fragName] of Object.entries(e.followers || {})) {
-    const s = structures[name], frag = fx.fragments.find((f) => f.bone === 'femur' && f.node.userData.fragment === fragName);
-    if (s && s.node && frag && fx.data.femur) fx.followers.push({ node: s.node, frag, home: s.node.matrix.clone(), auto: s.node.matrixAutoUpdate });
+    // femur region: the leg follows the knee fragment; leg region (7a): the talus follows the plafond fragment
+    const spec = (fx.data.follow || {})[name];
+    const bone = spec ? spec.bone : 'femur', pivot = spec ? spec.pivot : fx.data.femur && fx.data.femur.knee_centre;
+    const s = structures[name], frag = fx.fragments.find((f) => f.bone === bone && f.node.userData.fragment === fragName);
+    if (s && s.node && frag && pivot) fx.followers.push({ node: s.node, frag, pivot, home: s.node.matrix.clone(), auto: s.node.matrixAutoUpdate });
   }
   for (const f of fx.fragments) f.ref = biggest[f.bone];
   fitColliders();

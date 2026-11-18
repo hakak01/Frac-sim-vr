@@ -457,6 +457,54 @@ Limits the owner should know (Phase 6e):
    It is not anchored to the room: if the headset's tracking shifts, the limb shifts with it.
 4. In plain VR (no pass-through) the new buttons are hidden.
 
+### Phase 7a – FOOT AND ANKLE ASSETS + TALUS IN THE LEG – waiting for owner's OK
+
+New region `foot_right` (`?region=foot_right`): talus to toes; tibia and fibula whole, intact, as context.
+
+| Layer | Structures | Triangles | Size |
+|---|---:|---:|---:|
+| Bones (BodyParts3D 3.0) | 29 | 68,476 | 302 KB |
+| Muscles, tendons and retinacula | 50 | 100,897 | 409 KB |
+| Joint capsules and ligaments | 47 | 18,886 | 122 KB |
+| Arteries | 19 | 79,776 | 234 KB |
+| Veins | 13 | 93,024 | 255 KB |
+| Nerves | 15 | 52,416 | 133 KB |
+| Skin | 19 | 9,397 | 100 KB |
+| **Total** | **192** | **422,872** | **1,555 KB** |
+
+- Bones: all 26 foot bones + the sesamoids (one file, both bones) exist in BodyParts3D and were fitted onto
+  Z-Anatomy. 28 of 29 within 2 mm (median 0.001-0.24 mm). Largest: lateral cuneiform 1.87 mm (Z-Anatomy draws it
+  1.5 % smaller than BodyParts3D, other bones 3.3 %), talus 1.71 mm (5 points on the posterior cartilage).
+  **Navicular 2.30 mm: STOPPED and asked; owner accepted with a 2.5 mm limit for the navicular only** (Decisions).
+  Smallest bone: middle phalanx of the 5th toe, 294 triangles (BodyParts3D as published, not reduced).
+- Soft tissue (Z-Anatomy): all intrinsic foot muscles; leg muscles whose tendons cross the ankle (whole, from the
+  knee down: no cutting of anatomy); Achilles tendon; plantar aponeurosis; extensor, flexor and fibular retinacula;
+  6 tendon sheaths; 5 bursae; 47 ligaments and capsules (ankle, syndesmosis, all foot joints incl. the Lisfranc
+  ligament, spring ligament, bifurcate ligament); dorsalis pedis, plantar arch and branches; tibial, plantar,
+  deep and superficial fibular and sural nerves; skin of the ankle and foot with toenails.
+- What Z-Anatomy does NOT have (told, not added): ankle joint capsule; anterior tibiotalar part of the deltoid
+  (deltoid = posterior tibiotalar, tibiocalcaneal, tibionavicular); saphenous nerve below 104 mm (it stops above
+  the ankle); anterior tibial veins below 119 mm.
+- Height window: 3 mm overlap instead of 20 mm for this region (foot vessels and nerves run flat).
+- Leg region: the talus (FMA24482, fit 1.71 mm) is added as an intact bone. It moves with the tibial fragment
+  that carries the plafond (the ankle is intact): 81 of 96 rows. Pivot = centre of the trochlea arc (circle fit
+  to the talar dome cartilage in the sagittal plane, radius 23.9 mm on this talus); the ankle takes up the
+  forwards/backwards tilt, as the knee does for the femur. Checked: the pivot stays on its fragment (0.00 mm) in
+  43A1.1, 42A2, 43C3.3. In the 15 rows where the tibia is not cut (4F, fibula-only 44) the talus stays home and
+  blocks bone. All 96 fractures re-cut: every fragment file is byte-identical, 0 problems.
+- Start positions, all 96 leg rows before and after: 95 identical; 44A1.2 (tip of the lateral malleolus) now
+  starts 2 mm instead of 4 mm out, because the talus is in the way.
+- Page: the start view frames the region's own bones (context bones left out; the thigh view now centres the
+  femur and patella). The subtitle length is measured along the bone's own long axis: calcaneus 81 mm (the old
+  height measure gave 51 mm), tibia 358 mm unchanged, femur 454 -> 456 mm (slightly oblique bone).
+
+Limits the owner should know (7a):
+1. The talus does not shift in 44 fractures yet (needs the ligaments: 7b). It only follows the plafond.
+2. The foot shows the whole leg muscles and long vessels (Z-Anatomy structures are whole; not cut without OK).
+3. Skin is Z-Anatomy surface patches: coarse (9,397 triangles for ankle and foot).
+4. 423,000 triangles with every layer on (VR starts with bones only, 68,000). Not tested on a Quest 3.
+5. No foot fractures yet (7c, 7d).
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
@@ -508,6 +556,10 @@ Limits the owner should know (Phase 6e):
   toes 2-5 (54 rows); Lisfranc rows = Myerson types A, B1, B2, C1, C2 + one purely ligamentous
   ("subtle") Lisfranc (PMID to be checked in 7d); the Sawbones model is bare bone (no foam or skin):
   overlay lines up on bony landmarks (side and product still to ask, needed in 7f only).
+- 18 Nov 2026: **navicular fit exception.** BodyParts3D navicular accepted with max 2.30 mm (limit 2 mm):
+  4 Z-Anatomy points on the plantar-medial side, 7-13 mm from the tip of the tuberosity, stand 1.6-2.3 mm proud of
+  the BodyParts3D surface (none on cartilage; 98 % of points within 1 mm). Limit for the navicular set to 2.5 mm in
+  `regions/foot_right.json` (`fit_max_mm`). The 2 mm limit stays for every other bone.
 
 ## Open points for the owner
 
@@ -518,6 +570,7 @@ Limits the owner should know (Phase 6e):
 5. In Z-Anatomy but not exported (not on the Phase 1 list): interosseous membrane,
    knee and ankle ligaments, menisci, crural fascia and septa, retinacula, muscle
    attachment areas, femur, patella, talus, thigh muscles that cross the knee.
+   (Since then: femur, patella and thigh muscles in 6a; talus, ankle and foot ligaments in 7a.)
 
 ## Other bone sources checked and not used
 
@@ -529,12 +582,14 @@ Limits the owner should know (Phase 6e):
 ## Next
 
 - Femur region (6a-6e) complete, waiting for the owner's OK and a Quest 3 test.
-- Phase 7 (foot and ankle) planned, see Decisions and CLAUDE.md > Phases. Next: 7a, after the owner's go.
+- Phase 7a (foot assets + talus in the leg) done, waiting for the owner's OK. Next: 7b (joints + ligament tethers).
 - Phase 6 continues later with humerus, radius+ulna, clavicle+scapula, hand.
 
 ## Test link
 
 - GitHub Pages: https://hakak01.github.io/Frac-sim-vr/
   (needs Pages switched on once: Settings -> Pages -> Deploy from a branch ->
-  branch `ccr-3f8cf2c4-bgay9k` (holds Phases 1-5 and 6a), folder `/ (root)`).
+  branch `ccr-463f3713-467s1a` (holds Phases 1-6e and 7a; earlier branch `ccr-3f8cf2c4-bgay9k` stops at 6e),
+  folder `/ (root)`).
 - Thigh: https://hakak01.github.io/Frac-sim-vr/?region=thigh_right (or use the region picker).
+- Foot: https://hakak01.github.io/Frac-sim-vr/?region=foot_right
