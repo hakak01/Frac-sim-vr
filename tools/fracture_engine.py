@@ -225,14 +225,19 @@ def plug_tool(region, bone, cut, noise):
                         h["centre"] + h["r"] * out, ex, ey, -out, noise,
                         cut["taper"]["to"] if "taper" in cut else None, cut.get("taper", {}).get("amount", 0.9))
         return tool, (-out * cut["impaction_mm"] if cut.get("impaction_mm") else None)
-    t = region.level(bone, cut["level"])
-    out = bone.direction(cut["azimuth_deg"])
-    tt = bone.t_of(bone.V)
-    band = bone.V[np.abs(tt - t) < 5] - bone.axis_point(t)
-    origin = bone.axis_point(t) + (band @ out).max() * out
+    if "at" in cut:                              # centred on a landmark (e.g. an epicondyle), facing out from the axis
+        origin = np.asarray(region.points[cut["at"]], float)
+        out = origin - bone.axis_point(bone.t_of(origin))
+        out = unit(out - (out @ bone.d) * bone.d)
+    else:
+        t = region.level(bone, cut["level"])
+        out = bone.direction(cut["azimuth_deg"])
+        tt = bone.t_of(bone.V)
+        band = bone.V[np.abs(tt - t) < 5] - bone.axis_point(t)
+        origin = bone.axis_point(t) + (band @ out).max() * out
     poly = chaikin(cut["outline_mm"])
     tool = extruded(poly, cut.get("start_mm", -15.0), cut["depth_mm"], origin,
-                    bone.direction(cut["azimuth_deg"] + 90), -bone.d, -out, noise,
+                    np.cross(-bone.d, out), -bone.d, -out, noise,
                     cut["taper"]["to"] if "taper" in cut else None, cut.get("taper", {}).get("amount", 0.9))
     return tool, None
 
@@ -551,8 +556,10 @@ def main():
                                      "line_basis", "soft_tissue", "note") if row.get(k)}
             dq = default_of(row)
             failed, files = False, {}
-            for pr in [dq] + [x for x in profiles if x != dq]:        # default profile first
-                fn = base + (f"_{pr}" if pr else "") + ".glb"
+            # several files only if a cut bone has bone-quality profiles (femur yes, patella no)
+            multi = len(profiles) > 1 and any("cortex_profiles" in region.cfg["bones"][b] for b in row.get("bones", {}))
+            for pr in ([dq] + [x for x in profiles if x != dq]) if multi else [dq]:   # default profile first
+                fn = base + (f"_{pr}" if multi else "") + ".glb"
                 try:
                     fr, notes = build_fracture(regions[pr], row)
                 except Exception as ex:                               # report, keep going
@@ -573,7 +580,7 @@ def main():
                 e["measured"] = row.pop("_measured")
             if frags:
                 e["file"] = files[dq]
-                if len(profiles) > 1:
+                if multi:
                     e["files"], e["bone_quality"] = files, dq
             e["bones"] = sorted({f["mesh"] for f in frags})
             e["triangles"] = sum(f["triangles"] for f in frags)

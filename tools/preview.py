@@ -45,7 +45,8 @@ def tiles(path_prefix, label, frags, seg, size=300, spread=10.0):
     main = max(counts, key=counts.get)
     site = next(f["site"] for f in frags if f["bone"] == main)
     second = {"41": "top", "43": "below", "44": "below", "31": "back"}.get(seg, "medial")
-    for tag, view, win in (("a", "front", 170.0), ("b", second, 120.0 if second != "medial" else 170.0)):
+    small = {"34": 70.0}.get(seg)                          # the patella needs a closer view
+    for tag, view, win in (("a", "front", small or 170.0), ("b", second, small or (120.0 if second != "medial" else 170.0))):
         r, u, t = (np.array(v, float) for v in VIEWS[view])
         q = P - site
         px = ((q @ r) / win + 0.5) * size

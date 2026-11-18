@@ -117,8 +117,21 @@
             "values_measured": false
           }
         }
+      },
+      "patella": {
+        "mesh": "Patella.r",
+        "cortex": {
+          "_note": "MODELLED cortex. Thin shell all round (the patella is mostly cancellous bone). No published thickness value was found; no medullary canal.",
+          "profile": [[0.0, 1.2], [1.0, 1.2]],
+          "anterior_boost": 0.0,
+          "canal_from_to": [2.0, 2.0],
+          "sources": [],
+          "values_measured": false
+        }
       }
     },
-    "frames": {}
+    "frames": {
+      "condyles": {"bone": "femur", "level": {"ref": "knee", "distal_mm": 0}, "band_mm": [-30, 2], "into": "proximal"}
+    }
   }
 }

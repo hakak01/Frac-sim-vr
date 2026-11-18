@@ -8295,6 +8295,11 @@
      "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
      "pmid": "23908432",
      "doi": "10.1302/0301-620X.95B8.31495"
+    },
+    {
+     "ref": "Meinberg EG et al. Fracture and Dislocation Classification Compendium-2018, Appendix: lateral wall thickness. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S169"
     }
    ],
    "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
@@ -8358,6 +8363,11 @@
      "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
      "pmid": "23908432",
      "doi": "10.1302/0301-620X.95B8.31495"
+    },
+    {
+     "ref": "Meinberg EG et al. Fracture and Dislocation Classification Compendium-2018, Appendix: lateral wall thickness. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S169"
     }
    ],
    "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
@@ -8463,6 +8473,11 @@
      "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
      "pmid": "23908432",
      "doi": "10.1302/0301-620X.95B8.31495"
+    },
+    {
+     "ref": "Meinberg EG et al. Fracture and Dislocation Classification Compendium-2018, Appendix: lateral wall thickness. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S169"
     }
    ],
    "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
@@ -8547,6 +8562,11 @@
      "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
      "pmid": "23908432",
      "doi": "10.1302/0301-620X.95B8.31495"
+    },
+    {
+     "ref": "Meinberg EG et al. Fracture and Dislocation Classification Compendium-2018, Appendix: lateral wall thickness. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S169"
     }
    ],
    "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
@@ -11256,6 +11276,2534 @@
       },
       {
        "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A1.1",
+   "code": "33A1.1",
+   "name": "Femur, distal end segment, extraarticular, avulsion fracture, lateral epicondyle fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S40"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plug",
+       "at": "lat_epicondyle",
+       "outline_mm": [
+        [
+         -12,
+         -11
+        ],
+        [
+         12,
+         -11
+        ],
+        [
+         13,
+         11
+        ],
+        [
+         -11,
+         12
+        ]
+       ],
+       "depth_mm": 15,
+       "start_mm": -10,
+       "taper": {
+        "to": [
+         0,
+         0
+        ],
+        "amount": 0.35
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "lateral epicondyle fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A1.2",
+   "code": "33A1.2",
+   "name": "Femur, distal end segment, extraarticular, avulsion fracture, medial epicondyle fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S40"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plug",
+       "at": "med_epicondyle",
+       "outline_mm": [
+        [
+         -12,
+         -11
+        ],
+        [
+         12,
+         -11
+        ],
+        [
+         13,
+         11
+        ],
+        [
+         -11,
+         12
+        ]
+       ],
+       "depth_mm": 15,
+       "start_mm": -10,
+       "taper": {
+        "to": [
+         0,
+         0
+        ],
+        "amount": 0.35
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "medial epicondyle fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A2.1",
+   "code": "33A2.1",
+   "name": "Femur, distal end segment, extraarticular, simple fracture, spiral fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S40"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "spiral",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -62
+       },
+       "height_mm": 46,
+       "handed": "right",
+       "seam_azimuth_deg": 180
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A2.2",
+   "code": "33A2.2",
+   "name": "Femur, distal end segment, extraarticular, simple fracture, oblique fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S40"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -60
+       },
+       "tilt_deg": 35,
+       "azimuth_deg": 270
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A2.3",
+   "code": "33A2.3",
+   "name": "Femur, distal end segment, extraarticular, simple fracture, transverse fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S40"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -56
+       },
+       "tilt_deg": 6,
+       "azimuth_deg": 0
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A3.1(h)",
+   "code": "33A3.1",
+   "name": "Femur, distal end segment, extraarticular, wedge or multifragmentary fracture, intact wedge fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "qualification": "h Medial",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -58
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -58
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 450,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "medial wedge",
+       "sides": {
+        "c1": "-",
+        "c2": "+"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A3.2(h)",
+   "code": "33A3.2",
+   "name": "Femur, distal end segment, extraarticular, wedge or multifragmentary fracture, fragmentary wedge fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "qualification": "h Medial",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -58
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -58
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 450,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "medial wedge",
+       "sides": {
+        "c1": "-",
+        "c2": "+"
+       },
+       "shatter": {
+        "pieces": 3,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33A3.3",
+   "code": "33A3.3",
+   "name": "Femur, distal end segment, extraarticular, wedge or multifragmentary fracture, multifragmentary fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Comminution between 40 and 84 mm above the joint line. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "m1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -40
+       },
+       "tilt_deg": 8,
+       "azimuth_deg": 30
+      },
+      {
+       "id": "m2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -84
+       },
+       "tilt_deg": 12,
+       "azimuth_deg": 220
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "m2": "+"
+       }
+      },
+      {
+       "name": "metaphyseal fragments",
+       "sides": {
+        "m2": "-",
+        "m1": "+"
+       },
+       "shatter": {
+        "pieces": 5,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B1.1",
+   "code": "33B1.1",
+   "name": "Femur, distal end segment, partial articular, lateral condyle, sagittal fracture, simple through the notch",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Li 2022: fracture lines cluster at the lateral part of the notch. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "tilt_deg": 110,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "lateral condyle fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B1.2",
+   "code": "33B1.2",
+   "name": "Femur, distal end segment, partial articular, lateral condyle, sagittal fracture, simple through the load bearing surface",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "tilt_deg": 106,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.5,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "lateral condyle fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B1.3",
+   "code": "33B1.3",
+   "name": "Femur, distal end segment, partial articular, lateral condyle, sagittal fracture, fragmentary fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "tilt_deg": 110,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "tilt_deg": 106,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.55,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "outer lateral condyle fragment",
+       "sides": {
+        "c2": "+"
+       }
+      },
+      {
+       "name": "inner lateral condyle fragments",
+       "sides": {
+        "c1": "+",
+        "c2": "-"
+       },
+       "shatter": {
+        "pieces": 2,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B2.1",
+   "code": "33B2.1",
+   "name": "Femur, distal end segment, partial articular, medial condyle, sagittal fracture, simple through the notch",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "tilt_deg": 106,
+       "azimuth_deg": 90,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         0.06,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "medial condyle fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B2.2",
+   "code": "33B2.2",
+   "name": "Femur, distal end segment, partial articular, medial condyle, sagittal fracture, simple through the load bearing surface",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "tilt_deg": 105,
+       "azimuth_deg": 90,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         0.5,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "medial condyle fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B2.3",
+   "code": "33B2.3",
+   "name": "Femur, distal end segment, partial articular, medial condyle, sagittal fracture, fragmentary fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S41"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "tilt_deg": 106,
+       "azimuth_deg": 90,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         0.06,
+         0
+        ],
+        "depth_mm": 0
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "tilt_deg": 105,
+       "azimuth_deg": 90,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         0.55,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "outer medial condyle fragment",
+       "sides": {
+        "c2": "+"
+       }
+      },
+      {
+       "name": "inner medial condyle fragments",
+       "sides": {
+        "c1": "+",
+        "c2": "-"
+       },
+       "shatter": {
+        "pieces": 2,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B3.1",
+   "code": "33B3.1",
+   "name": "Femur, distal end segment, partial articular, frontal/coronal fracture, anterior and lateral flake fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Flake on the lateral trochlea, as in the drawing. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plug",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -28
+       },
+       "azimuth_deg": 300,
+       "outline_mm": [
+        [
+         -12,
+         -9
+        ],
+        [
+         12,
+         -9
+        ],
+        [
+         12,
+         10
+        ],
+        [
+         -12,
+         10
+        ]
+       ],
+       "depth_mm": 7,
+       "start_mm": -8,
+       "taper": {
+        "to": [
+         0,
+         0
+        ],
+        "amount": 0.3
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "anterolateral osteochondral flake",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B3.2(f)",
+   "code": "33B3.2",
+   "name": "Femur, distal end segment, partial articular, frontal/coronal fracture, posterior unicondylar fracture (Hoffa)",
+   "segment": "33",
+   "region": "thigh_right",
+   "qualification": "f Lateral",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Xie X et al. Two and three-dimensional CT mapping of Hoffa fractures. J Bone Joint Surg Am 2017;99:1866-74",
+     "pmid": "29088042",
+     "doi": "10.2106/JBJS.17.00473"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Ding Y et al. Three-dimensional fracture mapping and analysis of coronal fractures in AO/OTA types 33-B3 and C3. J Orthop Surg Res 2022;17:438",
+     "pmid": "36183139",
+     "doi": "10.1186/s13018-022-03327-7"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Hoffa plane from Xie 2017 (75 Hoffa fractures): lateral condyle line 34.4 deg to the posterior condylar axis and 23.1 deg to the posterior femoral cortex (medial 29.0 and 19.3 deg), anterolateral to posteromedial (axial), anteroinferior to posterosuperior (sagittal), through the middle third of the condyle. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "hl",
+       "type": "plane",
+       "tilt_deg": 113.1,
+       "azimuth_deg": 216.9,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.55,
+         -0.2
+        ],
+        "depth_mm": 10
+       }
+      },
+      {
+       "id": "n",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.1,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "lateral Hoffa fragment",
+       "sides": {
+        "hl": "+",
+        "n": "+"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33B3.3",
+   "code": "33B3.3",
+   "name": "Femur, distal end segment, partial articular, frontal/coronal fracture, posterior bicondylar fracture (bilateral Hoffa)",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Xie X et al. Two and three-dimensional CT mapping of Hoffa fractures. J Bone Joint Surg Am 2017;99:1866-74",
+     "pmid": "29088042",
+     "doi": "10.2106/JBJS.17.00473"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Ding Y et al. Three-dimensional fracture mapping and analysis of coronal fractures in AO/OTA types 33-B3 and C3. J Orthop Surg Res 2022;17:438",
+     "pmid": "36183139",
+     "doi": "10.1186/s13018-022-03327-7"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Hoffa plane from Xie 2017 (75 Hoffa fractures): lateral condyle line 34.4 deg to the posterior condylar axis and 23.1 deg to the posterior femoral cortex (medial 29.0 and 19.3 deg), anterolateral to posteromedial (axial), anteroinferior to posterosuperior (sagittal), through the middle third of the condyle. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "hl",
+       "type": "plane",
+       "tilt_deg": 113.1,
+       "azimuth_deg": 216.9,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.55,
+         -0.2
+        ],
+        "depth_mm": 10
+       }
+      },
+      {
+       "id": "hm",
+       "type": "plane",
+       "tilt_deg": 109.3,
+       "azimuth_deg": 153.5,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         0.55,
+         -0.2
+        ],
+        "depth_mm": 10
+       }
+      },
+      {
+       "id": "n",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.1,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "lateral Hoffa fragment",
+       "sides": {
+        "hl": "+",
+        "n": "+"
+       }
+      },
+      {
+       "name": "medial Hoffa fragment",
+       "sides": {
+        "hm": "+",
+        "n": "-"
+       }
+      },
+      {
+       "name": "femur",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C1.1",
+   "code": "33C1.1",
+   "name": "Femur, distal end segment, complete, simple articular, simple metaphyseal fracture, above transcondylar axis",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Transcondylar (epicondylar) axis measured on this femur 30 mm above the joint line. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "m",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -55
+       },
+       "tilt_deg": 8,
+       "azimuth_deg": 300
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "m": "+"
+       }
+      },
+      {
+       "name": "lateral condyle",
+       "sides": {
+        "m": "-",
+        "s": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C1.3",
+   "code": "33C1.3",
+   "name": "Femur, distal end segment, complete, simple articular, simple metaphyseal fracture, through or below transcondylar axis",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Metaphyseal line 4 mm below the transcondylar axis (measured 30 mm above the joint line). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "m",
+       "type": "plane",
+       "level": {
+        "ref": "transcondylar",
+        "distal_mm": 4
+       },
+       "tilt_deg": 5,
+       "azimuth_deg": 300
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "m": "+"
+       }
+      },
+      {
+       "name": "lateral condyle",
+       "sides": {
+        "m": "-",
+        "s": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C2.1(h)",
+   "code": "33C2.1",
+   "name": "Femur, distal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, intact wedge metaphyseal fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "qualification": "h Medial",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -60
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -60
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 450,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "medial wedge",
+       "sides": {
+        "c1": "-",
+        "c2": "+"
+       }
+      },
+      {
+       "name": "lateral condyle",
+       "sides": {
+        "c1": "-",
+        "c2": "-",
+        "s": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C2.2(h)",
+   "code": "33C2.2",
+   "name": "Femur, distal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, fragmentary wedge metaphyseal fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "qualification": "h Medial",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -60
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -60
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 450,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "medial wedge",
+       "sides": {
+        "c1": "-",
+        "c2": "+"
+       },
+       "shatter": {
+        "pieces": 3,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "lateral condyle",
+       "sides": {
+        "c1": "-",
+        "c2": "-",
+        "s": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C2.3",
+   "code": "33C2.3",
+   "name": "Femur, distal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, multifragmentary metaphyseal fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S42"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Chen 2023: comminution mostly lateral, anterior and posterior, less medial. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "m1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -40
+       },
+       "tilt_deg": 8,
+       "azimuth_deg": 30
+      },
+      {
+       "id": "m2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -84
+       },
+       "tilt_deg": 12,
+       "azimuth_deg": 220
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "m2": "+"
+       }
+      },
+      {
+       "name": "metaphyseal fragments",
+       "sides": {
+        "m2": "-",
+        "m1": "+"
+       },
+       "shatter": {
+        "pieces": 5,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "lateral condyle",
+       "sides": {
+        "m1": "-",
+        "s": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C3.1",
+   "code": "33C3.1",
+   "name": "Femur, distal end segment, complete, multifragmentary articular fracture, simple metaphyseal fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S43"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Ding Y et al. Three-dimensional fracture mapping and analysis of coronal fractures in AO/OTA types 33-B3 and C3. J Orthop Surg Res 2022;17:438",
+     "pmid": "36183139",
+     "doi": "10.1186/s13018-022-03327-7"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Coronal fracture of the lateral condyle: Ding 2022 found coronal fractures in 67 % of 33C3, placed more anteriorly and at smaller angles than in Hoffa (33B3) fractures; the abstract gives no values, so 25 and 15 deg (smaller than Xie's 34.4 and 23.1) were chosen. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "m",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -55
+       },
+       "tilt_deg": 8,
+       "azimuth_deg": 300
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      },
+      {
+       "id": "cor",
+       "type": "plane",
+       "tilt_deg": 105,
+       "azimuth_deg": 207.5,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.55,
+         0.05
+        ],
+        "depth_mm": 8
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "m": "+"
+       }
+      },
+      {
+       "name": "lateral condyle, anterior part",
+       "sides": {
+        "m": "-",
+        "s": "+",
+        "cor": "-"
+       }
+      },
+      {
+       "name": "lateral condyle, posterior part",
+       "sides": {
+        "m": "-",
+        "s": "+",
+        "cor": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C3.2(h,s)",
+   "code": "33C3.2",
+   "name": "Femur, distal end segment, complete, multifragmentary articular fracture, wedge metaphyseal fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "qualification": "h Medial, s Intact",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S43"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Ding Y et al. Three-dimensional fracture mapping and analysis of coronal fractures in AO/OTA types 33-B3 and C3. J Orthop Surg Res 2022;17:438",
+     "pmid": "36183139",
+     "doi": "10.1186/s13018-022-03327-7"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Coronal fracture of the lateral condyle: Ding 2022 found coronal fractures in 67 % of 33C3, placed more anteriorly and at smaller angles than in Hoffa (33B3) fractures; the abstract gives no values, so 25 and 15 deg (smaller than Xie's 34.4 and 23.1) were chosen. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -62
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -62
+       },
+       "tilt_deg": 26,
+       "azimuth_deg": 450,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.85
+       }
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      },
+      {
+       "id": "cor",
+       "type": "plane",
+       "tilt_deg": 105,
+       "azimuth_deg": 207.5,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.55,
+         0.05
+        ],
+        "depth_mm": 8
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "medial wedge",
+       "sides": {
+        "c1": "-",
+        "c2": "+"
+       }
+      },
+      {
+       "name": "lateral condyle, anterior part",
+       "sides": {
+        "c1": "-",
+        "c2": "-",
+        "s": "+",
+        "cor": "-"
+       }
+      },
+      {
+       "name": "lateral condyle, posterior part",
+       "sides": {
+        "c1": "-",
+        "c2": "-",
+        "s": "+",
+        "cor": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "33C3.3",
+   "code": "33C3.3",
+   "name": "Femur, distal end segment, complete, multifragmentary articular fracture, multifragmentary metaphyseal fracture",
+   "segment": "33",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S43"
+    },
+    {
+     "ref": "Li R et al. Three-dimensional CT mapping and analysis of distal femur fractures (AO/OTA types 33A, 33B, and 33C). Ann Transl Med 2022;10:398",
+     "pmid": "35530952",
+     "doi": "10.21037/atm-21-4591"
+    },
+    {
+     "ref": "Ding Y et al. Three-dimensional fracture mapping and analysis of coronal fractures in AO/OTA types 33-B3 and C3. J Orthop Surg Res 2022;17:438",
+     "pmid": "36183139",
+     "doi": "10.1186/s13018-022-03327-7"
+    },
+    {
+     "ref": "Chen S et al. Three-dimensional CT mapping techniques in the morphometric analysis of AO/OTA 33A and 33C distal femoral fractures. Front Bioeng Biotechnol 2023;11:1162214",
+     "pmid": "37397967",
+     "doi": "10.3389/fbioe.2023.1162214"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Coronal fracture of the lateral condyle: Ding 2022 found coronal fractures in 67 % of 33C3, placed more anteriorly and at smaller angles than in Hoffa (33B3) fractures; the abstract gives no values, so 25 and 15 deg (smaller than Xie's 34.4 and 23.1) were chosen. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "femur": {
+     "cuts": [
+      {
+       "id": "m1",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -40
+       },
+       "tilt_deg": 8,
+       "azimuth_deg": 30
+      },
+      {
+       "id": "m2",
+       "type": "plane",
+       "level": {
+        "ref": "knee",
+        "distal_mm": -84
+       },
+       "tilt_deg": 12,
+       "azimuth_deg": 220
+      },
+      {
+       "id": "s",
+       "type": "plane",
+       "tilt_deg": 90,
+       "azimuth_deg": 270,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.12,
+         0
+        ],
+        "depth_mm": 0
+       }
+      },
+      {
+       "id": "cor",
+       "type": "plane",
+       "tilt_deg": 105,
+       "azimuth_deg": 207.5,
+       "through": {
+        "frame": "condyles",
+        "uv": [
+         -0.55,
+         0.05
+        ],
+        "depth_mm": 8
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "m2": "+"
+       }
+      },
+      {
+       "name": "metaphyseal fragments",
+       "sides": {
+        "m2": "-",
+        "m1": "+"
+       },
+       "shatter": {
+        "pieces": 5,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "lateral condyle, anterior part",
+       "sides": {
+        "m1": "-",
+        "s": "+",
+        "cor": "-"
+       }
+      },
+      {
+       "name": "lateral condyle, posterior part",
+       "sides": {
+        "m1": "-",
+        "s": "+",
+        "cor": "+"
+       }
+      },
+      {
+       "name": "medial condyle",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34A1(b)",
+   "code": "34A1",
+   "name": "Patella, extraarticular, avulsion fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "qualification": "b Distal pole",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S45"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). On this model the cartilage marking (copied from the low-detail Z-Anatomy patella) reaches the tip, so a small marked area stays on this piece. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.78
+       },
+       "tilt_deg": 0,
+       "azimuth_deg": 0
+      }
+     ],
+     "fragments": [
+      {
+       "name": "distal pole fragment",
+       "sides": {
+        "c1": "-"
+       }
+      },
+      {
+       "name": "patella",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34B1.1",
+   "code": "34B1.1",
+   "name": "Patella, partial articular, sagittal, lateral fracture, simple fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S46"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.5
+       },
+       "tilt_deg": 86,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.45
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "lateral fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "patella",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34B1.2",
+   "code": "34B1.2",
+   "name": "Patella, partial articular, sagittal, lateral fracture, fragmentary fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S46"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.5
+       },
+       "tilt_deg": 86,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.45
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "s": 0.5
+       },
+       "tilt_deg": 6,
+       "azimuth_deg": 0
+      }
+     ],
+     "fragments": [
+      {
+       "name": "lateral fragment, proximal",
+       "sides": {
+        "c1": "+",
+        "c2": "+"
+       }
+      },
+      {
+       "name": "lateral fragment, distal",
+       "sides": {
+        "c1": "+",
+        "c2": "-"
+       }
+      },
+      {
+       "name": "patella",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34B2.1",
+   "code": "34B2.1",
+   "name": "Patella, partial articular, sagittal, medial fracture, simple fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S46"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.5
+       },
+       "tilt_deg": 86,
+       "azimuth_deg": 90,
+       "through": {
+        "azimuth_deg": 90,
+        "frac": 0.45
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "medial fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "patella",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34B2.2",
+   "code": "34B2.2",
+   "name": "Patella, partial articular, sagittal, medial fracture, fragmentary fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S46"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.5
+       },
+       "tilt_deg": 86,
+       "azimuth_deg": 90,
+       "through": {
+        "azimuth_deg": 90,
+        "frac": 0.45
+       }
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "s": 0.5
+       },
+       "tilt_deg": 6,
+       "azimuth_deg": 0
+      }
+     ],
+     "fragments": [
+      {
+       "name": "medial fragment, proximal",
+       "sides": {
+        "c1": "+",
+        "c2": "+"
+       }
+      },
+      {
+       "name": "medial fragment, distal",
+       "sides": {
+        "c1": "+",
+        "c2": "-"
+       }
+      },
+      {
+       "name": "patella",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34C1.1",
+   "code": "34C1.1",
+   "name": "Patella, complete articular, frontal/coronal, simple fracture, middle third fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S46"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.5
+       },
+       "tilt_deg": 4,
+       "azimuth_deg": 0
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34C1.2",
+   "code": "34C1.2",
+   "name": "Patella, complete articular, frontal/coronal, simple fracture, proximal third fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S46"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.27
+       },
+       "tilt_deg": 4,
+       "azimuth_deg": 0
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34C1.3",
+   "code": "34C1.3",
+   "name": "Patella, complete articular, frontal/coronal, simple fracture, distal third fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S46"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.73
+       },
+       "tilt_deg": 4,
+       "azimuth_deg": 0
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal fragment",
+       "sides": {
+        "c1": "+"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34C2",
+   "code": "34C2",
+   "name": "Patella, complete articular, frontal/coronal, wedge fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S47"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study was found for this patella type (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.52
+       },
+       "tilt_deg": 4,
+       "azimuth_deg": 0
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "s": 0.3
+       },
+       "tilt_deg": 88,
+       "azimuth_deg": 90,
+       "through": {
+        "azimuth_deg": 90,
+        "frac": 0.15
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "proximal medial fragment",
+       "sides": {
+        "c1": "+",
+        "c2": "+"
+       }
+      },
+      {
+       "name": "proximal lateral fragment",
+       "sides": {
+        "c1": "+",
+        "c2": "-"
+       }
+      },
+      {
+       "name": "distal fragment",
+       "rest": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "34C3",
+   "code": "34C3",
+   "name": "Patella, complete articular, frontal/coronal, multifragmentary fracture",
+   "segment": "34",
+   "region": "thigh_right",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001059",
+     "page": "S47"
+    },
+    {
+     "ref": "Zhan Y et al. Three-dimensional fracture mapping of multi-fragmentary patella fractures (AO/OTA 34C3). Ann Transl Med 2021;9:1364",
+     "pmid": "34733916",
+     "doi": "10.21037/atm-21-1814"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Zhan 2021 (187 fractures): mean 7 fragments, comminution mainly in the lower half, superomedial corner seldom involved, coronal fragments common. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "bones": {
+    "patella": {
+     "cuts": [
+      {
+       "id": "c1",
+       "type": "plane",
+       "level": {
+        "s": 0.45
+       },
+       "tilt_deg": 5,
+       "azimuth_deg": 0
+      },
+      {
+       "id": "c2",
+       "type": "plane",
+       "level": {
+        "s": 0.25
+       },
+       "tilt_deg": 88,
+       "azimuth_deg": 270,
+       "through": {
+        "azimuth_deg": 270,
+        "frac": 0.3
+       }
+      }
+     ],
+     "fragments": [
+      {
+       "name": "distal fragments",
+       "sides": {
+        "c1": "-"
+       },
+       "shatter": {
+        "pieces": 5,
+        "style": "shards"
+       }
+      },
+      {
+       "name": "proximal lateral fragment",
+       "sides": {
+        "c1": "+",
+        "c2": "+"
+       }
+      },
+      {
+       "name": "proximal medial fragment (superomedial corner)",
        "rest": true
       }
      ]

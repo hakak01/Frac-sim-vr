@@ -49,3 +49,38 @@ Cortex is modelled, not measured. Sizes are Draco-compressed.
 | 32C3(j) | Femur, diaphyseal segment, multifragmentary, fragmentary segmental fracture | j Pure diaphyseal | 6 | 87,028 | 277 |
 | 32C2(k) | Femur, diaphyseal segment, multifragmentary, intact segmental fracture | k Distal diaphyseal-metaphyseal | 3 | 34,074 | 117 |
 | 32C3(k) | Femur, diaphyseal segment, multifragmentary, fragmentary segmental fracture | k Distal diaphyseal-metaphyseal | 6 | 90,742 | 293 |
+| 33A1.1 | Femur, distal end segment, extraarticular, avulsion fracture, lateral epicondyle fracture |  | 2 | 26,590 | 89 |
+| 33A1.2 | Femur, distal end segment, extraarticular, avulsion fracture, medial epicondyle fracture |  | 2 | 25,566 | 86 |
+| 33A2.1 | Femur, distal end segment, extraarticular, simple fracture, spiral fracture |  | 2 | 127,626 | 323 |
+| 33A2.2 | Femur, distal end segment, extraarticular, simple fracture, oblique fracture |  | 2 | 39,398 | 130 |
+| 33A2.3 | Femur, distal end segment, extraarticular, simple fracture, transverse fracture |  | 2 | 30,842 | 105 |
+| 33A3.1(h) | Femur, distal end segment, extraarticular, wedge or multifragmentary fracture, intact wedge fracture | h Medial | 3 | 60,257 | 199 |
+| 33A3.2(h) | Femur, distal end segment, extraarticular, wedge or multifragmentary fracture, fragmentary wedge fracture | h Medial | 5 | 82,624 | 267 |
+| 33A3.3 | Femur, distal end segment, extraarticular, wedge or multifragmentary fracture, multifragmentary fracture |  | 7 | 124,420 | 395 |
+| 33B1.1 | Femur, distal end segment, partial articular, lateral condyle, sagittal fracture, simple through the notch |  | 2 | 39,638 | 125 |
+| 33B1.2 | Femur, distal end segment, partial articular, lateral condyle, sagittal fracture, simple through the load bearing surface |  | 2 | 35,402 | 116 |
+| 33B1.3 | Femur, distal end segment, partial articular, lateral condyle, sagittal fracture, fragmentary fracture |  | 4 | 74,744 | 235 |
+| 33B2.1 | Femur, distal end segment, partial articular, medial condyle, sagittal fracture, simple through the notch |  | 2 | 36,910 | 119 |
+| 33B2.2 | Femur, distal end segment, partial articular, medial condyle, sagittal fracture, simple through the load bearing surface |  | 2 | 34,782 | 112 |
+| 33B2.3 | Femur, distal end segment, partial articular, medial condyle, sagittal fracture, fragmentary fracture |  | 4 | 73,226 | 233 |
+| 33B3.1 | Femur, distal end segment, partial articular, frontal/coronal fracture, anterior and lateral flake fracture |  | 2 | 16,958 | 61 |
+| 33B3.2(f) | Femur, distal end segment, partial articular, frontal/coronal fracture, posterior unicondylar fracture (Hoffa) | f Lateral | 2 | 27,578 | 93 |
+| 33B3.3 | Femur, distal end segment, partial articular, frontal/coronal fracture, posterior bicondylar fracture (bilateral Hoffa) |  | 3 | 43,274 | 144 |
+| 33C1.1 | Femur, distal end segment, complete, simple articular, simple metaphyseal fracture, above transcondylar axis |  | 3 | 48,800 | 163 |
+| 33C1.3 | Femur, distal end segment, complete, simple articular, simple metaphyseal fracture, through or below transcondylar axis |  | 3 | 60,864 | 185 |
+| 33C2.1(h) | Femur, distal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, intact wedge metaphyseal fracture | h Medial | 4 | 74,402 | 245 |
+| 33C2.2(h) | Femur, distal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, fragmentary wedge metaphyseal fracture | h Medial | 6 | 103,415 | 336 |
+| 33C2.3 | Femur, distal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, multifragmentary metaphyseal fracture |  | 8 | 119,848 | 394 |
+| 33C3.1 | Femur, distal end segment, complete, multifragmentary articular fracture, simple metaphyseal fracture |  | 4 | 64,942 | 223 |
+| 33C3.2(h,s) | Femur, distal end segment, complete, multifragmentary articular fracture, wedge metaphyseal fracture | h Medial, s Intact | 5 | 88,654 | 292 |
+| 33C3.3 | Femur, distal end segment, complete, multifragmentary articular fracture, multifragmentary metaphyseal fracture |  | 9 | 140,423 | 469 |
+| 34A1(b) | Patella, extraarticular, avulsion fracture | b Distal pole | 2 | 7,298 | 36 |
+| 34B1.1 | Patella, partial articular, sagittal, lateral fracture, simple fracture |  | 2 | 7,498 | 38 |
+| 34B1.2 | Patella, partial articular, sagittal, lateral fracture, fragmentary fracture |  | 3 | 9,456 | 51 |
+| 34B2.1 | Patella, partial articular, sagittal, medial fracture, simple fracture |  | 2 | 7,246 | 36 |
+| 34B2.2 | Patella, partial articular, sagittal, medial fracture, fragmentary fracture |  | 3 | 9,212 | 48 |
+| 34C1.1 | Patella, complete articular, frontal/coronal, simple fracture, middle third fracture |  | 2 | 8,530 | 40 |
+| 34C1.2 | Patella, complete articular, frontal/coronal, simple fracture, proximal third fracture |  | 2 | 8,806 | 41 |
+| 34C1.3 | Patella, complete articular, frontal/coronal, simple fracture, distal third fracture |  | 2 | 7,734 | 37 |
+| 34C2 | Patella, complete articular, frontal/coronal, wedge fracture |  | 3 | 13,330 | 64 |
+| 34C3 | Patella, complete articular, frontal/coronal, multifragmentary fracture |  | 7 | 30,162 | 139 |

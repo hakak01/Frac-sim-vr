@@ -212,6 +212,10 @@ class Region:
         knee = np.array(g["knee_centre"])
         dist = rel[tt > b.t1 - 70]
         sq = float(np.ptp(dist @ b.e_med))
+        # epicondyles: the most lateral and most medial points of the distal 70 mm;
+        # the transcondylar (epicondylar) axis joins them (33C1.1 / 33C1.3 limit)
+        D = b.V[tt > b.t1 - 70]
+        lat_epi, med_epi = D[np.argmin(D @ b.e_med)], D[np.argmax(D @ b.e_med)]
         self.head = {"centre": hc, "r": r, "axis": nk, "up": up, "ant": an, "fovea": fov}
         self.neck = {"junction_mm": junction, "base_mm": float(base), "min_area_mm2": amin}
         self.square = {"proximal_mm": None, "distal_mm": sq}
@@ -221,6 +225,8 @@ class Region:
             "neck_junction": hc - nk * junction, "neck_base": hc - nk * base,
             "lesser_trochanter": b.axis_point(lt_inf_t),           # its inferior border (AO 31 / 32 limit)
             "innominate_tubercle": it_point,
+            "lat_epicondyle": lat_epi, "med_epicondyle": med_epi,
+            "transcondylar": b.axis_point((b.t_of(lat_epi) + b.t_of(med_epi)) / 2),
             "diaphysis_start": b.axis_point(lt_inf_t),
             "diaphysis_end": b.axis_point(b.t_of(knee) - sq),
         }
@@ -303,7 +309,8 @@ class Region:
                               "anterior": round(float(np.degrees(np.arctan2(fv @ self.head["ant"], fv @ self.head["axis"]))), 1)},
                 "mm_below_proximal_end": {p: round(float(b.t_of(self.points[p]) - b.t0), 1)
                                           for p in ("gt_tip", "lt_peak", "lesser_trochanter", "innominate_tubercle",
-                                                    "diaphysis_end", "knee")},
+                                                    "diaphysis_end", "lat_epicondyle", "med_epicondyle",
+                                                    "transcondylar", "knee")},
             }
         return out
 

@@ -297,8 +297,7 @@ Limits the owner should know (Phase 6b):
    B1.1, B1.2 and B1.3 therefore share the same subcapital line.
 2. Lines were placed from the Compendium drawings and the ABSTRACTS of the mapping papers,
    not traced from map figures. No CT mapping study of femoral shaft fractures was found.
-3. The lateral-wall method is taken from Hsu 2013 as usually described; the Compendium appendix
-   that defines it was not in the uploaded pages (S29-S48). Please upload the appendix page to confirm.
+3. (Closed in 6c) The lateral-wall method was confirmed by the Compendium appendix, page S169.
 4. 31A1.1 is built for qualification n (greater trochanter) only: the drawing shows n in bold.
 5. 31C2.1 (chondral lesion) has no bone cut: cartilage has no thickness in this model.
    Depression depth in 31C2.2/2.3 is 4 mm (no published value found).
@@ -306,6 +305,53 @@ Limits the owner should know (Phase 6b):
 7. Head-fracture planes follow the drawings; Wu 2022 gives line angles against the primary
    compressive trabeculae, which are not in this model.
 8. Not tested on a Quest 3.
+
+### Phase 6c – DISTAL FEMUR 33 + PATELLA 34 – waiting for owner's OK
+
+- 35 new rows (thigh region now 80), all built, 0 problems. Codes and names checked against
+  the uploaded Compendium pages S40-S47. Femur rows cut in young and elderly bone (33 starts
+  young); patella rows once (no bone-quality profiles for the patella). 23 MB for all 80 thigh
+  fractures (one is loaded at a time); one 33/34 fracture 7,000-140,000 triangles, 36-470 KB.
+  - 33A (8): A1.1, A1.2 (epicondyles), A2.1-A2.3, A3.1(h), A3.2(h), A3.3.
+  - 33B (9): B1.1-B1.3 (lateral condyle), B2.1-B2.3 (medial condyle), B3.1 (anterolateral
+    flake), B3.2(f) (lateral Hoffa), B3.3 (bilateral Hoffa).
+  - 33C (8): C1.1, C1.3, C2.1(h), C2.2(h), C2.3, C3.1, C3.2(h,s), C3.3.
+  - 34 (10): A1(b), B1.1, B1.2, B2.1, B2.2, C1.1, C1.2, C1.3, C2, C3.
+  Where a drawing shows a qualification in bold, that one is built: 33A3 and 33C2 h medial,
+  33B3.2 f lateral, 33C3.2 h medial + s intact, 34A1 b distal pole.
+- Measured on this femur: epicondyles 30 mm above the joint line, 84.6 mm apart (= transcondylar
+  axis, the 33C1.1 / 33C1.3 limit); condyles 23 mm behind the shaft axis; posterior condylar
+  line 2.5 degrees from the bone's medial axis (added to the Hoffa angles).
+- Mapping papers used (abstracts): Li R 2022 (PMID 35530952: lines at the lateral part of the
+  notch, so intercondylar splits sit just lateral of centre), Xie 2017 (PMID 29088042: Hoffa
+  line 34.4 deg (lateral) / 29.0 deg (medial) to the posterior condylar axis and 23.1 / 19.3 deg to
+  the posterior cortex, middle third of the condyle; used directly), Ding 2022 (PMID 36183139:
+  coronal fractures in 67 % of 33C3, more anterior and at smaller angles than Hoffa; the abstract
+  gives no values, 25 / 15 deg chosen), Chen 2023 (PMID 37397967: metaphyseal comminution mostly
+  lateral, anterior, posterior), Zhan 2021 (PMID 34733916, 34C3: mean 7 fragments, lower half
+  comminuted, superomedial corner spared; built with 7 fragments, corner intact).
+- Lateral wall (6b): the owner uploaded the Compendium appendix (S169). It defines the
+  measurement exactly as built (3 cm below the innominate tubercle, 135 degrees upward, < 20.5 mm
+  = A2). Added as a source to 31A1.2, A1.3, A2.2, A2.3.
+- Engine: plug `at` a landmark (cut aimed out from the axis through that point; epicondyles);
+  frame `condyles` (distal femur, u/v like the plateau); patella bone (thin modelled cortex,
+  no canal). Leg fractures unchanged (checked: 42B3, 41C3.3, 41A1.2 give the same fragments).
+- Tested in headless Chromium: the thigh page lists 80 fractures; 33B3.3, 33C3.2(h,s), 34C3,
+  34A1(b), 31A2.3 load (under 3 s each); patella fractures show no bone-quality switch.
+  VR in Meta's emulator: tabs 31 / 32 / 33 / 34, all 10 patella buttons, Bone button works.
+
+Limits the owner should know (Phase 6c):
+1. Shown in the anatomical (reduced) position; displacement (for example the supracondylar
+   extension deformity from gastrocnemius) comes in Phase 6d.
+2. Patella cartilage: the marking was copied from the low-detail Z-Anatomy patella (140 points)
+   and reaches the tip of the patella, so the 34A1 distal-pole piece carries a small marked
+   area although the fracture is extra-articular. Not changed (no change of source data without OK).
+3. No CT mapping study was found for 34A, 34B, 34C1 and 34C2; those rows rest on the Compendium.
+4. Patella cortex thickness (1.2 mm all round) has no published source.
+5. 33C3 coronal-fracture angles (25 / 15 deg) are chosen, not taken from a paper (see above).
+6. The medial wedges (33A3, 33C2, 33C3.2) are large (33-39 cm3) because the distal femur is
+   wide; check whether you want them smaller.
+7. Not tested on a Quest 3.
 
 ## Decisions by the owner
 
@@ -334,6 +380,7 @@ Limits the owner should know (Phase 6b):
   Later, own phases: virtual C-arm, implants. Not chosen now: atypical femoral fracture,
   floating knee.
 - 18 Nov 2026: 6a accepted; owner started 6b.
+- 18 Nov 2026: 6b accepted; owner uploaded the Compendium appendix (S167-S169) and started 6c.
 - 18 Nov 2026: **femur fit exception.** BodyParts3D femur accepted with max 2.43 mm (limit
   2 mm) because the misfit is one small spot at the adductor tubercle; limit for the femur
   set to 2.5 mm in `regions/thigh_right.json` (`fit_max_mm`). The 2 mm limit stays for every
@@ -360,8 +407,6 @@ Limits the owner should know (Phase 6b):
 
 ## Next
 
-- Phase 6c – 33 (distal femur: Li R 2022 PMID 35530952; Hoffa Xie 2017 PMID 29088042;
-  coronal fragments Ding 2022 PMID 36183139; 33A/33C Chen 2023 PMID 37397967) and 34 (patella: 34C3 Zhan 2021 PMID 34733916).
 - Phase 6d – muscle pull from attachment areas, femur readouts (neck-shaft angle, version,
   leg length).
 - Phase 6e – mixed reality: real table, hand occlusion, traction, haptics.

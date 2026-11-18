@@ -59,7 +59,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 5. SOFT TISSUE – done together with 4, see PROGRESS.md
 6. SCALE UP, one region per session (femur+patella, humerus, radius+ulna,
    clavicle+scapula, hand, foot). Femur split by the owner (18 Nov 2026):
-   6a assets – done; 6b fractures 31 + 32 – done (see PROGRESS.md); 6c fractures 33 + 34;
+   6a assets – done; 6b fractures 31 + 32 – done; 6c fractures 33 + 34 – done (see PROGRESS.md);
    6d muscle pull from attachment areas + femur readouts; 6e mixed reality (real table,
    hand occlusion, traction, haptics). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 
@@ -111,7 +111,7 @@ python3 tools/fracture_engine.py leg_right                      # all rows, abou
 python3 tools/fracture_engine.py leg_right 42A1 41B3.1          # only these ids
 python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save check pictures
 python3 tools/femur_geometry.py thigh_right   # once, before the femur engine (axes, head, knee)
-python3 tools/fracture_engine.py thigh_right  # 45 femur rows x 2 bone qualities, about 10 minutes
+python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualities, patella x 1), about 15 minutes
 ```
 
 ## Facts about the Z-Anatomy file (learned in Phase 1)
@@ -203,7 +203,18 @@ python3 tools/fracture_engine.py thigh_right  # 45 femur rows x 2 bone qualities
   Neck rows use `lim` (neck plane at 1.45) so a flat Pauwels plane cannot take the greater trochanter.
 - Row `tags` (garden, pauwels, pipkin), `checks: ["lateral_wall"]` (result in index `measured`).
 - Index entries with two bone qualities have `files` {young, elderly}, `bone_quality` (default)
-  and `file` (= the default). Files are `<id>_young.glb` / `<id>_elderly.glb`.
+  and `file` (= the default). Files are `<id>_young.glb` / `<id>_elderly.glb`. A row is cut per
+  quality only if one of its bones has `cortex_profiles` (patella rows are cut once).
+- Distal femur (6c): landmarks `lat_epicondyle`, `med_epicondyle`, `transcondylar` (30 mm above the
+  joint line on this femur); frame `condyles` (u -1 lateral .. +1 medial, v -1 posterior .. +1
+  anterior; `depth_mm` = mm above the joint line). Plug `at: <landmark>` aims the cut out from the
+  axis through that point (the condyles lie 23 mm behind the shaft axis, so an azimuth misses them).
+  Hoffa planes: `tilt_deg` = 90 + sagittal angle, `azimuth_deg` = 182.5 (posterior normal of the
+  condylar line) + axial angle (lateral) or - axial angle (medial).
+- Wedge template (two planes through one point at `through` azimuth A): the wedge's BASE is on
+  the opposite side (A + 180). A medial wedge therefore uses A = 270.
+- Patella: `bones.patella` in `thigh_right`; level `{"s": 0..1}` along its own axis (tilted about
+  24 degrees backwards), sides lateral 270 / medial 90. Its cartilage marking reaches the tip.
 
 ## VR mode (Phase 3)
 
