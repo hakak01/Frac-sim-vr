@@ -33,6 +33,7 @@
   tbody tr.sel td { background:#12405f; }
   a { color:var(--accent); }
   #region { margin:4px 0 2px; }
+  #quality { flex:1; padding:6px; font:inherit; color:var(--text); background:#262d36; border:1px solid var(--line); border-radius:6px; }
   #fx, #region { width:100%; padding:8px; font:inherit; color:var(--text); background:#262d36; border:1px solid var(--line); border-radius:6px; }
   .rng { display:flex; align-items:center; gap:8px; margin:8px 0 4px; color:var(--dim); }
   .rng input { flex:1; accent-color:var(--accent); }
@@ -76,6 +77,8 @@
     <p id="xrnote"></p>
     <h2>Fracture (AO/OTA 2018)</h2>
     <select id="fx"><option value="">Intact bones</option></select>
+    <label class="rng" id="qualrow" hidden>Bone quality
+      <select id="quality"><option value="">Default for this fracture</option><option value="young">Young adult</option><option value="elderly">Elderly (thinner cortex)</option></select></label>
     <label class="rng">Explode
       <input type="range" id="spread" min="0" max="30" step="1" value="0"><span id="spreadv">0 mm</span></label>
     <div class="pos">Position:

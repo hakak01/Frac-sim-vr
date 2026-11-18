@@ -170,15 +170,16 @@ async function main() {
   document.getElementById('collide').addEventListener('change', (ev) => { sim.collide = ev.target.checked; sim.note = ''; sim.slow = 0; syncToggles(); });
   xr = initXR({ renderer, scene, camera, controls, stage, layerGroups, fx, showFracture, setSpread,
     resetFragments, setPosition, collider, boneColliders, updateReadout, resize, advance, sim, measure, readoutLines,
-    setGhost, syncToggles, tissue: () => tissue, setLayer });
+    setGhost, syncToggles, tissue: () => tissue, setLayer, setQuality });
   window.viewer = { THREE, camera, controls, scene, stage, root, showFracture, setSpread, resetFragments, setPosition,
-    measure, collider, overlap, advance, sim, tissue, setGhost, setLayer, fx, xr,
+    measure, collider, overlap, advance, sim, tissue, setGhost, setLayer, setQuality, fx, xr,
     layerGroups, renderer, ready: true };   // for testing
 }
 
 // ---- Phase 2: pre-cut fractures -------------------------------------------
 const fx = { index: {}, data: null, group: null, hidden: [], fragments: [], loader: null, spread: 0, token: 0, current: '',
-  position: 'displaced' };      // position: 'displaced' (typical displacement) or 'reduced' (anatomical)
+  position: 'displaced',        // position: 'displaced' (typical displacement) or 'reduced' (anatomical)
+  quality: '', shownQuality: '' };   // bone quality chosen ('' = the fracture's default) and the one shown
 let xr = { update() {} };
 let tissue = { update() {}, rebind() {}, setGhost() {} };
 
@@ -224,6 +225,7 @@ async function initFractures(loader) {
     sel.append(og);
   }
   sel.addEventListener('change', () => showFracture(sel.value));
+  document.getElementById('quality').addEventListener('change', (ev) => setQuality(ev.target.value));
   const sp = document.getElementById('spread');
   sp.addEventListener('input', () => setSpread(+sp.value));
   for (const r of document.querySelectorAll('input[name=pos]')) r.addEventListener('change', () => setPosition(r.value));
@@ -420,6 +422,13 @@ function updateReadout() {
     + readoutLines(measure(f, f.ref)).map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join('') + '</div>').join('');
 }
 
+// bone quality (young / elderly cortex): the same fracture, cut again with the other modelled cortex
+function setQuality(q) {
+  fx.quality = q || '';
+  document.getElementById('quality').value = fx.quality;
+  return fx.current ? showFracture(fx.current) : Promise.resolve();
+}
+
 async function showFracture(id) {
   const token = ++fx.token;
   fx.current = id || '';
@@ -448,8 +457,17 @@ async function showFracture(id) {
       return `<li>${k.replace(/_/g, ' ')}: ${d.basis}` + (d.sources.length ? ' ' + d.sources.map((x) => `${x.ref} (PMID ${x.pmid}): ${x.claim}.`).join(' ') : '') + '</li>';
     }).join('') + '</ul><p>If the full displacement would push bone into bone, the fracture starts with a smaller one.</p>';
   }
+  const q = e.files ? (e.files[fx.quality] ? fx.quality : e.bone_quality) : '';
+  fx.shownQuality = q;
+  document.getElementById('qualrow').hidden = !e.files;
+  if (q) info.innerHTML += `<p>Bone quality shown: <b>${q === 'elderly' ? 'elderly (thinner cortex, wider canal)' : 'young adult'}</b>`
+    + `${q === e.bone_quality ? ' (default for this fracture)' : ''}. Both are modelled.</p>`;
+  if (e.tags) info.innerHTML += '<p>' + Object.entries(e.tags).filter(([k]) => !k.endsWith('_modelled'))
+    .map(([k, x]) => `${k[0].toUpperCase() + k.slice(1)}: ${x}`).join(' · ') + '</p>';
+  if (e.measured && e.measured.lateral_wall_mm != null) info.innerHTML += `<p>Lateral wall on this model: ${e.measured.lateral_wall_mm} mm`
+    + ` (AO/OTA: >20.5 mm intact, ≤20.5 mm incompetent; Hsu 2013)</p>`;
   if (!e.file) { tissue.rebind(); return; }
-  const gltf = await fx.loader.loadAsync(REGION + 'fractures/' + e.file);
+  const gltf = await fx.loader.loadAsync(REGION + 'fractures/' + (q ? e.files[q] : e.file));
   if (token !== fx.token) return;                  // another fracture was chosen meanwhile
   fx.group = gltf.scene;
   layerGroups.bones.add(fx.group);                 // follows the Bones tick box

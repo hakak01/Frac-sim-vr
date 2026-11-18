@@ -246,6 +246,67 @@ Limits the owner should know (Phase 6a):
    (the femur misfit spot).
 6. Patella in BodyParts3D is only 1,334 triangles (edges about 2-3 mm).
 
+### Phase 6b – FEMUR FRACTURES 31 + 32 – waiting for owner's OK
+
+- 45 rows in `fractures.json` (region `thigh_right`), all built, 0 problems. Each fracture is cut
+  twice: young and elderly bone (modelled cortex), 90 GLB files, 12 MB in total; one fracture
+  20,000-94,000 triangles, 60-300 KB. Table: `assets/thigh_right/fractures/FRACTURES.md`.
+  - 31A trochanteric (8): 31A1.1(n), A1.2, A1.3, A2.2, A2.3, A3.1, A3.2, A3.3.
+  - 31B neck (9): B1.1, B1.2, B1.3 (Garden tags), B2.1 p / q / r (Pauwels), B2.2(q), B2.3(r), B3.
+  - 31C head (7): C1.1, C1.2 (Pipkin I), C1.3 (Pipkin II), C2.1, C2.2, C2.3, plus
+    `31C-Pipkin-III` (head split + neck fracture; not an AO/OTA code).
+  - 32 shaft (21): A1, A2, A3, B2, B3 in zones a / b / c (proximal, middle, distal third);
+    C2, C3 in i / j / k (proximal diaphyseal-metaphyseal, pure diaphyseal, distal).
+- Codes, names and qualifications checked against the uploaded Compendium pages S33-S39.
+- Femur landmarks, all measured on the bone (`bone_model.py`, `_landmarks_femur`): head centre
+  and neck axis (from `femur_geometry.json`), subcapital line = distal edge of the head cartilage
+  (8.8 mm from the head centre along the neck axis), basicervical line = where the neck widens
+  to 1.5 x its narrowest cut (38.8 mm), fovea = gap in the head cartilage (posteroinferior),
+  greater trochanter tip (19.5 mm below the top), lesser trochanter peak (87.6 mm) and inferior
+  border (113 mm = start of segment 32), innominate tubercle (57 mm), distal square 84.6 mm wide.
+- Lateral wall (Hsu 2013, PMID 23908432): measured on the model from a point 30 mm below the
+  innominate tubercle, 135 degrees upward, to the fracture: 31A1.2 42.2 mm, 31A1.3 38.5 mm
+  (intact, > 20.5), 31A2.2 11.8 mm, 31A2.3 9.8 mm (incompetent, <= 20.5). Shown on the page.
+- Pauwels (B2 rows): angle to the horizontal of the standing body, seen from the front.
+  The Compendium prints 1 <30, 2 30-70, 3 >70 degrees; Bartonicek 2001 (PMID 11433141) gives
+  the original as I <=30, II 30-50, III >=50. Modelled 20, 45, 75 (B2.3: 78) to fit both.
+- Garden tags (Kazley 2018, PMID 29389800): B1.1 = I, B1.2 = II, B1.3 = III or IV.
+- Pipkin (Pipkin 1957, PMID 13475403): I = 31C1.2 (fovea stays on the head), II = 31C1.3
+  (fragment carries the fovea), III = extra row.
+- Mapping papers used (abstracts only): 31A Li 2020 (PMID 33041321), 31B Wu 2022
+  (PMID 36388800: posterior neck comminution in 31B2.2), 31C Wu 2022 (PMID 36129612).
+  NOT used: Zhang 2020 (PMID 32596385), retracted.
+- Bone quality: two modelled cortex profiles in `bone_model.json` (`cortex_profiles`).
+  Young: 8 mm at the isthmus, canal 12 mm; elderly: 1.5-2 mm thinner, isthmus more distal,
+  0.8 mm at the neck, canal 16 mm (Tucker 2015, PMID 26686594; Mayhew 2005, PMID 16005335).
+  Check: canal isthmus 10.5 +/- 1.5 mm on CT (Su 2015, PMID 26137483). Absolute thickness
+  values have no direct source (said on the page and in the data). 31 rows start as elderly,
+  32 rows as young; the page ("Bone quality") and the VR panel ("Bone: ...") switch.
+- Engine (no change for the leg): planes through a neck point, a head point or a landmark;
+  planes measured from the body's horizontal (`reference: body`), from the neck axis or along a
+  head direction; planes through two landmarks (`from`, `to`); plugs on the femoral head with
+  impaction; `checks: ["lateral_wall"]`; `tags`; one file set per bone quality.
+- Tested in headless Chromium: the thigh page lists 45 fractures; 31A2.3, 31B2.1(q), 31C1.3,
+  32B3(b), 31C2.1 load (under 3 s each), bone quality switches, info shows tags and the lateral
+  wall. VR in Meta's emulator: tabs 31 / 32, Bone button switches the quality; no errors.
+  Leg region unchanged (no leg fracture was rebuilt).
+
+Limits the owner should know (Phase 6b):
+1. Femur fractures are shown in the anatomical (reduced) position. Typical displacement
+   (and with it valgus impaction, Garden III vs IV, shortening and external rotation) is Phase 6d.
+   B1.1, B1.2 and B1.3 therefore share the same subcapital line.
+2. Lines were placed from the Compendium drawings and the ABSTRACTS of the mapping papers,
+   not traced from map figures. No CT mapping study of femoral shaft fractures was found.
+3. The lateral-wall method is taken from Hsu 2013 as usually described; the Compendium appendix
+   that defines it was not in the uploaded pages (S29-S48). Please upload the appendix page to confirm.
+4. 31A1.1 is built for qualification n (greater trochanter) only: the drawing shows n in bold.
+5. 31C2.1 (chondral lesion) has no bone cut: cartilage has no thickness in this model.
+   Depression depth in 31C2.2/2.3 is 4 mm (no published value found).
+6. Pipkin IV is not built: it needs an acetabular fracture and the hip bone is context only.
+7. Head-fracture planes follow the drawings; Wu 2022 gives line angles against the primary
+   compressive trabeculae, which are not in this model.
+8. Not tested on a Quest 3.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
@@ -272,6 +333,7 @@ Limits the owner should know (Phase 6a):
   the model (Quest 3 depth sensing), two-hand traction + controller buzz at bone contact.
   Later, own phases: virtual C-arm, implants. Not chosen now: atypical femoral fracture,
   floating knee.
+- 18 Nov 2026: 6a accepted; owner started 6b.
 - 18 Nov 2026: **femur fit exception.** BodyParts3D femur accepted with max 2.43 mm (limit
   2 mm) because the misfit is one small spot at the adductor tubercle; limit for the femur
   set to 2.5 mm in `regions/thigh_right.json` (`fit_max_mm`). The 2 mm limit stays for every
@@ -298,12 +360,8 @@ Limits the owner should know (Phase 6a):
 
 ## Next
 
-- Phase 6b – femur fractures 31 (proximal, with Garden/Pauwels tags and Pipkin rows) and
-  32 (shaft, three zones), two bone-quality profiles. Mapping papers found: 31A Li C 2020
-  (PMID 33041321), 31B Wu S 2022 (PMID 36388800), 31C Wu S 2022 (PMID 36129612). No mapping
-  paper found yet for 32. Do NOT use Zhang 2020 (PMID 32596385): retracted.
 - Phase 6c – 33 (distal femur: Li R 2022 PMID 35530952; Hoffa Xie 2017 PMID 29088042;
-  coronal fragments Ding 2022 PMID 36183139) and 34 (patella: 34C3 Zhan 2021 PMID 34733916).
+  coronal fragments Ding 2022 PMID 36183139; 33A/33C Chen 2023 PMID 37397967) and 34 (patella: 34C3 Zhan 2021 PMID 34733916).
 - Phase 6d – muscle pull from attachment areas, femur readouts (neck-shaft angle, version,
   leg length).
 - Phase 6e – mixed reality: real table, hand occlusion, traction, haptics.

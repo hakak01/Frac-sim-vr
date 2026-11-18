@@ -35,5 +35,90 @@
       "plateau": {"bone": "tibia", "level": {"ref": "knee", "distal_mm": 0}, "band_mm": [0, 14], "into": "distal"},
       "plafond": {"bone": "tibia", "level": {"ref": "ankle", "distal_mm": 0}, "band_mm": [-14, -3], "into": "proximal"}
     }
+  },
+  "thigh_right": {
+    "side": "right",
+    "landmarks": "femur",
+    "geometry": "femur_geometry.json",
+    "landmark_bone": "femur",
+    "profiles": [
+      "young",
+      "elderly"
+    ],
+    "default_profile": {
+      "31": "elderly",
+      "32": "young",
+      "33": "young",
+      "34": "young",
+      "_note": "Owner's decision 18 Nov 2026: neck and trochanteric fractures start as elderly bone; the page can switch."
+    },
+    "bones": {
+      "femur": {
+        "mesh": "Femur.r",
+        "cortex_profiles": {
+          "young": {
+            "_note": "MODELLED cortex (owner's decision). Thickness in mm against position along the femur (0 = proximal end, 1 = distal end), straight lines between points. No published ABSOLUTE thickness values were found in the sources checked; the young-to-elderly difference and the thin superolateral neck follow the sources. 'boosts' thicken the cortex towards one side (0 anterior, 90 medial, 180 posterior): posterior = linea aspera, medial at the lesser trochanter level = calcar region (no source for the amount).",
+            "profile": [[0.0, 1.2], [0.1, 1.2], [0.16, 2.2], [0.24, 4.5], [0.35, 7.0], [0.45, 8.0], [0.6, 7.5], [0.75, 4.5], [0.85, 2.0], [0.92, 1.2], [1.0, 1.2]],
+            "boosts": [
+              {"azimuth_deg": 180, "amount": 0.3, "s_from": 0.24, "s_to": 0.8},
+              {"azimuth_deg": 110, "amount": 1.5, "s_from": 0.1, "s_to": 0.24}
+            ],
+            "canal_from_to": [0.24, 0.8],
+            "sources": [
+              {
+                "claim": "Older femoral cortex is up to 1.5 mm thinner anteriorly and 2 mm thinner posteriorly than young (<40 y) bone; the isthmus is more distal in the elderly (CT, 919 femora)",
+                "ref": "Tucker D et al. Injury 2016;47:471-7",
+                "pmid": "26686594",
+                "doi": "10.1016/j.injury.2015.11.005"
+              },
+              {
+                "claim": "The superolateral femoral neck cortex is thin and thins with age (women 6.4 % per decade)",
+                "ref": "Mayhew PM et al. Lancet 2005;366:129-35",
+                "pmid": "16005335",
+                "doi": "10.1016/S0140-6736(05)66870-5"
+              },
+              {
+                "claim": "Femoral canal isthmus: mean diameter 10.49 +/- 1.52 mm, at 55 +/- 4.8 % of femoral height (3D CT, 204 femora); used as a CHECK of the modelled canal (young model 12 mm, elderly 16 mm)",
+                "ref": "Su XY et al. Biomed Res Int 2015:459612",
+                "pmid": "26137483",
+                "doi": "10.1155/2015/459612"
+              }
+            ],
+            "values_measured": false
+          },
+          "elderly": {
+            "_note": "MODELLED cortex (owner's decision). Thickness in mm against position along the femur (0 = proximal end, 1 = distal end), straight lines between points. No published ABSOLUTE thickness values were found in the sources checked; the young-to-elderly difference and the thin superolateral neck follow the sources. 'boosts' thicken the cortex towards one side (0 anterior, 90 medial, 180 posterior): posterior = linea aspera, medial at the lesser trochanter level = calcar region (no source for the amount). Elderly: about 1.5-2 mm thinner in the shaft, peak moved distally, 0.8 mm at the neck.",
+            "profile": [[0.0, 0.8], [0.1, 0.8], [0.16, 1.5], [0.24, 3.2], [0.4, 5.5], [0.55, 6.3], [0.68, 5.6], [0.8, 3.0], [0.88, 1.5], [0.93, 0.9], [1.0, 0.9]],
+            "boosts": [
+              {"azimuth_deg": 180, "amount": 0.2, "s_from": 0.24, "s_to": 0.84},
+              {"azimuth_deg": 110, "amount": 1.0, "s_from": 0.1, "s_to": 0.24}
+            ],
+            "canal_from_to": [0.2, 0.84],
+            "sources": [
+              {
+                "claim": "Older femoral cortex is up to 1.5 mm thinner anteriorly and 2 mm thinner posteriorly than young (<40 y) bone; the isthmus is more distal in the elderly (CT, 919 femora)",
+                "ref": "Tucker D et al. Injury 2016;47:471-7",
+                "pmid": "26686594",
+                "doi": "10.1016/j.injury.2015.11.005"
+              },
+              {
+                "claim": "The superolateral femoral neck cortex is thin and thins with age (women 6.4 % per decade)",
+                "ref": "Mayhew PM et al. Lancet 2005;366:129-35",
+                "pmid": "16005335",
+                "doi": "10.1016/S0140-6736(05)66870-5"
+              },
+              {
+                "claim": "Femoral canal isthmus: mean diameter 10.49 +/- 1.52 mm, at 55 +/- 4.8 % of femoral height (3D CT, 204 femora); used as a CHECK of the modelled canal (young model 12 mm, elderly 16 mm)",
+                "ref": "Su XY et al. Biomed Res Int 2015:459612",
+                "pmid": "26137483",
+                "doi": "10.1155/2015/459612"
+              }
+            ],
+            "values_measured": false
+          }
+        }
+      }
+    },
+    "frames": {}
   }
 }

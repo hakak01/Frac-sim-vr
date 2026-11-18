@@ -59,7 +59,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 5. SOFT TISSUE – done together with 4, see PROGRESS.md
 6. SCALE UP, one region per session (femur+patella, humerus, radius+ulna,
    clavicle+scapula, hand, foot). Femur split by the owner (18 Nov 2026):
-   6a assets – done, see PROGRESS.md; 6b fractures 31 + 32; 6c fractures 33 + 34;
+   6a assets – done; 6b fractures 31 + 32 – done (see PROGRESS.md); 6c fractures 33 + 34;
    6d muscle pull from attachment areas + femur readouts; 6e mixed reality (real table,
    hand occlusion, traction, haptics). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 
@@ -110,6 +110,8 @@ pip install trimesh manifold3d rtree scipy scikit-image pillow
 python3 tools/fracture_engine.py leg_right                      # all rows, about 6 minutes
 python3 tools/fracture_engine.py leg_right 42A1 41B3.1          # only these ids
 python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save check pictures
+python3 tools/femur_geometry.py thigh_right   # once, before the femur engine (axes, head, knee)
+python3 tools/fracture_engine.py thigh_right  # 45 femur rows x 2 bone qualities, about 10 minutes
 ```
 
 ## Facts about the Z-Anatomy file (learned in Phase 1)
@@ -181,6 +183,27 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
   introduction (pages S49-S69). They are NOT in the repo (journal copyright).
 - Cloud environment `frac-sim-vr` belongs to this repo (hosts ota.org, journals.lww.com,
   www.aofoundation.org allowed; setup script installs the Python and Node tools).
+
+## Femur fractures (Phase 6b)
+
+- `bone_model.json` > `thigh_right`: `landmarks: "femur"` (measured landmarks, see `_landmarks_femur`:
+  `hip`, `head_centre`, `neck_junction`, `neck_base`, `gt_tip`, `lt_peak`, `lesser_trochanter`
+  (inferior border = start of 32), `innominate_tubercle`, `knee`, `diaphysis_start/end`),
+  `profiles` young / elderly with `cortex_profiles` per bone, `default_profile` per segment.
+  Cortex `boosts`: thicker towards an azimuth within an s range (linea aspera, calcar).
+- Extra cut placement (all data): `through` {`neck`: 0 subcapital .. 1 basicervical, `up_mm`,
+  `ant_mm`} | {`head`: {`elev_deg`, `ant_deg`, `frac` of radius}} | {`landmark`, `distal_mm`,
+  `medial_mm`, `anterior_mm`}; plane `reference`: `body` (tilt from the standing vertical, azimuth
+  0 ant / 90 med; = Pauwels angle), `neck` (tilt from the neck axis; azimuth 0 ant / 90 sup),
+  `head` (normal along `elev_deg`/`ant_deg`); plane `from` + `to` landmarks (+ `twist_deg`):
+  holds the line and the front-to-back direction, + = proximal side. Plug `on: "head"` with
+  `elev_deg`, `ant_deg` (0, 0 = tip of the neck axis; + superior, + anterior), `impaction_mm`.
+  Head direction of the fovea on this femur: elev -30.5, ant -36.3.
+- A head split plane needs a second limit (`sub`: neck plane at 0, + side) or it also cuts the shaft.
+  Neck rows use `lim` (neck plane at 1.45) so a flat Pauwels plane cannot take the greater trochanter.
+- Row `tags` (garden, pauwels, pipkin), `checks: ["lateral_wall"]` (result in index `measured`).
+- Index entries with two bone qualities have `files` {young, elderly}, `bone_quality` (default)
+  and `file` (= the default). Files are `<id>_young.glb` / `<id>_elderly.glb`.
 
 ## VR mode (Phase 3)
 

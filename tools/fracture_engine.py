@@ -101,10 +101,24 @@ def plane_solid(bone, p, n, noise):
     return solid(V, np.vstack(F))
 
 
+def landmark_point(region, bone, spec):
+    """A named landmark (bone_model.py) plus offsets in mm: distal, medial, anterior."""
+    return (np.asarray(region.points[spec["landmark"]], float) + spec.get("distal_mm", 0) * bone.d
+            + spec.get("medial_mm", 0) * bone.e_med + spec.get("anterior_mm", 0) * bone.e_ant)
+
+
 def point_spec(region, bone, t, through):
     """A point for a plane to pass through, described in anatomical terms."""
     if through is None:
         return bone.axis_point(t)
+    if "landmark" in through:
+        return landmark_point(region, bone, through)
+    if "neck" in through:                        # on the neck axis: 0 subcapital line .. 1 basicervical line
+        h = region.head
+        return region.neck_point(through["neck"]) + through.get("up_mm", 0) * h["up"] + through.get("ant_mm", 0) * h["ant"]
+    if "head" in through:                        # from the head centre, frac of the radius along a head direction
+        q = through["head"]
+        return region.head["centre"] + q.get("frac", 0.0) * region.head["r"] * region.head_dir(q["elev_deg"], q["ant_deg"])
     if "frame" in through:
         fb, ft, sec, into = region.frame(through["frame"])
         u, v = through["uv"]
@@ -117,10 +131,40 @@ def point_spec(region, bone, t, through):
     return bone.axis_point(t) + through.get("frac", 0.0) * (band @ dirv).max() * dirv
 
 
+def body_direction(region, azimuth_deg):
+    """Horizontal direction of the standing body: 0 anterior, 90 medial, 180 posterior, 270 lateral."""
+    a = np.radians(azimuth_deg)
+    med = np.array([1.0 if region.cfg.get("side", "right") == "right" else -1.0, 0, 0])
+    return np.cos(a) * np.array([0, -1.0, 0]) + np.sin(a) * med
+
+
 def plane_tool(region, bone, cut, noise):
-    t = region.level(bone, cut["level"])
+    """Normal: tilt from the bone axis (default), from the body vertical ('reference': 'body',
+    e.g. the Pauwels angle), from the neck axis ('reference': 'neck'; azimuth 0 anterior, 90 superior),
+    along a head direction ('reference': 'head'), or the plane through two landmarks ('from', 'to')
+    that also holds the front-to-back direction (turned by 'twist_deg' about that line)."""
+    t = region.level(bone, cut["level"]) if "level" in cut else None
     tilt = np.radians(cut.get("tilt_deg", 0))
-    n = np.cos(tilt) * -bone.d + np.sin(tilt) * bone.direction(cut.get("azimuth_deg", 0))
+    a = np.radians(cut.get("azimuth_deg", 0))
+    ref = cut.get("reference", "bone")
+    if "from" in cut:
+        p1, p2 = landmark_point(region, bone, cut["from"]), landmark_point(region, bone, cut["to"])
+        line = unit(p2 - p1)
+        v = unit(bone.e_ant - (bone.e_ant @ line) * line)
+        tw = np.radians(cut.get("twist_deg", 0))
+        v = np.cos(tw) * v + np.sin(tw) * np.cross(line, v)
+        n = unit(np.cross(line, v))
+        n = n if n @ -bone.d > 0 else -n          # + side = proximal side
+        return plane_solid(bone, (p1 + p2) / 2, n, noise), None
+    if ref == "body":
+        n = np.cos(tilt) * np.array([0, 0, 1.0]) + np.sin(tilt) * body_direction(region, cut.get("azimuth_deg", 0))
+    elif ref == "neck":
+        h = region.head
+        n = np.cos(tilt) * h["axis"] + np.sin(tilt) * (np.cos(a) * h["ant"] + np.sin(a) * h["up"])
+    elif ref == "head":
+        n = region.head_dir(cut["elev_deg"], cut["ant_deg"])
+    else:
+        n = np.cos(tilt) * -bone.d + np.sin(tilt) * bone.direction(cut.get("azimuth_deg", 0))
     return plane_solid(bone, point_spec(region, bone, t, cut.get("through")), n, noise), None
 
 
@@ -167,7 +211,20 @@ def prism_tool(region, bone, cut, noise):
 
 def plug_tool(region, bone, cut, noise):
     """Outline drawn on the side of the bone (seen from azimuth_deg), pushed in by depth_mm.
-    outline_mm: x = towards azimuth + 90 degrees, y = towards proximal, 0,0 = on the surface at 'level'."""
+    outline_mm: x = towards azimuth + 90 degrees, y = towards proximal, 0,0 = on the surface at 'level'.
+    'on': 'head' = outline on the femoral head, centred on head direction (elev_deg, ant_deg), pushed
+    towards the head centre; x = towards anterior, y = towards superior. 'impaction_mm' = depression."""
+    if cut.get("on") == "head":
+        h = region.head
+        out = region.head_dir(cut["elev_deg"], cut["ant_deg"])
+        ey = h["up"] - (h["up"] @ out) * out
+        ey = unit(ey if np.linalg.norm(ey) > 0.2 else h["axis"] - (h["axis"] @ out) * out)
+        ex = np.cross(ey, out)
+        ex = ex if ex @ h["ant"] >= 0 else -ex
+        tool = extruded(chaikin(cut["outline_mm"]), cut.get("start_mm", -15.0), cut["depth_mm"],
+                        h["centre"] + h["r"] * out, ex, ey, -out, noise,
+                        cut["taper"]["to"] if "taper" in cut else None, cut.get("taper", {}).get("amount", 0.9))
+        return tool, (-out * cut["impaction_mm"] if cut.get("impaction_mm") else None)
     t = region.level(bone, cut["level"])
     out = bone.direction(cut["azimuth_deg"])
     tt = bone.t_of(bone.V)
@@ -371,11 +428,41 @@ def build_fracture(region, row):
         allcut = np.vstack([f.pop("cutv") for f in mine]) if mine else np.zeros((0, 3))
         for f in mine:                                 # where the fracture is, for the "spread" view
             f["site"] = allcut.mean(0) if len(allcut) else f["centroid"]
+        if "lateral_wall" in row.get("checks", []) and "innominate_tubercle" in region.points:
+            row.setdefault("_measured", {})["lateral_wall_mm"] = lateral_wall_mm(region, bone, parts)
         crushed = sum((bone.outer ^ v).volume() for v, _, _ in voids.values())
         if total < 0.97 * bone.outer.volume() - crushed or total > 1.001 * bone.outer.volume():
             notes.append(f"{bkey}: fragments do not add up to the whole bone "
                          f"({total / 1000:.1f} of {bone.outer.volume() / 1000:.1f} cm3)")
     return frags, notes
+
+
+def lateral_wall_mm(region, bone, parts):
+    """Lateral wall thickness as Hsu 2013 (PMID 23908432) measured it on radiographs: from a point on the
+    lateral cortex 30 mm below the innominate tubercle, at 135 degrees to the shaft (upward and medial),
+    to the fracture. Here: walk along that line and stop where the bone stops being the shaft fragment."""
+    import trimesh
+    lat = -bone.e_med
+    t_ref = bone.t_of(region.points["innominate_tubercle"]) + 30.0
+    tt = bone.t_of(bone.V)
+    band = bone.V[np.abs(tt - t_ref) < 1.5] - bone.axis_point(t_ref)
+    R = bone.axis_point(t_ref) + (band @ lat).max() * lat
+    w = unit(np.cos(np.radians(45)) * -bone.d + np.sin(np.radians(45)) * bone.e_med)
+    meshes = []
+    for n, sh, co, _ in parts:
+        m = (sh + co).to_mesh()
+        meshes.append(trimesh.Trimesh(np.asarray(m.vert_properties[:, :3], "f8"), np.asarray(m.tri_verts), process=False))
+    steps = np.arange(0.25, 90, 0.25)
+    pts = R + steps[:, None] * w
+    which = np.full(len(pts), -1)
+    for i, m in enumerate(meshes):
+        which[m.contains(pts)] = i
+    inside = np.where(which >= 0)[0]
+    if not len(inside):
+        return None
+    first = which[inside[0]]
+    after = np.where((np.arange(len(pts)) > inside[0]) & (which != first))[0]
+    return round(float(steps[after[0]]), 1) if len(after) else None
 
 
 # ---------------------------------------------------------------- GLB output
@@ -441,6 +528,12 @@ def main():
     data = json.load(open(os.path.join(ROOT, "fractures.json")))
     rows = [r for r in data["fractures"] if r["region"] == region_id]
     region = Region(region_id, ROOT)
+    # bone quality: one set of files per cortex profile (young / elderly femur); one set if no profiles
+    profiles = region.profiles
+    regions = {profiles[0]: region}
+    for pr in profiles[1:]:
+        regions[pr] = Region(region_id, ROOT, pr)
+    default_of = lambda r: r.get("bone_quality") or region.cfg.get("default_profile", {}).get(r["segment"]) or profiles[0]
     out_dir = os.path.join(ROOT, "assets", region_id, "fractures")
     os.makedirs(out_dir, exist_ok=True)
     index_path = os.path.join(out_dir, "index.json")
@@ -448,24 +541,40 @@ def main():
     entries, problems = [], []
     with tempfile.TemporaryDirectory() as tmp:
         for row in rows:
-            fname = row["id"].replace("(", "_").replace(")", "").replace(".", "_") + ".glb"
+            base = row["id"].replace("(", "_").replace(")", "").replace(".", "_")
+            fname = base + ".glb"
             if only and row["id"] not in only:
                 if row["id"] in old:
                     entries.append(old[row["id"]])
                 continue
-            e = {k: row[k] for k in ("id", "code", "name", "segment", "qualification", "sources",
+            e = {k: row[k] for k in ("id", "code", "name", "segment", "qualification", "tags", "sources",
                                      "line_basis", "soft_tissue", "note") if row.get(k)}
-            try:
-                frags, notes = build_fracture(region, row)
-            except Exception as ex:                                   # report, keep going
-                problems.append(f"{row['id']}: FAILED {type(ex).__name__}: {str(ex)[:160]}")
+            dq = default_of(row)
+            failed, files = False, {}
+            for pr in [dq] + [x for x in profiles if x != dq]:        # default profile first
+                fn = base + (f"_{pr}" if pr else "") + ".glb"
+                try:
+                    fr, notes = build_fracture(regions[pr], row)
+                except Exception as ex:                               # report, keep going
+                    problems.append(f"{row['id']}: FAILED ({pr}) {type(ex).__name__}: {str(ex)[:160]}")
+                    failed = True
+                    break
+                if pr == dq:
+                    frags = fr
+                    problems += [f"{row['id']}: {n}" for n in notes]
+                    if frags and prev_dir:
+                        preview.tiles(os.path.join(prev_dir, base), row["id"], frags, row["segment"])
+                if fr:
+                    write_glb(os.path.join(tmp, fn), row, fr)
+                    files[pr] = fn
+            if failed:
                 continue
-            problems += [f"{row['id']}: {n}" for n in notes]
-            if frags and prev_dir:
-                preview.tiles(os.path.join(prev_dir, fname[:-4]), row["id"], frags, row["segment"])
+            if row.get("_measured"):
+                e["measured"] = row.pop("_measured")
             if frags:
-                write_glb(os.path.join(tmp, fname), row, frags)
-                e["file"] = fname
+                e["file"] = files[dq]
+                if len(profiles) > 1:
+                    e["files"], e["bone_quality"] = files, dq
             e["bones"] = sorted({f["mesh"] for f in frags})
             e["triangles"] = sum(f["triangles"] for f in frags)
             e["fragments"] = [{k: v for k, v in f.items() if k not in ("prims", "centroid", "site", "cutv")} for f in frags]
@@ -477,7 +586,7 @@ def main():
         if e.get("file"):
             e["bytes"] = os.path.getsize(os.path.join(out_dir, e["file"]))
         row = by_id[e["id"]]                      # text fields and displacement always follow fractures.json
-        for k in ("code", "name", "segment", "qualification", "sources", "line_basis", "soft_tissue", "note"):
+        for k in ("code", "name", "segment", "qualification", "tags", "sources", "line_basis", "soft_tissue", "note"):
             if row.get(k):
                 e[k] = row[k]
         for f in e["fragments"]:
@@ -490,6 +599,7 @@ def main():
     frames = {k: {"mesh": b.cfg["mesh"], "distal": gl(b.d), "anterior": gl(b.e_ant), "medial": gl(b.e_med)}
               for k, b in region.bones.items()}
     json.dump({"region": region_id, "cortex": "modelled, not measured", "frames": frames,
+               **({"bone_quality": profiles} if len(profiles) > 1 else {}),
                "displacements": data.get("displacements", {}), "fractures": entries},
               open(index_path, "w"), indent=1)
     with open(os.path.join(out_dir, "FRACTURES.md"), "w") as f:
@@ -505,6 +615,9 @@ def main():
           f"{sum(e.get('bytes', 0) for e in built) / 1024:.0f} KB")
     for e in built[:12] if only else []:
         print("  ", e["id"], [(f["name"], f["volume_cm3"]) for f in e["fragments"]])
+    for e in built:
+        if e.get("measured"):
+            print("   measured", e["id"], e["measured"])
     print(f"{len(problems)} problems")
     for p in problems:
         print("  !", p)

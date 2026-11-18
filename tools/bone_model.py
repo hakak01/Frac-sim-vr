@@ -76,6 +76,13 @@ class Bone:
         c = self.cfg["cortex"]
         prof = np.array(c["profile"])
         th = np.interp(self.s_of(P), prof[:, 0], prof[:, 1])
+        r = P - self.c0 - np.outer(self.t_of(P), self.d)
+        rn = np.maximum(np.linalg.norm(r, axis=1), 1e-6)
+        s = self.s_of(P)
+        for bo in c.get("boosts", []):                 # thicker towards one side, within a range of s
+            cosb = (r @ self.direction(bo["azimuth_deg"])) / rn
+            inside = (s >= bo["s_from"]) & (s <= bo["s_to"])
+            th = th * (1 + bo["amount"] * np.clip(cosb, 0, 1) * inside)
         if c.get("anterior_boost"):
             r = P - self.c0 - np.outer(self.t_of(P), self.d)
             cosa = (r @ self.e_ant) / np.maximum(np.linalg.norm(r, axis=1), 1e-6)
@@ -111,18 +118,124 @@ class Bone:
         self.core = self.inner                         # cancellous bone / medullary canal
 
 
+def section_area(tri, origin, normal):
+    """Area (mm2) of the closed loop of a plane cut that goes round 'origin' (None if no such loop)."""
+    p = tri.section(plane_origin=origin, plane_normal=normal)
+    if p is None:
+        return None
+    n = unit(normal)
+    a = unit(np.cross(n, [1, 0, 0] if abs(n[0]) < 0.9 else [0, 1, 0]))
+    b = np.cross(n, a)
+    for loop in p.discrete:
+        q = loop - origin
+        x, y = q @ a, q @ b
+        x1, y1 = np.roll(x, -1), np.roll(y, -1)
+        dy = np.where(y1 - y == 0, 1e-12, y1 - y)
+        if (((y > 0) != (y1 > 0)) & (x - y * (x1 - x) / dy > 0)).sum() % 2:
+            return abs((x * y1 - x1 * y).sum() / 2)
+    return None
+
+
 class Region:
-    def __init__(self, region_id, root="."):
+    def __init__(self, region_id, root=".", profile=None):
         self.id = region_id
         self.cfg = json.load(open(os.path.join(root, "bone_model.json")))[region_id]
+        # bone quality: a region may hold several cortex profiles (e.g. young / elderly femur)
+        self.profiles = self.cfg.get("profiles", [None])
+        self.profile = profile or self.profiles[0]
         raw = np.load(os.path.join(root, "model", region_id, "bones.npz"))
         cache = os.path.join(root, "model", region_id)
         self.bones = {}
         for key, c in self.cfg["bones"].items():
+            if "cortex_profiles" in c:
+                c = dict(c, cortex=c["cortex_profiles"][self.profile])
             n = c["mesh"]
             self.bones[key] = Bone(key, raw[n + "|V"].astype("f8") * 1000.0, raw[n + "|F"],
                                    raw[n + "|cartilage"], c, cache)
-        self._landmarks()
+        if self.cfg.get("landmarks") == "femur":
+            self._landmarks_femur(root)
+        else:
+            self._landmarks()
+
+    def _landmarks_femur(self, root):
+        """Femur landmarks, all measured on the mesh. Head centre, neck axis and knee centre come
+        from tools/femur_geometry.py (model/<region>/femur_geometry.json)."""
+        b = self.bones[self.cfg["landmark_bone"]]
+        g = json.load(open(os.path.join(root, "model", self.id, self.cfg["geometry"])))
+        hc = np.array(g["head_centre"])
+        r = g["head_diameter_mm"] / 2
+        nk = unit(np.array(g["neck_axis_to_head"]))
+        up = unit(-b.d - (-b.d @ nk) * nk)                  # neck frame: superior
+        an = np.cross(nk, up)
+        an = an if an @ b.e_ant > 0 else -an                 # neck frame: anterior
+        # subcapital line: distal extent of the head cartilage along the neck axis
+        cen = b.centroids
+        hd = np.linalg.norm(cen - hc, axis=1)
+        junction = float(-((cen[b.cart & (hd < r + 3)] - hc) @ nk).min())
+        # basicervical line: first cut beyond the narrowest neck section with 1.5 x its area
+        prof = [(s, section_area(b.tri, hc - nk * s, nk)) for s in np.arange(junction, junction + 60, 1.0)]
+        prof = [(s, a) for s, a in prof if a]
+        k = int(np.argmin([a for _, a in prof]))
+        amin = prof[k][1]
+        base = next(s for s, a in prof[k:] if a > 1.5 * amin)
+        # fovea: densest cluster (12 degrees) of non-cartilage faces on the head sphere
+        cand = (~b.cart) & (np.abs(hd - r) < 3) & ((cen - hc) @ nk > 0.2 * r)
+        D = cen[cand] - hc
+        D /= np.linalg.norm(D, axis=1, keepdims=True)
+        near = (D @ D.T) > np.cos(np.radians(12))
+        fov = unit(D[near[np.argmax(near.sum(1))]].mean(0))
+        # trochanters, from extent profiles around the shaft axis
+        tt = b.t_of(b.V)
+        rel = b.V - b.c0 - np.outer(tt, b.d)
+        def extent(t, dirv):
+            m = np.abs(tt - t) < 2.5
+            return float((rel[m] @ dirv).max()) if m.any() else 0.0
+        lat = -b.e_med
+        side = rel @ lat
+        gt = b.V[side > 10][np.argmin(tt[side > 10])]
+        pm = b.direction(150)                                # posteromedial: lesser trochanter
+        levels = np.arange(b.t0 + 40, b.t0 + 171, 1.0)
+        e_pm = np.array([extent(t, pm) for t in levels])
+        win = (levels > b.t0 + 50) & (levels < b.t0 + 140)
+        ipk = int(np.argmax(np.where(win, e_pm, -1)))
+        baseline = float(np.median(e_pm[levels > b.t0 + 130]))
+        # inferior border: where the trochanter's bump has fallen to 25 % of its height above the shaft
+        ilt = next(i for i in range(ipk, len(levels)) if e_pm[i] <= baseline + 0.25 * (e_pm[ipk] - baseline))
+        lt_peak_t, lt_inf_t = levels[ipk], levels[ilt]
+        mlt = np.abs(tt - lt_peak_t) < 2.5
+        lt_point = b.V[mlt][np.argmax(rel[mlt] @ pm)]
+        # innominate tubercle (vastus ridge): lowest level still within 3 mm of the greatest lateral extent
+        e_lat = np.array([extent(t, lat) for t in levels])
+        top_lat = e_lat[levels < b.t0 + 100].max()
+        it_t = levels[levels < b.t0 + 100][e_lat[levels < b.t0 + 100] >= top_lat - 3].max()
+        # distal end segment: square as wide as the condyles (Compendium 2018 introduction)
+        knee = np.array(g["knee_centre"])
+        dist = rel[tt > b.t1 - 70]
+        sq = float(np.ptp(dist @ b.e_med))
+        self.head = {"centre": hc, "r": r, "axis": nk, "up": up, "ant": an, "fovea": fov}
+        self.neck = {"junction_mm": junction, "base_mm": float(base), "min_area_mm2": amin}
+        self.square = {"proximal_mm": None, "distal_mm": sq}
+        it_point = b.axis_point(it_t) + extent(it_t, lat) * lat
+        self.points = {
+            "hip": hc, "head_centre": hc, "knee": knee, "gt_tip": gt, "lt_peak": lt_point,
+            "neck_junction": hc - nk * junction, "neck_base": hc - nk * base,
+            "lesser_trochanter": b.axis_point(lt_inf_t),           # its inferior border (AO 31 / 32 limit)
+            "innominate_tubercle": it_point,
+            "diaphysis_start": b.axis_point(lt_inf_t),
+            "diaphysis_end": b.axis_point(b.t_of(knee) - sq),
+        }
+
+    def neck_point(self, f):
+        """Point on the neck axis: f = 0 subcapital line (cartilage edge), 1 = basicervical line."""
+        n = self.neck
+        return self.head["centre"] - self.head["axis"] * (n["junction_mm"] + f * (n["base_mm"] - n["junction_mm"]))
+
+    def head_dir(self, elev_deg, ant_deg):
+        """Direction from the head centre: 0, 0 = along the neck axis (towards the head);
+        elevation + = superior, anterior + = anterior."""
+        h = self.head
+        e, a = np.radians(elev_deg), np.radians(ant_deg)
+        return unit(np.cos(e) * (np.cos(a) * h["axis"] + np.sin(a) * h["ant"]) + np.sin(e) * h["up"])
 
     def _landmarks(self):
         b = self.bones[self.cfg["landmark_bone"]]
@@ -170,16 +283,27 @@ class Region:
         return bone, t, sec, f.get("into", "distal")
 
     def summary(self):
-        out = {"square_rule_mm": {k: round(v, 1) for k, v in self.square.items()}, "bones": {}}
+        out = {"profile": self.profile,
+               "square_rule_mm": {k: (round(v, 1) if v else v) for k, v in self.square.items()}, "bones": {}}
         for k, b in self.bones.items():
             out["bones"][k] = {
                 "length_mm": round(float(b.length), 1),
                 "volume_cm3": round(b.outer.volume() / 1000, 1),
                 "cortex_cm3": round(b.shell.volume() / 1000, 1),
-                "knee_joint_s": round(float(b.s_of(self.points["knee"])), 3),
-                "ankle_joint_s": round(float(b.s_of(self.points["ankle"])), 3),
-                "diaphysis_s": [round(float(b.s_of(self.points["diaphysis_start"])), 3),
-                                round(float(b.s_of(self.points["diaphysis_end"])), 3)],
+                **{f"{p}_s": round(float(b.s_of(self.points[p])), 3) for p in self.points
+                   if p not in ("hip", "head_centre")},
+            }
+        if hasattr(self, "neck"):
+            b = self.bones[self.cfg["landmark_bone"]]
+            fv = self.head["fovea"]
+            out["femur"] = {
+                "neck_mm_from_head_centre": {"subcapital": round(self.neck["junction_mm"], 1),
+                                             "basicervical": round(self.neck["base_mm"], 1)},
+                "fovea_deg": {"elevation": round(float(np.degrees(np.arcsin(fv @ self.head["up"]))), 1),
+                              "anterior": round(float(np.degrees(np.arctan2(fv @ self.head["ant"], fv @ self.head["axis"]))), 1)},
+                "mm_below_proximal_end": {p: round(float(b.t_of(self.points[p]) - b.t0), 1)
+                                          for p in ("gt_tip", "lt_peak", "lesser_trochanter", "innominate_tubercle",
+                                                    "diaphysis_end", "knee")},
             }
         return out
 
@@ -188,6 +312,8 @@ if __name__ == "__main__":
     import sys
     r = Region(sys.argv[1] if len(sys.argv) > 1 else "leg_right")
     print(json.dumps(r.summary(), indent=1))
+    if "tibia" not in r.bones:
+        raise SystemExit
     b = r.bones["tibia"]
     # check of the modelled canal against Taylor 2020 (13-32 mm between 20 and 80 % of length)
     for f in (0.2, 0.35, 0.5, 0.65, 0.8):

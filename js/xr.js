@@ -102,7 +102,9 @@ export function initXR(v) {
       [`Bone blocks bone: ${sim.collide ? 'on' : 'off'}`, () => { sim.collide = !sim.collide; sim.note = ''; sim.slow = 0; v.syncToggles(); draw(); }, sim.collide],
       [`Muscle pull: ${sim.pull ? 'on' : 'off'}`, () => { sim.pull = !sim.pull; v.syncToggles(); draw(); }, sim.pull],
     ], 24);
-    row(772, 84, [['Reset view', resetView, false], ['Exit VR', () => renderer.xr.getSession().end(), false]], 32);
+    const bq = fx.index[fx.current] && fx.index[fx.current].files ? [[`Bone: ${fx.shownQuality === 'elderly' ? 'elderly' : 'young'}`,
+      async () => { await v.setQuality(fx.shownQuality === 'elderly' ? 'young' : 'elderly'); draw(); }, false]] : [];
+    row(772, 84, [['Reset view', resetView, false], ...bq, ['Exit VR', () => renderer.xr.getSession().end(), false]], 32);
     P.tex.needsUpdate = true;
   }
   let stripText = '';

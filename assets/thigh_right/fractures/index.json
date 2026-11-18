@@ -1,0 +1,2639 @@
+{
+ "region": "thigh_right",
+ "cortex": "modelled, not measured",
+ "frames": {
+  "femur": {
+   "mesh": "Femur.r",
+   "distal": [
+    0.10276,
+    -0.99398,
+    0.0381
+   ],
+   "anterior": [
+    -0.00392,
+    0.0379,
+    0.99927
+   ],
+   "medial": [
+    0.9947,
+    0.10284,
+    0.0
+   ]
+  }
+ },
+ "bone_quality": [
+  "young",
+  "elderly"
+ ],
+ "displacements": {
+  "_about": "Typical starting displacement (Phase 4). Shaft-type values describe the DISTAL part relative to the proximal part: shortening_mm, lateral_mm, posterior_mm, varus_deg (negative = valgus), apex_anterior_deg (negative = apex posterior), external_rotation_deg. Fragment-type values: away_mm (straight away from the fracture site), proximal_mm, use_impaction (use the impaction stored with a depressed fragment). Shortening is reduced automatically until the bone ends no longer overlap.",
+  "shaft_mid": {
+   "shortening_mm": 8,
+   "lateral_mm": 5,
+   "posterior_mm": 3,
+   "varus_deg": 6,
+   "apex_anterior_deg": 5,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    },
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "shaft_proximal": {
+   "shortening_mm": 4,
+   "posterior_mm": 5,
+   "varus_deg": -8,
+   "apex_anterior_deg": 7,
+   "sources": [
+    {
+     "ref": "Lang GJ et al. Clin Orthop Relat Res 1995;(315):64-74",
+     "pmid": "7634688",
+     "claim": "proximal third: valgus and apex anterior angulation; 1 cm or more displacement in 59 %"
+    },
+    {
+     "ref": "Freedman EL, Johnson EE. Clin Orthop Relat Res 1995;(315):25-33",
+     "pmid": "7634677",
+     "claim": "proximal third: tendency to valgus; anterior bow averaged 7 degrees (5-12)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "distal_meta": {
+   "shortening_mm": 4,
+   "lateral_mm": 4,
+   "varus_deg": 6,
+   "sources": [
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    },
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "plateau_split": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "condyle": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "depressed": {
+   "use_impaction": true,
+   "sources": [],
+   "basis": "Moves into the crushed zone by the impaction depth stored with the fragment (4-6 mm). No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "pilon_split": {
+   "away_mm": 4,
+   "proximal_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "wedge": {
+   "away_mm": 5,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "avulsion": {
+   "away_mm": 4,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "tubercle_avulsion": {
+   "proximal_mm": 8,
+   "away_mm": 2,
+   "sources": [],
+   "basis": "Pulled proximally by the patellar tendon. No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "fibula_distal": {
+   "shortening_mm": 3,
+   "posterior_mm": 2,
+   "lateral_mm": 2,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Yablon IG, Heller FG, Shouse L. J Bone Joint Surg Am 1977;59:169-73",
+     "pmid": "403191",
+     "claim": "the talus follows the displacement of the lateral malleolus"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "fibula_shaft": {
+   "shortening_mm": 4,
+   "lateral_mm": 3,
+   "external_rotation_deg": 8,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "malleolus_medial": {
+   "away_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "posterior_malleolus": {
+   "proximal_mm": 3,
+   "away_mm": 1,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  }
+ },
+ "fractures": [
+  {
+   "id": "31A1.1(n)",
+   "code": "31A1.1",
+   "name": "Femur, proximal end segment, trochanteric region, simple pertrochanteric fracture, isolated single trochanter fracture",
+   "segment": "31",
+   "qualification": "n Greater trochanter",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Qualification o (lesser trochanter) is not built: the drawing shows n in bold.",
+   "file": "31A1_1_n_elderly.glb",
+   "files": {
+    "elderly": "31A1_1_n_elderly.glb",
+    "young": "31A1_1_n_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 31046,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "greater trochanter fragment",
+     "volume_cm3": 18.88,
+     "triangles": 10154
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 516.94,
+     "triangles": 20892
+    }
+   ],
+   "bytes": 104156
+  },
+  {
+   "id": "31A1.2",
+   "code": "31A1.2",
+   "name": "Femur, proximal end segment, trochanteric region, simple pertrochanteric fracture, two-part fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    },
+    {
+     "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
+     "pmid": "23908432",
+     "doi": "10.1302/0301-620X.95B8.31495"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "measured": {
+    "lateral_wall_mm": 42.2
+   },
+   "file": "31A1_2_elderly.glb",
+   "files": {
+    "elderly": "31A1_2_elderly.glb",
+    "young": "31A1_2_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 31722,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head, neck and greater trochanter tip fragment",
+     "volume_cm3": 73.88,
+     "triangles": 12742
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 461.93,
+     "triangles": 18980
+    }
+   ],
+   "bytes": 106528
+  },
+  {
+   "id": "31A1.3",
+   "code": "31A1.3",
+   "name": "Femur, proximal end segment, trochanteric region, simple pertrochanteric fracture, lateral wall intact (>20.5 mm) fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    },
+    {
+     "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
+     "pmid": "23908432",
+     "doi": "10.1302/0301-620X.95B8.31495"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Lateral wall measured on the model (see 'measured'). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "measured": {
+    "lateral_wall_mm": 38.5
+   },
+   "file": "31A1_3_elderly.glb",
+   "files": {
+    "elderly": "31A1_3_elderly.glb",
+    "young": "31A1_3_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 55178,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 79.87,
+     "triangles": 15764
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "lesser trochanter fragment",
+     "volume_cm3": 4.81,
+     "triangles": 10528
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 451.14,
+     "triangles": 28886
+    }
+   ],
+   "bytes": 181624
+  },
+  {
+   "id": "31A2.2",
+   "code": "31A2.2",
+   "name": "Femur, proximal end segment, trochanteric region, multifragmentary pertrochanteric, lateral wall incompetent (\u2264 20.5 mm) fracture, with 1 intermediate fragment",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    },
+    {
+     "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
+     "pmid": "23908432",
+     "doi": "10.1302/0301-620X.95B8.31495"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "measured": {
+    "lateral_wall_mm": 11.8
+   },
+   "file": "31A2_2_elderly.glb",
+   "files": {
+    "elderly": "31A2_2_elderly.glb",
+    "young": "31A2_2_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 47376,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 80.53,
+     "triangles": 15094
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "greater trochanter and lateral wall fragment",
+     "volume_cm3": 56.68,
+     "triangles": 14834
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 398.61,
+     "triangles": 17448
+    }
+   ],
+   "bytes": 166584
+  },
+  {
+   "id": "31A2.3",
+   "code": "31A2.3",
+   "name": "Femur, proximal end segment, trochanteric region, multifragmentary pertrochanteric, lateral wall incompetent (\u2264 20.5 mm) fracture, with 2 or more intermediate fragments",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    },
+    {
+     "ref": "Hsu CE et al. Lateral femoral wall thickness. A reliable predictor of post-operative lateral wall fracture in intertrochanteric fractures. Bone Joint J 2013;95-B:1134-8",
+     "pmid": "23908432",
+     "doi": "10.1302/0301-620X.95B8.31495"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "measured": {
+    "lateral_wall_mm": 9.8
+   },
+   "file": "31A2_3_elderly.glb",
+   "files": {
+    "elderly": "31A2_3_elderly.glb",
+    "young": "31A2_3_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 90204,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 80.91,
+     "triangles": 14814
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "greater trochanter and lateral wall fragment 1",
+     "volume_cm3": 25.62,
+     "triangles": 22528
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "greater trochanter and lateral wall fragment 2",
+     "volume_cm3": 31.12,
+     "triangles": 16912
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "lesser trochanter fragment",
+     "volume_cm3": 4.5,
+     "triangles": 10736
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 393.67,
+     "triangles": 25214
+    }
+   ],
+   "bytes": 310544
+  },
+  {
+   "id": "31A3.1",
+   "code": "31A3.1",
+   "name": "Femur, proximal end segment, trochanteric region, intertrochanteric (reverse obliquity) fracture, simple oblique fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31A3_1_elderly.glb",
+   "files": {
+    "elderly": "31A3_1_elderly.glb",
+    "young": "31A3_1_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 28206,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 150.5,
+     "triangles": 12866
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 385.32,
+     "triangles": 15340
+    }
+   ],
+   "bytes": 104004
+  },
+  {
+   "id": "31A3.2",
+   "code": "31A3.2",
+   "name": "Femur, proximal end segment, trochanteric region, intertrochanteric (reverse obliquity) fracture, simple transverse fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31A3_2_elderly.glb",
+   "files": {
+    "elderly": "31A3_2_elderly.glb",
+    "young": "31A3_2_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 27186,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 136.48,
+     "triangles": 12214
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 399.34,
+     "triangles": 14972
+    }
+   ],
+   "bytes": 100976
+  },
+  {
+   "id": "31A3.3",
+   "code": "31A3.3",
+   "name": "Femur, proximal end segment, trochanteric region, intertrochanteric (reverse obliquity) fracture, wedge or multifragmentary fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S34"
+    },
+    {
+     "ref": "Li C et al. Three-dimensional CT mapping of intertrochanteric fractures in elderly patients. Med Sci Monit 2020;26:e925452",
+     "pmid": "33041321",
+     "doi": "10.12659/MSM.925452"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31A3_3_elderly.glb",
+   "files": {
+    "elderly": "31A3_3_elderly.glb",
+    "young": "31A3_3_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 40604,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 149.3,
+     "triangles": 12816
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "lesser trochanter wedge 1",
+     "volume_cm3": 0.8,
+     "triangles": 4990
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "lesser trochanter wedge 2",
+     "volume_cm3": 1.82,
+     "triangles": 4610
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 383.9,
+     "triangles": 18188
+    }
+   ],
+   "bytes": 153816
+  },
+  {
+   "id": "31B1.1",
+   "code": "31B1.1",
+   "name": "Femur, proximal end segment, femoral neck, subcapital fracture, valgus impacted fracture",
+   "segment": "31",
+   "tags": {
+    "garden": "I"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Kazley JM et al. Classifications in Brief: Garden classification of femoral neck fractures. Clin Orthop Relat Res 2018;476:441-5",
+     "pmid": "29389800",
+     "doi": "10.1007/s11999.0000000000000066"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Garden stage follows the subgroup definition (Kazley 2018). Same subcapital line for the three subgroups; they differ by displacement (Phase 6d).",
+   "file": "31B1_1_elderly.glb",
+   "files": {
+    "elderly": "31B1_1_elderly.glb",
+    "young": "31B1_1_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 29538,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femoral head fragment",
+     "volume_cm3": 44.49,
+     "triangles": 10506
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 491.33,
+     "triangles": 19032
+    }
+   ],
+   "bytes": 100372
+  },
+  {
+   "id": "31B1.2",
+   "code": "31B1.2",
+   "name": "Femur, proximal end segment, femoral neck, subcapital fracture, nondisplaced fracture",
+   "segment": "31",
+   "tags": {
+    "garden": "II"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Kazley JM et al. Classifications in Brief: Garden classification of femoral neck fractures. Clin Orthop Relat Res 2018;476:441-5",
+     "pmid": "29389800",
+     "doi": "10.1007/s11999.0000000000000066"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Garden stage follows the subgroup definition (Kazley 2018). Same subcapital line for the three subgroups; they differ by displacement (Phase 6d).",
+   "file": "31B1_2_elderly.glb",
+   "files": {
+    "elderly": "31B1_2_elderly.glb",
+    "young": "31B1_2_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 28434,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femoral head fragment",
+     "volume_cm3": 44.97,
+     "triangles": 9948
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 490.85,
+     "triangles": 18486
+    }
+   ],
+   "bytes": 96444
+  },
+  {
+   "id": "31B1.3",
+   "code": "31B1.3",
+   "name": "Femur, proximal end segment, femoral neck, subcapital fracture, displaced fracture",
+   "segment": "31",
+   "tags": {
+    "garden": "III or IV (set by the displacement, Phase 6d)"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Kazley JM et al. Classifications in Brief: Garden classification of femoral neck fractures. Clin Orthop Relat Res 2018;476:441-5",
+     "pmid": "29389800",
+     "doi": "10.1007/s11999.0000000000000066"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Garden stage follows the subgroup definition (Kazley 2018). Same subcapital line for the three subgroups; they differ by displacement (Phase 6d).",
+   "file": "31B1_3_elderly.glb",
+   "files": {
+    "elderly": "31B1_3_elderly.glb",
+    "young": "31B1_3_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 28610,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femoral head fragment",
+     "volume_cm3": 44.75,
+     "triangles": 10092
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 491.06,
+     "triangles": 18518
+    }
+   ],
+   "bytes": 98472
+  },
+  {
+   "id": "31B2.1(p)",
+   "code": "31B2.1",
+   "name": "Femur, proximal end segment, femoral neck, transcervical fracture, simple fracture",
+   "segment": "31",
+   "qualification": "p Pauwels 1 (<30\u00b0)",
+   "tags": {
+    "pauwels": "1",
+    "pauwels_deg_modelled": 20
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Bartonicek J. Pauwels' classification of femoral neck fractures: correct interpretation of the original. J Orthop Trauma 2001;15:358-60",
+     "pmid": "11433141",
+     "doi": "10.1097/00005131-200106000-00009"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Pauwels angle = angle of the fracture line to the horizontal of the standing body, seen from the front. Compendium: 1 <30, 2 30-70, 3 >70 degrees; Bartonicek 2001 (original): I <=30, II 30-50, III >=50. Angle chosen to fit both. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31B2_1_p_elderly.glb",
+   "files": {
+    "elderly": "31B2_1_p_elderly.glb",
+    "young": "31B2_1_p_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 31898,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 57.93,
+     "triangles": 12628
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 477.89,
+     "triangles": 19270
+    }
+   ],
+   "bytes": 113224
+  },
+  {
+   "id": "31B2.1(q)",
+   "code": "31B2.1",
+   "name": "Femur, proximal end segment, femoral neck, transcervical fracture, simple fracture",
+   "segment": "31",
+   "qualification": "q Pauwels 2 (30\u201370\u00b0)",
+   "tags": {
+    "pauwels": "2",
+    "pauwels_deg_modelled": 45
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Bartonicek J. Pauwels' classification of femoral neck fractures: correct interpretation of the original. J Orthop Trauma 2001;15:358-60",
+     "pmid": "11433141",
+     "doi": "10.1097/00005131-200106000-00009"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Pauwels angle = angle of the fracture line to the horizontal of the standing body, seen from the front. Compendium: 1 <30, 2 30-70, 3 >70 degrees; Bartonicek 2001 (original): I <=30, II 30-50, III >=50. Angle chosen to fit both. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31B2_1_q_elderly.glb",
+   "files": {
+    "elderly": "31B2_1_q_elderly.glb",
+    "young": "31B2_1_q_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 24586,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 58.26,
+     "triangles": 8680
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 477.56,
+     "triangles": 15906
+    }
+   ],
+   "bytes": 90988
+  },
+  {
+   "id": "31B2.1(r)",
+   "code": "31B2.1",
+   "name": "Femur, proximal end segment, femoral neck, transcervical fracture, simple fracture",
+   "segment": "31",
+   "qualification": "r Pauwels 3 (>70\u00b0)",
+   "tags": {
+    "pauwels": "3",
+    "pauwels_deg_modelled": 75
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Bartonicek J. Pauwels' classification of femoral neck fractures: correct interpretation of the original. J Orthop Trauma 2001;15:358-60",
+     "pmid": "11433141",
+     "doi": "10.1097/00005131-200106000-00009"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Pauwels angle = angle of the fracture line to the horizontal of the standing body, seen from the front. Compendium: 1 <30, 2 30-70, 3 >70 degrees; Bartonicek 2001 (original): I <=30, II 30-50, III >=50. Angle chosen to fit both. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31B2_1_r_elderly.glb",
+   "files": {
+    "elderly": "31B2_1_r_elderly.glb",
+    "young": "31B2_1_r_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 29904,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 61.08,
+     "triangles": 11302
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 474.74,
+     "triangles": 18602
+    }
+   ],
+   "bytes": 101944
+  },
+  {
+   "id": "31B2.2(q)",
+   "code": "31B2.2",
+   "name": "Femur, proximal end segment, femoral neck, transcervical fracture, multifragmentary fracture",
+   "segment": "31",
+   "qualification": "q Pauwels 2 (30\u201370\u00b0)",
+   "tags": {
+    "pauwels": "2",
+    "pauwels_deg_modelled": 45
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Bartonicek J. Pauwels' classification of femoral neck fractures: correct interpretation of the original. J Orthop Trauma 2001;15:358-60",
+     "pmid": "11433141",
+     "doi": "10.1097/00005131-200106000-00009"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Comminution placed in the posterior neck: Wu 2022 found bone defects mainly posterior. Pauwels angle = angle of the fracture line to the horizontal of the standing body, seen from the front. Compendium: 1 <30, 2 30-70, 3 >70 degrees; Bartonicek 2001 (original): I <=30, II 30-50, III >=50. Angle chosen to fit both. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31B2_2_q_elderly.glb",
+   "files": {
+    "elderly": "31B2_2_q_elderly.glb",
+    "young": "31B2_2_q_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 47024,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 56.05,
+     "triangles": 8610
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "posterior neck comminution 1",
+     "volume_cm3": 1.27,
+     "triangles": 6074
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "posterior neck comminution 2",
+     "volume_cm3": 1.16,
+     "triangles": 6422
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "posterior neck comminution 3",
+     "volume_cm3": 0.86,
+     "triangles": 4628
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 476.48,
+     "triangles": 21290
+    }
+   ],
+   "bytes": 176584
+  },
+  {
+   "id": "31B2.3(r)",
+   "code": "31B2.3",
+   "name": "Femur, proximal end segment, femoral neck, transcervical fracture, shear fracture",
+   "segment": "31",
+   "qualification": "r Pauwels 3 (>70\u00b0)",
+   "tags": {
+    "pauwels": "3",
+    "pauwels_deg_modelled": 78
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    },
+    {
+     "ref": "Bartonicek J. Pauwels' classification of femoral neck fractures: correct interpretation of the original. J Orthop Trauma 2001;15:358-60",
+     "pmid": "11433141",
+     "doi": "10.1097/00005131-200106000-00009"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Pauwels angle = angle of the fracture line to the horizontal of the standing body, seen from the front. Compendium: 1 <30, 2 30-70, 3 >70 degrees; Bartonicek 2001 (original): I <=30, II 30-50, III >=50. Angle chosen to fit both. Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31B2_3_r_elderly.glb",
+   "files": {
+    "elderly": "31B2_3_r_elderly.glb",
+    "young": "31B2_3_r_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 34914,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 73.38,
+     "triangles": 14292
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 462.44,
+     "triangles": 20622
+    }
+   ],
+   "bytes": 115064
+  },
+  {
+   "id": "31B3",
+   "code": "31B3",
+   "name": "Femur, proximal end segment, femoral neck, basicervical fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S35"
+    },
+    {
+     "ref": "Wu S et al. Three-dimensional CT mapping and clinical predictive factors for morphologic characterization of displaced femoral neck fractures. Ann Transl Med 2022;10:1096",
+     "pmid": "36388800",
+     "doi": "10.21037/atm-22-1213"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "31B3_elderly.glb",
+   "files": {
+    "elderly": "31B3_elderly.glb",
+    "young": "31B3_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 34369,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 73.14,
+     "triangles": 14267
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 462.67,
+     "triangles": 20102
+    }
+   ],
+   "bytes": 118440
+  },
+  {
+   "id": "31C1.1",
+   "code": "31C1.1",
+   "name": "Femur, proximal end segment, femoral head, split fracture, avulsion of ligamentum teres fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S36"
+    },
+    {
+     "ref": "Wu S et al. Fracture line distribution in femoral head fractures: a complement to Pipkin, Brumback, and AO/OTA classifications. Radiol Med 2022;127:1235-44",
+     "pmid": "36129612",
+     "doi": "10.1007/s11547-022-01558-6"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Fovea located on this model as the gap in the head cartilage (posteroinferior).",
+   "file": "31C1_1_elderly.glb",
+   "files": {
+    "elderly": "31C1_1_elderly.glb",
+    "young": "31C1_1_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 17842,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "fovea avulsion fragment (ligamentum teres)",
+     "volume_cm3": 0.45,
+     "triangles": 2532
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 535.37,
+     "triangles": 15310
+    }
+   ],
+   "bytes": 64608
+  },
+  {
+   "id": "31C1.2",
+   "code": "31C1.2",
+   "name": "Femur, proximal end segment, femoral head, split fracture, split, infrafoveal fracture",
+   "segment": "31",
+   "tags": {
+    "pipkin": "I"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S36"
+    },
+    {
+     "ref": "Wu S et al. Fracture line distribution in femoral head fractures: a complement to Pipkin, Brumback, and AO/OTA classifications. Radiol Med 2022;127:1235-44",
+     "pmid": "36129612",
+     "doi": "10.1007/s11547-022-01558-6"
+    },
+    {
+     "ref": "Pipkin G. Treatment of grade IV fracture-dislocation of the hip. J Bone Joint Surg Am 1957;39-A:1027-42",
+     "pmid": "13475403"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Pipkin I: the fragment lies below the fovea; the fovea and ligamentum teres stay on the main head.",
+   "file": "31C1_2_elderly.glb",
+   "files": {
+    "elderly": "31C1_2_elderly.glb",
+    "young": "31C1_2_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 25526,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "infrafoveal head fragment",
+     "volume_cm3": 4.2,
+     "triangles": 6770
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 531.62,
+     "triangles": 18756
+    }
+   ],
+   "bytes": 89968
+  },
+  {
+   "id": "31C1.3",
+   "code": "31C1.3",
+   "name": "Femur, proximal end segment, femoral head, split fracture, split, suprafoveal fracture",
+   "segment": "31",
+   "tags": {
+    "pipkin": "II"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S36"
+    },
+    {
+     "ref": "Wu S et al. Fracture line distribution in femoral head fractures: a complement to Pipkin, Brumback, and AO/OTA classifications. Radiol Med 2022;127:1235-44",
+     "pmid": "36129612",
+     "doi": "10.1007/s11547-022-01558-6"
+    },
+    {
+     "ref": "Pipkin G. Treatment of grade IV fracture-dislocation of the hip. J Bone Joint Surg Am 1957;39-A:1027-42",
+     "pmid": "13475403"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Pipkin II: the line passes above the fovea; the fragment carries the fovea and ligamentum teres.",
+   "file": "31C1_3_elderly.glb",
+   "files": {
+    "elderly": "31C1_3_elderly.glb",
+    "young": "31C1_3_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 32006,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "suprafoveal head fragment (with fovea)",
+     "volume_cm3": 15.8,
+     "triangles": 10688
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 520.02,
+     "triangles": 21318
+    }
+   ],
+   "bytes": 106264
+  },
+  {
+   "id": "31C2.1",
+   "code": "31C2.1",
+   "name": "Femur, proximal end segment, femoral head, depression fracture, chondral lesion",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S36"
+    },
+    {
+     "ref": "Wu S et al. Fracture line distribution in femoral head fractures: a complement to Pipkin, Brumback, and AO/OTA classifications. Radiol Med 2022;127:1235-44",
+     "pmid": "36129612",
+     "doi": "10.1007/s11547-022-01558-6"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "Cartilage only. The model has no cartilage thickness (cartilage is a surface marking), so no bone is cut.",
+   "bones": [],
+   "triangles": 0,
+   "fragments": []
+  },
+  {
+   "id": "31C2.2",
+   "code": "31C2.2",
+   "name": "Femur, proximal end segment, femoral head, depression fracture, depression impaction fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S36"
+    },
+    {
+     "ref": "Wu S et al. Fracture line distribution in femoral head fractures: a complement to Pipkin, Brumback, and AO/OTA classifications. Radiol Med 2022;127:1235-44",
+     "pmid": "36129612",
+     "doi": "10.1007/s11547-022-01558-6"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Depression placed superomedially, as in the drawing; impaction 4 mm (no published depth found).",
+   "file": "31C2_2_elderly.glb",
+   "files": {
+    "elderly": "31C2_2_elderly.glb",
+    "young": "31C2_2_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 20704,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "depressed head fragment",
+     "volume_cm3": 0.82,
+     "triangles": 3408,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.3376,
+      -0.9197,
+      -0.2007
+     ]
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 534.09,
+     "triangles": 17296
+    }
+   ],
+   "bytes": 72292
+  },
+  {
+   "id": "31C2.3",
+   "code": "31C2.3",
+   "name": "Femur, proximal end segment, femoral head, depression fracture, split depression fracture",
+   "segment": "31",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S36"
+    },
+    {
+     "ref": "Wu S et al. Fracture line distribution in femoral head fractures: a complement to Pipkin, Brumback, and AO/OTA classifications. Radiol Med 2022;127:1235-44",
+     "pmid": "36129612",
+     "doi": "10.1007/s11547-022-01558-6"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Depression superomedial with a medial split next to it, as in the drawing; impaction 4 mm (no published depth found).",
+   "file": "31C2_3_elderly.glb",
+   "files": {
+    "elderly": "31C2_3_elderly.glb",
+    "young": "31C2_3_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 33510,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "depressed head fragment",
+     "volume_cm3": 1.39,
+     "triangles": 3726,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.3376,
+      -0.9197,
+      -0.2007
+     ]
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "split head fragment",
+     "volume_cm3": 3.1,
+     "triangles": 9246
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 530.43,
+     "triangles": 20538
+    }
+   ],
+   "bytes": 122016
+  },
+  {
+   "id": "31C-Pipkin-III",
+   "code": "31C",
+   "name": "Pipkin type III: femoral head split fracture with a femoral neck fracture",
+   "segment": "31",
+   "tags": {
+    "pipkin": "III"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S36"
+    },
+    {
+     "ref": "Wu S et al. Fracture line distribution in femoral head fractures: a complement to Pipkin, Brumback, and AO/OTA classifications. Radiol Med 2022;127:1235-44",
+     "pmid": "36129612",
+     "doi": "10.1007/s11547-022-01558-6"
+    },
+    {
+     "ref": "Pipkin G. Treatment of grade IV fracture-dislocation of the hip. J Bone Joint Surg Am 1957;39-A:1027-42",
+     "pmid": "13475403"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results (abstract) of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Not a separate AO/OTA code (31C1.2 + 31B2.1 together). Pipkin IV (with an acetabular fracture) is not built: the hip bone is context only in this region.",
+   "file": "31C-Pipkin-III_elderly.glb",
+   "files": {
+    "elderly": "31C-Pipkin-III_elderly.glb",
+    "young": "31C-Pipkin-III_young.glb"
+   },
+   "bone_quality": "elderly",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 36546,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "infrafoveal head fragment",
+     "volume_cm3": 4.13,
+     "triangles": 6476
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "head and neck fragment",
+     "volume_cm3": 53.91,
+     "triangles": 14160
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "femur",
+     "volume_cm3": 477.78,
+     "triangles": 15910
+    }
+   ],
+   "bytes": 133012
+  },
+  {
+   "id": "32A1(a)",
+   "code": "32A1",
+   "name": "Femur, diaphyseal segment, simple, spiral fracture",
+   "segment": "32",
+   "qualification": "a Proximal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A1_a_young.glb",
+   "files": {
+    "young": "32A1_a_young.glb",
+    "elderly": "32A1_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 54002,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 197.53,
+     "triangles": 26806
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 338.29,
+     "triangles": 27196
+    }
+   ],
+   "bytes": 160208
+  },
+  {
+   "id": "32A2(a)",
+   "code": "32A2",
+   "name": "Femur, diaphyseal segment, simple, oblique fracture (\u226530\u00b0)",
+   "segment": "32",
+   "qualification": "a Proximal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A2_a_young.glb",
+   "files": {
+    "young": "32A2_a_young.glb",
+    "elderly": "32A2_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 22746,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 195.14,
+     "triangles": 11124
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 340.67,
+     "triangles": 11622
+    }
+   ],
+   "bytes": 84772
+  },
+  {
+   "id": "32A3(a)",
+   "code": "32A3",
+   "name": "Femur, diaphyseal segment, simple, transverse fracture (<30\u00b0)",
+   "segment": "32",
+   "qualification": "a Proximal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A3_a_young.glb",
+   "files": {
+    "young": "32A3_a_young.glb",
+    "elderly": "32A3_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 20754,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 196.78,
+     "triangles": 10150
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 339.03,
+     "triangles": 10604
+    }
+   ],
+   "bytes": 77476
+  },
+  {
+   "id": "32B2(a)",
+   "code": "32B2",
+   "name": "Femur, diaphyseal segment, intact wedge fracture",
+   "segment": "32",
+   "qualification": "a Proximal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32B2_a_young.glb",
+   "files": {
+    "young": "32B2_a_young.glb",
+    "elderly": "32B2_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 31218,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 190.87,
+     "triangles": 11006
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece",
+     "volume_cm3": 10.89,
+     "triangles": 8674
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 334.05,
+     "triangles": 11538
+    }
+   ],
+   "bytes": 113448
+  },
+  {
+   "id": "32B3(a)",
+   "code": "32B3",
+   "name": "Femur, diaphyseal segment, fragmentary wedge fracture",
+   "segment": "32",
+   "qualification": "a Proximal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32B3_a_young.glb",
+   "files": {
+    "young": "32B3_a_young.glb",
+    "elderly": "32B3_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 44728,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 191.52,
+     "triangles": 10912
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 1",
+     "volume_cm3": 3.98,
+     "triangles": 9800
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 2",
+     "volume_cm3": 3.02,
+     "triangles": 5332
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 3",
+     "volume_cm3": 3.07,
+     "triangles": 6722
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 334.23,
+     "triangles": 11962
+    }
+   ],
+   "bytes": 168636
+  },
+  {
+   "id": "32A1(b)",
+   "code": "32A1",
+   "name": "Femur, diaphyseal segment, simple, spiral fracture",
+   "segment": "32",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A1_b_young.glb",
+   "files": {
+    "young": "32A1_b_young.glb",
+    "elderly": "32A1_b_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 63866,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 249.52,
+     "triangles": 32140
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 286.3,
+     "triangles": 31726
+    }
+   ],
+   "bytes": 186320
+  },
+  {
+   "id": "32A2(b)",
+   "code": "32A2",
+   "name": "Femur, diaphyseal segment, simple, oblique fracture (\u226530\u00b0)",
+   "segment": "32",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A2_b_young.glb",
+   "files": {
+    "young": "32A2_b_young.glb",
+    "elderly": "32A2_b_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 22226,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 251.61,
+     "triangles": 11348
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 284.21,
+     "triangles": 10878
+    }
+   ],
+   "bytes": 80064
+  },
+  {
+   "id": "32A3(b)",
+   "code": "32A3",
+   "name": "Femur, diaphyseal segment, simple, transverse fracture (<30\u00b0)",
+   "segment": "32",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A3_b_young.glb",
+   "files": {
+    "young": "32A3_b_young.glb",
+    "elderly": "32A3_b_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 20478,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 249.63,
+     "triangles": 10466
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 286.19,
+     "triangles": 10012
+    }
+   ],
+   "bytes": 76260
+  },
+  {
+   "id": "32B2(b)",
+   "code": "32B2",
+   "name": "Femur, diaphyseal segment, intact wedge fracture",
+   "segment": "32",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32B2_b_young.glb",
+   "files": {
+    "young": "32B2_b_young.glb",
+    "elderly": "32B2_b_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 31620,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 242.79,
+     "triangles": 11330
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece",
+     "volume_cm3": 11.53,
+     "triangles": 9148
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 281.5,
+     "triangles": 11142
+    }
+   ],
+   "bytes": 115076
+  },
+  {
+   "id": "32B3(b)",
+   "code": "32B3",
+   "name": "Femur, diaphyseal segment, fragmentary wedge fracture",
+   "segment": "32",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32B3_b_young.glb",
+   "files": {
+    "young": "32B3_b_young.glb",
+    "elderly": "32B3_b_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 47890,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 243.13,
+     "triangles": 11554
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 1",
+     "volume_cm3": 2.42,
+     "triangles": 8646
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 2",
+     "volume_cm3": 4.68,
+     "triangles": 6766
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 3",
+     "volume_cm3": 3.9,
+     "triangles": 8716
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 281.69,
+     "triangles": 12208
+    }
+   ],
+   "bytes": 176216
+  },
+  {
+   "id": "32A1(c)",
+   "code": "32A1",
+   "name": "Femur, diaphyseal segment, simple, spiral fracture",
+   "segment": "32",
+   "qualification": "c Distal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A1_c_young.glb",
+   "files": {
+    "young": "32A1_c_young.glb",
+    "elderly": "32A1_c_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 94050,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 312.12,
+     "triangles": 47526
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 223.7,
+     "triangles": 46524
+    }
+   ],
+   "bytes": 251220
+  },
+  {
+   "id": "32A2(c)",
+   "code": "32A2",
+   "name": "Femur, diaphyseal segment, simple, oblique fracture (\u226530\u00b0)",
+   "segment": "32",
+   "qualification": "c Distal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A2_c_young.glb",
+   "files": {
+    "young": "32A2_c_young.glb",
+    "elderly": "32A2_c_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 25294,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 308.32,
+     "triangles": 13156
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 227.5,
+     "triangles": 12138
+    }
+   ],
+   "bytes": 91208
+  },
+  {
+   "id": "32A3(c)",
+   "code": "32A3",
+   "name": "Femur, diaphyseal segment, simple, transverse fracture (<30\u00b0)",
+   "segment": "32",
+   "qualification": "c Distal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32A3_c_young.glb",
+   "files": {
+    "young": "32A3_c_young.glb",
+    "elderly": "32A3_c_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 23398,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 307.49,
+     "triangles": 12178
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 228.33,
+     "triangles": 11220
+    }
+   ],
+   "bytes": 86056
+  },
+  {
+   "id": "32B2(c)",
+   "code": "32B2",
+   "name": "Femur, diaphyseal segment, intact wedge fracture",
+   "segment": "32",
+   "qualification": "c Distal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32B2_c_young.glb",
+   "files": {
+    "young": "32B2_c_young.glb",
+    "elderly": "32B2_c_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 37830,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 299.59,
+     "triangles": 12736
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece",
+     "volume_cm3": 17.7,
+     "triangles": 11990
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 218.53,
+     "triangles": 13104
+    }
+   ],
+   "bytes": 134692
+  },
+  {
+   "id": "32B3(c)",
+   "code": "32B3",
+   "name": "Femur, diaphyseal segment, fragmentary wedge fracture",
+   "segment": "32",
+   "qualification": "c Distal 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S38"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32B3_c_young.glb",
+   "files": {
+    "young": "32B3_c_young.glb",
+    "elderly": "32B3_c_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 58242,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 300.07,
+     "triangles": 12716
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 1",
+     "volume_cm3": 7.94,
+     "triangles": 9596
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 2",
+     "volume_cm3": 5.74,
+     "triangles": 13210
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "wedge piece 3",
+     "volume_cm3": 3.33,
+     "triangles": 8554
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 218.74,
+     "triangles": 14166
+    }
+   ],
+   "bytes": 203960
+  },
+  {
+   "id": "32C2(i)",
+   "code": "32C2",
+   "name": "Femur, diaphyseal segment, multifragmentary, intact segmental fracture",
+   "segment": "32",
+   "qualification": "i Proximal diaphyseal-metaphyseal",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S39"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32C2_i_young.glb",
+   "files": {
+    "young": "32C2_i_young.glb",
+    "elderly": "32C2_i_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 29266,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 179.7,
+     "triangles": 10326
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment",
+     "volume_cm3": 45.54,
+     "triangles": 8640
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 310.58,
+     "triangles": 10300
+    }
+   ],
+   "bytes": 107488
+  },
+  {
+   "id": "32C3(i)",
+   "code": "32C3",
+   "name": "Femur, diaphyseal segment, multifragmentary, fragmentary segmental fracture",
+   "segment": "32",
+   "qualification": "i Proximal diaphyseal-metaphyseal",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S39"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32C3_i_young.glb",
+   "files": {
+    "young": "32C3_i_young.glb",
+    "elderly": "32C3_i_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 70540,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 179.72,
+     "triangles": 10296
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 1",
+     "volume_cm3": 11.24,
+     "triangles": 11368
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 2",
+     "volume_cm3": 7.27,
+     "triangles": 10036
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 3",
+     "volume_cm3": 11.47,
+     "triangles": 13526
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 4",
+     "volume_cm3": 15.51,
+     "triangles": 13994
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 310.61,
+     "triangles": 11320
+    }
+   ],
+   "bytes": 236056
+  },
+  {
+   "id": "32C2(j)",
+   "code": "32C2",
+   "name": "Femur, diaphyseal segment, multifragmentary, intact segmental fracture",
+   "segment": "32",
+   "qualification": "j Pure diaphyseal",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S39"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32C2_j_young.glb",
+   "files": {
+    "young": "32C2_j_young.glb",
+    "elderly": "32C2_j_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 28982,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 218.75,
+     "triangles": 10268
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment",
+     "volume_cm3": 51.26,
+     "triangles": 8310
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 265.81,
+     "triangles": 10404
+    }
+   ],
+   "bytes": 103732
+  },
+  {
+   "id": "32C3(j)",
+   "code": "32C3",
+   "name": "Femur, diaphyseal segment, multifragmentary, fragmentary segmental fracture",
+   "segment": "32",
+   "qualification": "j Pure diaphyseal",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S39"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32C3_j_young.glb",
+   "files": {
+    "young": "32C3_j_young.glb",
+    "elderly": "32C3_j_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 87028,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 218.68,
+     "triangles": 10292
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 1",
+     "volume_cm3": 9.02,
+     "triangles": 18196
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 2",
+     "volume_cm3": 19.0,
+     "triangles": 17132
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 3",
+     "volume_cm3": 13.69,
+     "triangles": 13915
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 4",
+     "volume_cm3": 10.27,
+     "triangles": 15105
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 265.16,
+     "triangles": 12388
+    }
+   ],
+   "bytes": 283964
+  },
+  {
+   "id": "32C2(k)",
+   "code": "32C2",
+   "name": "Femur, diaphyseal segment, multifragmentary, intact segmental fracture",
+   "segment": "32",
+   "qualification": "k Distal diaphyseal-metaphyseal",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S39"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32C2_k_young.glb",
+   "files": {
+    "young": "32C2_k_young.glb",
+    "elderly": "32C2_k_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 34074,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 268.41,
+     "triangles": 10814
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment",
+     "volume_cm3": 64.73,
+     "triangles": 10842
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 202.67,
+     "triangles": 12418
+    }
+   ],
+   "bytes": 120272
+  },
+  {
+   "id": "32C3(k)",
+   "code": "32C3",
+   "name": "Femur, diaphyseal segment, multifragmentary, fragmentary segmental fracture",
+   "segment": "32",
+   "qualification": "k Distal diaphyseal-metaphyseal",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001058",
+     "page": "S39"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "No CT mapping study of femoral shaft fractures was found (PubMed, 18 Nov 2026). Shown in the anatomical (reduced) position; the typical displacement is added in Phase 6d.",
+   "file": "32C3_k_young.glb",
+   "files": {
+    "young": "32C3_k_young.glb",
+    "elderly": "32C3_k_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Femur.r"
+   ],
+   "triangles": 90742,
+   "fragments": [
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "proximal fragment",
+     "volume_cm3": 269.36,
+     "triangles": 10824
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 1",
+     "volume_cm3": 22.35,
+     "triangles": 17560
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 2",
+     "volume_cm3": 10.5,
+     "triangles": 17832
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 3",
+     "volume_cm3": 12.08,
+     "triangles": 16648
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "segment 4",
+     "volume_cm3": 19.0,
+     "triangles": 14116
+    },
+    {
+     "bone": "femur",
+     "mesh": "Femur.r",
+     "name": "distal fragment",
+     "volume_cm3": 202.52,
+     "triangles": 13762
+    }
+   ],
+   "bytes": 299540
+  }
+ ]
+}
