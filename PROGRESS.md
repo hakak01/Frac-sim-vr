@@ -170,6 +170,82 @@ Limits the owner should know (Phases 4 + 5):
 5. Ligaments (syndesmosis, deltoid, collaterals) are not in the model, so they do not hold
    or pull fragments.
 
+### Phase 6a – FEMUR REGION ASSETS (right thigh, hip to knee) – waiting for owner's OK
+
+- New region `thigh_right` (`regions/thigh_right.json`), exported to `assets/thigh_right/`
+  and `model/thigh_right/bones.npz`. 122 structures, 427,248 triangles, 1.5 MB. No triangle
+  reduction anywhere. Table: `assets/thigh_right/STRUCTURES.md`.
+
+| Layer | Source | Structures | Triangles | File size |
+|---|---|---:|---:|---:|
+| Bones (femur, patella; hip bone, tibia, fibula as context) | BodyParts3D 3.0 | 5 | 35,512 | 136 KB |
+| Muscles and tendons | Z-Anatomy | 34 | 180,492 | 624 KB |
+| Joint capsules and ligaments (hip, knee) – NEW layer | Z-Anatomy | 28 | 23,280 | 119 KB |
+| Arteries | Z-Anatomy | 16 | 70,848 | 215 KB |
+| Veins | Z-Anatomy | 13 | 61,344 | 187 KB |
+| Nerves | Z-Anatomy | 17 | 50,112 | 130 KB |
+| Skin | Z-Anatomy | 9 | 5,660 | 71 KB |
+
+- Bones (BodyParts3D id, triangles, fit onto Z-Anatomy: median / max):
+  femur FMA24474, 12,990, 0.012 / **2.43 mm** (owner accepted, see decisions);
+  patella FMA24486, 1,334, 0.008 / 0.32 mm; hip bone FMA16586, 9,716, 0.043 / 1.23 mm;
+  tibia FMA24477, 6,850, 0.006 / 0.99 mm; fibula FMA24480, 4,622, 0.007 / 0.73 mm.
+  Same scale for all five (x1.032-1.033). Hip bone, tibia and fibula are `context_only`:
+  shown intact, never cut in this region.
+- The femur misfit is in ONE spot: 5 Z-Anatomy points at the adductor tubercle stand
+  1.5-2.4 mm proud of the BodyParts3D surface (bone, not cartilage). 99 % of points are
+  within 0.6 mm.
+- Muscles: thigh compartments (anterior, medial, posterior), superficial and deep gluteal
+  muscles, iliopsoas, plus gastrocnemius (both heads), plantaris and popliteus (they start on
+  the femur and act on distal femur fragments).
+- Joints layer: hip capsule, zona orbicularis, frenula capsulae (retinacula), iliofemoral,
+  pubofemoral and ischiofemoral ligaments, ligament of head of femur, labrum, transverse
+  acetabular ligament; knee capsule, cruciates, collaterals, menisci and their ligaments.
+- Vessels and nerves: femoral, deep femoral, medial and lateral circumflex femoral (head
+  blood supply), perforating, obturator, gluteal, popliteal and genicular vessels; femoral,
+  sciatic, obturator, tibial, common fibular and cutaneous nerves; superior gluteal artery,
+  veins and nerve added by name.
+- Selection: by height (femur) AND side-to-side (femur + hip bone + 20 mm). Without the
+  side-to-side window the hanging hand and forearm (palmar arteries, median nerve...) came in.
+  Genital and pudendal structures are excluded by name.
+
+Femur shape check (`tools/femur_geometry.py`, results in `model/thigh_right/femur_geometry.json`):
+
+| Measure | This femur | Published adult values |
+|---|---:|---|
+| Maximum length (along the mechanical axis; the page shows the vertical height, 454 mm) | 456 mm | – |
+| Head diameter (sphere fit, rms 0.36 mm) | 47.8 mm | – |
+| Narrowest neck (as a circle of equal area) | 34.0 mm | – |
+| Neck-shaft angle (3D) | 123.5° | mean 128.8°, range 98-180° (Boese 2016, PMID 26305058, radiographs) |
+| Femoral version (to posterior condylar line) | 12.5° anteversion | means 5.1-8.8° on CT, by method (Vanhove 2019, PMID 30737593) |
+| Anterior bow radius (side view) | 874 mm | 1,200 ± 360 mm (Egol 2004, PMID 15289685) |
+
+  All inside the normal spread, so the femur was kept (no substitution). Methods differ
+  between papers (3D here, radiographs or CT slices there), so these are checks, not matches.
+  Neck-shaft angle is 5° below the mean; bow is a little more curved than average.
+  The axes (head centre, neck axis, shaft axis, knee centre, condylar line) are saved for Phase 6b.
+
+- Page: region picker (`assets/regions.json`), new Joints layer and colour (tan), subtitle shows
+  the region's main bone (`main_bone`). VR panel: Joints button when the region has it; the
+  segment tabs now come from the region's fracture list (31-34 will appear in 6b).
+- Tested in headless Chromium: thigh page and leg page load, no script errors (the only
+  console message is the missing `fractures/index.json` of the thigh, expected until 6b).
+  VR in Meta's emulator (Quest 3 profile), both regions: pass-through session starts, thigh lies
+  at table height (0.88-1.02 m), 0.96 m long from iliac crest to the end of the tibia; all
+  layer buttons work; no errors.
+
+Limits the owner should know (Phase 6a):
+1. NOT tested on a Quest 3. The thigh is 427,000 triangles with all layers (the leg was
+   188,000). VR starts with bones only (35,500). Frame rate with all soft tissue is unknown.
+2. Psoas major is exported whole, so it runs up above the pelvis to the lumbar spine (no
+   cutting of anatomy without OK). The spine and sacrum are not in the model.
+3. The leg below the knee has bones only in this region (no leg muscles or skin).
+4. The small retinacular arteries to the femoral head are not separate structures; the medial
+   circumflex femoral artery and the frenula capsulae (retinacula) are.
+5. The adductor magnus tendon may sit up to 2.4 mm off the bone at the adductor tubercle
+   (the femur misfit spot).
+6. Patella in BodyParts3D is only 1,334 triangles (edges about 2-3 mm).
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
@@ -184,6 +260,24 @@ Limits the owner should know (Phases 4 + 5):
   fibula 2.6 mm falling to 0.9 mm. In Phase 2: keep thickness values as DATA (per bone),
   check them against a published source and store its PMID/DOI, and say on the page
   that the cortex is modelled. Not chosen: measured cortex from Keast 2023 (PeerJ, PMID 36811007).
+
+- 18 Nov 2026: Phases 4 + 5 accepted without a headset test ("we will test it later");
+  Phase 6 started with the femur.
+- 18 Nov 2026: Phase 6 (femur) plan, owner's answers:
+  region = femur + patella with the intact hip bone and tibia/fibula as context (floating knee
+  possible later); shaft rows (32) in all three zones (subtrochanteric, middle, distal);
+  two bone-quality profiles (young and elderly cortex, Tucker 2015, PMID 26686594);
+  muscle pull from real Z-Anatomy muscle attachment areas; extra tags: Garden + Pauwels on
+  neck fractures, Pipkin rows for the head; VR/MR: limb on the real table + real hands hide
+  the model (Quest 3 depth sensing), two-hand traction + controller buzz at bone contact.
+  Later, own phases: virtual C-arm, implants. Not chosen now: atypical femoral fracture,
+  floating knee.
+- 18 Nov 2026: **femur fit exception.** BodyParts3D femur accepted with max 2.43 mm (limit
+  2 mm) because the misfit is one small spot at the adductor tubercle; limit for the femur
+  set to 2.5 mm in `regions/thigh_right.json` (`fit_max_mm`). The 2 mm limit stays for every
+  other bone.
+- 18 Nov 2026: AO/OTA Compendium pages S29-S48 (radius/ulna end, femur, patella) uploaded
+  by the owner for Phase 6. NOT in the repo (journal copyright).
 
 ## Open points for the owner
 
@@ -204,10 +298,19 @@ Limits the owner should know (Phases 4 + 5):
 
 ## Next
 
-- Phase 6 – SCALE UP, one region per session (only after the owner says OK to Phases 4 + 5).
+- Phase 6b – femur fractures 31 (proximal, with Garden/Pauwels tags and Pipkin rows) and
+  32 (shaft, three zones), two bone-quality profiles. Mapping papers found: 31A Li C 2020
+  (PMID 33041321), 31B Wu S 2022 (PMID 36388800), 31C Wu S 2022 (PMID 36129612). No mapping
+  paper found yet for 32. Do NOT use Zhang 2020 (PMID 32596385): retracted.
+- Phase 6c – 33 (distal femur: Li R 2022 PMID 35530952; Hoffa Xie 2017 PMID 29088042;
+  coronal fragments Ding 2022 PMID 36183139) and 34 (patella: 34C3 Zhan 2021 PMID 34733916).
+- Phase 6d – muscle pull from attachment areas, femur readouts (neck-shaft angle, version,
+  leg length).
+- Phase 6e – mixed reality: real table, hand occlusion, traction, haptics.
 
 ## Test link
 
 - GitHub Pages: https://hakak01.github.io/Frac-sim-vr/
   (needs Pages switched on once: Settings -> Pages -> Deploy from a branch ->
-  branch `ccr-93335185-be990c`, folder `/ (root)`).
+  branch `ccr-3f8cf2c4-bgay9k` (holds Phases 1-5 and 6a), folder `/ (root)`).
+- Thigh: https://hakak01.github.io/Frac-sim-vr/?region=thigh_right (or use the region picker).

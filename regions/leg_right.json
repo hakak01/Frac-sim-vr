@@ -2,6 +2,7 @@
   "id": "leg_right",
   "title": "Right leg (knee to ankle)",
   "side_suffix": ".r",
+  "main_bone": "Tibia.r",
   "z_window_from": ["Tibia.r"],
   "min_overlap_mm": 20,
   "layers": {

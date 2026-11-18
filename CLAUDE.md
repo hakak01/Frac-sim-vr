@@ -58,7 +58,10 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 4. REDUCTION – done together with 5, see PROGRESS.md
 5. SOFT TISSUE – done together with 4, see PROGRESS.md
 6. SCALE UP, one region per session (femur+patella, humerus, radius+ulna,
-   clavicle+scapula, hand, foot)
+   clavicle+scapula, hand, foot). Femur split by the owner (18 Nov 2026):
+   6a assets – done, see PROGRESS.md; 6b fractures 31 + 32; 6c fractures 33 + 34;
+   6d muscle pull from attachment areas + femur readouts; 6e mixed reality (real table,
+   hand occlusion, traction, haptics). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 
 ## File map
 
@@ -79,6 +82,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | `assets/<region>/manifest.json` | List of structures: name, layer, triangles, sizes, bounding box. The page reads this. |
 | `assets/<region>/STRUCTURES.md` | The same list as a readable table. |
 | `regions/<region>.json` | Which Z-Anatomy structures belong to a region (data, no code). |
+| `assets/regions.json` | List of regions for the page's region picker (`?region=<id>`, default `leg_right`). |
+| `tools/femur_geometry.py` | Measures a femur (head, neck and shaft axes, neck-shaft angle, version, bow) and compares with published values. Writes `model/<region>/femur_geometry.json`. |
 | `tools/fetch_zanatomy.sh` | Downloads the pinned Z-Anatomy Blender file into `_source/` (not committed). |
 | `tools/fetch_bodyparts3d.sh` | Downloads the BodyParts3D bone files a region lists into `_source/bodyparts3d/stl`. |
 | `tools/export_region.py` | Blender (bpy) script: region JSON -> GLB layers + manifest. Fits BodyParts3D bones onto Z-Anatomy. Run once per region. |
@@ -121,10 +126,22 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
 - Bone meshes have two materials: `Bone` and `Cartilage` (cartilage = articular surface).
   Muscles have `Tendon` plus a muscle material. Material names are kept in the GLB.
 - Each GLB node keeps its Z-Anatomy name in `extras.za_name` (three.js: `userData.za_name`).
+- In the anatomical position the hand hangs beside the thigh: a height window alone picks up
+  hand and forearm vessels and nerves (use `x_window_from`). The model is male.
+- Z-Anatomy has a `3: joints` collection with capsules and ligaments (`Hip joint.g`,
+  `Knee joint.g`...): exported as the `joints` layer.
 - Bones are a single outer surface. There is no medullary canal or cortex thickness
   (true for Z-Anatomy and for BodyParts3D).
 - Z-Anatomy bones are low-polygon (tibia 1,670 triangles, fibula 1,264), so they are
   used only as the target for fitting and for the cartilage marking.
+
+## Region JSON keys (besides layers)
+
+- `main_bone` – bone named in the page subtitle. `z_window_from` + `min_overlap_mm` – height window.
+- `x_window_from` + `x_margin_mm` – side-to-side window; only the part of a structure inside it
+  counts (keeps the hanging hand out of the thigh). Layer `exclude` / `include` – by name.
+- Bones layer: `context_only` – bones shown intact, never cut in this region (manifest flag);
+  `fit_max_mm` – per-bone fit limit, ONLY by the owner's decision (femur 2.5 mm, 18 Nov 2026).
 
 ## Facts about BodyParts3D bones (bone source since 16 Nov 2026)
 
@@ -134,7 +151,9 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
 - Z-Anatomy = BodyParts3D x 1.033, rotated 0.27 degrees and moved. The export script finds
   this per bone (ICP) and stops if the fit is worse than 2 mm. Leg: max 1.0 mm, median 0.01 mm.
 - A region lists bones as `"bodyparts3d": { "<Z-Anatomy name>": "<FMA id>" }`.
-  Right tibia FMA24477, right fibula FMA24480. Find other ids in the mirror's `FMA.csv`.
+  Right tibia FMA24477, right fibula FMA24480, right femur FMA24474, right patella FMA24486,
+  right hip bone FMA16586. Find other ids in the mirror's `FMA.csv` (it lists all of FMA,
+  not only the 934 parts that have files: check the `stl/` folder).
 - BodyParts3D has no materials. `Cartilage` faces are copied from the nearest Z-Anatomy
   face, so the cartilage edge is jagged at triangle size (about 2 mm).
 

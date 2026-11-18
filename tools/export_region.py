@@ -83,8 +83,19 @@ zs = np.concatenate([world_verts(bpy.data.objects[n])[:, 2] for n in region["z_w
 ZLO, ZHI = float(zs.min()), float(zs.max())
 MIN_OVERLAP = region["min_overlap_mm"] / 1000.0
 
+# optional side-to-side window: only the part of a structure inside it counts
+# (keeps the hanging hand and forearm out of a thigh region)
+XWIN = None
+if "x_window_from" in region:
+    xs = np.concatenate([world_verts(bpy.data.objects[n])[:, 0] for n in region["x_window_from"]])
+    mx = region.get("x_margin_mm", 0) / 1000.0
+    XWIN = (float(xs.min()) - mx, float(xs.max()) + mx)
+
 def in_window(o):
-    z = world_verts(o)[:, 2]
+    v = world_verts(o)
+    if XWIN:
+        v = v[(v[:, 0] >= XWIN[0]) & (v[:, 0] <= XWIN[1])]
+    z = v[:, 2]
     return len(z) > 0 and min(z.max(), ZHI) - max(z.min(), ZLO) >= MIN_OVERLAP
 
 # --- choose the source objects for every layer ------------------------------
@@ -125,6 +136,8 @@ def similarity(A, B):
     return s, R, mb - s * R @ ma
 
 RAW = {}
+# per-bone exceptions to BONE_FIT_MAX_MM, only by the owner's decision (region JSON "fit_max_mm")
+FIT_MAX = {k: v for L in region["layers"].values() for k, v in L.get("fit_max_mm", {}).items()}
 
 def bodyparts3d_mesh(src, fma):
     path = os.path.join(bp3d_dir, fma + ".stl")
@@ -156,7 +169,9 @@ def bodyparts3d_mesh(src, fma):
         "rotation_deg": round(float(np.degrees(np.arccos(np.clip((np.trace(R) - 1) / 2, -1, 1)))), 3),
         "median_mm": round(float(np.median(dist)), 3), "max_mm": round(float(dist.max()), 3),
     }
-    if fit["max_mm"] > BONE_FIT_MAX_MM:
+    limit = FIT_MAX.get(src.name, BONE_FIT_MAX_MM)
+    fit["limit_mm"] = limit
+    if fit["max_mm"] > limit:
         sys.exit(f"STOP: {fma} does not match Z-Anatomy '{src.name}' (max {fit['max_mm']} mm). Not substituting.")
     W = ((V - t) @ R / s) / 1000.0            # BodyParts3D vertices in Z-Anatomy world, metres
     me = bpy.data.meshes.new(src.name)
@@ -216,6 +231,8 @@ for lid, names in chosen.items():
             "source_type": src.type.lower(),
             "source": f"BodyParts3D 3.0 {bp3d[name]}" if fit else "Z-Anatomy",
             **({"fit_to_z_anatomy": fit} if fit else {}),
+            # bone shown for context only (intact, never cut in this region)
+            **({"context_only": True} if name in region["layers"][lid].get("context_only", []) else {}),
             "materials": [m.name for m in me.materials if m],
             # bounding box in metres, Z-Anatomy axes (x: right is negative, y: back is positive, z: up)
             "bbox_min": [round(float(v), 4) for v in co.min(0)],
@@ -235,9 +252,10 @@ def export(objs, path):
         export_animations=False, export_cameras=False, export_lights=False)
 
 manifest = {
-    "id": region["id"], "title": region["title"], "units": "metres (true scale)", "compression": "Draco, 14-bit positions (about 0.02 mm steps)",
+    "id": region["id"], "title": region["title"], **({"main_bone": region["main_bone"]} if "main_bone" in region else {}), "units": "metres (true scale)", "compression": "Draco, 14-bit positions (about 0.02 mm steps)",
     "axes_glb": "x: patient left is +, y: up, z: patient front is +",
     "z_window_m": [round(ZLO, 4), round(ZHI, 4)],
+    **({"x_window_m": [round(XWIN[0], 4), round(XWIN[1], 4)]} if XWIN else {}),
     "source": SOURCE, "bone_source": BONE_SOURCE, "layers": {},
 }
 bpy.context.window.scene = exp_scene   # export from a clean scene holding only the copies

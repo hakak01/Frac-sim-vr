@@ -32,7 +32,8 @@
   tbody tr.row:hover td { background:#252b34; }
   tbody tr.sel td { background:#12405f; }
   a { color:var(--accent); }
-  #fx { width:100%; padding:8px; font:inherit; color:var(--text); background:#262d36; border:1px solid var(--line); border-radius:6px; }
+  #region { margin:4px 0 2px; }
+  #fx, #region { width:100%; padding:8px; font:inherit; color:var(--text); background:#262d36; border:1px solid var(--line); border-radius:6px; }
   .rng { display:flex; align-items:center; gap:8px; margin:8px 0 4px; color:var(--dim); }
   .rng input { flex:1; accent-color:var(--accent); }
   #xrbtn { width:100%; margin:10px 0 4px; padding:12px; font:600 16px/1 inherit; color:#06202f; background:var(--accent);
@@ -69,7 +70,8 @@
   </div>
   <div id="panel">
     <h1>Fracture VR – fracture viewer</h1>
-    <p id="sub">Right leg, knee to ankle</p>
+    <select id="region" aria-label="Region"></select>
+    <p id="sub">Loading…</p>
     <button id="xrbtn" hidden>Enter VR</button>
     <p id="xrnote"></p>
     <h2>Fracture (AO/OTA 2018)</h2>

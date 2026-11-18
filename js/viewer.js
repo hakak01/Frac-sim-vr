@@ -13,13 +13,15 @@ import { SOFT, makeSkinnable, initTissue } from './tissue.js';
 THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
 THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
-const REGION = './assets/leg_right/';
-const LAYERS_ON = { bones: true, muscles: true, arteries: true, veins: true, nerves: true, skin: false };
+// region from the address (?region=thigh_right); the list of regions is data: assets/regions.json
+const REGION_ID = (new URLSearchParams(location.search).get('region') || 'leg_right').replace(/[^a-z_]/g, '');
+const REGION = './assets/' + REGION_ID + '/';
+const LAYERS_ON = { bones: true, muscles: true, joints: true, arteries: true, veins: true, nerves: true, skin: false };
 
 // Display colours only (the shapes come from Z-Anatomy, untouched).
 const COLOURS = {
   bones: 0xe6dcc8, cartilage: 0xbfd6e2, muscles: 0xa5453c, tendon: 0xe9e2d2,
-  arteries: 0xd32f2f, veins: 0x2f62c0, nerves: 0xe6c53a, skin: 0xd8a78a,
+  arteries: 0xd32f2f, veins: 0x2f62c0, nerves: 0xe6c53a, skin: 0xd8a78a, joints: 0xb08a55,
   fxcortex: 0xf2ead2, fxcancellous: 0xb9604f, fxmarrow: 0x8c3a2c,
 };
 const FX_MATERIAL = { Bone: 'bones', Cartilage: 'cartilage', FractureCortex: 'fxcortex',
@@ -150,13 +152,17 @@ async function main() {
   camera.position.set(0.25 * size.y, 0.1 * size.y, 2.6 * size.y);
   controls.target.set(0, 0, 0);
   controls.update();
-  const tibia = manifest.layers.bones.structures.find((s) => s.name.startsWith('Tibia'));
-  const mm = ((tibia.bbox_max[2] - tibia.bbox_min[2]) * 1000).toFixed(0);
-  document.getElementById('sub').textContent = `${manifest.title} · true scale (tibia ${mm} mm long)`;
+  // the region's main bone (data: main_bone in regions/<id>.json), for the length in the subtitle
+  const len = (s) => s.bbox_max[2] - s.bbox_min[2];
+  const bones = manifest.layers.bones.structures;
+  const main = bones.find((s) => s.name === manifest.main_bone) || bones.filter((s) => !s.context_only).sort((a, b) => len(b) - len(a))[0];
+  const mm = (len(main) * 1000).toFixed(0);
+  document.getElementById('sub').textContent = `${manifest.title} · true scale (${main.name.replace(/\.[rl]$/, '').toLowerCase()} ${mm} mm long)`;
+  initRegions();
   select(null);
   await initFractures(loader);
   tissue = initTissue({ layerGroups, fx, collider, boneColliders,
-    softMaterials: () => ['muscles', 'tendon', 'arteries', 'veins', 'nerves', 'skin'].map(material) });
+    softMaterials: () => ['muscles', 'tendon', 'joints', 'arteries', 'veins', 'nerves', 'skin'].map(material) });
   tissue.rebind();
   const gh = document.getElementById('ghost');
   gh.addEventListener('input', () => setGhost(+gh.value));
@@ -167,7 +173,7 @@ async function main() {
     setGhost, syncToggles, tissue: () => tissue, setLayer });
   window.viewer = { THREE, camera, controls, scene, stage, root, showFracture, setSpread, resetFragments, setPosition,
     measure, collider, overlap, advance, sim, tissue, setGhost, setLayer, fx, xr,
-    ready: true };   // for testing
+    layerGroups, renderer, ready: true };   // for testing
 }
 
 // ---- Phase 2: pre-cut fractures -------------------------------------------
@@ -181,6 +187,15 @@ function setGhost(percent) {                 // 100 = solid soft tissue, 0 = inv
   document.getElementById('ghostv').textContent = percent + ' %';
   tissue.setGhost(percent / 100);
 }
+// region picker: reloads the page with ?region=<id>
+async function initRegions() {
+  const sel = document.getElementById('region');
+  let list = [];
+  try { list = await (await fetch('./assets/regions.json')).json(); } catch (e) { sel.hidden = true; return; }
+  for (const r of list) sel.add(new Option(r.title, r.id, false, r.id === REGION_ID));
+  sel.addEventListener('change', () => { location.search = '?region=' + sel.value; });
+}
+
 function setLayer(id, on) {
   layerGroups[id].visible = on;
   const box = document.querySelector(`#layers input[data-layer="${id}"]`);

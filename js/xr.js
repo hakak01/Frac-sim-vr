@@ -14,8 +14,7 @@ const MODEL_AT = [0, TABLE_HEIGHT, -0.45]; // in front of where the user stood w
 const PANEL_AT = [-0.55, 1.25, -0.55];
 const PX_PER_M = 2000;
 const PW = 1240, PH = 880, SH = 240;       // panel and readout strip, canvas pixels
-const TABS = ['', '41', '42', '43', '44', '4F'];
-const LAYERS = [['bones', 'Bones'], ['muscles', 'Muscles'], ['arteries', 'Arteries'], ['veins', 'Veins'], ['nerves', 'Nerves'], ['skin', 'Skin']];
+const LAYERS = [['bones', 'Bones'], ['muscles', 'Muscles'], ['joints', 'Joints'], ['arteries', 'Arteries'], ['veins', 'Veins'], ['nerves', 'Nerves'], ['skin', 'Skin']];
 const MAX_EXPLODE = 30;                    // mm
 const SCALE_LIMITS = [0.25, 4];
 
@@ -44,7 +43,9 @@ export function initXR(v) {
   scene.add(panel);
   panel.add(S.mesh);
   S.mesh.position.y = -(PH + SH) / 2 / PX_PER_M - 0.006;
-  const ui = { tab: '41', sel: null, regions: [] };
+  // segment tabs come from the region's fracture list (41-44, 4F for the leg; 31-34 for the thigh)
+  const tabs = () => ['', ...new Set(Object.values(fx.index).map((x) => x.segment))];
+  const ui = { tab: tabs()[1] || '', sel: null, regions: [] };
 
   function wrap(ctx, text, maxw, lines) {
     const out = []; let cur = '';
@@ -87,14 +88,14 @@ export function initXR(v) {
     g.fillStyle = '#9aa5b1'; g.font = '24px system-ui, sans-serif';
     if (e) wrap(g, e.name + (e.qualification ? ' (' + e.qualification + ')' : ''), PW - 48, 2).forEach((l, i) => g.fillText(l, 24, 84 + i * 28));
     else g.fillText('Choose a segment, then an AO/OTA code.', 24, 84);
-    row(150, 56, TABS.map((t) => [t || 'Intact', t === '' ? () => choose('') : () => { ui.tab = t; draw(); }, t === '' ? !fx.current : ui.tab === t]));
+    row(150, 56, tabs().map((t) => [t || 'Intact', t === '' ? () => choose('') : () => { ui.tab = t; draw(); }, t === '' ? !fx.current : ui.tab === t]));
     const list = Object.values(fx.index).filter((x) => x.segment === ui.tab && x.file).slice(0, 30);
     const cw = (PW - 48 - 5 * 8) / 6;
     list.forEach((x, i) => button(24 + (i % 6) * (cw + 8), 216 + Math.floor(i / 6) * 62, cw, 54, x.id, () => choose(x.id), x.id === fx.current, x.id.length > 7 ? 22 : 26));
     slider(24, PW / 2 - 36, 556, `Explode: ${fx.spread} mm`, fx.spread / MAX_EXPLODE, 'explode');
     const gh = Math.round(v.tissue().ghost * 100);
     slider(PW / 2 + 12, PW / 2 - 36, 556, `Soft tissue ghost: ${gh} %`, gh / 100, 'ghost');
-    row(634, 56, LAYERS.map(([id, name]) => [name, () => { v.setLayer(id, !v.layerGroups[id].visible); draw(); }, v.layerGroups[id].visible]));
+    row(634, 56, LAYERS.filter(([id]) => v.layerGroups[id]).map(([id, name]) => [name, () => { v.setLayer(id, !v.layerGroups[id].visible); draw(); }, v.layerGroups[id].visible]));
     row(700, 60, [
       ['Displaced', () => { v.setPosition('displaced'); draw(); }, fx.position === 'displaced'],
       ['Reduced', () => { v.setPosition('reduced'); draw(); }, fx.position === 'reduced'],
@@ -302,6 +303,7 @@ export function initXR(v) {
     panel.visible = true;
     floor.visible = api.mode !== 'immersive-ar';
     if (fx.index[fx.current]) ui.tab = fx.index[fx.current].segment;
+    else if (!ui.tab) ui.tab = tabs()[1] || '';
     draw(); stripText = ''; drawStrip();
     session.addEventListener('end', () => {
       api.active = false;

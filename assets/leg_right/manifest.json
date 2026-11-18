@@ -1,6 +1,7 @@
 {
  "id": "leg_right",
  "title": "Right leg (knee to ankle)",
+ "main_bone": "Tibia.r",
  "units": "metres (true scale)",
  "compression": "Draco, 14-bit positions (about 0.02 mm steps)",
  "axes_glb": "x: patient left is +, y: up, z: patient front is +",

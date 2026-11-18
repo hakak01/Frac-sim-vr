@@ -9,7 +9,7 @@
 // blended for each point, a few milliseconds per frame, and only for layers that are shown.
 import * as THREE from 'three';
 
-export const SOFT = ['muscles', 'arteries', 'veins', 'nerves', 'skin'];
+export const SOFT = ['muscles', 'joints', 'arteries', 'veins', 'nerves', 'skin'];
 const POWER = 4;            // weight = 1 / distance^POWER: the nearest bone piece dominates
 const EPS = 0.0005;         // metres
 const CELL = 0.005;         // grid step, metres
