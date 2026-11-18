@@ -493,6 +493,15 @@ Limits the owner should know (Phase 6e):
   other bone.
 - 18 Nov 2026: AO/OTA Compendium pages S29-S48 (radius/ulna end, femur, patella) uploaded
   by the owner for Phase 6. NOT in the repo (journal copyright).
+- 18 Nov 2026: **Foot and ankle = Phase 7, owner's answers to the plan:** new region `foot_right`
+  (talus to toes, distal tibia and fibula intact as context) AND the talus added to `leg_right` as an
+  intact context bone (talar shift for 43/44); ligaments as working tethers (hold, pull, torn per row,
+  stress tests); pure dislocations included as non-AO ids (subtalar, Chopart, Lisfranc, talar
+  extrusion); bones with no CT mapping paper are cut from the Compendium only and marked
+  "no mapping source"; two bone-quality profiles (young, elderly); CT slice plane now, simulated
+  X-ray views with the later C-arm phase; reduction stays free-hand (no guided manoeuvres);
+  MR overlay on the owner's Sawbones foot model; positions supine, lateral decubitus, prone.
+  AO/OTA foot chapter (S89-S100) uploaded by the owner, NOT in the repo (copyright).
 
 ## Open points for the owner
 
@@ -514,8 +523,8 @@ Limits the owner should know (Phase 6e):
 ## Next
 
 - Femur region (6a-6e) complete, waiting for the owner's OK and a Quest 3 test.
-- Phase 6 continues with the next region the owner names (humerus, radius+ulna, clavicle+scapula,
-  hand, foot), one region per session.
+- Phase 7 (foot and ankle) planned, see Decisions and CLAUDE.md > Phases. Next: 7a, after the owner's go.
+- Phase 6 continues later with humerus, radius+ulna, clavicle+scapula, hand.
 
 ## Test link
 

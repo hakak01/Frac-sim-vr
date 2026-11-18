@@ -62,6 +62,10 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
    6a assets – done; 6b fractures 31 + 32 – done; 6c fractures 33 + 34 – done;
    6d muscle pull from attachment areas + femur readouts – done; 6e mixed reality (real table,
    hand occlusion, traction, haptics) – done (see PROGRESS.md). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
+7. FOOT AND ANKLE (owner's plan, 18 Nov 2026, answers in PROGRESS.md > Decisions):
+   7a assets (`foot_right` + talus as context in `leg_right`); 7b joints + ligament tethers
+   (also for 43/44); 7c talus 81 + calcaneus 82 (CT-mapped); 7d 83-89 + dislocations;
+   7e tendon pull, readouts, CT slice plane; 7f VR/MR (grips, positions, Sawbones overlay, haptics).
 
 ## File map
 
@@ -186,6 +190,26 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
   introduction (pages S49-S69). They are NOT in the repo (journal copyright).
 - Cloud environment `frac-sim-vr` belongs to this repo (hosts ota.org, journals.lww.com,
   www.aofoundation.org allowed; setup script installs the Python and Node tools).
+
+## AO/OTA foot chapter (S89-S100, uploaded 18 Nov 2026, NOT in the repo)
+
+- 81 talus, location after the code: .1 body, .2 neck, .3 head. Body: A avulsion (A1 anterior neck,
+  A2 lateral process, A3 posterior process), B partial articular (B1 osteochondral, B2 simple,
+  B3 fragmentary), C complete articular (C1 simple, C3 multifragmentary; no C2 printed).
+  Neck = Hawkins: A nondisplaced (1), B* subtalar subluxation/dislocation (2), C* body dislocation (3),
+  D* body and head dislocation (4). Head: A avulsion, B* partial, C* complete articular.
+- 82 calcaneus: A extra-articular (A1 avulsion / posterior tuberosity / extra-articular tongue,
+  A2 body); B tongue type exiting into the posterior facet (B1 simple, B3 multifragmentary; no B2
+  printed); C complete articular joint depression (C1 Sanders 2, C2 Sanders 3, C3 Sanders 4).
+- 83 navicular, 84 cuboid: A avulsion, B* partial articular, C* complete articular.
+- 85 cuneiform .1 medial, .2 middle, .3 lateral: A avulsion, B partial, C complete articular. NO drawings.
+- 87 metatarsal: 87.<1-5>.<1 proximal, 2 diaphyseal, 3 distal>. Ends: A* extra-, B* partial,
+  C* complete articular. Shaft: A simple, B wedge, C multifragmentary.
+- 88 phalanx: 88.<toe 1-5>.<1 proximal, 2 middle, 3 distal phalanx>.<segment 1-3>, types as 87.
+  No fracture drawings.
+- 89 crush, multiple fractures of the foot: A hindfoot, B midfoot, C forefoot.
+- * = qualification a simple / b multifragmentary. There is no code for the tarsometatarsal (Lisfranc)
+  joint or for pure dislocations (no 86): those rows get non-AO ids, like `41C-PM`.
 
 ## Femur fractures (Phase 6b)
 
