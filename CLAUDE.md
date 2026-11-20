@@ -64,8 +64,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
    hand occlusion, traction, haptics) – done (see PROGRESS.md). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 7. FOOT AND ANKLE (owner's plan, 18 Nov 2026, answers in PROGRESS.md > Decisions):
    7a assets (`foot_right` + talus as context in `leg_right`) – done (see PROGRESS.md); 7b joints + ligament tethers
-   (also for 43/44) – done, with the owner's extras: VR without pass-through as a choice, hide/isolate structures; 7c talus 81 + calcaneus 82 (CT-mapped) – done (see PROGRESS.md; printed names
-   still to be checked by the owner); 7d 83-89 + dislocations;
+   (also for 43/44) – done, with the owner's extras: VR without pass-through as a choice, hide/isolate structures; 7c talus 81 + calcaneus 82 (CT-mapped) – done, checked against the printed
+   chapter (see PROGRESS.md); 7d 83-89 + dislocations;
    7e tendon pull, readouts, CT slice plane; 7f VR/MR (grips, positions, Sawbones overlay, haptics).
 
 ## File map
@@ -205,15 +205,17 @@ python3 tools/fracture_engine.py foot_right   # 25 rows (talus, calcaneus x 2 bo
 - Cloud environment `frac-sim-vr` belongs to this repo (hosts ota.org, journals.lww.com,
   www.aofoundation.org allowed; setup script installs the Python and Node tools).
 
-## AO/OTA foot chapter (S89-S100, uploaded 18 Nov 2026, NOT in the repo)
+## AO/OTA foot chapter (S89-S100, uploaded 18 and 20 Nov 2026, NOT in the repo; DOI 10.1097/BOT.0000000000001060)
 
-- 81 talus, location after the code: .1 body, .2 neck, .3 head. Body: A avulsion (A1 anterior neck,
+- 81 talus: the location sits between two dots: 81.1. body, 81.2. neck, 81.3. head; codes are written `81.1.A1`, `81.2.B*`
+  (ids `81.2.B(a)`). Pages: 81.1.A S90; 81.1.B, C and 81.2 S91; 81.3 S92; 82A, B S93; 82C S94. Neck qualification "a Simple"
+  is printed in bold; head and calcaneus have no bold qualification. Name wording is verbatim in `fractures.json`. Body: A avulsion (A1 anterior neck,
   A2 lateral process, A3 posterior process), B partial articular (B1 osteochondral, B2 simple,
   B3 fragmentary), C complete articular (C1 simple, C3 multifragmentary; no C2 printed).
   Neck = Hawkins: A nondisplaced (1), B* subtalar subluxation/dislocation (2), C* body dislocation (3),
   D* body and head dislocation (4). Head: A avulsion, B* partial, C* complete articular.
-- 82 calcaneus: A extra-articular (A1 avulsion / posterior tuberosity / extra-articular tongue,
-  A2 body); B tongue type exiting into the posterior facet (B1 simple, B3 multifragmentary; no B2
+- 82 calcaneus: A extra-articular (A1 ONE group: "avulsion, posterior tuberosity fracture or extraarticular tongue fracture",
+  drawn as the upper back of the tuberosity; A2 body); B tongue type exiting into the posterior facet (B1 simple, B3 multifragmentary; no B2
   printed); C complete articular joint depression (C1 Sanders 2, C2 Sanders 3, C3 Sanders 4).
 - 83 navicular, 84 cuboid: A avulsion, B* partial articular, C* complete articular.
 - 85 cuneiform .1 medial, .2 middle, .3 lateral: A avulsion, B partial, C complete articular. NO drawings.
@@ -269,7 +271,9 @@ python3 tools/fracture_engine.py foot_right   # 25 rows (talus, calcaneus x 2 bo
 - Viewer, foot data poses only (leg and thigh unchanged, checked on all 176 rows): a piece that touches a placed bone at home may keep touching
   it at the start, but not deeper than the 2 mm inner shapes; slides to a free start at most 6 mm.
 - Preview tiles for 81/82: lateral, top, medial, back (110 mm window).
-- The rows were written with a one-off script (not kept); `fractures.json` is the source. AO chapter summary above was used for the names.
+- The rows were written with a one-off script (not kept); `fractures.json` is the source. Lines follow the printed drawings (S90-S94):
+  talus body B = lateral shoulder piece, C = full-thickness line; calcaneus 82C primary line vertical on the lateral wall at Gissane,
+  oblique across the facet to the medial wall behind the sustentaculum; 82B tongue carries the posterior facet.
 
 ## Femur fractures (Phase 6b)
 
