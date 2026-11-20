@@ -457,6 +457,26 @@ Limits the owner should know (Phase 6e):
    It is not anchored to the room: if the headset's tracking shifts, the limb shifts with it.
 4. In plain VR (no pass-through) the new buttons are hidden.
 
+### Fix (20 Nov 2026) – PASS-THROUGH ON THE QUEST 3 – waiting for the owner's headset test
+
+- Owner's report: pass-through not working on the Meta Quest.
+- Cause (in three.js r180, found by reading its code): when the headset gives a depth image
+  ("Hands in front", on by default), three.js draws a full-screen depth mesh first and skips its own
+  clear. (1) The headset's depth image is a texture ARRAY, but r180 only hooks outside textures to
+  plain 2D samplers, so the mesh read an empty texture: depth 0 everywhere = "a real object at the
+  eyes", which hides every virtual thing (bones, panel, rays). (2) The mesh's shader sets no colour,
+  so on the headset it may paint the view black and cover the room.
+- Fix, in our files only (`js/xr.js`, `js/viewer.js`; `vendor/` untouched): the depth mesh writes depth
+  only, three.js is pointed at the headset's depth texture, and the frame is cleared to transparent
+  when three.js skips its clear.
+- The VR panel's bottom line now shows what the headset gave, e.g.
+  "pass-through: alpha-blend, depth sensing: allowed". "opaque" there would mean no pass-through.
+- Tested in Meta's emulator with a fake room and a fake depth image (first test that reaches the
+  depth path): room visible around the model; a "hand" 20 cm away hides the model, and over half the
+  view hides exactly that half; "Hands in front: off" brings the model back; no depth image (thigh)
+  works as before; no errors. Before the fix the near "hand" hid nothing (depth was never read).
+- NOT yet tested on a Quest 3. If pass-through still fails, tell me what the bottom line of the panel says.
+
 ### Phase 7a – FOOT AND ANKLE ASSETS + TALUS IN THE LEG – waiting for owner's OK
 
 New region `foot_right` (`?region=foot_right`): talus to toes; tibia and fibula whole, intact, as context.
@@ -589,7 +609,8 @@ Limits the owner should know (7a):
 
 - GitHub Pages: https://hakak01.github.io/Frac-sim-vr/
   (needs Pages switched on once: Settings -> Pages -> Deploy from a branch ->
-  branch `ccr-463f3713-467s1a` (holds Phases 1-6e and 7a; earlier branch `ccr-3f8cf2c4-bgay9k` stops at 6e),
+  branch `ccr-a2380af0-9o7p1q` (holds Phases 1-6e, 7a and the pass-through fix of 20 Nov 2026;
+  `ccr-463f3713-467s1a` = the same without the fix; `ccr-3f8cf2c4-bgay9k` stops at 6e),
   folder `/ (root)`).
 - Thigh: https://hakak01.github.io/Frac-sim-vr/?region=thigh_right (or use the region picker).
 - Foot: https://hakak01.github.io/Frac-sim-vr/?region=foot_right

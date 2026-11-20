@@ -318,8 +318,18 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
   Pointing at a follower (tibia, fibula) grabs its knee fragment.
 - `carry`: with `sim.pull` on, the target lags `RESIST` (0.2) toward `displacedM`; haptics through
   `inputSource.gamepad.hapticActuators[0].pulse` (knock on contact, buzz while pulling).
+- three.js r180 depth-sensing bugs, worked around in our code (fix 20 Nov 2026, `updateMR` in xr.js + render
+  loop in viewer.js): its depth mesh sets no colour (we set `colorWrite = false`); its `ExternalTexture` is bound
+  only for 2D samplers, not the `sampler2DArray` the depth shader uses (we set
+  `renderer.properties.get(tex).__webglTexture = tex.sourceTexture`); with depth on it skips its clear (we call
+  `renderer.clear()`). Keep these when updating three.js unless the new version fixes them.
+- To test the depth path in the emulator: IWER 2.8 `dev.installSEM(Cls)` with a small class that has
+  `environmentCanvas` (shown behind the app canvas = the "room"), `render()`, `computeHitTestResults()`
+  (return []), `computeDepthBuffer(view, proj, w, h)` (return {data: Float32Array metres, width, height,
+  rawValueToMeters: 1}), `trackedPlanes`/`trackedMeshes` (empty Sets). Paint the room a vivid colour and count
+  its pixels in a screenshot.
 - Test hooks: `viewer.xr.mr`, `viewer.xr.placeOnTable`. In the emulator keep the IWER device on
-  `window.__dev` to move controllers and press `updateButtonValue('trigger', 1)`; IWER has no depth image.
+  `window.__dev` to move controllers and press `updateButtonValue('trigger', 1)`; IWER has no depth image unless a fake room is installed (see the depth-path note above).
 - In the thigh region the hip lies to the user's LEFT, so "toward the foot" is +x at the start.
 
 ## Reduction and soft tissue (Phases 4 + 5)

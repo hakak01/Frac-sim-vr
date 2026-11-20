@@ -666,6 +666,8 @@ renderer.setAnimationLoop(() => {
   if (stepPull(dt) && now - readoutAt > 200) { readoutAt = now; updateReadout(); }
   updateFollowers();
   tissue.update(4);
+  // With a headset depth image three.js skips its own clear; clear to transparent so the room shows through.
+  if (renderer.xr.isPresenting && renderer.xr.hasDepthSensing()) renderer.clear();
   renderer.render(scene, camera);
 });
 

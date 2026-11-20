@@ -412,7 +412,17 @@ export function initXR(v) {
   function updateMR() {
     const dm = renderer.xr.getDepthSensingMesh ? renderer.xr.getDepthSensingMesh() : null;
     mr.canOcclude = !!dm;
-    if (dm) dm.visible = mr.occlude;
+    if (dm) {
+      dm.visible = mr.occlude;
+      // three.js r180 draws the depth image as a full-screen mesh. Two fixes, so the room stays visible:
+      // 1. Its shader sets no colour (undefined: can paint the room black). Let it write depth only.
+      dm.material.colorWrite = false;
+      // 2. The headset's depth image is a texture ARRAY. r180 hands an outside texture only to plain
+      //    2D samplers, so the array sampler read an empty texture (depth 0 = "real object at the eyes")
+      //    and hid every virtual thing. Point three.js at the headset's texture directly.
+      const t = dm.material.uniforms.depthColor.value;
+      if (t && t.isExternalTexture) renderer.properties.get(t).__webglTexture = t.sourceTexture;
+    }
     if (!mr.placing) return;
     const frame = renderer.xr.getFrame(), ref = renderer.xr.getReferenceSpace();
     mr.hit = null;
@@ -448,6 +458,8 @@ export function initXR(v) {
     renderer.xr.setReferenceSpaceType('local-floor');
     await renderer.xr.setSession(session);
     api.active = true;
+    const depth = (session.enabledFeatures || []).includes('depth-sensing');   // what the headset gave (for checking)
+    sim.note = api.mode === 'immersive-ar' ? `pass-through: ${session.environmentBlendMode}, depth sensing: ${depth ? 'allowed' : 'not allowed'}` : 'plain VR (no pass-through)';
     v.controls.enabled = false;
     setStage(HOME);
     panel.position.set(...PANEL_AT);
