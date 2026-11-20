@@ -438,6 +438,15 @@ def build_fracture(region, row):
             named += [(n, r, fr["sides"]) for n, r in subs]
         flat = lambda sd: ({k: v for d in sd for k, v in d.items() if all(x.get(k) == v for x in sd)}
                            if isinstance(sd, list) else sd)     # a cut counts for a union only if every part agrees
+        for cut in spec["cuts"]:                   # 7c: crushed bed = only the depressed pieces themselves, moved down
+            if cut.get("void") == "fragments" and cut["id"] in voids:
+                R = None
+                for _, r, sd in named:
+                    if flat(sd).get(cut["id"]) == "+":
+                        R = r if R is None else R + r
+                if R is not None:
+                    v, imp, shift = voids[cut["id"]]
+                    voids[cut["id"]] = ((tools[cut["id"]] ^ R).translate(tuple(shift)).as_original(), imp, shift)
         parts = [[n, bone.shell ^ r, bone.core ^ r, flat(sides)] for n, r, sides in named]
         if rest_name:
             sh, co = bone.shell, bone.core
@@ -708,7 +717,8 @@ def data_poses(region, row, frags):
         rv = R.as_rotvec()
         deg = float(np.degrees(np.linalg.norm(rv)))
         f["pose"] = {"unit": "piece", "t": GLBm(t), "axis": GLB(rv / np.linalg.norm(rv) if deg > 1e-6 else np.array([1.0, 0, 0])),
-                     "deg": round(deg, 1), "pivot": GLBm(piv), "muscles": [], "data": True}
+                     "deg": round(deg, 1), "pivot": GLBm(piv), "muscles": [], "data": True,
+                     **({"impaction": True} if q.get("impaction") and f.get("impaction_mm") else {})}
     return anchor
 
 

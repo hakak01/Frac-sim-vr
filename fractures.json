@@ -15446,7 +15446,7 @@
      "pmid": "8472475"
     }
    ],
-   "line_basis": "Compendium drawing (S93) plus the CT mapping abstracts cited (Guo 2021: 136 tongue-type maps).",
+   "line_basis": "Compendium drawing (S93) plus the CT mapping studies cited (Guo 2021: 136 tongue-type maps; Shi 2023 lateral-wall band running back from the angle of Gissane). Medial border of the tongue at the medial edge of the facet (Sanders line C).",
    "note": "Two pieces, as drawn: the tongue (upper tuberosity with the posterior facet) and the rest of the calcaneus.",
    "bones": {
     "calcaneus": {
@@ -15477,6 +15477,15 @@
        },
        "tilt_deg": 20,
        "azimuth_deg": 0
+      },
+      {
+       "id": "c",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_sanders_C"
+       },
+       "tilt_deg": 90,
+       "azimuth_deg": 90
       }
      ],
      "fragments": [
@@ -15484,7 +15493,8 @@
        "name": "tongue fragment (with the posterior facet)",
        "sides": {
         "t": "+",
-        "f": "+"
+        "f": "+",
+        "c": "-"
        },
        "displace": "calc_tongue",
        "pose": {
@@ -15552,7 +15562,7 @@
      "pmid": "8472475"
     }
    ],
-   "line_basis": "Compendium drawing (S93) plus the CT mapping abstracts cited (Guo 2021).",
+   "line_basis": "Compendium drawing (S93) plus the CT mapping studies cited (Guo 2021; Shi 2023).",
    "note": "As 82B1 with the tongue broken in 3 (drawing S93).",
    "bones": {
     "calcaneus": {
@@ -15583,6 +15593,15 @@
        },
        "tilt_deg": 20,
        "azimuth_deg": 0
+      },
+      {
+       "id": "c",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_sanders_C"
+       },
+       "tilt_deg": 90,
+       "azimuth_deg": 90
       }
      ],
      "fragments": [
@@ -15590,7 +15609,8 @@
        "name": "tongue fragment",
        "sides": {
         "t": "+",
-        "f": "+"
+        "f": "+",
+        "c": "-"
        },
        "shatter": {
         "pieces": 3,
@@ -15672,10 +15692,10 @@
      "doi": "10.12659/MSM.932748"
     }
    ],
-   "line_basis": "Compendium drawing (S93-S94) plus the written results (abstracts) of the CT mapping studies cited; nothing was traced from the map figures. Primary line: vertical on the lateral wall just in front of the posterior facet (angle of Gissane), then back and medially across the posterior facet to leave the medial wall behind the sustentaculum, which is not broken (Ni 2021; Shi 2022). Where the drawing and Shi 2023 differ (Shi: lateral-wall lines on average 29 degrees to the long axis) the drawing was followed. Joint depression: the lateral part of the posterior facet is a separate piece pushed down into the body. Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more.",
-   "note": "Sanders 2: one line through the posterior facet (Guo 2021: 197 Sanders 2 maps).",
+   "line_basis": "Compendium drawing (S93-S94), the Sanders lines (Sanders 1993, Fig 1) measured on this posterior facet (27.4 mm wide: A and B divide it into thirds, C is its medial edge), and the heat maps of Shi 2023 (Figs 7 and 8, provided by the owner): the main axial band runs along the facet about 15 degrees to the long axis, front end lateral; on the medial wall a band runs from top to sole just behind the sustentaculum; the line leaves the sole lengthwise, medial of centre; the sustentaculum itself is not broken (also Ni 2021; Shi 2022). On the lateral wall the line is vertical at the angle of Gissane (S94). Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more; the letter says which line (A lateral, B central, C medial).",
+   "note": "Built as Sanders IIA, the commonest Sanders 2 subtype in Guo 2021 (109 of 197): one line (A) through the posterior facet; the lateral column is pushed down into the body (joint depression); the medial two thirds stay with the sustentaculum.",
    "tags": {
-    "sanders": "2"
+    "sanders": "2A"
    },
    "bones": {
     "calcaneus": {
@@ -15683,55 +15703,71 @@
       {
        "id": "p",
        "type": "plane",
+       "plus_side": 90,
        "points": [
         {
-         "landmark": "calc_gissane",
-         "distal_mm": 2,
-         "medial_mm": -1
+         "landmark": "calc_sanders_A",
+         "distal_mm": 9,
+         "medial_mm": -2.4
         },
         {
-         "landmark": "calc_gissane",
-         "distal_mm": -21,
-         "medial_mm": 27
+         "landmark": "calc_sanders_A",
+         "distal_mm": -9,
+         "medial_mm": 2.4
+        },
+        {
+         "landmark": "calc_sanders_A",
+         "dorsal_mm": -38,
+         "medial_mm": 10
         }
-       ],
-       "along_azimuth_deg": 0,
-       "plus_side": 90
+       ]
+      },
+      {
+       "id": "g",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_gissane",
+        "distal_mm": 2
+       },
+       "tilt_deg": 0
+      },
+      {
+       "id": "q",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_post_facet_back",
+        "distal_mm": -1
+       },
+       "tilt_deg": 0
       },
       {
        "id": "d",
        "type": "plug",
        "at": "calc_post_facet",
-       "offset": {
-        "medial_mm": -2
-       },
+       "void": "fragments",
        "outline_mm": [
         [
-         -21,
-         -11
+         -22,
+         -12
         ],
         [
-         -7,
-         -11
+         24,
+         -12
         ],
         [
-         0,
-         -4
+         24,
+         13
         ],
         [
-         0,
-         12
-        ],
-        [
-         -21,
-         12
+         -22,
+         13
         ]
        ],
        "depth_mm": 16,
        "impaction_mm": 6,
        "taper": {
         "to": [
-         -8,
+         0,
          0
         ],
         "amount": 0.25
@@ -15740,40 +15776,43 @@
      ],
      "fragments": [
       {
-       "name": "depressed joint fragment",
+       "name": "depressed lateral column",
        "sides": {
         "d": "+",
         "p": "-"
        },
        "displace": "calc_joint_depression",
        "pose": {
-        "impaction": true,
-        "move_mm": {
-         "medial": -3
-        },
-        "plantarflexion_deg": 6,
-        "pivot": "centroid"
+        "impaction": true
        }
-      },
-      {
-       "name": "sustentacular fragment (with the anterior process)",
-       "sides": {
-        "p": "+"
-       },
-       "main": true
       },
       {
        "name": "tuberosity",
-       "rest": true,
+       "sides": [
+        {
+         "p": "-",
+         "g": "+",
+         "d": "-"
+        },
+        {
+         "q": "+",
+         "d": "-"
+        }
+       ],
        "displace": "calc_tuberosity",
        "pose": {
-        "move_mm": {
-         "medial": -5
-        },
-        "eversion_deg": -7,
-        "plantarflexion_deg": 4,
-        "pivot": "site"
+        "eversion_deg": -5,
+        "plantarflexion_deg": 3,
+        "pivot": {
+         "landmark": "calc_post_facet",
+         "dorsal_mm": -18
+        }
        }
+      },
+      {
+       "name": "sustentacular fragment",
+       "rest": true,
+       "main": true
       }
      ]
     }
@@ -15827,10 +15866,10 @@
      "doi": "10.1177/20503121211040954"
     }
    ],
-   "line_basis": "Compendium drawing (S93-S94) plus the written results (abstracts) of the CT mapping studies cited; nothing was traced from the map figures. Primary line: vertical on the lateral wall just in front of the posterior facet (angle of Gissane), then back and medially across the posterior facet to leave the medial wall behind the sustentaculum, which is not broken (Ni 2021; Shi 2022). Where the drawing and Shi 2023 differ (Shi: lateral-wall lines on average 29 degrees to the long axis) the drawing was followed. Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more.",
-   "note": "Sanders 3: two lines through the posterior facet, a central depressed piece.",
+   "line_basis": "Compendium drawing (S93-S94), the Sanders lines (Sanders 1993, Fig 1) measured on this posterior facet (27.4 mm wide: A and B divide it into thirds, C is its medial edge), and the heat maps of Shi 2023 (Figs 7 and 8, provided by the owner): the main axial band runs along the facet about 15 degrees to the long axis, front end lateral; on the medial wall a band runs from top to sole just behind the sustentaculum; the line leaves the sole lengthwise, medial of centre; the sustentaculum itself is not broken (also Ni 2021; Shi 2022). On the lateral wall the line is vertical at the angle of Gissane (S94). Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more; the letter says which line (A lateral, B central, C medial).",
+   "note": "Built as Sanders IIIAB (lines A and B; the subtype was chosen by the engine author): lateral and central columns separate, the central one depressed; the medial column stays with the sustentaculum.",
    "tags": {
-    "sanders": "3"
+    "sanders": "3AB"
    },
    "bones": {
     "calcaneus": {
@@ -15838,55 +15877,71 @@
       {
        "id": "p",
        "type": "plane",
+       "plus_side": 90,
        "points": [
         {
-         "landmark": "calc_gissane",
-         "distal_mm": 2,
-         "medial_mm": -1
+         "landmark": "calc_sanders_B",
+         "distal_mm": 9,
+         "medial_mm": -2.4
         },
         {
-         "landmark": "calc_gissane",
-         "distal_mm": -21,
-         "medial_mm": 27
+         "landmark": "calc_sanders_B",
+         "distal_mm": -9,
+         "medial_mm": 2.4
+        },
+        {
+         "landmark": "calc_sanders_B",
+         "dorsal_mm": -38,
+         "medial_mm": 10
         }
-       ],
-       "along_azimuth_deg": 0,
-       "plus_side": 90
+       ]
+      },
+      {
+       "id": "g",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_gissane",
+        "distal_mm": 2
+       },
+       "tilt_deg": 0
+      },
+      {
+       "id": "q",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_post_facet_back",
+        "distal_mm": -1
+       },
+       "tilt_deg": 0
       },
       {
        "id": "d",
        "type": "plug",
        "at": "calc_post_facet",
-       "offset": {
-        "medial_mm": -2
-       },
+       "void": "fragments",
        "outline_mm": [
         [
-         -21,
-         -11
+         -22,
+         -12
         ],
         [
-         -7,
-         -11
+         24,
+         -12
         ],
         [
-         0,
-         -4
+         24,
+         13
         ],
         [
-         0,
-         12
-        ],
-        [
-         -21,
-         12
+         -22,
+         13
         ]
        ],
        "depth_mm": 16,
        "impaction_mm": 6,
        "taper": {
         "to": [
-         -8,
+         0,
          0
         ],
         "amount": 0.25
@@ -15896,11 +15951,10 @@
        "id": "s",
        "type": "plane",
        "through": {
-        "landmark": "calc_post_facet",
-        "medial_mm": -9
+        "landmark": "calc_sanders_A"
        },
        "tilt_deg": 90,
-       "azimuth_deg": 95
+       "azimuth_deg": 90
       }
      ],
      "fragments": [
@@ -15913,12 +15967,7 @@
        },
        "displace": "calc_joint_depression",
        "pose": {
-        "impaction": true,
-        "move_mm": {
-         "medial": -3
-        },
-        "plantarflexion_deg": 7,
-        "pivot": "centroid"
+        "impaction": true
        }
       },
       {
@@ -15931,31 +15980,39 @@
        "pose": {
         "impaction": true,
         "move_mm": {
-         "medial": -4
+         "medial": -3
         },
-        "eversion_deg": 6,
+        "eversion_deg": 5,
         "pivot": "centroid"
        }
       },
       {
-       "name": "sustentacular fragment (with the anterior process)",
-       "sides": {
-        "p": "+"
-       },
-       "main": true
-      },
-      {
        "name": "tuberosity",
-       "rest": true,
+       "sides": [
+        {
+         "p": "-",
+         "g": "+",
+         "d": "-"
+        },
+        {
+         "q": "+",
+         "d": "-"
+        }
+       ],
        "displace": "calc_tuberosity",
        "pose": {
-        "move_mm": {
-         "medial": -5
-        },
-        "eversion_deg": -7,
-        "plantarflexion_deg": 4,
-        "pivot": "site"
+        "eversion_deg": -5,
+        "plantarflexion_deg": 3,
+        "pivot": {
+         "landmark": "calc_post_facet",
+         "dorsal_mm": -18
+        }
        }
+      },
+      {
+       "name": "sustentacular fragment",
+       "rest": true,
+       "main": true
       }
      ]
     }
@@ -16009,8 +16066,8 @@
      "doi": "10.1177/20503121211040954"
     }
    ],
-   "line_basis": "Compendium drawing (S93-S94) plus the written results (abstracts) of the CT mapping studies cited; nothing was traced from the map figures. Primary line: vertical on the lateral wall just in front of the posterior facet (angle of Gissane), then back and medially across the posterior facet to leave the medial wall behind the sustentaculum, which is not broken (Ni 2021; Shi 2022). Where the drawing and Shi 2023 differ (Shi: lateral-wall lines on average 29 degrees to the long axis) the drawing was followed. Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more. Shi 2023: 92.5 % of intra-articular fractures were comminuted.",
-   "note": "Sanders 4: the posterior facet in four or more pieces, plus a vertical line through the anterior process into the calcaneocuboid joint (drawing S94).",
+   "line_basis": "Compendium drawing (S93-S94), the Sanders lines (Sanders 1993, Fig 1) measured on this posterior facet (27.4 mm wide: A and B divide it into thirds, C is its medial edge), and the heat maps of Shi 2023 (Figs 7 and 8, provided by the owner): the main axial band runs along the facet about 15 degrees to the long axis, front end lateral; on the medial wall a band runs from top to sole just behind the sustentaculum; the line leaves the sole lengthwise, medial of centre; the sustentaculum itself is not broken (also Ni 2021; Shi 2022). On the lateral wall the line is vertical at the angle of Gissane (S94). Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more; the letter says which line (A lateral, B central, C medial). Shi 2023: 92.5 % of intra-articular fractures were comminuted.",
+   "note": "Sanders IV: lines A, B and C, the facet in four or more pieces (the central column broken), plus a vertical line through the anterior process into the calcaneocuboid joint (drawing S94).",
    "tags": {
     "sanders": "4"
    },
@@ -16020,55 +16077,71 @@
       {
        "id": "p",
        "type": "plane",
+       "plus_side": 90,
        "points": [
         {
-         "landmark": "calc_gissane",
-         "distal_mm": 2,
-         "medial_mm": -1
+         "landmark": "calc_sanders_C",
+         "distal_mm": 9,
+         "medial_mm": -2.4
         },
         {
-         "landmark": "calc_gissane",
-         "distal_mm": -21,
-         "medial_mm": 27
+         "landmark": "calc_sanders_C",
+         "distal_mm": -9,
+         "medial_mm": 2.4
+        },
+        {
+         "landmark": "calc_sanders_C",
+         "dorsal_mm": -38,
+         "medial_mm": 10
         }
-       ],
-       "along_azimuth_deg": 0,
-       "plus_side": 90
+       ]
+      },
+      {
+       "id": "g",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_gissane",
+        "distal_mm": 2
+       },
+       "tilt_deg": 0
+      },
+      {
+       "id": "q",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_post_facet_back",
+        "distal_mm": -1
+       },
+       "tilt_deg": 0
       },
       {
        "id": "d",
        "type": "plug",
        "at": "calc_post_facet",
-       "offset": {
-        "medial_mm": -2
-       },
+       "void": "fragments",
        "outline_mm": [
         [
-         -21,
-         -11
+         -22,
+         -12
         ],
         [
-         -7,
-         -11
+         24,
+         -12
         ],
         [
-         0,
-         -4
+         24,
+         13
         ],
         [
-         0,
-         12
-        ],
-        [
-         -21,
-         12
+         -22,
+         13
         ]
        ],
        "depth_mm": 16,
        "impaction_mm": 6,
        "taper": {
         "to": [
-         -8,
+         0,
          0
         ],
         "amount": 0.25
@@ -16078,11 +16151,19 @@
        "id": "s",
        "type": "plane",
        "through": {
-        "landmark": "calc_post_facet",
-        "medial_mm": -9
+        "landmark": "calc_sanders_A"
        },
        "tilt_deg": 90,
-       "azimuth_deg": 95
+       "azimuth_deg": 90
+      },
+      {
+       "id": "b",
+       "type": "plane",
+       "through": {
+        "landmark": "calc_sanders_B"
+       },
+       "tilt_deg": 90,
+       "azimuth_deg": 90
       },
       {
        "id": "a",
@@ -16099,21 +16180,16 @@
        "name": "central depressed fragment",
        "sides": {
         "d": "+",
-        "p": "-",
-        "s": "+"
+        "s": "+",
+        "b": "-"
        },
        "shatter": {
-        "pieces": 3,
+        "pieces": 2,
         "style": "blocks"
        },
        "displace": "calc_joint_depression",
        "pose": {
-        "impaction": true,
-        "move_mm": {
-         "medial": -3
-        },
-        "plantarflexion_deg": 7,
-        "pivot": "centroid"
+        "impaction": true
        }
       },
       {
@@ -16126,9 +16202,26 @@
        "pose": {
         "impaction": true,
         "move_mm": {
-         "medial": -4
+         "medial": -3
         },
-        "eversion_deg": 6,
+        "eversion_deg": 5,
+        "pivot": "centroid"
+       }
+      },
+      {
+       "name": "medial joint fragment",
+       "sides": {
+        "d": "+",
+        "b": "+",
+        "p": "-"
+       },
+       "displace": "calc_joint_depression",
+       "pose": {
+        "impaction": true,
+        "move_mm": {
+         "medial": -1
+        },
+        "plantarflexion_deg": 4,
         "pivot": "centroid"
        }
       },
@@ -16147,25 +16240,32 @@
        }
       },
       {
-       "name": "sustentacular fragment",
-       "sides": {
-        "p": "+",
-        "a": "+"
-       },
-       "main": true
-      },
-      {
        "name": "tuberosity",
-       "rest": true,
+       "sides": [
+        {
+         "p": "-",
+         "g": "+",
+         "d": "-"
+        },
+        {
+         "q": "+",
+         "d": "-"
+        }
+       ],
        "displace": "calc_tuberosity",
        "pose": {
-        "move_mm": {
-         "medial": -5
-        },
-        "eversion_deg": -7,
-        "plantarflexion_deg": 4,
-        "pivot": "site"
+        "eversion_deg": -5,
+        "plantarflexion_deg": 3,
+        "pivot": {
+         "landmark": "calc_post_facet",
+         "dorsal_mm": -18
+        }
        }
+      },
+      {
+       "name": "sustentacular fragment",
+       "rest": true,
+       "main": true
       }
      ]
     }
@@ -16385,7 +16485,7 @@
      "claim": "heel height 40.8 mm at injury, 47.8 mm after fixation (Sanders 3 and 4)"
     }
    ],
-   "basis": "Tuberosity moved laterally (5 mm, widening), into varus (7 deg) and turned with its back end up (4 deg, flatter Boehler angle); the loss of height shows as the depressed facet piece. Directions from the sources; sizes are teaching values within their ranges."
+   "basis": "Tuberosity turned into varus (5 deg) and with its back end up (3 deg, flatter Boehler angle); the loss of height shows as the depressed facet pieces and the widening as the lateral piece pushed out (3 mm). Directions from the sources; sizes are teaching values within their ranges."
   },
   "calc_tongue": {
    "sources": [

@@ -22,8 +22,8 @@ Cortex is modelled, not measured. Sizes are Draco-compressed.
 | 81.3.C(a) | Talus, head, complete articular fracture | a Simple | 2 | 15,658 | 67 |
 | 82A1 | Foot calcaneus, extraarticular, avulsion, posterior tuberosity fracture or extraarticular tongue fracture |  | 2 | 10,728 | 46 |
 | 82A2 | Foot calcaneus, extraarticular, body fracture |  | 2 | 19,060 | 73 |
-| 82B1 | Foot, calcaneus, tongue-type fracture exiting into posterior facet, tongue-type, simple fracture |  | 2 | 23,660 | 91 |
-| 82B3 | Foot, calcaneus, tongue-type fracture exiting into posterior facet, multifragmentary fracture |  | 4 | 35,810 | 136 |
-| 82C1 | Foot, calcaneus, complete articular fracture, with joint depression (Sanders 2) |  | 3 | 30,114 | 118 |
-| 82C2 | Foot, calcaneus, complete articular fracture, with joint depression (Sanders 3) |  | 4 | 35,838 | 142 |
-| 82C3 | Foot, calcaneus, complete articular fracture, multifragmentary fracture (Sanders 4) |  | 7 | 49,424 | 206 |
+| 82B1 | Foot, calcaneus, tongue-type fracture exiting into posterior facet, tongue-type, simple fracture |  | 2 | 24,232 | 92 |
+| 82B3 | Foot, calcaneus, tongue-type fracture exiting into posterior facet, multifragmentary fracture |  | 4 | 36,516 | 138 |
+| 82C1 | Foot, calcaneus, complete articular fracture, with joint depression (Sanders 2) |  | 3 | 42,658 | 155 |
+| 82C2 | Foot, calcaneus, complete articular fracture, with joint depression (Sanders 3) |  | 4 | 46,370 | 176 |
+| 82C3 | Foot, calcaneus, complete articular fracture, multifragmentary fracture (Sanders 4) |  | 7 | 62,230 | 250 |

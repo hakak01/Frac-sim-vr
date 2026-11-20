@@ -276,6 +276,15 @@ class Region:
             P["calc_lateral_wall"] = b.V[atf][np.argmin(b.V[atf] @ b.e_med)]
             P["calc_medial_wall"] = b.V[atf][np.argmax(b.V[atf] @ b.e_med)]
             P["calc_plantar"] = b.V[np.argmin(b.V @ up)]
+            # Sanders lines on the posterior facet (Sanders 1993, PMID 8472475, Fig 1): A and B divide the facet into
+            # three equal columns (lateral, central, medial); C is its medial edge, next to the sustentaculum.
+            band = pf & (np.abs(t - b.t_of(post["centre"])) < 5)
+            m = b.centroids[band] @ b.e_med
+            lo, hi = m.min(), m.max()
+            for k, f in (("A", 1 / 3), ("B", 2 / 3), ("C", 1.0)):
+                target = lo + f * (hi - lo) - (1.0 if k == "C" else 0.0)
+                P["calc_sanders_" + k] = b.centroids[band][np.argmin(np.abs(m - target))]
+            self.sanders_facet_width_mm = float(hi - lo)
         self.points, self.normals = P, Nn
         self.square = {}
 

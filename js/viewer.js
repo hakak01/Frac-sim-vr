@@ -417,7 +417,7 @@ function typicalPose(f, placed, waiting) {
   const I = new THREE.Matrix4();
   if (f.fixed || !f.preset) return I;
   let m = displacedMatrix(f, f.preset);
-  if (f.preset.use_impaction) return m;      // a depressed fragment sits in the crushed zone cut for it
+  if (f.preset.use_impaction || (f.preset.pose && f.preset.pose.impaction)) return m;   // a depressed fragment sits in the crushed zone cut for it
   const a = collider(f);
   // against everything placed so far, and the pieces still to be placed, at their home position
   // (pairs that already touch at home are left out)
@@ -694,7 +694,7 @@ async function showFracture(id) {
   placeAll();
   for (const f of fx.fragments) {             // a depressed fragment must also be free in its crushed zone
     for (const sh of [0.0011, 0.0014, 0.0018]) {
-      if (f.fixed || !f.preset || !f.preset.use_impaction || f.collider.shrink >= sh) continue;
+      if (f.fixed || !f.preset || !(f.preset.use_impaction || (f.preset.pose && f.preset.pose.impaction)) || f.collider.shrink >= sh) continue;
       if (!overlap(collider(f.ref), f.collider, new THREE.Matrix4(), f.displacedM)) break;
       f.collider = makeCollider(f.node, Math.max(sh, colliderSize(f)[0] + 0.0003), colliderSize(f)[1]);
     }

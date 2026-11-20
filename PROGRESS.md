@@ -622,8 +622,8 @@ Page: `?region=foot_right` > Fracture; VR: tabs 81 and 82. Ids, names and pages 
 |---|---|
 | 82A1 avulsion, posterior tuberosity or extraarticular tongue | upper back of the tuberosity (Achilles insertion) |
 | 82A2 body | nearly vertical line through the body behind the posterior facet |
-| 82B1, B3 tongue type exiting into the posterior facet | line from the back of the tuberosity forward under the facet, turning up through its front: the tongue carries the posterior facet; B3 tongue in 3 |
-| 82C1, C2, C3 joint depression (Sanders 2, 3, 4) | primary line vertical on the lateral wall just in front of the facet, running back and medially across the facet to the medial wall behind the sustentaculum; depressed lateral facet piece (impacted 6 mm); C2 one more facet line; C3 facet piece in 3 + a vertical line through the anterior process into the calcaneocuboid joint |
+| 82B1, B3 tongue type exiting into the posterior facet | line from the back of the tuberosity forward under the facet, turning up through its front: the tongue carries the whole posterior facet, its medial border at Sanders line C; B3 tongue in 3 |
+| 82C1, C2, C3 joint depression (Sanders 2, 3, 4) | built on the Sanders lines measured on this facet (27.4 mm wide: A at the lateral third, B at two thirds, C at the medial edge). C1 = Sanders IIA (commonest Sanders 2 subtype, Guo 2021): lateral column pushed down 6 mm; C2 = IIIAB: lateral and central columns, central pushed down; C3 = IV: lines A, B, C, central column broken, + a vertical line through the anterior process into the calcaneocuboid joint |
 
 Changed after the chapter was uploaded (first build was from the CLAUDE.md summary only):
 - Ids now have the printed second dot for the talus; names verbatim (including "Foot calcaneus" without a comma and
@@ -642,9 +642,16 @@ Lines (sources in every row; abstracts only, nothing traced from a map figure):
   head 7 %); Roddy 2026 (PMID 42639242, 124 talar body maps: oblique anteromedial-posterolateral line 71 %, coronal 18 %,
   sagittal 8 %, comminution 90 % mostly plantar-medial). Neck vs body (Inokuchi) as reviewed by Melenevsky 2015 (PMID 25969933).
   No map was found for the neck line, the head, the osteochondral piece or the avulsions: those rows say "no mapping source".
-- Calcaneus: Ni 2021 (PMID 33708960), Shi 2023 (PMID 37258588), Yu 2022 (PMID 35062985), Shi 2022 (PMID 36443435:
-  sustentaculum rarely broken, aligned with the talus in 88 %), Guo 2021 tongue (PMID 35071481) and Sanders 2
-  (PMID 34294674), Sanders 1993 (PMID 8472475). The sustentacular ("constant") fragment is the fixed one in 82C.
+- Calcaneus: heat maps of Shi 2023 (PMID 37258588, Figs 7 and 8, screenshots sent by the owner 20 Nov 2026) and Sanders 1993
+  Fig 1 (PMID 8472475, sent by the owner): the main plane goes through the row's most medial Sanders line at 15 degrees to
+  the long axis (axial band along the facet, front end lateral), down and medially to leave the sole lengthwise medial of
+  centre (bottom view); a vertical medial-wall band from top to sole just behind the sustentaculum = back of the
+  sustentacular fragment; vertical lateral-wall line at the angle of Gissane (Compendium S94). Also Ni 2021 (PMID 33708960),
+  Yu 2022 (PMID 35062985), Shi 2022 (PMID 36443435: sustentaculum rarely broken, aligned with the talus in 88 %), Guo 2021
+  tongue (PMID 35071481) and Sanders 2 (PMID 34294674). The sustentacular ("constant") fragment is the fixed one in 82C.
+- Three more heat maps (types A, B, C, from cdn.amegroups.cn) were sent as Ni 2021; Ni 2021's abstract has no A/B/C types, and
+  the scale maxima (10, 8, 4) fit Guo 2021's tongue-type groups A, B, C (68, 48, 20 cases). Their view directions could not be
+  read with confidence at screenshot size, so they were used only to confirm the horizontal tongue line; to be checked.
 - Measured on these bones (`python3 tools/bone_model.py foot_right` lists them): talus 59.5 mm long (posterior process to
   head), calcaneus 78.4 mm (tuberosity to cuboid facet = the long calcaneal axis of the papers); facets from the cartilage
   marking; sustentaculum 31 mm medial of the axis; lateral process 23 mm lateral.
@@ -653,10 +660,13 @@ Typical displacement (data poses, in foot words; directions from the sources, al
 - Neck: Hawkins 1 none; 2 head and neck up, medial and into varus (Berlet 2001, PMID 11465133), hinged on the medial cortex,
   subtalar ligaments torn; 3 body pushed out backwards and medially, subtalar and lateral talofibular ligaments torn,
   deltoid kept; 4 the same, and the head also out of the navicular.
-- Calcaneus: tuberosity lateral (widening), into varus and back end up; joint piece pushed down 6 mm and tilted; tongue
-  turned with its back end up (Sanders 1993, Cottom 2017 PMID 27903928, Varol 2021 PMID 34434558).
-- On the page every fracture starts free of bone overlap. 10 of 23 rows start with a smaller version of at least one pose
-  (81.1.A3, 81.1.C1, 81.1.C3, 81.2.B(a), 81.2.B(b), 81.2.C(a), 81.3.C(a), 82B1, 82C1, 82C3), mostly because the piece already
+- Calcaneus: joint pieces pushed straight down into the crushed bed cut for them (6 mm; the bed is now cut from the pieces
+  themselves), the lateral one also 3 mm out (widening); tuberosity into varus (5 deg) and back end up (3 deg) about the floor
+  of the bed; tongue turned with its back end up (Sanders 1993, Cottom 2017 PMID 27903928, Varol 2021 PMID 34434558). As in the
+  leg, a piece pushed into its own crushed bed skips the start-position collision check (rough walls interlock otherwise).
+- On the page every fracture starts free of bone overlap (except impacted pieces in their own bed). In the last full test
+  9 of 23 rows started with a smaller version of at least one pose (81.1.A3, 81.1.C1, 81.1.C3, 81.2.B(a), 81.2.B(b), 81.2.C(a),
+  81.3.C(a), 82B3, 82C3); all calcaneal joint pieces start fully depressed. Mostly because the piece already
   touches a neighbour at home. In the foot only, such home contacts may stay but not go deeper than the 2 mm inner shapes,
   and a piece may slide at most 6 mm to find a free start.
 
@@ -670,6 +680,7 @@ errors. VR in Meta's emulator: tabs 81 / 82 / Joints, all 23 buttons, Bone butto
 positions of all 176 fractures identical to before (compared one by one); re-cut leg and femur rows give byte-identical files.
 
 Limits the owner should know (7c):
+0. Sanders subtypes built: 2A (commonest in Guo 2021), 3AB and 4 (my choice for 3). Tell me if you prefer 2B / 3BC.
 1. Talus body drawings are seen from the front or back; I read the side with the longer malleolus (dotted) as lateral, so
    81.1.B2/B3 are LATERAL shoulder pieces. Please check.
 2. Head (81.3.B, C) and 82B/C qualifications: neither a nor b is drawn in bold; "a Simple" was built.
