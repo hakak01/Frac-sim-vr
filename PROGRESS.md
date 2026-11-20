@@ -698,6 +698,35 @@ Limits the owner should know (7c):
 6. Böhler and Gissane angles, heel height and width are not shown as numbers yet (readouts are 7e).
 7. Not tested on a Quest 3.
 
+### Phase 7c extra – CALCANEUS BY CLASSIFICATION SYSTEM (owner's request, 20 Nov 2026) – waiting for owner's OK
+
+The calcaneus can now be shown by six systems. Each system is its own group in the page's fracture list and its own tab in VR
+(82 = AO/OTA, 82-EL, 82-S, 82-G, 82-map); 27 new rows, 50 foot rows in all, all built (young and elderly bone), 0 problems.
+
+| Group | Rows | Source |
+|---|---|---|
+| 82 AO/OTA 2018 | 82A1, 82A2, 82B1, 82B3, 82C1, 82C2, 82C3 (as before) | Compendium S93-S94 |
+| 82-EL Essex-Lopresti | not involving the subtaloid joint: beak, medial-border avulsion, vertical, horizontal tuberosity fractures, parrot nose (calcaneocuboid joint); involving it: without displacement, tongue (moderate, severe), joint depression (moderate, severe), sustentaculum alone | Essex-Lopresti 1952 Table I and Figs 562-573 (PDF sent by the owner; PMID 14925322, doi 10.1002/bjs.18003915704) |
+| 82-S Sanders | I, IIA, IIB, IIC, IIIAB, IIIAC, IIIBC, IV | Sanders 1993 p 88 and Fig 1 (PDF sent by the owner; PMID 8472475) |
+| 82-G Guo 2021 | tongue type Groups A (medial-lateral), B (upper-lateral), C (upper-lateral-medial); joint depression Sanders 2A, 2B, 2C with their commonest anterior-process zones | Guo 2021 tongue (PMID 35071481) and Sanders 2 (PMID 34294674) full texts and maps |
+| 82-map | Ni 2021 typical pattern; Shi 2023 typical pattern (inverted Y on the lateral wall) | Ni 2021 (PMID 33708960), Shi 2023 (PMID 37258588) full texts and maps |
+
+- Ni 2021 and Shi 2023 define NO subtypes (they classify by Sanders and map all fractures together), so each gives one "typical
+  pattern" row built from the most frequent lines of its map, not a set of subtypes.
+- Sanders lines are now measured as Sanders defines them: on the coronal section with the widest undersurface of the TALAR
+  posterior facet (30.8 mm on this talus), A and B at thirds, C at its medial edge (between the posterior facet and the
+  sustentaculum), then taken straight down onto the calcaneus. Before, they were thirds of the calcaneal facet (27.4 mm); line C
+  moved 2.8 mm medially, A and B under 1 mm. The 82C rows were rebuilt with them.
+- Essex-Lopresti displacement (from his text, sizes teaching values): tongue "like a see-saw, down at the front and up at the
+  back"; joint-depression piece pushed into the spongy bone inside the lateral wall, which bulges out, hinged down and back on
+  its posterior line; severe stage: tuberosity forced up and back as the primary line opens; step of 3-10 mm between the outer
+  and inner parts of the joint.
+- Not built: Essex-Lopresti "various" calcaneocuboid fractures (no pattern given) and "comminution from behind forward with
+  dislocation of the subtaloid joint" (a dislocation pattern: Phase 7d).
+- Tested in headless Chromium: all 50 foot fractures load, no errors; 15 start with a smaller version of at least one pose
+  (81.1.A3, 81.1.C1, 81.1.C3, 81.2.B(a), 81.2.B(b), 81.2.C(a), 81.3.C(a), EL-tongue, EL-tongue-sev, EL-JD-sev, G-tongue-B,
+  G-tongue-C, G-2A-AC, G-2C-ACD, Shi-map). VR in Meta's emulator: tabs 82-EL, 82-S, 82-G, 82-map with all their buttons.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
@@ -779,8 +808,8 @@ Limits the owner should know (7c):
 - Femur region (6a-6e) complete, waiting for the owner's OK and a Quest 3 test.
 - Phase 7a (foot assets + talus in the leg) done, waiting for the owner's OK.
 - Phase 7b (joints + ligament tethers, VR choice, hide/isolate) done, waiting for the owner's OK.
-- Phase 7c (talus 81 + calcaneus 82, CT-mapped, young and elderly bone) done and corrected to the printed chapter, waiting for
-  the owner's OK. Next: 7d (83-89 + dislocations).
+- Phase 7c (talus 81 + calcaneus 82, CT-mapped, young and elderly bone) done and corrected to the printed chapter, plus the
+  calcaneus by six classification systems; waiting for the owner's OK. Next: 7d (83-89 + dislocations).
 - Phase 6 continues later with humerus, radius+ulna, clavicle+scapula, hand.
 
 ## Test link

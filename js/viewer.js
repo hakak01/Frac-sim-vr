@@ -267,7 +267,9 @@ function setLayer(id, on) {
   if (box) box.checked = on;
 }
 const SEGMENTS = { 41: '41 Proximal tibia', 42: '42 Tibial shaft', 43: '43 Distal tibia',
-  44: '44 Malleolar segment', '4F': '4F Fibula', 81: '81 Talus', 82: '82 Calcaneus' };
+  44: '44 Malleolar segment', '4F': '4F Fibula', 81: '81 Talus', 82: '82 Calcaneus – AO/OTA 2018',
+  '82-EL': '82 Calcaneus – Essex-Lopresti 1952', '82-S': '82 Calcaneus – Sanders 1993 (CT)',
+  '82-G': '82 Calcaneus – Guo 2021 (3D maps)', '82-map': '82 Calcaneus – map patterns (Ni 2021, Shi 2023)' };
 
 async function initFractures(loader) {
   const sel = document.getElementById('fx');

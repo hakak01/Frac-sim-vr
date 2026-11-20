@@ -48,7 +48,7 @@ def tiles(path_prefix, label, frags, seg, size=300, spread=10.0):
     second = {"41": "top", "43": "below", "44": "below", "31": "back"}.get(seg, "medial")
     small = {"34": 70.0}.get(seg)                          # the patella needs a closer view
     views = (("a", "front", small or 170.0), ("b", second, small or (120.0 if second != "medial" else 170.0)))
-    if seg in ("81", "82"):                                # talus, calcaneus: outside, top and inside, close up
+    if seg[:2] in ("81", "82"):                                # talus, calcaneus: outside, top and inside, close up
         views = (("a", "lateral", 110.0), ("b", "top", 110.0), ("c", "medial", 110.0), ("d", "back", 110.0))
     for tag, view, win in views:
         r, u, t = (np.array(v, float) for v in VIEWS[view])

@@ -276,15 +276,39 @@ class Region:
             P["calc_lateral_wall"] = b.V[atf][np.argmin(b.V[atf] @ b.e_med)]
             P["calc_medial_wall"] = b.V[atf][np.argmax(b.V[atf] @ b.e_med)]
             P["calc_plantar"] = b.V[np.argmin(b.V @ up)]
-            # Sanders lines on the posterior facet (Sanders 1993, PMID 8472475, Fig 1): A and B divide the facet into
-            # three equal columns (lateral, central, medial); C is its medial edge, next to the sustentaculum.
-            band = pf & (np.abs(t - b.t_of(post["centre"])) < 5)
-            m = b.centroids[band] @ b.e_med
-            lo, hi = m.min(), m.max()
-            for k, f in (("A", 1 / 3), ("B", 2 / 3), ("C", 1.0)):
-                target = lo + f * (hi - lo) - (1.0 if k == "C" else 0.0)
-                P["calc_sanders_" + k] = b.centroids[band][np.argmin(np.abs(m - target))]
-            self.sanders_facet_width_mm = float(hi - lo)
+            # Sanders lines (Sanders 1993, PMID 8472475, p 88 and Fig 1): on the coronal section with the widest undersurface of
+            # the posterior facet of the TALUS, lines A and B divide it into three equal columns; C is its medial edge (it
+            # separates the posterior facet from the sustentaculum). Each line is then taken down onto the top of the calcaneus.
+            if "talus" in self.bones:
+                tb = self.bones["talus"]
+                tpost = min((f for f in tb.facets if f is not max(tb.facets, key=lambda f: f["centre"] @ ANTERIOR)),
+                            key=lambda f: f["normal"] @ up)
+                cen = tb.centroids[tpost["faces"]]
+                tt, mm = b.t_of(cen), (cen - b.c0) @ b.e_med
+                best = None
+                for s0 in np.arange(tt.min() + 2, tt.max() - 2, 0.5):
+                    band = np.abs(tt - s0) < 2.5
+                    if band.sum() >= 5 and (best is None or np.ptp(mm[band]) > best[1]):
+                        best = (s0, float(np.ptp(mm[band])), float(mm[band].min()))
+                s0, width, lo = best
+            else:                                      # no talus: thirds of the calcaneal posterior facet
+                band = pf & (np.abs(t - b.t_of(post["centre"])) < 5)
+                m = (b.centroids[band] - b.c0) @ b.e_med
+                s0, width, lo = b.t_of(post["centre"]), float(np.ptp(m)), float(m.min())
+            for k, f in (("A", 1 / 3), ("B", 2 / 3), ("C", 1.0)):        # first hit of a ray dropped from above
+                o = b.c0 + s0 * b.d + (lo + f * width) * b.e_med + 80 * b.e_ant
+                hits, _, _ = b.tri.ray.intersects_location([o], [-b.e_ant])
+                P["calc_sanders_" + k] = hits[np.argmax(hits @ b.e_ant)]
+            self.sanders_facet_width_mm = width
+            # anterior part of the calcaneus (APC) divided into zones A, B, C from lateral to medial (Guo 2021, PMID 35071481
+            # and 34294674): a line "in zone A" is placed at 1/4 of the width from lateral, "zone C" at 3/4, 8 mm behind the cuboid facet
+            ta = b.t_of(cub["centre"]) - 8
+            ring = np.abs(tv - ta) < 4
+            mr = (b.V[ring] - b.c0) @ b.e_med
+            lo2, hi2 = mr.min(), mr.max()
+            top = float(((b.V[ring] - b.c0) @ b.e_ant).max())
+            for k, f in (("A", 0.25), ("C", 0.75)):
+                P["calc_apc_" + k] = b.c0 + ta * b.d + (lo2 + f * (hi2 - lo2)) * b.e_med + top * b.e_ant
         self.points, self.normals = P, Nn
         self.square = {}
 

@@ -127,7 +127,7 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
 python3 tools/femur_geometry.py thigh_right   # once, before the femur engine (axes, head, knee)
 python3 tools/export_muscles.py _source/blend/Z-Anatomy/Startup.blend regions/thigh_right.json  # once (bpy)
 python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualities, patella x 1), about 15 minutes
-python3 tools/fracture_engine.py foot_right   # 23 rows (talus, calcaneus x 2 bone qualities), about 30 seconds
+python3 tools/fracture_engine.py foot_right   # 50 rows (talus, calcaneus by 6 systems, x 2 bone qualities), about 80 seconds
 ```
 
 ## Facts about the Z-Anatomy file (learned in Phase 1)
@@ -274,6 +274,10 @@ python3 tools/fracture_engine.py foot_right   # 23 rows (talus, calcaneus x 2 bo
   plane through the most medial line (15 deg axial, down-medial to the sole), vertical plane at Gissane, vertical medial-wall plane at the
   back of the facet (Shi 2023 maps); plug `void: "fragments"` = the crushed bed is cut from the depressed pieces themselves (not the whole
   plug). Engine marks such poses `impaction: true`; viewer treats them like `use_impaction` (no start-position collision check).
+- Calcaneus by classification (owner's request): each system is its own `segment` (`82-EL`, `82-S`, `82-G`, `82-map`; labels in `SEGMENTS`
+  in viewer.js), so the page lists and the VR tabs need no extra code. Ids: `EL-...`, `S-...`, `G-...`, `Ni-map`, `Shi-map`. Row `tags`:
+  `classification`, `compare` (the equivalent AO/OTA code). Sanders lines `calc_sanders_A/B/C` come from the TALAR posterior facet at its
+  widest coronal section (A, B thirds, C medial edge), ray-dropped onto the calcaneus. APC zones (Guo): `calc_apc_A/C`.
 - Preview tiles for 81/82: lateral, top, medial, back (110 mm window).
 - The rows were written with a one-off script (not kept); `fractures.json` is the source. Lines follow the printed drawings (S90-S94):
   talus body B = lateral shoulder piece, C = full-thickness line; calcaneus 82C primary line vertical on the lateral wall at Gissane,
