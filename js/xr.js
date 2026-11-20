@@ -7,6 +7,9 @@
 //   Point at the panel + trigger or pinch          -> menu: fracture, explode, ghost, layers,
 //                                                     displaced / reduced, collision, muscle pull
 // The strip under the panel is the live readout of the fragment last held or pointed at.
+// Two ways in (owner's request, 20 Nov 2026): pass-through (the real room) or plain VR (a virtual room).
+// Select (panel)  -> trigger picks any structure on show (bone, muscle, ligament, vessel, nerve, skin) or a fragment;
+//                    then Hide, Isolate (only isolated structures shown; several can be isolated) or Show all.
 // Mixed reality (Phase 6e, pass-through only where the headset offers it):
 //   "Place on table"  -> a ring follows the pointer on real surfaces (hit-test); trigger lays the limb there
 //   "Hands in front"  -> real hands and objects hide the model (depth sensing), on / off
@@ -19,7 +22,7 @@ const TABLE_HEIGHT = 0.95;                 // metres from the floor to the middl
 const MODEL_AT = [0, TABLE_HEIGHT, -0.45]; // in front of where the user stood when VR started
 const PANEL_AT = [-0.55, 1.25, -0.55];
 const PX_PER_M = 2000;
-const PW = 1240, PH = 880, SH = 240;       // panel and readout strip, canvas pixels
+const PW = 1240, PH = 944, SH = 240;       // panel and readout strip, canvas pixels
 const LAYERS = [['bones', 'Bones'], ['muscles', 'Muscles'], ['joints', 'Joints'], ['arteries', 'Arteries'], ['veins', 'Veins'], ['nerves', 'Nerves'], ['skin', 'Skin']];
 const MAX_EXPLODE = 30;                    // mm
 const SCALE_LIMITS = [0.25, 4];
@@ -29,7 +32,8 @@ export function initXR(v) {
   const { renderer, scene, stage, fx, sim } = v;
   const btn = document.getElementById('xrbtn');
   const note = document.getElementById('xrnote');
-  const api = { active: false, mode: null, update() {}, enter: null, panel: null, controllers: [] };
+  const api = { active: false, mode: null, modes: [], update() {}, enter: null, panel: null, controllers: [] };
+  const vis = v.vis;
   if (!navigator.xr) {
     note.textContent = 'VR is not available in this browser. Open this page in the Meta Quest Browser.';
     return api;
@@ -51,8 +55,8 @@ export function initXR(v) {
   panel.add(S.mesh);
   S.mesh.position.y = -(PH + SH) / 2 / PX_PER_M - 0.006;
   // segment tabs come from the region's fracture list (41-44, 4F for the leg; 31-34 for the thigh)
-  const tabs = () => ['', ...new Set(Object.values(fx.index).map((x) => x.segment))];
-  const ui = { tab: tabs()[1] || '', sel: null, regions: [] };
+  const tabs = () => ['', ...new Set(Object.values(fx.index).map((x) => x.segment)), ...(v.joints() ? ['Joints'] : [])];
+  const ui = { tab: tabs()[1] || '', sel: null, regions: [], selMode: false, pick: null };   // pick: { key, label }
   const mr = { placing: false, sources: [], hit: null, occlude: true, canPlace: false, canOcclude: false };   // Phase 6e
   let twoF = null;                                         // two hands on one fragment (Phase 6e)
 
@@ -73,7 +77,7 @@ export function initXR(v) {
     g.font = `600 ${font}px system-ui, sans-serif`;
     g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText(text, x + w / 2, y + h / 2 + 1);
-    ui.regions.push({ x, y, w, h, action });
+    ui.regions.push({ x, y, w, h, action, text });
   }
   function row(y, h, items, font) {                      // equal buttons across the panel
     const w = (PW - 48 - (items.length - 1) * 8) / items.length;
@@ -98,6 +102,7 @@ export function initXR(v) {
     if (e) wrap(g, e.name + (e.qualification ? ' (' + e.qualification + ')' : ''), PW - 48, 2).forEach((l, i) => g.fillText(l, 24, 84 + i * 28));
     else g.fillText('Choose a segment, then an AO/OTA code.', 24, 84);
     row(150, 56, tabs().map((t) => [t || 'Intact', t === '' ? () => choose('') : () => { ui.tab = t; draw(); }, t === '' ? !fx.current : ui.tab === t]));
+    if (ui.tab === 'Joints') drawJoints();
     const list = Object.values(fx.index).filter((x) => x.segment === ui.tab && x.file).slice(0, 30);
     const cw = (PW - 48 - 5 * 8) / 6;
     list.forEach((x, i) => button(24 + (i % 6) * (cw + 8), 216 + Math.floor(i / 6) * 62, cw, 54, x.id, () => choose(x.id), x.id === fx.current, x.id.length > 7 ? 22 : 26));
@@ -116,16 +121,49 @@ export function initXR(v) {
     const mrb = [...(mr.canPlace ? [[mr.placing ? 'Cancel placing' : 'Place on table', () => (mr.placing ? stopPlacing() : startPlacing()), mr.placing]] : []),
       ...(mr.canOcclude ? [[`Hands in front: ${mr.occlude ? 'on' : 'off'}`, () => { mr.occlude = !mr.occlude; draw(); }, mr.occlude]] : [])];
     const bottom = [['Reset view', resetView, false], ...bq, ...mrb, ['Exit VR', () => renderer.xr.getSession().end(), false]];
-    row(772, 84, bottom, bottom.length > 3 ? 24 : 32);
+    const pk = ui.pick;
+    row(772, 56, [
+      [`Select: ${ui.selMode ? 'on' : 'off'}`, () => { ui.selMode = !ui.selMode; draw(); }, ui.selMode],
+      [pk && vis.state.hidden.has(pk.key) ? 'Show it' : 'Hide', () => { if (pk) vis.setHidden(pk.key, !vis.state.hidden.has(pk.key)); draw(); }, false],
+      ['Isolate', () => { if (pk) vis.toggleIsolate(pk.key); draw(); }, !!(pk && vis.state.iso.has(pk.key))],
+      ['Show all', () => { vis.showAll(); draw(); }, false],
+    ], 24);
+    row(840, 84, bottom, bottom.length > 3 ? 24 : 32);
     P.tex.needsUpdate = true;
+  }
+  // Phase 7b: joints tab (stress tests, tearing, torn ligament groups)
+  function drawJoints() {
+    const j = v.joints();
+    const st = j.stress;
+    row(216, 54, [...j.cfg.stress_tests.map((t) => [t.name.replace(' stress', '').replace(' (inversion)', ''), () => { j.startStress(t.id); draw(); }, !!(st && st.test.id === t.id)]),
+      ['Stop (let go)', () => { j.stopStress(); draw(); }, false]], 24);
+    const pk = ui.pick && j.isLigament(ui.pick.key) ? ui.pick : null;
+    row(278, 54, [[`Fibres: ${j.showFibres ? 'shown' : 'hidden'}`, () => { j.showFibres = !j.showFibres; draw(); }, j.showFibres],
+      [`Can tear: ${j.canTear ? 'on' : 'off'}`, () => { j.canTear = !j.canTear; draw(); }, j.canTear],
+      ['Repair all', () => { j.repairAll(); draw(); }, false],
+      [pk ? 'Tear / repair selected' : 'Select a ligament…', () => { if (pk) j.toggleLigament(pk.key); else { ui.selMode = true; } draw(); }, false]], 22);
+    const groups = Object.keys(j.cfg.groups).filter((gname) => j.tethers.some((t) => t.group === gname));
+    const torn = j.tornGroups();
+    const cw = (PW - 48 - 3 * 8) / 4;
+    groups.slice(0, 16).forEach((gname, i) => button(24 + (i % 4) * (cw + 8), 350 + Math.floor(i / 4) * 50, cw, 44,
+      gname.replace(' ligaments', '').replace(' (Lisfranc joint)', '').replace(' ligament', '').replace('Toe joint capsules and', 'Toe capsules,'),
+      () => { j.toggleGroup(gname); draw(); }, torn.includes(gname), 20));
+    g.fillStyle = '#9aa5b1'; g.font = '20px system-ui, sans-serif'; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+    g.fillText('Ligament groups (blue = torn; pull the trigger to tear or repair). Fibres: green slack, yellow to red taut.', 24, 344);
   }
   let stripText = '';
   function drawStrip() {                                  // live readout
     const f = ui.sel && fx.fragments.includes(ui.sel) ? ui.sel : null;
     let lines = f && !f.fixed ? v.readoutLines(v.measure(f, f.ref)) : (v.femurLines ? v.femurLines() : []);   // femur summary otherwise
     if (f && f.held && f.carry && sim.pull) lines = [['Muscles pull back', `${f.carry.pullMm.toFixed(0)} mm`], ...lines].slice(0, 6);
-    const head = f ? `${f.label}${f.fixed ? '  (main fragment: the others are measured against it)' : ''}` : 'Point at a fragment to see its displacement.';
-    const foot = `${Math.round(sim.fps)} fps` + (v.tissue().busy ? ' · tying soft tissue to the fragments…' : '') + (sim.note ? ' · ' + sim.note : '');
+    const jt = v.joints();
+    if (jt && (jt.stress || (ui.tab === 'Joints' && !f))) lines = jt.lines().slice(0, 6);
+    let head = f ? `${f.label}${f.fixed ? '  (main fragment: the others are measured against it)' : ''}` : 'Point at a fragment to see its displacement.';
+    if (ui.pick && (ui.selMode || !f)) head = `Selected: ${ui.pick.label}${vis.state.hidden.has(ui.pick.key) ? ' (hidden)' : ''}`;
+    else if (jt && jt.stress) head = `${jt.stress.test.name}${jt.stress.k < 1 ? ' (pushing…)' : ' (end point)'}`;
+    else if (jt && ui.tab === 'Joints' && !f) head = jt.note || 'Hold a bone with the trigger; the ligaments hold it back.';
+    else if (ui.selMode) head = 'Select is on: point at a structure and pull the trigger.';
+    const foot = `${Math.round(sim.fps)} fps` + (jt && jt.note && jt.stress ? ' · ' + jt.note.split(':')[0] : '') + (v.tissue().busy ? ' · tying soft tissue to the fragments…' : '') + (sim.note ? ' · ' + sim.note : '');
     const text = head + lines.map((l) => l.join(' ')).join('|') + foot;
     if (text === stripText) return;
     stripText = text;
@@ -201,14 +239,33 @@ export function initXR(v) {
       const x = p.uv.x * PW, y = (1 - p.uv.y) * PH;
       return { panel: true, x, y, region: ui.regions.find((r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h), point: p.point, distance: p.distance };
     }
-    if (!fx.fragments.length || !v.layerGroups.bones.visible) return null;
+    if (!v.layerGroups.bones.visible) return null;
+    const jt = v.joints();
+    const free = jt && !jt.stress ? jt.pieces().filter((n) => vis.shown(n) && !(fx.followers || []).some((x) => x.node === n)) : [];   // 7b: free bones can be held
+    if (!fx.fragments.length && !free.length) return null;
     const legs = (fx.followers || []).map((x) => x.node);            // the leg moves with the knee fragment
-    const h = caster.intersectObjects([...fx.fragments.map((f) => f.node), ...legs], true)[0];
+    const h = caster.intersectObjects([...fx.fragments.filter((f) => f.holder.visible).map((f) => f.node), ...legs.filter((n) => vis.shown(n)), ...free], true)[0];
     if (!h) return null;
+    for (let o = h.object; o; o = o.parent) {
+      if (free.includes(o)) return { bone: o, body: jt.bodyOfNode(o), point: h.point, distance: h.distance };
+    }
     let n = h.object;
     while (n && !n.userData.frag && !legs.includes(n)) n = n.parent;
     if (n && legs.includes(n)) return { frag: fx.followers.find((x) => x.node === n).frag, point: h.point, distance: h.distance, leg: true };
     return n ? { frag: n.userData.frag, point: h.point, distance: h.distance } : null;
+  }
+
+  function pickAny(c) {                      // Select mode: any structure on show (only when the trigger is pulled)
+    tmp.o.setFromMatrixPosition(c.matrix);
+    tmp.d.set(0, 0, -1).transformDirection(c.matrix);
+    const rc = new THREE.Raycaster(tmp.o, tmp.d, 0, 3);
+    const h = rc.intersectObjects(Object.values(v.layerGroups), true).find((x) => vis.shown(x.object));
+    if (!h) return null;
+    for (let n = h.object; n; n = n.parent) {
+      if (n.userData.frag) return { key: n.userData.frag.label, label: n.userData.frag.label, point: h.point, distance: h.distance };
+    }
+    const name = h.object.userData.za_name;
+    return name ? { key: name, label: name.replace(/\.[rl]$/, ''), point: h.point, distance: h.distance } : null;
   }
 
   const modelHolds = () => ctrls.filter((c) => c.userData.hold && c.userData.hold.model);
@@ -237,13 +294,28 @@ export function initXR(v) {
       else if (hit.region) hit.region.action();
       return;
     }
+    if (ui.selMode && !grip) {                     // Select: name the structure, then Hide / Isolate on the panel
+      const p = pickAny(c);
+      ui.pick = p ? { key: p.key, label: p.label } : null;
+      vis.select(p && vis.structures[p.key] ? p.key : null);
+      if (p) { c.userData.dot.visible = true; c.userData.dot.position.copy(p.point); }
+      stripText = ''; draw();
+      return;
+    }
     stage.updateMatrixWorld(true);
+    if (hit && hit.body && !hit.body.held) {          // 7b: hold one bone; its ligaments and joints act on the others
+      c.userData.hold = { body: hit.body, node: hit.bone, offset: M().copy(c.matrix).invert().multiply(hit.bone.matrixWorld) };
+      ui.pick = { key: hit.bone.userData.za_name, label: hit.bone.userData.za_name.replace(/\.[rl]$/, '') };
+      return;
+    }
+    if (hit && hit.body) return;
     if (hit && hit.frag && !hit.frag.held) {
       const f = hit.frag;
       f.held = true;
       f.touch = null;
       c.userData.hold = { frag: f, offset: M().copy(c.matrix).invert().multiply(f.node.matrixWorld) };
       ui.sel = f;
+      ui.pick = { key: f.label, label: f.label };
     } else if (hit && hit.frag && hit.frag.held) {   // second hand on the same fragment: hold it with both hands
       c.userData.hold = { frag: hit.frag };
       startTwoHands(hit.frag);
@@ -255,6 +327,7 @@ export function initXR(v) {
   function drop(c) {
     const h = c.userData.hold;
     c.userData.hold = null;
+    if (h && h.body) v.joints().release(h.body);
     if (h && h.frag) {
       const other = ctrls.find((k) => k.userData.hold && k.userData.hold.frag === h.frag);
       if (other) {                                 // one hand left: it carries on alone
@@ -287,8 +360,16 @@ export function initXR(v) {
         carry(f, tmp.m, both);
         continue;
       }
+      if (u.hold && u.hold.body) {                                // carry one free bone (7b)
+        u.dot.visible = false; u.line.scale.z = 0.05;
+        const jt = v.joints();
+        tmp.m.multiplyMatrices(c.matrix, u.hold.offset).premultiply(tmp.inv.copy(v.layerGroups.bones.matrixWorld).invert());
+        jt.holdNode(u.hold.body, u.hold.node, tmp.m.clone());
+        continue;
+      }
       if (u.hold) { u.dot.visible = false; u.line.scale.z = 0.05; continue; }
       const hit = point(c);
+      if (ui.selMode && !(hit && hit.panel)) { u.line.scale.z = 0.6; continue; }   // Select: the dot stays on the last pick
       u.dot.visible = !!hit;
       u.line.scale.z = hit ? hit.distance : 0.6;
       if (hit) u.dot.position.copy(hit.point);
@@ -315,6 +396,7 @@ export function initXR(v) {
     const now = performance.now();
     if (now - stripAt > 120) { stripAt = now; drawStrip(); }      // readout about 8 times a second
     updateMR();
+    updateBodies();
   };
 
   // ---------------------------------------------------------------- Phase 6e: carrying with resistance, vibration
@@ -444,9 +526,37 @@ export function initXR(v) {
   const floor = new THREE.GridHelper(4, 16, 0x3a4450, 0x2a323b);   // only in plain VR (no pass-through)
   floor.visible = false;
   scene.add(floor);
+  const VR_ROOM = new THREE.Color(0x262b33);
+  // Plain VR: the real hands and controllers are not seen, so draw simple ones (balls on the hand joints,
+  // a small handle for a controller). Pass-through shows the real ones.
+  const bodies = [0, 1].map((i) => {
+    const grip = renderer.xr.getControllerGrip(i), hand = renderer.xr.getHand(i);
+    const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.018, 0.1, 16).rotateX(Math.PI / 2 - 0.5).translate(0, -0.01, 0.03),
+      new THREE.MeshStandardMaterial({ color: 0x8a939e, roughness: 0.6 }));
+    grip.add(handle);
+    const balls = [];
+    const jm = new THREE.MeshStandardMaterial({ color: 0xd9b8a0, roughness: 0.7 });
+    const jg = new THREE.SphereGeometry(0.0075, 10, 8);
+    scene.add(grip, hand);
+    grip.visible = hand.visible = false;
+    return { grip, hand, balls, jm, jg, handle };
+  });
+  let bodiesOn = false;
+  function showBodies(on) { bodiesOn = on; for (const b of bodies) { b.grip.visible = on; b.hand.visible = on; } }
+  function updateBodies() {
+    if (!bodiesOn) return;
+    for (const b of bodies) {
+      const joints = b.hand.joints ? Object.values(b.hand.joints) : [];
+      for (const j of joints) {
+        if (!j.userData.ball) { const m = new THREE.Mesh(b.jg, b.jm); j.add(m); j.userData.ball = m; }
+      }
+      b.handle.visible = !joints.some((j) => j.visible);    // a hand is tracked: no controller handle
+    }
+  }
   let saved = null;
 
-  api.enter = async () => {
+  api.enter = async (mode = api.mode) => {
+    api.mode = mode;
     const session = await navigator.xr.requestSession(api.mode, {
       requiredFeatures: ['local-floor'],
       optionalFeatures: api.mode === 'immersive-ar' ? ['hand-tracking', 'hit-test', 'depth-sensing'] : ['hand-tracking'],
@@ -466,12 +576,16 @@ export function initXR(v) {
     panel.lookAt(0, PANEL_AT[1], 0.2);
     panel.visible = true;
     floor.visible = api.mode !== 'immersive-ar';
+    scene.background = api.mode === 'immersive-ar' ? null : VR_ROOM;     // plain VR: a dim room colour
+    showBodies(api.mode !== 'immersive-ar');
     if (fx.index[fx.current]) ui.tab = fx.index[fx.current].segment;
     else if (!ui.tab) ui.tab = tabs()[1] || '';
     draw(); stripText = ''; drawStrip();
     session.addEventListener('end', () => {
       api.active = false;
       panel.visible = false; floor.visible = false;
+      scene.background = null; showBodies(false);
+      ui.selMode = false;
       for (const c of ctrls) { c.visible = false; c.userData.dot.visible = false; drop(c); c.userData.slider = null; }
       mr.sources = []; mr.placing = false; ring.visible = false; twoF = null;
       setStage(M());
@@ -485,11 +599,15 @@ export function initXR(v) {
   };
 
   Promise.all(['immersive-ar', 'immersive-vr'].map((m) => navigator.xr.isSessionSupported(m).catch(() => false))).then(([ar, vr]) => {
-    api.mode = ar ? 'immersive-ar' : vr ? 'immersive-vr' : null;
+    api.modes = [...(ar ? ['immersive-ar'] : []), ...(vr ? ['immersive-vr'] : [])];
+    api.mode = api.modes[0] || null;
     if (!api.mode) { note.textContent = 'No headset found. Open this page in the Meta Quest Browser to use VR.'; return; }
-    btn.textContent = ar ? 'Enter VR (pass-through)' : 'Enter VR';
+    const start = (m) => api.enter(m).catch((err) => { note.textContent = 'Could not start VR: ' + err.message; });
+    btn.textContent = ar ? 'Enter pass-through (see your room)' : 'Enter VR';
     btn.hidden = false;
-    btn.addEventListener('click', () => api.enter().catch((err) => { note.textContent = 'Could not start VR: ' + err.message; }));
+    btn.addEventListener('click', () => start(api.modes[0]));
+    const vb = document.getElementById('vrbtn');
+    if (ar && vr && vb) { vb.hidden = false; vb.addEventListener('click', () => start('immersive-vr')); }
     note.textContent = 'In VR: point and pull the trigger (or pinch) on a fragment to hold it; on empty space or with the grip to hold the whole model; use both hands to turn and resize.';
   });
   api.panel = panel;

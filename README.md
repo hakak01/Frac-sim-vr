@@ -8,7 +8,7 @@ Personal self-study project of an orthopaedic surgeon.
 - Fracture patterns: AO/OTA Fracture and Dislocation Classification Compendium 2018
   (Meinberg et al., J Orthop Trauma 2018;32 Suppl 1) and published CT fracture-mapping studies.
 
-Status: Phases 1-5 (right leg): 96 pre-cut tibia and fibula fractures, VR with pass-through, reduction with live readout, soft tissue that follows the fragments. See [PROGRESS.md](PROGRESS.md).
+Status: right leg (96 tibia/fibula fractures), right thigh (femur and patella), right foot and ankle (assets, joints and ligaments, stress tests). VR with pass-through or plain VR, reduction with live readout, soft tissue that follows the fragments. See [PROGRESS.md](PROGRESS.md).
 
 Open the page: https://hakak01.github.io/Frac-sim-vr/
 

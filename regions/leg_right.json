@@ -19,6 +19,11 @@
         "Posterior compartment of leg.g"
       ]
     },
+    "joints": {
+      "label": "Joint capsules and ligaments",
+      "descendants_of": ["Ankle joint.g", "Tibiofibular syndesmosis.g"],
+      "include": ["Interosseous membrane of leg.r"]
+    },
     "arteries": {
       "label": "Arteries",
       "collection": "5: Cardiovascular system",

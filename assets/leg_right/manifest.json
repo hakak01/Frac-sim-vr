@@ -498,6 +498,234 @@
     }
    ]
   },
+  "joints": {
+   "label": "Joint capsules and ligaments",
+   "file": "joints.glb",
+   "bytes": 69980,
+   "triangles": 13682,
+   "structures": [
+    {
+     "name": "Anterior talofibular ligament.r",
+     "group": "Lateral collateral ligament of ankle.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1015,
+      0.033,
+      0.0604
+     ],
+     "bbox_max": [
+      -0.0906,
+      0.0408,
+      0.0715
+     ],
+     "bytes_alone": 21672
+    },
+    {
+     "name": "Anterior tibiofibular ligament.r",
+     "group": "Tibiofibular syndesmosis.g",
+     "triangles": 248,
+     "vertices": 126,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1067,
+      0.0252,
+      0.0738
+     ],
+     "bbox_max": [
+      -0.0966,
+      0.0414,
+      0.1003
+     ],
+     "bytes_alone": 22444
+    },
+    {
+     "name": "Calcaneofibular ligament.r",
+     "group": "Lateral collateral ligament of ankle.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1047,
+      0.0555,
+      0.0529
+     ],
+     "bbox_max": [
+      -0.0866,
+      0.0618,
+      0.0657
+     ],
+     "bytes_alone": 21660
+    },
+    {
+     "name": "Interosseous membrane of leg.r",
+     "group": "Fibrous joints of free lower limb.g",
+     "triangles": 12642,
+     "vertices": 6321,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1105,
+      0.021,
+      0.1032
+     ],
+     "bbox_max": [
+      -0.088,
+      0.0424,
+      0.3959
+     ],
+     "bytes_alone": 58732
+    },
+    {
+     "name": "Posterior talofibular ligament.r",
+     "group": "Lateral collateral ligament of ankle.g",
+     "triangles": 32,
+     "vertices": 18,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1032,
+      0.0535,
+      0.0602
+     ],
+     "bbox_max": [
+      -0.0855,
+      0.0596,
+      0.0693
+     ],
+     "bytes_alone": 21676
+    },
+    {
+     "name": "Posterior tibiofibular ligament.r",
+     "group": "Tibiofibular syndesmosis.g",
+     "triangles": 248,
+     "vertices": 126,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0973,
+      0.0542,
+      0.0835
+     ],
+     "bbox_max": [
+      -0.0809,
+      0.0617,
+      0.1039
+     ],
+     "bytes_alone": 22456
+    },
+    {
+     "name": "Posterior tibiotalar ligament.r",
+     "group": "Medial collateral ligament of ankle.g",
+     "triangles": 56,
+     "vertices": 30,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0561,
+      0.0331,
+      0.0668
+     ],
+     "bbox_max": [
+      -0.0522,
+      0.0466,
+      0.0806
+     ],
+     "bytes_alone": 21764
+    },
+    {
+     "name": "Tibiocalcaneal ligament.r",
+     "group": "Medial collateral ligament of ankle.g",
+     "triangles": 56,
+     "vertices": 30,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0597,
+      0.0268,
+      0.0538
+     ],
+     "bbox_max": [
+      -0.0503,
+      0.041,
+      0.0813
+     ],
+     "bytes_alone": 21752
+    },
+    {
+     "name": "Tibionavicular ligament.r",
+     "group": "Medial collateral ligament of ankle.g",
+     "triangles": 232,
+     "vertices": 120,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0603,
+      0.0179,
+      0.0566
+     ],
+     "bbox_max": [
+      -0.054,
+      0.0319,
+      0.0861
+     ],
+     "bytes_alone": 22380
+    },
+    {
+     "name": "Transverse tibiofibular ligament.r",
+     "group": "Tibiofibular syndesmosis.g",
+     "triangles": 104,
+     "vertices": 54,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0957,
+      0.0485,
+      0.082
+     ],
+     "bbox_max": [
+      -0.0564,
+      0.0589,
+      0.0882
+     ],
+     "bytes_alone": 21944
+    }
+   ]
+  },
   "arteries": {
    "label": "Arteries",
    "file": "arteries.glb",

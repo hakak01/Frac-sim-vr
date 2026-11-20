@@ -525,6 +525,84 @@ Limits the owner should know (7a):
 4. 423,000 triangles with every layer on (VR starts with bones only, 68,000). Not tested on a Quest 3.
 5. No foot fractures yet (7c, 7d).
 
+### Phase 7b – JOINTS + LIGAMENT TETHERS (+ VR choice, hide/isolate) – waiting for owner's OK
+
+Owner's extra requests (20 Nov 2026), done in this phase:
+- **VR without pass-through as a choice.** The page now has two buttons when the headset offers both:
+  "Enter pass-through (see your room)" and "Enter VR (virtual room, no pass-through)". Plain VR has a dim grey room,
+  a floor grid, simple hands (balls on the hand joints) and a small handle for each controller.
+- **Hide or isolate single structures.** Page: every row of the Structures table has "hide" and "isolate"; isolate
+  several rows to keep a group (e.g. talus + calcaneus + the interosseous ligament); "Show all" undoes. Hiding a cut
+  bone hides all its fragments. VR: panel row "Select: on" -> point at any structure (bone, fragment, muscle,
+  ligament, vessel, nerve, skin) and pull the trigger -> "Hide", "Isolate", "Show all". Hiding is for the view only:
+  a hidden bone still blocks bone.
+
+Joints and ligaments (data from the anatomy, nothing drawn by hand):
+- `tools/joint_model.py <region>` (seconds, no Blender) finds, for each Z-Anatomy ligament mesh, the two bones it
+  touches and makes 2-8 straight fibres between the two attachment areas (sleeves such as capsules get 8 around).
+  It finds joints where the cartilage of one bone faces another bone within 3.5 mm (14 contact points each).
+  Output `assets/<region>/joint_model.json` + readable `JOINTS.md`.
+  - Foot: **41 joints, 135 ligament tethers (456 fibres)**. Leg: 3 joints (ankle, fibular facet, distal tibiofibular),
+    9 tethers (35 fibres).
+  - The leg region now has a Joints layer: ankle ligaments, syndesmosis and the interosseous membrane (10 structures,
+    13,682 triangles, 68 KB). Re-export checked: every other leg file is byte-identical.
+  - Where the automatic pair disagreed with the ligament's own name it is fixed as data in `ligament_model.json`
+    (tibiocalcaneal; long plantar = fan from the calcaneus; deep transverse and dorsal metatarsal = adjacent
+    metatarsals; plantar tarsometatarsal part 3 = lateral cuneiform - 3rd metatarsal).
+- Model (teaching, no newtons; `js/joints.js`): a fibre is slack up to 4 % stretch, then it holds; joint surfaces do not
+  pass through each other; a soft "seat" brings a free bone back; your hand or the examiner's push moves a bone and
+  the others follow. Fibres are drawn green (slack) -> yellow -> red (near tearing). Torn ligaments are red.
+  "Ligaments can tear" (off by default): a fibre stretched 15 % tears its ligament part.
+- Foot region: every foot bone can be held in VR (trigger on the bone); the ligaments pull its neighbours along, and
+  it springs back when let go. The tibia is fixed; the top of the fibula is held (proximal tibiofibular joint is not
+  in the data).
+- Stress tests (page buttons and VR "Joints" tab): anterior drawer, talar tilt (inversion, hinged at the medial edge
+  of the dome), external rotation (about the centre of the dome). Readouts: talus translation and angles, medial
+  gutter gap, lateral dome gap, tibiofibular gap, which ligaments are taut, the abnormal limits with sources.
+- Torn ligaments per row, from the printed AO/OTA name (`torn` in `fractures.json`, copied to the index by `--meta`):
+  44A1.1/A2.1/A3.1 lateral collateral ligament; 44B1.2, B2.2 anterior syndesmosis; 44B2.1 deltoid + anterior
+  syndesmosis; 44B3.1 deltoid; 44C ('syndesmosis unstable'): anterior + posterior syndesmosis + interosseous membrane
+  (posterior syndesmosis kept where there is a posterior malleolus fragment: it moves with that fragment), plus the
+  deltoid where the name says so (C1.1, C2.1). The tear and repair buttons change these freely.
+- Leg (43/44): the talus is placed by its ligaments. Where the plafond is on the main tibia (malleolar fractures,
+  rows with no bone cut) the talus follows the ligaments: **talar shift appears by itself** when the medial side is
+  torn. Where the plafond is on a moving fragment (42, 43) the talus stays seated in it as before.
+
+Results in the browser (emulated, 4 s per test; numbers are model values, not validated):
+
+| Test | Intact foot | Torn | Torn values |
+|---|---|---|---|
+| Anterior drawer | 4.0 mm | lateral collateral ligament | 8.4 mm |
+| Talar tilt | 4.0° (lateral dome gap 2.3 -> 3.4 mm) | lateral collateral ligament | 11.5° (6.8 mm) |
+| External rotation | 4.1°, medial gutter 2.4 mm (rest 1.8) | deltoid | 8.4°, medial gutter 5.0 mm |
+| 44A1.1 (leg, LCL torn) | | | drawer 11.0 mm, tilt 14.5° |
+| 44B2.1 (leg, deltoid + anterior syndesmosis) at rest | | | medial gutter 6.5 mm, talus 9.5° in valgus: talar shift |
+
+Limits (scale shown for abnormal: drawer >= 10 mm or >= 3 mm more than the other side, tilt >= 10° or >= 6° more,
+Guerra-Pinto 2021 PMID 34134919; medial clear space >= 5 mm, Ashraf 2017 PMID 28431410; tibiofibular clear space
+< about 6 mm normal, Harper & Keller 1989 PMID 2613128).
+
+Things Z-Anatomy draws differently (told, not changed): the tibionavicular ligament ends on the talus (never reaches
+the navicular); the "cuneometatarsal interosseous ligaments" are medial cuneiform - 1st, intermediate - 2nd and
+lateral - 3rd metatarsal: **there is no medial cuneiform - 2nd metatarsal (Lisfranc) ligament** (matters for 7d);
+the long plantar ligament also touches the 1st metatarsal and the medial cuneiform; the intersesamoid ligament joins
+nothing (both sesamoids are one mesh). In the leg region the calcaneofibular and tibiocalcaneal ligaments are shown
+but are not tethers (no calcaneus there).
+
+Limits the owner should know (7b):
+1. NOT tested on a Quest 3. Solver 0.6-0.7 ms per frame in the browser; the foot ties all soft tissue to 28 bones in
+   the background after loading (several seconds).
+2. Teaching values with no source used: 4 % slack, 15 % tear, every ligament equally strong (the published strength
+   order is shown only). No forces in newtons. The stress-test numbers depend on these values: read the differences
+   (intact vs torn), not the millimetres.
+3. Stress tests start from the rest position (no 16° plantar flexion for the drawer, as advised by Chang 2021, PMID 33347006).
+4. Fragments move only by hand: ligaments on them pull the talus but do not hold the fragment back. In the leg
+   region the whole fibula moves only during a stress test; with a cut fibula the distal fragment does not move in a
+   stress test (hold it and pull: the talus follows if the medial side is torn).
+5. Each ligament is straight fibres: no wrapping around bone, no twisting.
+6. Bones with no cartilage contact (calcaneus - fibula tip, etc.) can pass through each other while held.
+7. Hands in plain VR are simple balls; no proper controller models.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
@@ -602,15 +680,16 @@ Limits the owner should know (7a):
 ## Next
 
 - Femur region (6a-6e) complete, waiting for the owner's OK and a Quest 3 test.
-- Phase 7a (foot assets + talus in the leg) done, waiting for the owner's OK. Next: 7b (joints + ligament tethers).
+- Phase 7a (foot assets + talus in the leg) done, waiting for the owner's OK.
+- Phase 7b (joints + ligament tethers, VR choice, hide/isolate) done, waiting for the owner's OK. Next: 7c (talus 81 + calcaneus 82, CT-mapped).
 - Phase 6 continues later with humerus, radius+ulna, clavicle+scapula, hand.
 
 ## Test link
 
 - GitHub Pages: https://hakak01.github.io/Frac-sim-vr/
   (needs Pages switched on once: Settings -> Pages -> Deploy from a branch ->
-  branch `ccr-a2380af0-9o7p1q` (holds Phases 1-6e, 7a and the pass-through fix of 20 Nov 2026;
-  `ccr-463f3713-467s1a` = the same without the fix; `ccr-3f8cf2c4-bgay9k` stops at 6e),
+  branch `ccr-61835a8e-mycvig` (holds Phases 1-6e, 7a, the pass-through fix and 7b;
+  `ccr-a2380af0-9o7p1q` = up to the pass-through fix; `ccr-463f3713-467s1a` = 7a without the fix; `ccr-3f8cf2c4-bgay9k` stops at 6e),
   folder `/ (root)`).
 - Thigh: https://hakak01.github.io/Frac-sim-vr/?region=thigh_right (or use the region picker).
 - Foot: https://hakak01.github.io/Frac-sim-vr/?region=foot_right

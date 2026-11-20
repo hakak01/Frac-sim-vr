@@ -3949,7 +3949,11 @@
    "note": "Ligament injury only. No fragments are built.",
    "bones": [],
    "triangles": 0,
-   "fragments": []
+   "fragments": [],
+   "torn": [
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "Printed name of the code."
   },
   {
    "id": "44A1.2",
@@ -4069,7 +4073,11 @@
      "triangles": 9864
     }
    ],
-   "bytes": 57248
+   "bytes": 57248,
+   "torn": [
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "Printed name of the code."
   },
   {
    "id": "44A2.2",
@@ -4227,7 +4235,11 @@
      "triangles": 9900
     }
    ],
-   "bytes": 58692
+   "bytes": 58692,
+   "torn": [
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "Printed name of the code."
   },
   {
    "id": "44A3.2",
@@ -4422,7 +4434,11 @@
      "displace": "fibula_distal"
     }
    ],
-   "bytes": 47304
+   "bytes": 47304,
+   "torn": [
+    "Anterior syndesmosis"
+   ],
+   "torn_basis": "Printed name of the code."
   },
   {
    "id": "44B1.3",
@@ -4509,7 +4525,12 @@
      "displace": "fibula_distal"
     }
    ],
-   "bytes": 48444
+   "bytes": 48444,
+   "torn": [
+    "Deltoid ligament",
+    "Anterior syndesmosis"
+   ],
+   "torn_basis": "Printed name of the code."
   },
   {
    "id": "44B2.2",
@@ -4568,7 +4589,11 @@
      "triangles": 9406
     }
    ],
-   "bytes": 99376
+   "bytes": 99376,
+   "torn": [
+    "Anterior syndesmosis"
+   ],
+   "torn_basis": "Printed name of the code."
   },
   {
    "id": "44B2.3",
@@ -4705,7 +4730,11 @@
      "triangles": 8640
     }
    ],
-   "bytes": 93920
+   "bytes": 93920,
+   "torn": [
+    "Deltoid ligament"
+   ],
+   "torn_basis": "Printed name of the code."
   },
   {
    "id": "44B3.2",
@@ -4908,7 +4937,14 @@
      "displace": "fibula_distal"
     }
    ],
-   "bytes": 33252
+   "bytes": 33252,
+   "torn": [
+    "Deltoid ligament",
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
   },
   {
    "id": "44C1.2",
@@ -4967,7 +5003,13 @@
      "triangles": 9500
     }
    ],
-   "bytes": 87288
+   "bytes": 87288,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
   },
   {
    "id": "44C1.3",
@@ -5045,7 +5087,12 @@
      "triangles": 11242
     }
    ],
-   "bytes": 107432
+   "bytes": 107432,
+   "torn": [
+    "Anterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior syndesmosis and interosseous membrane torn. The posterior syndesmosis stays on the posterior malleolus fragment (its tether moves with that fragment). The whole membrane is torn in this model."
   },
   {
    "id": "44C2.1",
@@ -5094,7 +5141,14 @@
      "displace": "fibula_distal"
     }
    ],
-   "bytes": 47372
+   "bytes": 47372,
+   "torn": [
+    "Deltoid ligament",
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
   },
   {
    "id": "44C2.2",
@@ -5161,7 +5215,13 @@
      "triangles": 9392
     }
    ],
-   "bytes": 100040
+   "bytes": 100040,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
   },
   {
    "id": "44C2.3",
@@ -5247,7 +5307,12 @@
      "triangles": 11464
     }
    ],
-   "bytes": 122496
+   "bytes": 122496,
+   "torn": [
+    "Anterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior syndesmosis and interosseous membrane torn. The posterior syndesmosis stays on the posterior malleolus fragment (its tether moves with that fragment). The whole membrane is torn in this model."
   },
   {
    "id": "44C3.1",
@@ -5306,7 +5371,13 @@
      "triangles": 9658
     }
    ],
-   "bytes": 96364
+   "bytes": 96364,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
   },
   {
    "id": "44C3.2",
@@ -5366,7 +5437,13 @@
      "triangles": 9422
     }
    ],
-   "bytes": 98860
+   "bytes": 98860,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
   },
   {
    "id": "44C3.3",
@@ -5444,7 +5521,12 @@
      "triangles": 11102
     }
    ],
-   "bytes": 115868
+   "bytes": 115868,
+   "torn": [
+    "Anterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior syndesmosis and interosseous membrane torn. The posterior syndesmosis stays on the posterior malleolus fragment (its tether moves with that fragment). The whole membrane is torn in this model."
   },
   {
    "id": "44-PM-I",

@@ -8,6 +8,7 @@ import { computeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
 import { initXR } from './xr.js';
 import { frameOf, displacedMatrix, articularEdge, cortexPoints, measure, readoutLines, makeCollider, overlap } from './reduce.js';
 import { SOFT, makeSkinnable, initTissue } from './tissue.js';
+import { initJoints } from './joints.js';
 
 // fast pointing at big meshes (needed for VR rays)
 THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
@@ -114,14 +115,19 @@ async function main() {
     // table rows
     const g = document.createElement('tr');
     g.className = 'grp';
-    g.innerHTML = `<td>${L.label} (${L.structures.length})</td><td class="num">${num(L.triangles)}</td><td class="num">${kb(L.bytes)}</td>`;
+    g.innerHTML = `<td>${L.label} (${L.structures.length})</td><td class="num">${num(L.triangles)}</td><td class="num">${kb(L.bytes)}</td><td></td>`;
     rowsEl.append(g);
     const rowByName = {};
     for (const s of L.structures) {
       const tr = document.createElement('tr');
       tr.className = 'row';
-      tr.innerHTML = `<td>${s.name.replace(/\.r$/, '')}</td><td class="num">${num(s.triangles)}</td><td class="num">${kb(s.bytes_alone)}</td>`;
-      tr.addEventListener('click', () => select(selected === s.name ? null : s.name));
+      tr.innerHTML = `<td>${s.name.replace(/\.r$/, '')}</td><td class="num">${num(s.triangles)}</td><td class="num">${kb(s.bytes_alone)}</td>`
+        + '<td class="vis"><button class="hide" title="Hide or show this structure">hide</button><button class="iso" title="Show only the isolated structures (click several to isolate a group)">isolate</button></td>';
+      tr.addEventListener('click', (ev) => {
+        if (ev.target.classList.contains('hide')) return setHidden(s.name, !vis.hidden.has(s.name));
+        if (ev.target.classList.contains('iso')) return toggleIsolate(s.name);
+        select(selected === s.name ? null : s.name);
+      });
       rowsEl.append(tr);
       rowByName[s.name] = tr;
     }
@@ -141,7 +147,7 @@ async function main() {
   }
   const t = document.createElement('tr');
   t.className = 'grp';
-  t.innerHTML = `<td>Total (${count})</td><td class="num">${num(totalTris)}</td><td class="num">${kb(totalBytes)}</td>`;
+  t.innerHTML = `<td>Total (${count})</td><td class="num">${num(totalTris)}</td><td class="num">${kb(totalBytes)}</td><td></td>`;
   rowsEl.append(t);
 
   // centre the region and frame it (front view: patient faces the camera).
@@ -164,20 +170,29 @@ async function main() {
   document.getElementById('sub').textContent = `${manifest.title} · true scale (${main.name.replace(/\.[rl]$/, '').toLowerCase()} ${mm} mm long)`;
   initRegions();
   select(null);
+  applyVisibility();
   await initFractures(loader);
+  for (const s of manifest.layers.bones.structures) {           // fast pointing at intact bones (Phase 7b: they can be held)
+    if (structures[s.name]) structures[s.name].meshes.forEach((m) => { if (!m.geometry.boundsTree) m.geometry.computeBoundsTree(); });
+  }
+  joints = await initJoints({ region: REGION, structures, fx, layerGroups, onTear: () => { if (xr.active) xr.draw(); } });
+  if (joints) { joints.onFracture(null); initJointsPanel(); }
   tissue = initTissue({ layerGroups, fx, collider, boneColliders, followerBone,
+    pieces: () => (joints ? joints.pieces() : []), pieceHome: (n) => joints && joints.homeOf(n),
     softMaterials: () => ['muscles', 'tendon', 'joints', 'arteries', 'veins', 'nerves', 'skin'].map(material) });
   tissue.rebind();
   const gh = document.getElementById('ghost');
   gh.addEventListener('input', () => setGhost(+gh.value));
   document.getElementById('pull').addEventListener('change', (ev) => { sim.pull = ev.target.checked; });
   document.getElementById('collide').addEventListener('change', (ev) => { sim.collide = ev.target.checked; sim.note = ''; sim.slow = 0; syncToggles(); });
+  document.getElementById('showall').addEventListener('click', showAll);
   xr = initXR({ renderer, scene, camera, controls, stage, layerGroups, fx, showFracture, setSpread,
     resetFragments, setPosition, collider, boneColliders, updateReadout, resize, advance, sim, measure, readoutLines,
-    setGhost, syncToggles, tissue: () => tissue, setLayer, setQuality, femurLines });
+    setGhost, syncToggles, tissue: () => tissue, setLayer, setQuality, femurLines, joints: () => joints,
+    vis: { state: vis, setHidden, toggleIsolate, showAll, select, shown, structures } });
   window.viewer = { THREE, camera, controls, scene, stage, root, showFracture, setSpread, resetFragments, setPosition,
     measure, collider, overlap, advance, sim, tissue, setGhost, setLayer, setQuality, femurState, fx, xr,
-    layerGroups, renderer, ready: true };   // for testing
+    layerGroups, renderer, vis, setHidden, toggleIsolate, showAll, structures, joints, ready: true };   // for testing
 }
 
 // ---- Phase 2: pre-cut fractures -------------------------------------------
@@ -185,6 +200,7 @@ const fx = { index: {}, data: null, group: null, hidden: [], fragments: [], foll
   position: 'displaced',        // position: 'displaced' (typical displacement) or 'reduced' (anatomical)
   quality: '', shownQuality: '' };   // bone quality chosen ('' = the fracture's default) and the one shown
 let xr = { update() {} };
+let joints = null;            // Phase 7b (regions with assets/<region>/joint_model.json)
 let tissue = { update() {}, rebind() {}, setGhost() {} };
 
 function setGhost(percent) {                 // 100 = solid soft tissue, 0 = invisible
@@ -192,6 +208,50 @@ function setGhost(percent) {                 // 100 = solid soft tissue, 0 = inv
   document.getElementById('ghostv').textContent = percent + ' %';
   tissue.setGhost(percent / 100);
 }
+// ---- hide or isolate single structures (view only: a hidden bone still blocks bone) ----
+// Keys: a Z-Anatomy name (the structure and, if it is cut, all its fragments) or a fragment label
+// ("tibia: distal"; VR only). Isolated: only the isolated keys are shown.
+const vis = { hidden: new Set(), iso: new Set() };
+const shown = (o) => { for (; o; o = o.parent) if (!o.visible) return false; return true; };
+function visibleKey(...keys) {
+  if (keys.some((k) => vis.hidden.has(k))) return false;
+  return !vis.iso.size || keys.some((k) => vis.iso.has(k));
+}
+function applyVisibility() {
+  for (const [name, s] of Object.entries(structures)) {
+    const on = visibleKey(name);
+    s.meshes.forEach((m) => { m.visible = on; });
+    if (s.row) {
+      s.row.classList.toggle('off', !on);
+      s.row.querySelector('.hide').textContent = vis.hidden.has(name) ? 'show' : 'hide';
+      s.row.querySelector('.iso').classList.toggle('on', vis.iso.has(name));
+    }
+  }
+  for (const f of fx.fragments) f.holder.visible = visibleKey(f.za, f.label);
+  const n = vis.hidden.size, k = vis.iso.size;
+  document.getElementById('visnote').textContent = n || k
+    ? [n ? `${n} hidden` : '', k ? `isolated: ${[...vis.iso].map((x) => x.replace(/\.[rl]$/, '')).join(', ')}` : ''].filter(Boolean).join(' · ')
+    : 'Everything shown (within the layers that are ticked).';
+  document.getElementById('showall').disabled = !(n || k);
+  if (xr.draw && xr.active) xr.draw();
+}
+function setHidden(key, on) {
+  if (on) { vis.hidden.add(key); vis.iso.delete(key); } else vis.hidden.delete(key);
+  applyVisibility();
+}
+function toggleIsolate(key) {
+  if (vis.iso.has(key)) vis.iso.delete(key);
+  else {
+    vis.iso.add(key); vis.hidden.delete(key);
+    const s = structures[key];
+    if (s && !layerGroups[s.layer].visible) setLayer(s.layer, true);   // its layer must be on to see it
+    const f = fx.fragments.find((x) => x.label === key);
+    if (f && !layerGroups.bones.visible) setLayer('bones', true);
+  }
+  applyVisibility();
+}
+function showAll() { vis.hidden.clear(); vis.iso.clear(); applyVisibility(); }
+
 // region picker: reloads the page with ?region=<id>
 async function initRegions() {
   const sel = document.getElementById('region');
@@ -281,6 +341,8 @@ function boneColliders(withFollowers = false) {   // intact bones on screen (not
 // ---- Phase 6d: the leg (tibia, fibula, intact patella) moves with the femur fragment that carries the knee ----
 const isFollower = (node) => fx.followers.some((x) => x.node === node);
 function followerBone(c) {           // for the soft tissue: a follower counts as the knee fragment
+  const pi = joints ? joints.pieces().indexOf(c.obj) : -1;       // a free bone of the joint model is its own piece
+  if (pi >= 0) return fx.fragments.length + 1 + pi;
   const k = fx.followers.find((x) => x.node === c.obj);
   return k ? fx.fragments.indexOf(k.frag) + 1 : 0;
 }
@@ -299,6 +361,7 @@ function updateFollowers() {
     const k0 = new THREE.Vector3(...x.pivot), k1 = k0.clone().applyMatrix4(FW.m);
     const F = new THREE.Matrix4().makeTranslation(k1.x, k1.y, k1.z).multiply(new THREE.Matrix4().makeRotationFromQuaternion(swing))
       .multiply(new THREE.Matrix4().makeTranslation(-k0.x, -k0.y, -k0.z));
+    if (joints && joints.takes(x.node)) { joints.setBase(x.node, F, !f.fixed); continue; }   // 7b: the ligaments place it from there
     x.node.matrixAutoUpdate = false;
     x.node.matrix.copy(F).multiply(x.home);
     x.node.matrixWorldNeedsUpdate = true;
@@ -536,13 +599,15 @@ async function showFracture(id) {
     x.node.matrixAutoUpdate = x.auto; x.node.updateMatrixWorld(true);
   }
   fx.followers = [];
+  for (const k of [...vis.hidden, ...vis.iso]) if (k.includes(': ')) { vis.hidden.delete(k); vis.iso.delete(k); }   // fragments of the old fracture
   Object.assign(fx, { group: null, hidden: [], fragments: [] });
   const info = document.getElementById('fxinfo');
   info.innerHTML = '';
   document.getElementById('readout').innerHTML = '';
   select(null);
   const e = fx.index[id];
-  if (!e) { tissue.rebind(); return; }
+  const settle = () => { if (joints) { joints.onFracture(e); jointsPanel(); } applyVisibility(); tissue.rebind(); };
+  if (!e) { settle(); return; }
   const src = e.sources.map((s) => `<li>${s.ref}${s.page ? ', p. ' + s.page : ''}. PMID ${s.pmid}</li>`).join('');
   info.innerHTML = `<p><b>${e.id}</b> ${e.name}</p>`
     + (e.qualification ? `<p>Shown: ${e.qualification}</p>` : '')
@@ -570,7 +635,8 @@ async function showFracture(id) {
     .map(([k, x]) => `${k[0].toUpperCase() + k.slice(1)}: ${x}`).join(' · ') + '</p>';
   if (e.measured && e.measured.lateral_wall_mm != null) info.innerHTML += `<p>Lateral wall on this model: ${e.measured.lateral_wall_mm} mm`
     + ` (AO/OTA: >20.5 mm intact, ≤20.5 mm incompetent; Hsu 2013)</p>`;
-  if (!e.file) { tissue.rebind(); return; }
+  if (e.torn) info.innerHTML += `<p><b>Torn ligaments</b> (shown red): ${e.torn.join(', ')}. ${e.torn_basis || ''}</p>`;
+  if (!e.file) { settle(); return; }
   const gltf = await fx.loader.loadAsync(REGION + 'fractures/' + (q ? e.files[q] : e.file));
   if (token !== fx.token) return;                  // another fracture was chosen meanwhile
   fx.group = gltf.scene;
@@ -599,7 +665,7 @@ async function showFracture(id) {
     const frame = frameOf(fx.data, u.bone);
     const site = new THREE.Vector3(...u.site);
     const f = { node, holder, dir: dir.lengthSq() ? dir.normalize() : dir, vol: u.volume_cm3, bone: u.bone,
-      label: `${u.bone}: ${u.fragment}`, fixed: false, frame, site,
+      label: `${u.bone}: ${u.fragment}`, za: u.za_name || '', fixed: false, frame, site,
       isDistal: new THREE.Vector3(...u.centroid).sub(site).dot(frame.D) > 0,
       preset: meta.pose ? { pose: meta.pose } : (fx.data.displacements[meta.displace] || null), presetName: meta.displace || '',
       edge: articular && u.bone === 'tibia' ? articularEdge(node) : [], cortex: cortexPoints(node), ref: null, collider: null };
@@ -629,7 +695,52 @@ async function showFracture(id) {
   }
   setSpread(fx.spread);
   setPosition(fx.position);
-  tissue.rebind();
+  settle();
+}
+
+// ---- Phase 7b: joints and ligaments on the page ----
+function initJointsPanel() {
+  document.getElementById('jointsec').hidden = false;
+  const fib = document.getElementById('fibres'), ct = document.getElementById('cantear');
+  fib.addEventListener('change', () => { joints.showFibres = fib.checked; });
+  ct.addEventListener('change', () => { joints.canTear = ct.checked; });
+  const bt = document.getElementById('stressbtns');
+  for (const t of joints.cfg.stress_tests) {
+    const b = document.createElement('button'); b.textContent = t.name; b.dataset.test = t.id;
+    b.addEventListener('click', () => { joints.startStress(t.id); jointsPanel(); });
+    bt.append(b);
+  }
+  const mk = (txt, fn) => { const b = document.createElement('button'); b.textContent = txt; b.addEventListener('click', () => { fn(); jointsPanel(); }); bt.append(b); };
+  mk('Stop (let go)', () => joints.stopStress());
+  mk('Repair all', () => joints.repairAll());
+  mk('Tear / repair the selected ligament', () => { if (!selected || !joints.toggleLigament(selected)) joints.note = 'Select a ligament first (tap it, or its row in the table).'; });
+  jointsPanel();
+}
+function jointsPanel() {           // torn groups as buttons (red = torn)
+  if (!joints) return;
+  const el = document.getElementById('tornlist');
+  const groups = Object.keys(joints.cfg.groups).filter((g) => joints.tethers.some((t) => t.group === g));
+  const torn = joints.tornGroups();
+  el.innerHTML = '';
+  for (const g of groups) {
+    const b = document.createElement('button');
+    b.textContent = g; b.className = torn.includes(g) ? 'torn' : '';
+    b.title = torn.includes(g) ? 'Torn: click to repair' : 'Intact: click to tear';
+    b.addEventListener('click', () => { joints.toggleGroup(g); jointsPanel(); });
+    el.append(b);
+  }
+  for (const b of document.querySelectorAll('#stressbtns button[data-test]')) b.classList.toggle('on', !!(joints.stress && joints.stress.test.id === b.dataset.test));
+  document.getElementById('cantear').checked = joints.canTear;
+  jointsReadout();
+}
+function jointsReadout() {
+  const st = joints.stress;
+  document.getElementById('jointro').innerHTML = `<b>${st ? st.test.name + (st.k < 1 ? ' (pushing…)' : ' (end point)') : 'Talus against the tibia'}</b>`
+    + joints.lines().map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join('');
+  const src = st ? st.test.sources.map((x) => `${x.ref}, PMID ${x.pmid}${x.claim ? ' (' + x.claim + ')' : ''}`).join('; ') : '';
+  document.getElementById('jointnote').innerHTML = (joints.note ? joints.note : '') + (src ? `<br><small>Sources: ${src}</small>` : '');
+  const tornNow = joints.tornGroups().join(',');
+  if (tornNow !== jointsReadout.last) { jointsReadout.last = tornNow; if (jointsReadout.last !== undefined) jointsPanel(); }
 }
 
 // picking
@@ -641,7 +752,6 @@ renderer.domElement.addEventListener('pointerup', (e) => {
   const r = renderer.domElement.getBoundingClientRect();
   ray.setFromCamera(new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1,
     -((e.clientY - r.top) / r.height) * 2 + 1), camera);
-  const shown = (o) => { for (; o; o = o.parent) if (!o.visible) return false; return true; };
   const hit = ray.intersectObjects(Object.values(layerGroups), true).find((h) => shown(h.object));
   if (hit && hit.object.userData.fragLabel) { select(null); label.textContent = hit.object.userData.fragLabel; return; }
   select(hit ? hit.object.userData.za_name : null);
@@ -657,7 +767,7 @@ function resize() {
 }
 new ResizeObserver(resize).observe(view);
 resize();
-let lastT = performance.now(), readoutAt = 0;
+let lastT = performance.now(), readoutAt = 0, jointsAt = 0;
 renderer.setAnimationLoop(() => {
   const now = performance.now(), dt = Math.min(0.1, (now - lastT) / 1000);
   lastT = now;
@@ -665,6 +775,8 @@ renderer.setAnimationLoop(() => {
   if (renderer.xr.isPresenting) xr.update(); else controls.update();
   if (stepPull(dt) && now - readoutAt > 200) { readoutAt = now; updateReadout(); }
   updateFollowers();
+  if (joints) joints.step();
+  if (joints && now - jointsAt > 200) { jointsAt = now; jointsReadout(); }
   tissue.update(4);
   // With a headset depth image three.js skips its own clear; clear to transparent so the room shows through.
   if (renderer.xr.isPresenting && renderer.xr.hasDepthSensing()) renderer.clear();

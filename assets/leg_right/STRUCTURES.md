@@ -26,6 +26,17 @@ Size = Draco-compressed size. For one structure it is the size if stored alone; 
 | Tendon of extensor digitorum longus.r | Z-Anatomy | 5,184 | 36 |
 | Tibialis anterior muscle.r | Z-Anatomy | 3,526 | 34 |
 | Tibialis posterior muscle.r | Z-Anatomy | 5,526 | 40 |
+| **Joint capsules and ligaments (10) - joints.glb** | | **13,682** | **68** |
+| Anterior talofibular ligament.r | Z-Anatomy | 32 | 21 |
+| Anterior tibiofibular ligament.r | Z-Anatomy | 248 | 22 |
+| Calcaneofibular ligament.r | Z-Anatomy | 32 | 21 |
+| Interosseous membrane of leg.r | Z-Anatomy | 12,642 | 57 |
+| Posterior talofibular ligament.r | Z-Anatomy | 32 | 21 |
+| Posterior tibiofibular ligament.r | Z-Anatomy | 248 | 22 |
+| Posterior tibiotalar ligament.r | Z-Anatomy | 56 | 21 |
+| Tibiocalcaneal ligament.r | Z-Anatomy | 56 | 21 |
+| Tibionavicular ligament.r | Z-Anatomy | 232 | 22 |
+| Transverse tibiofibular ligament.r | Z-Anatomy | 104 | 21 |
 | **Arteries (7) - arteries.glb** | | **30,528** | **103** |
 | Anterior tibial artery.r | Z-Anatomy | 4,320 | 31 |
 | Fibular artery.r | Z-Anatomy | 6,336 | 36 |
@@ -65,4 +76,4 @@ Size = Draco-compressed size. For one structure it is the size if stored alone; 
 | Popliteal fossa.r | Z-Anatomy | 120 | 25 |
 | Posterior region of knee.r | Z-Anatomy | 644 | 27 |
 | Posterior region of leg.r | Z-Anatomy | 1,220 | 28 |
-| **Total (54)** | | **193,655** | **732** |
+| **Total (64)** | | **207,337** | **800** |

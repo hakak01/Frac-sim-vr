@@ -32,11 +32,25 @@
   tbody tr.row:hover td { background:#252b34; }
   tbody tr.sel td { background:#12405f; }
   a { color:var(--accent); }
+  td.vis { white-space:nowrap; text-align:right; }
+  td.vis button, #showall { font:12px/1 inherit; padding:4px 6px; margin-left:3px; color:var(--text); background:#2b333d;
+    border:1px solid var(--line); border-radius:5px; cursor:pointer; }
+  td.vis button.on { background:var(--accent); color:#06202f; }
+  #showall:disabled { opacity:.5; cursor:default; }
+  tr.off td:first-child { color:var(--dim); text-decoration:line-through; }
+  .visbar { display:flex; gap:8px; align-items:center; }
+  .btns { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; }
+  .btns button { font:13px/1.2 inherit; padding:6px 8px; color:var(--text); background:#2b333d; border:1px solid var(--line);
+    border-radius:6px; cursor:pointer; }
+  .btns button.on { background:var(--accent); color:#06202f; }
+  .btns button.torn { background:#7a1f1a; border-color:#ff3b30; }
   #region { margin:4px 0 2px; }
   #quality { flex:1; padding:6px; font:inherit; color:var(--text); background:#262d36; border:1px solid var(--line); border-radius:6px; }
   #fx, #region { width:100%; padding:8px; font:inherit; color:var(--text); background:#262d36; border:1px solid var(--line); border-radius:6px; }
   .rng { display:flex; align-items:center; gap:8px; margin:8px 0 4px; color:var(--dim); }
   .rng input { flex:1; accent-color:var(--accent); }
+  #vrbtn { width:100%; margin:0 0 4px; padding:10px; font:600 15px/1 inherit; color:var(--text); background:#2b333d;
+    border:1px solid var(--accent); border-radius:8px; cursor:pointer; }
   #xrbtn { width:100%; margin:10px 0 4px; padding:12px; font:600 16px/1 inherit; color:#06202f; background:var(--accent);
     border:0; border-radius:8px; cursor:pointer; }
   #xrnote { font-size:13px; }
@@ -74,6 +88,7 @@
     <select id="region" aria-label="Region"></select>
     <p id="sub">Loading…</p>
     <button id="xrbtn" hidden>Enter VR</button>
+    <button id="vrbtn" hidden>Enter VR (virtual room, no pass-through)</button>
     <p id="xrnote"></p>
     <h2>Fracture (AO/OTA 2018)</h2>
     <select id="fx"><option value="">Intact bones</option></select>
@@ -89,13 +104,29 @@
     <p id="simnote"></p>
     <div id="readout"></div>
     <div id="fxinfo"></div>
+    <div id="jointsec" hidden>
+      <h2>Joints and ligaments</h2>
+      <p style="font-size:13px">Each ligament is a set of fibres between its two bone attachments (green: slack, yellow to red: taut).
+        Torn ligaments are red. A stress test pushes the foot (talus) like an examiner; the ligaments that are left stop it.
+        Teaching model, no forces in newtons: see <a href="ligament_model.json">ligament_model.json</a>.</p>
+      <div class="pos"><label><input type="checkbox" id="fibres" checked> Show ligament fibres</label>
+        <label><input type="checkbox" id="cantear"> Ligaments can tear when over-stretched</label></div>
+      <div id="stressbtns" class="btns"></div>
+      <div id="jointro" class="ro"></div>
+      <p id="jointnote" style="font-size:13px"></p>
+      <p style="font-size:13px">Torn (click to tear or repair):</p>
+      <div id="tornlist" class="btns"></div>
+    </div>
     <h2>Layers</h2>
     <div id="layers"></div>
     <label class="rng">Soft tissue ghost
       <input type="range" id="ghost" min="0" max="100" step="5" value="100"><span id="ghostv">100 %</span></label>
     <h2>Structures</h2>
+    <p class="visbar"><button id="showall" disabled>Show all</button> <span id="visnote"></span></p>
+    <p style="font-size:13px">Hide: takes one structure away. Isolate: shows only the isolated structures (isolate several to keep a group).
+      Hiding is for the view only: a hidden bone still blocks bone.</p>
     <table>
-      <thead><tr><th>Structure</th><th class="num">Triangles</th><th class="num">Size</th></tr></thead>
+      <thead><tr><th>Structure</th><th class="num">Triangles</th><th class="num">Size</th><th></th></tr></thead>
       <tbody id="rows"></tbody>
     </table>
     <p style="margin-top:10px">Size = compressed file size. For one structure it is the size if stored alone;

@@ -718,7 +718,7 @@ def main():
                     entries.append(old[row["id"]])
                 continue
             e = {k: row[k] for k in ("id", "code", "name", "segment", "qualification", "tags", "sources",
-                                     "line_basis", "soft_tissue", "note") if row.get(k)}
+                                     "line_basis", "soft_tissue", "note", "torn", "torn_basis") if row.get(k)}
             dq = default_of(row)
             failed, files = False, {}
             # several files only if a cut bone has bone-quality profiles (femur yes, patella no)
@@ -764,7 +764,7 @@ def main():
         if e.get("file"):
             e["bytes"] = os.path.getsize(os.path.join(out_dir, e["file"]))
         row = by_id[e["id"]]                      # text fields and displacement always follow fractures.json
-        for k in ("code", "name", "segment", "qualification", "tags", "sources", "line_basis", "soft_tissue", "note"):
+        for k in ("code", "name", "segment", "qualification", "tags", "sources", "line_basis", "soft_tissue", "note", "torn", "torn_basis"):
             if row.get(k):
                 e[k] = row[k]
         for f in e["fragments"]:

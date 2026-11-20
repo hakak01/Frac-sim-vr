@@ -1,0 +1,347 @@
+{
+ "_about": "Phase 7b teaching model of joints and ligaments. Shapes and attachments come from Z-Anatomy (ligaments) and BodyParts3D (bones). Each ligament is a set of straight fibres (tethers) between its two attachments: slack up to the toe strain, then taut (it holds). Joints keep their cartilage surfaces from passing through each other and are pressed gently closed. No forces in newtons: the numbers below are teaching values unless a source is given.",
+ "fixed_bones": [
+  "Tibia.r"
+ ],
+ "fibres": {
+  "toe_strain": {
+   "value": 0.04,
+   "status": "teaching value",
+   "note": "A fibre is slack until it is this much longer than at rest (the 'toe region' of a ligament), then it holds."
+  },
+  "tear_strain": {
+   "value": 0.15,
+   "status": "teaching value",
+   "note": "With 'ligaments can tear' on, a fibre this much longer than at rest tears, and with it the whole ligament part. Measured ultimate elongation of each ankle ligament is in Siegler 1988 (PMID 3366428); that paper was not read, so it is not used."
+  },
+  "strength_order": {
+   "lateral": "anterior talofibular < calcaneofibular < posterior talofibular",
+   "medial": "tibiocalcaneal < tibionavicular < tibiospring < posterior tibiotalar",
+   "sources": [
+    {
+     "ref": "Siegler S, Block J, Schneck CD. Foot Ankle 1988;8(5):234-42",
+     "pmid": "3366428",
+     "doi": "10.1177/107110078800800502",
+     "claim": "ultimate load of the lateral ligaments rises front to back; posterior tibiotalar highest of the medial"
+    },
+    {
+     "ref": "Attarian DE et al. Foot Ankle 1985;6(2):54-8",
+     "pmid": "4065775",
+     "doi": "10.1177/107110078500600202",
+     "claim": "anterior talofibular lowest load to failure, deep deltoid highest"
+    }
+   ],
+   "use": "shown as information only; every ligament has the same teaching values"
+  }
+ },
+ "solver": {
+  "_about": "Quasi-static position-based solver (no forces in newtons). Ligament fibres and joint surfaces are hard limits; the 'seat' (soft tissue and muscle tone holding a bone in place) and the examiner's push are soft.",
+  "iterations": 10,
+  "seat_compliance": 400,
+  "drive_compliance": 15,
+  "contact_allowance_mm": 0.5,
+  "pins": {
+   "Fibula.r": {
+    "where": "proximal end",
+    "why": "the proximal tibiofibular joint is outside these regions' data: the top of the fibula is held in place"
+   }
+  },
+  "pin_compliance": 0.001,
+  "_compliance": "Softness of a soft link: the larger, the softer (a bone's own weight is about 1-3). Ligament fibres and joint surfaces have 0 (hard)."
+ },
+ "stress_tests": [
+  {
+   "id": "drawer",
+   "name": "Anterior drawer",
+   "move": "translate",
+   "axis": "anterior",
+   "amount": 15,
+   "unit": "mm",
+   "ramp_s": 1.5,
+   "readouts": [
+    "anterior_translation"
+   ],
+   "limits": "Abnormal: 10 mm or more, or 3 mm or more than the other side (most common thresholds in the literature).",
+   "sources": [
+    {
+     "ref": "Guerra-Pinto F et al. J Foot Ankle Surg 2021;60(6):1241-53 (systematic review)",
+     "pmid": "34134919",
+     "doi": "10.1053/j.jfas.2020.04.026"
+    },
+    {
+     "ref": "Chang SH et al. J Am Acad Orthop Surg 2021;29(1):3-16",
+     "pmid": "33347006",
+     "doi": "10.5435/JAAOS-D-20-00145",
+     "claim": "examine the drawer in about 16 degrees of plantar flexion (not modelled: the foot stays in its rest position)"
+    }
+   ],
+   "pivot_note": "Talar tilt hinges at the medial edge of the talar dome; external rotation turns about the centre of the dome (axis along the tibia); the drawer moves the whole foot forward."
+  },
+  {
+   "id": "tilt",
+   "name": "Talar tilt (inversion)",
+   "move": "rotate",
+   "axis": "anterior",
+   "amount": 25,
+   "unit": "deg",
+   "ramp_s": 1.5,
+   "readouts": [
+    "talar_tilt",
+    "lateral_gap"
+   ],
+   "limits": "Abnormal: 10 degrees or more, or 6 degrees or more than the other side (most common thresholds).",
+   "sources": [
+    {
+     "ref": "Guerra-Pinto F et al. J Foot Ankle Surg 2021;60(6):1241-53 (systematic review)",
+     "pmid": "34134919",
+     "doi": "10.1053/j.jfas.2020.04.026"
+    },
+    {
+     "ref": "Frost SC, Amendola A. Clin J Sport Med 1999;9(1):40-5",
+     "pmid": "10336051",
+     "doi": "10.1097/00042752-199901000-00008",
+     "claim": "normal and injured values overlap widely"
+    }
+   ],
+   "pivot": "dome_medial",
+   "pivot_note": "Talar tilt hinges at the medial edge of the talar dome; external rotation turns about the centre of the dome (axis along the tibia); the drawer moves the whole foot forward."
+  },
+  {
+   "id": "er",
+   "name": "External rotation stress",
+   "move": "rotate",
+   "axis": "up_external",
+   "amount": 25,
+   "unit": "deg",
+   "ramp_s": 1.5,
+   "readouts": [
+    "external_rotation",
+    "medial_gap",
+    "tibiofibular_gap"
+   ],
+   "limits": "Medial clear space on a stress view: 5 mm or more suggests a deep deltoid tear (6 mm: no false positives in a cadaver study). Tibiofibular clear space: under about 6 mm is normal.",
+   "sources": [
+    {
+     "ref": "Ashraf A et al. J Orthop Trauma 2017;31(5):270-4 (gravity stress, cadavers)",
+     "pmid": "28431410",
+     "doi": "10.1097/BOT.0000000000000817"
+    },
+    {
+     "ref": "Harper MC, Keller TS. Foot Ankle 1989;10(3):156-60",
+     "pmid": "2613128",
+     "doi": "10.1177/107110078901000308"
+    }
+   ],
+   "pivot": "dome",
+   "pivot_note": "Talar tilt hinges at the medial edge of the talar dome; external rotation turns about the centre of the dome (axis along the tibia); the drawer moves the whole foot forward."
+  }
+ ],
+ "readouts": {
+  "anterior_translation": "Talus forward against the tibia (mm)",
+  "talar_tilt": "Talus tilt into inversion (degrees)",
+  "external_rotation": "Talus external rotation (degrees)",
+  "medial_gap": "Medial gutter gap, talus to medial malleolus (mm)",
+  "lateral_gap": "Ankle joint gap, lateral half of the dome (mm)",
+  "tibiofibular_gap": "Tibiofibular gap at the incisura (mm)",
+  "_note": "Gaps are bone surface to bone surface on these meshes (cartilage is part of the bone surface), so they are not X-ray clear spaces; the value at rest is shown next to each."
+ },
+ "groups": {
+  "Deltoid ligament": [
+   "Posterior tibiotalar ligament.r",
+   "Tibiocalcaneal ligament.r",
+   "Tibionavicular ligament.r"
+  ],
+  "Lateral collateral ligament": [
+   "Anterior talofibular ligament.r",
+   "Calcaneofibular ligament.r",
+   "Posterior talofibular ligament.r"
+  ],
+  "Anterior syndesmosis": [
+   "Anterior tibiofibular ligament.r"
+  ],
+  "Posterior syndesmosis": [
+   "Posterior tibiofibular ligament.r",
+   "Transverse tibiofibular ligament.r"
+  ],
+  "Interosseous membrane": [
+   "Interosseous membrane of leg.r"
+  ],
+  "Talocalcaneal (subtalar) ligaments": [
+   "Anterior talocalcaneal ligament.r",
+   "Lateral talocalcaneal ligament.r",
+   "Medial talocalcaneal ligament.r",
+   "Posterior talocalcaneal ligament.r",
+   "Talocalcaneal interosseous ligament.r"
+  ],
+  "Spring ligament": [
+   "Plantar calcaneonavicular ligament.r"
+  ],
+  "Bifurcate ligament": [
+   "Calcaneonavicular ligament.r",
+   "Calcaneocuboid ligament.r"
+  ],
+  "Chopart joint ligaments": [
+   "Talonavicular ligament.r",
+   "Dorsal calcaneocuboid ligament.r",
+   "Plantar calcaneocuboid ligament.r",
+   "Long plantar ligament.r"
+  ],
+  "Tarsometatarsal (Lisfranc joint) ligaments": [
+   "Dorsal tarsometatarsal ligaments.r",
+   "Plantar tarsometatarsal ligaments.r",
+   "Cuneometatarsal interosseous ligaments.r"
+  ],
+  "Midfoot ligaments": [
+   "Dorsal cuboideonavicular ligament.r",
+   "Plantar cuboideonavicular ligament.r",
+   "Dorsal cuneocuboid ligament.r",
+   "Plantar cuneocuboid ligament.r",
+   "Cuneocuboid interosseous ligament.r",
+   "Dorsal cuneonavicular ligaments.r",
+   "Plantar cuneonavicular ligaments.r",
+   "Dorsal intercuneiform ligaments.r",
+   "Plantar intercuneiform ligaments.r",
+   "Intercuneiform interosseous ligaments.r"
+  ],
+  "Intermetatarsal ligaments": [
+   "Dorsal metatarsal ligaments.r",
+   "Plantar metatarsal ligaments.r",
+   "Metatarsal interosseous ligaments.r",
+   "Deep transverse metatarsal ligament.r"
+  ],
+  "Toe joint capsules and ligaments": [
+   "Articular capsules of metatarsophalangeal joints.r",
+   "Collateral metatarsophalangeal ligaments.r",
+   "Plantar metatarsophalangeal ligaments.r",
+   "Articular capsules of proximal interphalangeal joints of foot.r",
+   "Articular capsules of distal interphalangeal joints of foot.r",
+   "Articular capsule of interphalangeal joint of great toe.r",
+   "Collateral interphalangeal ligaments of foot.r",
+   "Plantar interphalangeal ligaments.r",
+   "Intersesamoid ligament.r"
+  ]
+ },
+ "joint_names": {
+  "Talus.r | Tibia.r": "Ankle (talocrural) joint",
+  "Fibula.r | Talus.r": "Ankle (talocrural) joint, fibular facet",
+  "Fibula.r | Tibia.r": "Distal tibiofibular joint (syndesmosis)",
+  "Calcaneus.r | Talus.r": "Subtalar (talocalcaneal) joint",
+  "Navicular bone.r | Talus.r": "Talonavicular joint (Chopart, medial)",
+  "Calcaneus.r | Cuboid bone.r": "Calcaneocuboid joint (Chopart, lateral)",
+  "Cuboid bone.r | Navicular bone.r": "Cuboideonavicular joint",
+  "Medial cuneiform bone.r | Navicular bone.r": "Cuneonavicular joint (medial cuneiform)",
+  "Intermediate cuneiform bone.r | Navicular bone.r": "Cuneonavicular joint (intermediate cuneiform)",
+  "Lateral cuneiform bone.r | Navicular bone.r": "Cuneonavicular joint (lateral cuneiform)",
+  "Intermediate cuneiform bone.r | Medial cuneiform bone.r": "Intercuneiform joint (medial-intermediate)",
+  "Intermediate cuneiform bone.r | Lateral cuneiform bone.r": "Intercuneiform joint (intermediate-lateral)",
+  "Cuboid bone.r | Lateral cuneiform bone.r": "Cuneocuboid joint",
+  "First metatarsal bone.r | Medial cuneiform bone.r": "Tarsometatarsal (Lisfranc) joint, 1st",
+  "Medial cuneiform bone.r | Second metatarsal bone.r": "Tarsometatarsal (Lisfranc) joint, 2nd, medial cuneiform",
+  "Intermediate cuneiform bone.r | Second metatarsal bone.r": "Tarsometatarsal (Lisfranc) joint, 2nd",
+  "Lateral cuneiform bone.r | Second metatarsal bone.r": "Tarsometatarsal (Lisfranc) joint, 2nd, lateral cuneiform",
+  "Lateral cuneiform bone.r | Third metatarsal bone.r": "Tarsometatarsal (Lisfranc) joint, 3rd",
+  "Fourth metatarsal bone.r | Lateral cuneiform bone.r": "Tarsometatarsal (Lisfranc) joint, 4th, lateral cuneiform",
+  "Cuboid bone.r | Fourth metatarsal bone.r": "Tarsometatarsal (Lisfranc) joint, 4th",
+  "Cuboid bone.r | Fifth metatarsal bone.r": "Tarsometatarsal (Lisfranc) joint, 5th",
+  "First metatarsal bone.r | Second metatarsal bone.r": "Intermetatarsal joint 1-2",
+  "Second metatarsal bone.r | Third metatarsal bone.r": "Intermetatarsal joint 2-3",
+  "Fourth metatarsal bone.r | Third metatarsal bone.r": "Intermetatarsal joint 3-4",
+  "Fifth metatarsal bone.r | Fourth metatarsal bone.r": "Intermetatarsal joint 4-5",
+  "First metatarsal bone.r | Proximal phalanx of first finger of foot.r": "Metatarsophalangeal joint 1",
+  "Distal phalanx of first finger of foot.r | Proximal phalanx of first finger of foot.r": "Interphalangeal joint of the great toe",
+  "Proximal phalanx of second finger of foot.r | Second metatarsal bone.r": "Metatarsophalangeal joint 2",
+  "Middle phalanx of second finger of foot.r | Proximal phalanx of second finger of foot.r": "Proximal interphalangeal joint 2",
+  "Distal phalanx of second finger of foot.r | Middle phalanx of second finger of foot.r": "Distal interphalangeal joint 2",
+  "Proximal phalanx of third finger of foot.r | Third metatarsal bone.r": "Metatarsophalangeal joint 3",
+  "Middle phalanx of third finger of foot.r | Proximal phalanx of third finger of foot.r": "Proximal interphalangeal joint 3",
+  "Distal phalanx of third finger of foot.r | Middle phalanx of third finger of foot.r": "Distal interphalangeal joint 3",
+  "Fourth metatarsal bone.r | Proximal phalanx of fourth finger of foot.r": "Metatarsophalangeal joint 4",
+  "Middle phalanx of fourth finger of foot.r | Proximal phalanx of fourth finger of foot.r": "Proximal interphalangeal joint 4",
+  "Distal phalanx of fourth finger of foot.r | Middle phalanx of fourth finger of foot.r": "Distal interphalangeal joint 4",
+  "Fifth metatarsal bone.r | Proximal phalanx of fifth finger of foot.r": "Metatarsophalangeal joint 5",
+  "Middle phalanx of fifth finger of foot.r | Proximal phalanx of fifth finger of foot.r": "Proximal interphalangeal joint 5",
+  "Distal phalanx of fifth finger of foot.r | Middle phalanx of fifth finger of foot.r": "Distal interphalangeal joint 5",
+  "First metatarsal bone.r | Sesamoid bones of foot.r": "Sesamoid-metatarsal joint (part of MTP joint 1)",
+  "Proximal phalanx of first finger of foot.r | Sesamoid bones of foot.r": "Sesamoid-phalanx contact (part of MTP joint 1)"
+ },
+ "tether_bones": {
+  "_about": "Only where the bones found automatically (the two bones the Z-Anatomy mesh touches most) disagree with the ligament's own name. A pair applies to every part; 'parts' gives one pair per part (parts ordered from patient right/lateral to left/medial); 'fan_from' makes one tether from that bone to every other bone the mesh touches.",
+  "Tibiocalcaneal ligament.r": [
+   "Tibia.r",
+   "Calcaneus.r"
+  ],
+  "Long plantar ligament.r": {
+   "fan_from": "Calcaneus.r"
+  },
+  "Deep transverse metatarsal ligament.r": {
+   "parts": [
+    [
+     "Fifth metatarsal bone.r",
+     "Fourth metatarsal bone.r"
+    ],
+    [
+     "Fourth metatarsal bone.r",
+     "Third metatarsal bone.r"
+    ],
+    [
+     "Third metatarsal bone.r",
+     "Second metatarsal bone.r"
+    ],
+    [
+     "Second metatarsal bone.r",
+     "First metatarsal bone.r"
+    ]
+   ]
+  },
+  "Dorsal metatarsal ligaments.r": {
+   "parts": [
+    [
+     "Fifth metatarsal bone.r",
+     "Fourth metatarsal bone.r"
+    ],
+    [
+     "Fourth metatarsal bone.r",
+     "Third metatarsal bone.r"
+    ],
+    [
+     "Third metatarsal bone.r",
+     "Second metatarsal bone.r"
+    ],
+    [
+     "Second metatarsal bone.r",
+     "First metatarsal bone.r"
+    ]
+   ]
+  },
+  "Plantar tarsometatarsal ligaments.r": {
+   "parts": [
+    [
+     "Cuboid bone.r",
+     "Fifth metatarsal bone.r"
+    ],
+    [
+     "Cuboid bone.r",
+     "Fourth metatarsal bone.r"
+    ],
+    [
+     "Lateral cuneiform bone.r",
+     "Third metatarsal bone.r"
+    ],
+    [
+     "Intermediate cuneiform bone.r",
+     "Second metatarsal bone.r"
+    ],
+    [
+     "Medial cuneiform bone.r",
+     "First metatarsal bone.r"
+    ]
+   ]
+  }
+ },
+ "z_anatomy_notes": [
+  "Tibionavicular ligament: the Z-Anatomy mesh ends on the talus (no point within 6 mm of the navicular), so its tether runs tibia - talus. Not changed (no hand-made anatomy).",
+  "Cuneometatarsal interosseous ligaments: three small parts, medial cuneiform - 1st metatarsal, intermediate - 2nd, lateral - 3rd. There is no medial cuneiform - 2nd metatarsal (Lisfranc) ligament in Z-Anatomy.",
+  "Long plantar ligament: one sheet that touches the calcaneus, all five metatarsals and the medial cuneiform (cuboid 1.6 mm away); modelled as a fan of tethers from the calcaneus to every bone it touches.",
+  "Intersesamoid ligament: both sesamoids are one mesh in the sources, so it joins nothing (shown only)."
+ ]
+}

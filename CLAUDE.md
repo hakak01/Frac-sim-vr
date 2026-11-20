@@ -64,7 +64,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
    hand occlusion, traction, haptics) – done (see PROGRESS.md). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 7. FOOT AND ANKLE (owner's plan, 18 Nov 2026, answers in PROGRESS.md > Decisions):
    7a assets (`foot_right` + talus as context in `leg_right`) – done (see PROGRESS.md); 7b joints + ligament tethers
-   (also for 43/44); 7c talus 81 + calcaneus 82 (CT-mapped); 7d 83-89 + dislocations;
+   (also for 43/44) – done, with the owner's extras: VR without pass-through as a choice, hide/isolate structures; 7c talus 81 + calcaneus 82 (CT-mapped); 7d 83-89 + dislocations;
    7e tendon pull, readouts, CT slice plane; 7f VR/MR (grips, positions, Sawbones overlay, haptics).
 
 ## File map
@@ -72,7 +72,11 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | Path | What it is |
 |---|---|
 | `index.html`, `js/viewer.js` | The web page: plain 3D viewer (layers, names, table) with a fracture picker and an explode slider. |
-| `js/xr.js` | VR mode (WebXR): pass-through or plain VR, menu panel, readout strip, holding fragments and the whole model, two-hand scale. |
+| `js/xr.js` | VR mode (WebXR): pass-through or plain VR (two buttons), menu panel, readout strip, holding fragments, free bones and the whole model, two-hand scale, Select / Hide / Isolate, Joints tab. |
+| `js/joints.js` | Phase 7b: joints and ligament tethers (position-based solver), stress tests, torn ligaments, fibre lines. |
+| `ligament_model.json` | Phase 7b DATA: teaching values (slack, tear), solver softness, stress tests with sources, ligament groups, joint names, fixed bone pairs, notes on Z-Anatomy. |
+| `tools/joint_model.py` | Joints (cartilage contact points) and tethers (fibres between ligament attachments) -> `assets/<region>/joint_model.json` + `JOINTS.md`. Seconds, no Blender. |
+| `tools/glb_meshes.mjs` | Decodes a Draco GLB to plain JSON points/triangles for Python tools. |
 | `js/reduce.js` | Reduction maths: typical displacement, readout (translation, shortening, angles, step, gap), collision shapes and overlap test. |
 | `js/tissue.js` | Soft tissue follows the fragments (skinning, tied on a 5 mm grid) and the ghost slider. |
 | `fractures.json` | THE fracture data: one row per AO/OTA 2018 code (cuts, fragments, sources). Edit this to add or change a fracture. |
@@ -290,6 +294,31 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
   (knee fragment pose without its tilt about the medial axis, pivot = knee centre); followers are left
   out of bone collision and tied to the knee fragment for the soft tissue; `femurState`/`femurLines`
   give neck-shaft angle, version, head-knee length against `index.femur.intact`.
+
+## Joints and ligaments (Phase 7b)
+
+- Rebuild: `python3 tools/joint_model.py foot_right` and `... leg_right` (needs `model/<region>/bones.npz`, `assets/<region>/joints.glb`,
+  `(cd tools && npm install)`). After editing `fractures.json` `torn` only: `python3 tools/fracture_engine.py leg_right --meta`.
+- Tether bones: the two bones a ligament mesh touches most (score = sqrt(min attachment points) x distance between
+  attachments); multi-part meshes (e.g. "Articular capsules of metatarsophalangeal joints") are split into parts.
+  Corrections only where the result contradicts the name: `ligament_model.json` > `tether_bones` (pair, `parts`, `fan_from`).
+- `joint_model.json`: `joints` [{name, bones, contacts: [a xyz on bones[0], b xyz on bones[1], normal of bones[1], gap mm]}],
+  `tethers` [{name, part, bones, group, fibres: [a xyz, b xyz], rest_mm}], GLB metres. `fixed`: Tibia.r.
+- Solver (`js/joints.js`): bodies = bones not cut (`dyn` unless fixed); a cut bone's fragments are kinematic bodies (ends
+  go to the nearest fragment within 3 mm via BVH). Per frame 10 rounds: seat (soft, compliance 400) or stress drive (15),
+  fibula pin, contacts (hard, gap >= rest gap - 0.5 mm), fibres (hard, length <= rest x 1.04). Compliance is in units of
+  inverse mass (bone mass 1), not XPBD seconds. Free bodies are written to `node.matrix` (matrixAutoUpdate off).
+  Layer space = bones layer axes; always convert with the CURRENT `layerGroups.bones.matrixWorld` (the VR stage moves it).
+- Foot stress tests weld all foot bones (not the fibula) into one body "Foot" (centre = talus). Tilt hinges at the medial
+  edge of the dome, external rotation about the dome centre (test `pivot` in the data).
+- Leg: talus = free body; `updateFollowers` hands it the follower pose (`joints.setBase(node, F, hard)`): hard (seated) when
+  the plafond fragment moves, soft when the plafond is on the main tibia. The whole fibula is free only in stress tests.
+- Soft tissue: `tissue.js` ties tissue to fragments AND to `joints.pieces()` (free bones; own bone inverse each).
+- Hide / isolate (`viewer.js` `vis`): keys = Z-Anatomy name (structure and all its fragments) or fragment label; sets
+  `mesh.visible` / `holder.visible` only (colliders unchanged). VR picking of hidden things is filtered with `vis.shown`.
+- Browser tests in this cloud box: a local `http.server` was refused; serve the files through Playwright
+  `context.route('http://site.test/**', ...)` reading from the repo instead. IWER from npm (`iwer@2`, `build/iwer.min.js`
+  as an init script).
 
 ## VR mode (Phase 3)
 

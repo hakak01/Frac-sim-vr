@@ -59,19 +59,21 @@ export function initTissue(v) {
   // Call when the fracture changes: new set of bone pieces; ties are worked out later, bit by bit.
   api.rebind = () => {
     token++;
-    const frs = v.fx.fragments;
+    const frs = v.fx.fragments, extra = v.pieces ? v.pieces() : [];   // Phase 7b: free bones of the joint model
     home.updateWorldMatrix(true, true);
-    const bones = [home, ...frs.map((f) => f.node)];
+    const bones = [home, ...frs.map((f) => f.node), ...extra];
     const inv = new THREE.Matrix4().copy(home.matrixWorld).invert();   // every piece is "home" at identity
     if (skeleton) skeleton.dispose();
-    skeleton = new THREE.Skeleton(bones, bones.map(() => inv.clone()));
+    skeleton = new THREE.Skeleton(bones, bones.map((b, i) => (i <= frs.length || !v.pieceHome(b) ? inv.clone()
+      : new THREE.Matrix4().multiplyMatrices(home.matrixWorld, v.pieceHome(b)).invert())));
+    const pieces = frs.length + extra.length;
     for (const m of meshes) {
       m.mesh.bind(skeleton, m.mesh.matrixWorld.clone());
       fill(m.mesh);
-      m.token = frs.length ? -1 : token;       // nothing to work out for intact bones
+      m.token = pieces ? -1 : token;           // nothing to work out for intact bones
     }
     job = null; api.busy = false; api.nodes = 0;
-    ctx = frs.length ? { inv, nb: bones.length, cols: null, cache: new Map() } : null;
+    ctx = pieces ? { inv, nb: bones.length, cols: null, cache: new Map() } : null;
   };
 
   const hit = {};
