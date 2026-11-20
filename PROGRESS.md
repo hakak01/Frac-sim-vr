@@ -603,6 +603,75 @@ Limits the owner should know (7b):
 6. Bones with no cartilage contact (calcaneus - fibula tip, etc.) can pass through each other while held.
 7. Hands in plain VR are simple balls; no proper controller models.
 
+### Phase 7c – TALUS 81 + CALCANEUS 82 – waiting for owner's OK
+
+25 rows in `fractures.json` (region `foot_right`), all built, 0 problems. Each is cut twice (young and elderly bone,
+modelled cortex): 50 GLB files, 4.7 MB in total; one fracture 8,700-57,500 triangles, 40-230 KB. Table:
+`assets/foot_right/fractures/FRACTURES.md`. Page: `?region=foot_right` > Fracture; VR: tabs 81 and 82.
+
+| Talus (16) | Built as |
+|---|---|
+| 81.1A1, A2, A3 (body, avulsion) | dorsal neck flake; lateral process wedge (fibular + posterior facet, 1.6 cm3); posterior process (both tubercles) |
+| 81.1B1 osteochondral | small dome piece, anterolateral |
+| 81.1B2, B3 (partial articular) | Roddy's dominant oblique line (anteromedial to posterolateral, dome into the posterior facet); B3 posteromedial part in 3 |
+| 81.1C1, C3 (complete articular) | coronal shear ending IN the posterior facet (body fracture, Inokuchi); C3 + the oblique line + comminution |
+| 81.2A, B(a), B(b), C(a), D(a) (neck = Hawkins 1-3, Canale-Kelly 4) | one neck line ending in the sinus tarsi; B(b) adds medial neck comminution; displacement makes the type (see below) |
+| 81.3A, B(a), C(a) (head) | dorsal flake; medial head split; whole head off |
+
+| Calcaneus (9) | Built as |
+|---|---|
+| 82A1-ant, 82A1-tub, 82A1-tongue (A1, extra-articular) | anterior process tip (bifurcate ligament); posterior tuberosity block; beak / extra-articular tongue |
+| 82A2 body | oblique body line behind the posterior facet |
+| 82B1, B3 tongue type | primary line + tongue line to the back of the tuberosity; B3 tongue in 2 + anterolateral fragment |
+| 82C1, C2, C3 joint depression = Sanders 2, 3, 4 | primary line + depressed lateral facet piece (impacted 6 mm); C2 split once more; C3 central piece in 3 + anterolateral fragment |
+
+Lines (sources in every row; abstracts only, nothing traced from a map figure):
+- Talus: Wang 2024 (PMID 38485459, 126 talus maps: neck 41 %, posterior tubercle 22 %, body 18 %, lateral process 12 %,
+  head 7 %); Roddy 2026 (PMID 42639242, 124 talar body maps: oblique anteromedial-posterolateral line 71 %, coronal 18 %,
+  sagittal 8 %, comminution 90 % mostly plantar-medial). Neck vs body (Inokuchi) as reviewed by Melenevsky 2015 (PMID 25969933).
+  No map was found for the neck line, the head, the osteochondral piece or the avulsions: those rows say "no mapping source".
+- Calcaneus: Ni 2021 (PMID 33708960), Shi 2023 (PMID 37258588: lateral-wall line 29 degrees, axial 11 degrees to the long
+  axis), Yu 2022 (PMID 35062985), Shi 2022 (PMID 36443435: sustentaculum rarely broken, aligned with the talus in 88 %),
+  Guo 2021 tongue (PMID 35071481) and Sanders 2 (PMID 34294674), Sanders 1993 (PMID 8472475). The sustentacular
+  ("constant") fragment is the fixed one.
+- Measured on these bones (`python3 tools/bone_model.py foot_right` lists them): talus 59.5 mm long (posterior process to
+  head), calcaneus 78.4 mm (tuberosity to cuboid facet = the long calcaneal axis of the papers); facets from the cartilage
+  marking; sustentaculum 31 mm medial of the axis; lateral process 23 mm lateral.
+
+Typical displacement (data poses, in foot words; directions from the sources, all SIZES teaching values):
+- Neck: Hawkins 1 none; 2 head and neck up, medial and into varus (Berlet 2001, PMID 11465133), hinged on the medial cortex,
+  subtalar ligaments torn; 3 body pushed out backwards and medially (about 23 mm), subtalar and lateral talofibular
+  ligaments torn, deltoid kept; 4 the same, and the head also out of the navicular.
+- Calcaneus: tuberosity lateral (widening) and into varus, in tongue fractures also 2 mm up; joint piece pushed down
+  6 mm and tilted; tongue turned with its back end up (Sanders 1993, Cottom 2017 PMID 27903928, Varol 2021 PMID 34434558).
+- On the page every fracture still starts free of bone overlap. 13 of 25 rows start with a smaller version of at least one
+  pose (81.1A2, 81.1B2, 81.1B3, 81.1C1, 81.1C3, 81.2B(a), 81.2B(b), 81.2C(a), 81.3B(a), 81.3C(a), 82B3, 82C1, 82C3), mostly
+  because the piece already touches a neighbour (fibula, navicular, talus) at home. In the foot only, such home contacts
+  may stay but not go deeper than the 2 mm inner shapes, and a piece may slide at most 6 mm to find a free start.
+
+Engine (data, no fracture-specific code): hindfoot frame and landmarks measured on the mesh; planes through 2-3 landmark
+points; plugs on a joint surface (pushed along its normal, with impaction); a fragment can be a union of regions; poses and
+the fixed fragment written in the row. Page: segment names 81 Talus, 82 Calcaneus; readout says dorsal/plantar and
+"transverse plane (seen from above)" in the foot.
+
+Tested in headless Chromium: all 25 fractures load (1.2-2.3 s each), bone quality switches, readouts, torn ligaments, no
+errors. VR in Meta's emulator: tabs 81 / 82 / Joints, all 25 buttons, Bone button, exit, no errors. Leg and thigh: start
+positions of all 176 fractures identical to before (compared one by one); re-cut leg and femur rows give byte-identical files.
+
+Limits the owner should know (7c):
+1. **Names and codes were written from the chapter summary in CLAUDE.md**: the printed foot pages (S89-S100) were not available
+   in this session. Please check the wording, the 82A1 variants (ids `82A1-ant`, `82A1-tub`, `82A1-tongue` are not AO
+   codes) and which qualification (a simple / b multifragmentary) the drawings show in bold. Upload the pages again to fix.
+2. Talus body B vs C: built as B = part of the body joint surface stays on the neck (Roddy's oblique line), C = the whole
+   body is off (coronal line into the posterior facet). Please confirm this matches the drawings.
+3. Tarsal cortex thickness (young 1.0 mm, elderly 0.6 mm, the same all round, no canal) has NO published source.
+4. Displacement sizes are teaching values; the posteromedial direction of the extruded body is from textbooks, not checked
+   in a primary paper this session. Lines were placed from abstracts, not traced from the maps.
+5. Hawkins 2: the subluxation shows as the head moving with the foot; the calcaneus follows only through its ligaments.
+   Hawkins 4: the navicular is pulled along by the head (talonavicular ligament not torn); pure dislocations are 7d.
+6. Böhler and Gissane angles, heel height and width are not shown as numbers yet (readouts are 7e).
+7. Not tested on a Quest 3.
+
 ## Decisions by the owner
 
 - 16 Nov 2026: bones from BodyParts3D 3.0 (not Z-Anatomy).
@@ -681,15 +750,18 @@ Limits the owner should know (7b):
 
 - Femur region (6a-6e) complete, waiting for the owner's OK and a Quest 3 test.
 - Phase 7a (foot assets + talus in the leg) done, waiting for the owner's OK.
-- Phase 7b (joints + ligament tethers, VR choice, hide/isolate) done, waiting for the owner's OK. Next: 7c (talus 81 + calcaneus 82, CT-mapped).
+- Phase 7b (joints + ligament tethers, VR choice, hide/isolate) done, waiting for the owner's OK.
+- Phase 7c (talus 81 + calcaneus 82, CT-mapped, young and elderly bone) done, waiting for the owner's OK and a check of the
+  printed names (pages S89-S100). Next: 7d (83-89 + dislocations).
 - Phase 6 continues later with humerus, radius+ulna, clavicle+scapula, hand.
 
 ## Test link
 
 - GitHub Pages: https://hakak01.github.io/Frac-sim-vr/
   (needs Pages switched on once: Settings -> Pages -> Deploy from a branch ->
-  branch `ccr-61835a8e-mycvig` (holds Phases 1-6e, 7a, the pass-through fix and 7b;
-  `ccr-a2380af0-9o7p1q` = up to the pass-through fix; `ccr-463f3713-467s1a` = 7a without the fix; `ccr-3f8cf2c4-bgay9k` stops at 6e),
+  branch `ccr-3f118bb0-i8ejau` (holds Phases 1-6e, 7a, the pass-through fix, 7b and 7c;
+  `ccr-61835a8e-mycvig` = up to 7b; `ccr-a2380af0-9o7p1q` = up to the pass-through fix; `ccr-463f3713-467s1a` = 7a without
+  the fix; `ccr-3f8cf2c4-bgay9k` stops at 6e),
   folder `/ (root)`).
 - Thigh: https://hakak01.github.io/Frac-sim-vr/?region=thigh_right (or use the region picker).
-- Foot: https://hakak01.github.io/Frac-sim-vr/?region=foot_right
+- Foot (talus and calcaneus fractures since 7c): https://hakak01.github.io/Frac-sim-vr/?region=foot_right

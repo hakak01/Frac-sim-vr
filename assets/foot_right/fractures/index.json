@@ -1,0 +1,2963 @@
+{
+ "region": "foot_right",
+ "cortex": "modelled, not measured",
+ "frames": {
+  "talus": {
+   "mesh": "Talus.r",
+   "distal": [
+    0.09529,
+    0.01735,
+    0.9953
+   ],
+   "anterior": [
+    -0.00165,
+    0.99985,
+    -0.01727
+   ],
+   "medial": [
+    0.99545,
+    -0.0,
+    -0.0953
+   ],
+   "terms": {
+    "anterior": "dorsal",
+    "posterior": "plantar",
+    "frontal plane": "transverse plane (seen from above)",
+    "_note": "Words for the readout in this region: the frame's 'anterior' is dorsal, and its 'frontal' plane (long axis and medial) is the foot's transverse plane."
+   }
+  },
+  "calcaneus": {
+   "mesh": "Calcaneus.r",
+   "distal": [
+    -0.1783,
+    0.10983,
+    0.97783
+   ],
+   "anterior": [
+    0.0197,
+    0.99395,
+    -0.10805
+   ],
+   "medial": [
+    0.98378,
+    0.0,
+    0.17938
+   ],
+   "terms": {
+    "anterior": "dorsal",
+    "posterior": "plantar",
+    "frontal plane": "transverse plane (seen from above)",
+    "_note": "Words for the readout in this region: the frame's 'anterior' is dorsal, and its 'frontal' plane (long axis and medial) is the foot's transverse plane."
+   }
+  }
+ },
+ "bone_quality": [
+  "young",
+  "elderly"
+ ],
+ "displacements": {
+  "_about": "Typical starting displacement (Phase 4). Shaft-type values describe the DISTAL part relative to the proximal part: shortening_mm, lateral_mm, posterior_mm, varus_deg (negative = valgus), apex_anterior_deg (negative = apex posterior), external_rotation_deg. Fragment-type values: away_mm (straight away from the fracture site), proximal_mm, use_impaction (use the impaction stored with a depressed fragment). Shortening is reduced automatically until the bone ends no longer overlap.",
+  "shaft_mid": {
+   "shortening_mm": 8,
+   "lateral_mm": 5,
+   "posterior_mm": 3,
+   "varus_deg": 6,
+   "apex_anterior_deg": 5,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    },
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "shaft_proximal": {
+   "shortening_mm": 4,
+   "posterior_mm": 5,
+   "varus_deg": -8,
+   "apex_anterior_deg": 7,
+   "sources": [
+    {
+     "ref": "Lang GJ et al. Clin Orthop Relat Res 1995;(315):64-74",
+     "pmid": "7634688",
+     "claim": "proximal third: valgus and apex anterior angulation; 1 cm or more displacement in 59 %"
+    },
+    {
+     "ref": "Freedman EL, Johnson EE. Clin Orthop Relat Res 1995;(315):25-33",
+     "pmid": "7634677",
+     "claim": "proximal third: tendency to valgus; anterior bow averaged 7 degrees (5-12)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "distal_meta": {
+   "shortening_mm": 4,
+   "lateral_mm": 4,
+   "varus_deg": 6,
+   "sources": [
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    },
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "plateau_split": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "condyle": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "depressed": {
+   "use_impaction": true,
+   "sources": [],
+   "basis": "Moves into the crushed zone by the impaction depth stored with the fragment (4-6 mm). No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "pilon_split": {
+   "away_mm": 4,
+   "proximal_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "wedge": {
+   "away_mm": 5,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "avulsion": {
+   "away_mm": 4,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "tubercle_avulsion": {
+   "proximal_mm": 8,
+   "away_mm": 2,
+   "sources": [],
+   "basis": "Pulled proximally by the patellar tendon. No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "fibula_distal": {
+   "shortening_mm": 3,
+   "posterior_mm": 2,
+   "lateral_mm": 2,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Yablon IG, Heller FG, Shouse L. J Bone Joint Surg Am 1977;59:169-73",
+     "pmid": "403191",
+     "claim": "the talus follows the displacement of the lateral malleolus"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "fibula_shaft": {
+   "shortening_mm": 4,
+   "lateral_mm": 3,
+   "external_rotation_deg": 8,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "malleolus_medial": {
+   "away_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "posterior_malleolus": {
+   "proximal_mm": 3,
+   "away_mm": 1,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "talus_piece": {
+   "sources": [],
+   "basis": "Small piece moved a few millimetres away from its bed. No published source found for direction or size: teaching values chosen by the engine author."
+  },
+  "talus_body_shear": {
+   "sources": [],
+   "basis": "Body fragment shifted a little backwards and tilted. No published source found for the direction or size of displacement in talar body fractures: teaching values."
+  },
+  "talus_neck_varus": {
+   "sources": [
+    {
+     "ref": "Berlet 2001",
+     "pmid": "11465133",
+     "claim": "medial neck comminution lets the neck fall into varus"
+    },
+    {
+     "ref": "Hawkins 1970",
+     "pmid": "5479485",
+     "claim": "type 2 = neck fracture with subtalar subluxation or dislocation"
+    }
+   ],
+   "basis": "Head and neck (with the foot) shifted dorsally and medially and turned into varus (front of the head swings medially) against the body, which stays in the ankle. Sizes are teaching values."
+  },
+  "talus_body_extrusion": {
+   "sources": [
+    {
+     "ref": "Hawkins 1970",
+     "pmid": "5479485",
+     "claim": "type 3 = body dislocated from the ankle and the subtalar joint"
+    },
+    {
+     "ref": "Canale and Kelly 1978",
+     "pmid": "417084",
+     "claim": "avascular necrosis in 16 of 19 fractures with complete body dislocation"
+    }
+   ],
+   "basis": "Body pushed out backwards and medially (posteromedial extrusion, the usual direction in textbooks; not checked in a primary source in this session) and turned. Sizes are teaching values; if the full pose would put bone into bone, the start uses a smaller one."
+  },
+  "talus_head_dislocation": {
+   "sources": [
+    {
+     "ref": "Canale and Kelly 1978",
+     "pmid": "417084",
+     "claim": "type 4 adds a talonavicular dislocation"
+    }
+   ],
+   "basis": "Head and neck pushed dorsally and medially out of the navicular. Direction and size: teaching values."
+  },
+  "calc_piece": {
+   "sources": [],
+   "basis": "Small piece moved a few millimetres away from its bed. No published source found for direction or size: teaching values chosen by the engine author."
+  },
+  "calc_tuberosity": {
+   "sources": [
+    {
+     "ref": "Sanders 1993",
+     "pmid": "8472475",
+     "claim": "surgery restores heel height, width and length (so the fracture loses height and gains width)"
+    },
+    {
+     "ref": "Cottom 2017",
+     "pmid": "27903928",
+     "claim": "heel in varus before reduction (93.8 +/- 4.3 deg against 83.3 after); Boehler angle 16.5 deg before, 33.3 after"
+    },
+    {
+     "ref": "Varol 2021",
+     "pmid": "34434558",
+     "claim": "heel height 40.8 mm at injury, 47.8 mm after fixation (Sanders 3 and 4)"
+    }
+   ],
+   "basis": "Tuberosity moved laterally (5 mm, widening) and into varus (6-8 deg); in tongue fractures it also rides up 2 mm (loss of height), in joint-depression fractures the facet piece is pushed down instead and the tuberosity turns with its back end up (4 deg, flatter Boehler angle). Directions from the sources; sizes are teaching values within their ranges."
+  },
+  "calc_tongue": {
+   "sources": [
+    {
+     "ref": "Guo 2021 (tongue type)",
+     "pmid": "35071481",
+     "claim": "tongue-type line pattern"
+    }
+   ],
+   "basis": "Tongue turned about the back edge of the posterior facet: the back of the tongue goes up (Achilles pull), the facet tips down at the front (Essex-Lopresti). Size is a teaching value."
+  },
+  "calc_joint_depression": {
+   "sources": [
+    {
+     "ref": "Sanders 1993",
+     "pmid": "8472475",
+     "claim": "posterior facet pieces displaced (classification on coronal CT)"
+    }
+   ],
+   "basis": "Joint piece pushed down into the body by the depth cut for it (6 mm) and turned with its front edge down. Sizes are teaching values."
+  }
+ },
+ "fractures": [
+  {
+   "id": "81.1A1",
+   "code": "81.1A1",
+   "name": "Talus, body, avulsion fracture, anterior (neck)",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    }
+   ],
+   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium type definition; the exact position on this bone was chosen by the engine author. Capsular avulsion flake on the dorsum of the neck.",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_1A1_young.glb",
+   "files": {
+    "young": "81_1A1_young.glb",
+    "elderly": "81_1A1_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 9174,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "avulsion flake",
+     "volume_cm3": 0.09,
+     "triangles": 1670,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       9e-05,
+       0.00252,
+       0.00095
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.06574,
+       0.07867,
+       -0.0245
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 33.01,
+     "triangles": 7504
+    }
+   ],
+   "bytes": 44328
+  },
+  {
+   "id": "81.1A2",
+   "code": "81.1A2",
+   "name": "Talus, body, avulsion fracture, lateral process",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Tinner C, Sommer C. Fractures of the lateral process of the talus. Foot Ankle Clin 2018;23:375-95",
+     "pmid": "30097080",
+     "doi": "10.1016/j.fcl.2018.04.009"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: lateral tubercle 11.9 % of talus fractures). One large fragment carrying part of the fibular facet and of the posterior facet (Hawkins/McCrory-Bladin type II, as reviewed by Tinner 2018). Exact position chosen by the engine author.",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_1A2_young.glb",
+   "files": {
+    "young": "81_1A2_young.glb",
+    "elderly": "81_1A2_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 16582,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "lateral process",
+     "volume_cm3": 1.64,
+     "triangles": 5626,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00199,
+       -0.0015,
+       0.00022
+      ],
+      "axis": [
+       0.09529,
+       0.01735,
+       0.9953
+      ],
+      "deg": 8.0,
+      "pivot": [
+       -0.08746,
+       0.06188,
+       -0.04507
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 31.47,
+     "triangles": 10956
+    }
+   ],
+   "bytes": 68740
+  },
+  {
+   "id": "81.1A3",
+   "code": "81.1A3",
+   "name": "Talus, body, avulsion fracture, posterior process",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: posterior tubercle 22.2 % of talus fractures). Both tubercles and the back of the posterior facet. Exact position chosen by the engine author.",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_1A3_young.glb",
+   "files": {
+    "young": "81_1A3_young.glb",
+    "elderly": "81_1A3_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 10698,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "posterior process",
+     "volume_cm3": 0.94,
+     "triangles": 2684,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00024,
+       -0.00104,
+       -0.00247
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.07275,
+       0.0633,
+       -0.05661
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 32.17,
+     "triangles": 8014
+    }
+   ],
+   "bytes": 49812
+  },
+  {
+   "id": "81.1B1",
+   "code": "81.1B1",
+   "name": "Talus, body, partial articular fracture, osteochondral",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Melenevsky Y et al. Talar fractures and dislocations: a radiologist's guide to timely diagnosis and classification. Radiographics 2015;35:765-79",
+     "pmid": "25969933",
+     "doi": "10.1148/rg.2015140156"
+    }
+   ],
+   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium type definition; the exact position on this bone was chosen by the engine author. Placed on the anterolateral dome, a typical site of traumatic osteochondral fractures (Melenevsky 2015).",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_1B1_young.glb",
+   "files": {
+    "young": "81_1B1_young.glb",
+    "elderly": "81_1B1_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 9386,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "osteochondral fragment",
+     "volume_cm3": 0.13,
+     "triangles": 1724,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.0,
+       0.0015,
+       -3e-05
+      ],
+      "axis": [
+       0.09529,
+       0.01735,
+       0.9953
+      ],
+      "deg": 15.0,
+      "pivot": [
+       -0.08687,
+       0.0815,
+       -0.036
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 32.98,
+     "triangles": 7662
+    }
+   ],
+   "bytes": 43632
+  },
+  {
+   "id": "81.1B2",
+   "code": "81.1B2",
+   "name": "Talus, body, partial articular fracture, simple",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Roddy E et al. Three-dimensional computed tomography mapping of talar body fractures. JB JS Open Access 2026",
+     "pmid": "42639242",
+     "doi": "10.2106/JBJS.OA.26.00208"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    }
+   ],
+   "line_basis": "Compendium type definition (drawing not available in this session) plus the CT mapping abstract cited.",
+   "note": "Roddy 2026 (124 talar body fractures): a dominant oblique line from the anteromedial body to posterolateral, through a variable part of the dome and of the posterior facet, in 71 %; coronal shear 18 %, sagittal shear 8 %. Built with that dominant line; the head, neck and anterolateral body stay together (partial articular). Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_1B2_young.glb",
+   "files": {
+    "young": "81_1B2_young.glb",
+    "elderly": "81_1B2_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 17150,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "posteromedial body fragment",
+     "volume_cm3": 7.83,
+     "triangles": 7022,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.0018,
+       0.00097,
+       -0.0022
+      ],
+      "axis": [
+       -0.09529,
+       -0.01735,
+       -0.9953
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.06897,
+       0.07072,
+       -0.04317
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 25.28,
+     "triangles": 10128
+    }
+   ],
+   "bytes": 72568
+  },
+  {
+   "id": "81.1B3",
+   "code": "81.1B3",
+   "name": "Talus, body, partial articular fracture, fragmentary",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Roddy E et al. Three-dimensional computed tomography mapping of talar body fractures. JB JS Open Access 2026",
+     "pmid": "42639242",
+     "doi": "10.2106/JBJS.OA.26.00208"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    }
+   ],
+   "line_basis": "Compendium type definition (drawing not available in this session) plus the CT mapping abstract cited.",
+   "note": "Same dominant oblique line as 81.1B2 (Roddy 2026); the posteromedial part is broken into 3 pieces because Roddy found comminution or articular impaction in 90 %, mostly plantar-medial. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_1B3_young.glb",
+   "files": {
+    "young": "81_1B3_young.glb",
+    "elderly": "81_1B3_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 31676,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "posteromedial body fragment 1",
+     "volume_cm3": 2.46,
+     "triangles": 6516,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.0018,
+       0.00097,
+       -0.0022
+      ],
+      "axis": [
+       -0.09529,
+       -0.01735,
+       -0.9953
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.06695,
+       0.07007,
+       -0.04589
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "posteromedial body fragment 2",
+     "volume_cm3": 3.13,
+     "triangles": 6288,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.0018,
+       0.00097,
+       -0.0022
+      ],
+      "axis": [
+       -0.09529,
+       -0.01735,
+       -0.9953
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.06695,
+       0.07007,
+       -0.04589
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "posteromedial body fragment 3",
+     "volume_cm3": 2.78,
+     "triangles": 7730,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.0018,
+       0.00097,
+       -0.0022
+      ],
+      "axis": [
+       -0.09529,
+       -0.01735,
+       -0.9953
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.06695,
+       0.07007,
+       -0.04589
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 24.73,
+     "triangles": 11142
+    }
+   ],
+   "bytes": 136072
+  },
+  {
+   "id": "81.1C1",
+   "code": "81.1C1",
+   "name": "Talus, body, complete articular fracture, simple",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Roddy E et al. Three-dimensional computed tomography mapping of talar body fractures. JB JS Open Access 2026",
+     "pmid": "42639242",
+     "doi": "10.2106/JBJS.OA.26.00208"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Melenevsky Y et al. Talar fractures and dislocations: a radiologist's guide to timely diagnosis and classification. Radiographics 2015;35:765-79",
+     "pmid": "25969933",
+     "doi": "10.1148/rg.2015140156"
+    }
+   ],
+   "line_basis": "Compendium type definition (drawing not available in this session) plus the CT mapping abstract cited.",
+   "note": "Coronal shear through the front of the dome that ends IN the posterior facet: a body fracture, not a neck fracture (Inokuchi's distinction, as reviewed by Melenevsky 2015). Roddy 2026 found this coronal pattern in 18 % of body fractures. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "head and neck",
+   "file": "81_1C1_young.glb",
+   "files": {
+    "young": "81_1C1_young.glb",
+    "elderly": "81_1C1_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 20234,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talar body",
+     "volume_cm3": 13.61,
+     "triangles": 8638,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00029,
+       0.00095,
+       -0.003
+      ],
+      "axis": [
+       0.99545,
+       -0.0,
+       -0.0953
+      ],
+      "deg": 4.0,
+      "pivot": [
+       -0.07491,
+       0.0692,
+       -0.0413
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "head and neck",
+     "volume_cm3": 19.49,
+     "triangles": 11596
+    }
+   ],
+   "bytes": 82244
+  },
+  {
+   "id": "81.1C3",
+   "code": "81.1C3",
+   "name": "Talus, body, complete articular fracture, multifragmentary",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Roddy E et al. Three-dimensional computed tomography mapping of talar body fractures. JB JS Open Access 2026",
+     "pmid": "42639242",
+     "doi": "10.2106/JBJS.OA.26.00208"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    }
+   ],
+   "line_basis": "Compendium type definition (drawing not available in this session) plus the CT mapping abstract cited.",
+   "note": "Coronal line of 81.1C1 plus the dominant oblique line of Roddy 2026; the posteromedial part is broken (Roddy: comminution mostly plantar-medial). Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "head and neck",
+   "file": "81_1C3_young.glb",
+   "files": {
+    "young": "81_1C3_young.glb",
+    "elderly": "81_1C3_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 33152,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "posteromedial body fragment 1",
+     "volume_cm3": 2.83,
+     "triangles": 5966,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.0022,
+       -0.00105,
+       -0.00321
+      ],
+      "axis": [
+       -0.09529,
+       -0.01735,
+       -0.9953
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.0732,
+       0.07027,
+       -0.04542
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "posteromedial body fragment 2",
+     "volume_cm3": 3.78,
+     "triangles": 6370,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.0022,
+       -0.00105,
+       -0.00321
+      ],
+      "axis": [
+       -0.09529,
+       -0.01735,
+       -0.9953
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.0732,
+       0.07027,
+       -0.04542
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "lateral body fragment",
+     "volume_cm3": 7.03,
+     "triangles": 8506,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00173,
+       0.00096,
+       -0.00236
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.0732,
+       0.07027,
+       -0.04542
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_shear"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "head and neck",
+     "volume_cm3": 19.46,
+     "triangles": 12310
+    }
+   ],
+   "bytes": 140280
+  },
+  {
+   "id": "81.2A",
+   "code": "81.2A",
+   "name": "Talus, neck, nondisplaced fracture",
+   "segment": "81",
+   "tags": {
+    "hawkins": "1"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hawkins LG. Fractures of the neck of the talus. J Bone Joint Surg Am 1970;52:991-1002",
+     "pmid": "5479485"
+    },
+    {
+     "ref": "Canale ST, Kelly FB Jr. Fractures of the neck of the talus. Long-term evaluation of seventy-one cases. J Bone Joint Surg Am 1978;60:143-56",
+     "pmid": "417084"
+    },
+    {
+     "ref": "Melenevsky Y et al. Talar fractures and dislocations: a radiologist's guide to timely diagnosis and classification. Radiographics 2015;35:765-79",
+     "pmid": "25969933",
+     "doi": "10.1148/rg.2015140156"
+    }
+   ],
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "note": "Hawkins type 1: no displacement, so the fracture starts reduced. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talar body",
+   "file": "81_2A_young.glb",
+   "files": {
+    "young": "81_2A_young.glb",
+    "elderly": "81_2A_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 15210,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talar body",
+     "volume_cm3": 22.02,
+     "triangles": 7510
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "head and neck",
+     "volume_cm3": 11.08,
+     "triangles": 7700
+    }
+   ],
+   "bytes": 68320
+  },
+  {
+   "id": "81.2B(a)",
+   "code": "81.2B",
+   "name": "Talus, neck, fracture with subtalar subluxation or dislocation",
+   "segment": "81",
+   "qualification": "a Simple",
+   "tags": {
+    "hawkins": "2"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hawkins LG. Fractures of the neck of the talus. J Bone Joint Surg Am 1970;52:991-1002",
+     "pmid": "5479485"
+    },
+    {
+     "ref": "Canale ST, Kelly FB Jr. Fractures of the neck of the talus. Long-term evaluation of seventy-one cases. J Bone Joint Surg Am 1978;60:143-56",
+     "pmid": "417084"
+    },
+    {
+     "ref": "Melenevsky Y et al. Talar fractures and dislocations: a radiologist's guide to timely diagnosis and classification. Radiographics 2015;35:765-79",
+     "pmid": "25969933",
+     "doi": "10.1148/rg.2015140156"
+    }
+   ],
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "note": "Hawkins type 2. The body stays in the ankle; the head and the rest of the foot move (the calcaneus follows through its ligaments). Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "torn": [
+    "Talocalcaneal (subtalar) ligaments"
+   ],
+   "torn_basis": "Subtalar subluxation or dislocation (printed name; Hawkins 1970): the talocalcaneal ligaments are shown torn.",
+   "anchor": "talar body",
+   "file": "81_2B_a_young.glb",
+   "files": {
+    "young": "81_2B_a_young.glb",
+    "elderly": "81_2B_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 14554,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talar body",
+     "volume_cm3": 21.85,
+     "triangles": 7062
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "head and neck",
+     "volume_cm3": 11.25,
+     "triangles": 7492,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00149,
+       0.0025,
+       -0.00019
+      ],
+      "axis": [
+       -0.00165,
+       0.99985,
+       -0.01727
+      ],
+      "deg": 10.0,
+      "pivot": [
+       -0.05659,
+       0.06191,
+       -0.02291
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_neck_varus"
+    }
+   ],
+   "bytes": 63656
+  },
+  {
+   "id": "81.2B(b)",
+   "code": "81.2B",
+   "name": "Talus, neck, fracture with subtalar subluxation or dislocation",
+   "segment": "81",
+   "qualification": "b Multifragmentary",
+   "tags": {
+    "hawkins": "2"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hawkins LG. Fractures of the neck of the talus. J Bone Joint Surg Am 1970;52:991-1002",
+     "pmid": "5479485"
+    },
+    {
+     "ref": "Canale ST, Kelly FB Jr. Fractures of the neck of the talus. Long-term evaluation of seventy-one cases. J Bone Joint Surg Am 1978;60:143-56",
+     "pmid": "417084"
+    },
+    {
+     "ref": "Melenevsky Y et al. Talar fractures and dislocations: a radiologist's guide to timely diagnosis and classification. Radiographics 2015;35:765-79",
+     "pmid": "25969933",
+     "doi": "10.1148/rg.2015140156"
+    },
+    {
+     "ref": "Berlet GC, Lee TH, Massa EG. Talar neck fractures. Orthop Clin North Am 2001;32:53-64",
+     "pmid": "11465133",
+     "doi": "10.1016/s0030-5898(05)70193-0"
+    }
+   ],
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author. Medial neck comminution placed where Berlet 2001 describes it (it lets the neck fall into varus).",
+   "note": "Hawkins type 2, multifragmentary. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "torn": [
+    "Talocalcaneal (subtalar) ligaments"
+   ],
+   "torn_basis": "Subtalar subluxation or dislocation (printed name; Hawkins 1970): the talocalcaneal ligaments are shown torn.",
+   "anchor": "talar body",
+   "file": "81_2B_b_young.glb",
+   "files": {
+    "young": "81_2B_b_young.glb",
+    "elderly": "81_2B_b_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 22510,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talar body",
+     "volume_cm3": 21.7,
+     "triangles": 7118
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "medial neck comminution 1",
+     "volume_cm3": 0.3,
+     "triangles": 2158,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00249,
+       -0.0,
+       -0.00024
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.06702,
+       0.06621,
+       -0.02738
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "medial neck comminution 2",
+     "volume_cm3": 0.17,
+     "triangles": 2694,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00249,
+       -0.0,
+       -0.00024
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.06702,
+       0.06621,
+       -0.02738
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "head and neck",
+     "volume_cm3": 10.93,
+     "triangles": 10540,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00099,
+       0.0025,
+       -0.00014
+      ],
+      "axis": [
+       -0.00165,
+       0.99985,
+       -0.01727
+      ],
+      "deg": 15.0,
+      "pivot": [
+       -0.05659,
+       0.06191,
+       -0.02291
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_neck_varus"
+    }
+   ],
+   "bytes": 101668
+  },
+  {
+   "id": "81.2C(a)",
+   "code": "81.2C",
+   "name": "Talus, neck, fracture with dislocation of the body",
+   "segment": "81",
+   "qualification": "a Simple",
+   "tags": {
+    "hawkins": "3"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hawkins LG. Fractures of the neck of the talus. J Bone Joint Surg Am 1970;52:991-1002",
+     "pmid": "5479485"
+    },
+    {
+     "ref": "Canale ST, Kelly FB Jr. Fractures of the neck of the talus. Long-term evaluation of seventy-one cases. J Bone Joint Surg Am 1978;60:143-56",
+     "pmid": "417084"
+    },
+    {
+     "ref": "Melenevsky Y et al. Talar fractures and dislocations: a radiologist's guide to timely diagnosis and classification. Radiographics 2015;35:765-79",
+     "pmid": "25969933",
+     "doi": "10.1148/rg.2015140156"
+    }
+   ],
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "note": "Hawkins type 3: the body is out of the ankle and the subtalar joint (Hawkins 1970; Canale 1978: avascular necrosis in 16 of 19 such fractures). The head and neck stay with the foot. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "torn": [
+    "Talocalcaneal (subtalar) ligaments",
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "Body out of the subtalar joint (printed name): talocalcaneal ligaments torn. Body out of the ankle: the lateral talofibular ligaments shown torn and the deltoid kept (it carries the deltoid branch of the posterior tibial artery): a teaching assumption by the engine author, no source checked.",
+   "anchor": "head and neck",
+   "file": "81_2C_a_young.glb",
+   "files": {
+    "young": "81_2C_a_young.glb",
+    "elderly": "81_2C_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 15414,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talar body",
+     "volume_cm3": 21.76,
+     "triangles": 7484,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.01482,
+       0.00262,
+       -0.02357
+      ],
+      "axis": [
+       0.06119,
+       0.60309,
+       -0.79532
+      ],
+      "deg": 31.9,
+      "pivot": [
+       -0.07319,
+       0.06803,
+       -0.0357
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_extrusion"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "head and neck",
+     "volume_cm3": 11.35,
+     "triangles": 7930
+    }
+   ],
+   "bytes": 68280
+  },
+  {
+   "id": "81.2D(a)",
+   "code": "81.2D",
+   "name": "Talus, neck, fracture with dislocation of the body and the head",
+   "segment": "81",
+   "qualification": "a Simple",
+   "tags": {
+    "hawkins": "4 (Canale and Kelly)"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hawkins LG. Fractures of the neck of the talus. J Bone Joint Surg Am 1970;52:991-1002",
+     "pmid": "5479485"
+    },
+    {
+     "ref": "Canale ST, Kelly FB Jr. Fractures of the neck of the talus. Long-term evaluation of seventy-one cases. J Bone Joint Surg Am 1978;60:143-56",
+     "pmid": "417084"
+    },
+    {
+     "ref": "Melenevsky Y et al. Talar fractures and dislocations: a radiologist's guide to timely diagnosis and classification. Radiographics 2015;35:765-79",
+     "pmid": "25969933",
+     "doi": "10.1148/rg.2015140156"
+    }
+   ],
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "note": "Canale and Kelly type 4: as type 3, and the head is also out of the talonavicular joint. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "torn": [
+    "Talocalcaneal (subtalar) ligaments",
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "As 81.2C. The talonavicular ligament is not torn in the model: the navicular is pulled along by it instead; pure dislocations of the other foot bones come in Phase 7d.",
+   "anchor": "head and neck",
+   "file": "81_2D_a_young.glb",
+   "files": {
+    "young": "81_2D_a_young.glb",
+    "elderly": "81_2D_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 14034,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talar body",
+     "volume_cm3": 21.94,
+     "triangles": 6916,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.01482,
+       0.00262,
+       -0.02357
+      ],
+      "axis": [
+       0.06119,
+       0.60309,
+       -0.79532
+      ],
+      "deg": 31.9,
+      "pivot": [
+       -0.07208,
+       0.06859,
+       -0.03536
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_body_extrusion"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "head and neck",
+     "volume_cm3": 11.16,
+     "triangles": 7118,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00397,
+       0.005,
+       -0.00047
+      ],
+      "axis": [
+       -0.00165,
+       0.99985,
+       -0.01727
+      ],
+      "deg": 10.0,
+      "pivot": [
+       -0.07144,
+       0.06937,
+       -0.0307
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_head_dislocation"
+    }
+   ],
+   "bytes": 63280
+  },
+  {
+   "id": "81.3A",
+   "code": "81.3A",
+   "name": "Talus, head, avulsion fracture",
+   "segment": "81",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hammarberg H et al. Talar head fractures: an observational study of 33 talar head fractures derived from the Swedish Fracture Register. Injury 2024;55:111861",
+     "pmid": "39259993",
+     "doi": "10.1016/j.injury.2024.111861"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author. Dorsal flake at the talonavicular capsule.",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_3A_young.glb",
+   "files": {
+    "young": "81_3A_young.glb",
+    "elderly": "81_3A_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 8678,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "avulsion flake",
+     "volume_cm3": 0.07,
+     "triangles": 1404,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00014,
+       0.00203,
+       0.00146
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.07144,
+       0.0758,
+       -0.02086
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 33.04,
+     "triangles": 7274
+    }
+   ],
+   "bytes": 41788
+  },
+  {
+   "id": "81.3B(a)",
+   "code": "81.3B",
+   "name": "Talus, head, partial articular fracture",
+   "segment": "81",
+   "qualification": "a Simple",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hammarberg H et al. Talar head fractures: an observational study of 33 talar head fractures derived from the Swedish Fracture Register. Injury 2024;55:111861",
+     "pmid": "39259993",
+     "doi": "10.1016/j.injury.2024.111861"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author.",
+   "note": "Medial part of the head split off; the lateral head stays on the neck (partial articular). Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_3B_a_young.glb",
+   "files": {
+    "young": "81_3B_a_young.glb",
+    "elderly": "81_3B_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 16606,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "medial head fragment",
+     "volume_cm3": 2.95,
+     "triangles": 6262,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00258,
+       2e-05,
+       0.00076
+      ],
+      "axis": [
+       -0.00165,
+       0.99985,
+       -0.01727
+      ],
+      "deg": 5.0,
+      "pivot": [
+       -0.06376,
+       0.06682,
+       -0.02385
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 30.16,
+     "triangles": 10344
+    }
+   ],
+   "bytes": 69360
+  },
+  {
+   "id": "81.3C(a)",
+   "code": "81.3C",
+   "name": "Talus, head, complete articular fracture",
+   "segment": "81",
+   "qualification": "a Simple",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Wang R et al. Three-dimensional mapping analysis of talus fractures and demonstration of different surgical approaches for talus fractures. Orthop Surg 2024;16:1131-41",
+     "pmid": "38485459",
+     "doi": "10.1111/os.14033"
+    },
+    {
+     "ref": "Hammarberg H et al. Talar head fractures: an observational study of 33 talar head fractures derived from the Swedish Fracture Register. Injury 2024;55:111861",
+     "pmid": "39259993",
+     "doi": "10.1016/j.injury.2024.111861"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author.",
+   "note": "The whole head joint surface (navicular and front calcaneal facets) is off the neck. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "talus",
+   "file": "81_3C_a_young.glb",
+   "files": {
+    "young": "81_3C_a_young.glb",
+    "elderly": "81_3C_a_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Talus.r"
+   ],
+   "triangles": 15722,
+   "fragments": [
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talar head",
+     "volume_cm3": 7.75,
+     "triangles": 7128,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00168,
+       0.00203,
+       0.00181
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.06992,
+       0.06854,
+       -0.02545
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "talus_piece"
+    },
+    {
+     "bone": "talus",
+     "mesh": "Talus.r",
+     "name": "talus",
+     "volume_cm3": 25.36,
+     "triangles": 8594
+    }
+   ],
+   "bytes": 67316
+  },
+  {
+   "id": "82A1-ant",
+   "code": "82A1",
+   "name": "Calcaneus, extraarticular fracture, avulsion",
+   "segment": "82",
+   "qualification": "Anterior process (bifurcate ligament)",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    }
+   ],
+   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium type definition; the exact position on this bone was chosen by the engine author. Anterior process tip, where the bifurcate ligament pulls (Yu 2022 found mostly vertical lines on the anterior surface).",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "calcaneus",
+   "file": "82A1-ant_young.glb",
+   "files": {
+    "young": "82A1-ant_young.glb",
+    "elderly": "82A1-ant_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 10076,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "anterior process fragment",
+     "volume_cm3": 0.98,
+     "triangles": 2652,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00023,
+       0.00215,
+       0.00125
+      ],
+      "axis": [
+       1.0,
+       0.0,
+       -0.0
+      ],
+      "deg": 0.0,
+      "pivot": [
+       -0.08975,
+       0.05203,
+       -0.02391
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_piece"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "calcaneus",
+     "volume_cm3": 59.08,
+     "triangles": 7424
+    }
+   ],
+   "bytes": 46388
+  },
+  {
+   "id": "82A1-tub",
+   "code": "82A1",
+   "name": "Calcaneus, extraarticular fracture, posterior tuberosity",
+   "segment": "82",
+   "qualification": "Posterior tuberosity",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Adams MR et al. Plantar medial avulsion fragment associated with tongue-type calcaneus fractures. Foot Ankle Int 2019;40:634-40",
+     "pmid": "30841752",
+     "doi": "10.1177/1071100719830948"
+    }
+   ],
+   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium type definition; the exact position on this bone was chosen by the engine author. Block of the posterior tuberosity behind the posterior facet (Achilles tendon and plantar fascia attach to it).",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "calcaneus",
+   "file": "82A1-tub_young.glb",
+   "files": {
+    "young": "82A1-tub_young.glb",
+    "elderly": "82A1-tub_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 15812,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "posterior tuberosity",
+     "volume_cm3": 4.97,
+     "triangles": 5706,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       0.00044,
+       0.00376,
+       -0.00239
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 8.0,
+      "pivot": [
+       -0.07145,
+       0.03568,
+       -0.08115
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_piece"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "calcaneus",
+     "volume_cm3": 55.08,
+     "triangles": 10106
+    }
+   ],
+   "bytes": 64360
+  },
+  {
+   "id": "82A1-tongue",
+   "code": "82A1",
+   "name": "Calcaneus, extraarticular fracture, extraarticular tongue",
+   "segment": "82",
+   "qualification": "Extraarticular tongue (beak)",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Guo X et al. Three-dimensional computed tomography mapping of 136 tongue-type calcaneal fractures from a single centre. Ann Transl Med 2021;9:1787",
+     "pmid": "35071481",
+     "doi": "10.21037/atm-21-6168"
+    }
+   ],
+   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium type definition; the exact position on this bone was chosen by the engine author. Horizontal line from the back of the tuberosity, ending on the upper surface behind the posterior facet (the joint is not entered). The Achilles tendon pulls the tongue up.",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "calcaneus",
+   "file": "82A1-tongue_young.glb",
+   "files": {
+    "young": "82A1-tongue_young.glb",
+    "elderly": "82A1-tongue_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 10984,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tongue (beak) fragment",
+     "volume_cm3": 1.18,
+     "triangles": 2988,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       6e-05,
+       0.00298,
+       -0.00032
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 14.0,
+      "pivot": [
+       -0.0735,
+       0.05627,
+       -0.07011
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tongue"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "calcaneus",
+     "volume_cm3": 58.87,
+     "triangles": 7996
+    }
+   ],
+   "bytes": 48580
+  },
+  {
+   "id": "82A2",
+   "code": "82A2",
+   "name": "Calcaneus, extraarticular fracture, body",
+   "segment": "82",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Shi G et al. 3D mapping of intra-articular calcaneal fractures. Sci Rep 2023;13:8831",
+     "pmid": "37258588",
+     "doi": "10.1038/s41598-023-34711-w"
+    }
+   ],
+   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium type definition; the exact position on this bone was chosen by the engine author. Oblique line through the body behind the posterior facet, joint surfaces intact.",
+   "note": "Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "calcaneus (front, with the joint surfaces)",
+   "file": "82A2_young.glb",
+   "files": {
+    "young": "82A2_young.glb",
+    "elderly": "82A2_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 17000,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tuberosity",
+     "volume_cm3": 27.84,
+     "triangles": 7448,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00156,
+       0.00227,
+       -0.00258
+      ],
+      "axis": [
+       0.1783,
+       -0.10983,
+       -0.97783
+      ],
+      "deg": 5.0,
+      "pivot": [
+       -0.0778,
+       0.03776,
+       -0.06175
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tuberosity"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "calcaneus (front, with the joint surfaces)",
+     "volume_cm3": 32.21,
+     "triangles": 9552
+    }
+   ],
+   "bytes": 68772
+  },
+  {
+   "id": "82B1",
+   "code": "82B1",
+   "name": "Calcaneus, partial articular fracture, tongue type, simple",
+   "segment": "82",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Ni M et al. Fracture mapping of complex intra-articular calcaneal fractures. Ann Transl Med 2021;9:333",
+     "pmid": "33708960",
+     "doi": "10.21037/atm-20-7824"
+    },
+    {
+     "ref": "Shi G et al. 3D mapping of intra-articular calcaneal fractures. Sci Rep 2023;13:8831",
+     "pmid": "37258588",
+     "doi": "10.1038/s41598-023-34711-w"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Shi G et al. Two and three-dimensional CT mapping of the sustentacular fragment in intra-articular calcaneal fractures. Sci Rep 2022;12:20456",
+     "pmid": "36443435",
+     "doi": "10.1038/s41598-022-24916-w"
+    },
+    {
+     "ref": "Guo X et al. Three-dimensional computed tomography mapping of 136 tongue-type calcaneal fractures from a single centre. Ann Transl Med 2021;9:1787",
+     "pmid": "35071481",
+     "doi": "10.21037/atm-21-6168"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Cottom JM et al. Restoring the anatomy of calcaneal fractures: a simple technique with radiographic review. Foot Ankle Spec 2017;10:420-6",
+     "pmid": "27903928",
+     "doi": "10.1177/1938640016679700"
+    },
+    {
+     "ref": "Varol A et al. An evaluation of the efficacy of the locked plate with bone grafting in Sanders type III and IV intra-articular calcaneus fractures. SAGE Open Med 2021;9:20503121211040954",
+     "pmid": "34434558",
+     "doi": "10.1177/20503121211040954"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the written results (abstracts) of the CT mapping studies cited. Lines were placed from the text, not traced from the map figures. Primary line: from the angle of Gissane back along the long calcaneal axis (about 11 degrees in the axial view, Shi 2023), through the posterior facet and down the medial wall, separating the sustentaculum and medial wall from the tuberosity (Ni 2021); the sustentaculum itself is not broken (Ni 2021; Shi 2022). Tongue: the second line runs back under the facet and ends at the back of the tuberosity, so the lateral facet stays on a tongue of the upper tuberosity (Essex-Lopresti; Guo 2021, 136 tongue-type maps).",
+   "note": "Two articular pieces of the posterior facet: medial (sustentacular) and lateral (on the tongue). Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "sustentacular fragment",
+   "file": "82B1_young.glb",
+   "files": {
+    "young": "82B1_young.glb",
+    "elderly": "82B1_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 40278,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tongue fragment",
+     "volume_cm3": 12.81,
+     "triangles": 13362,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00486,
+       0.00298,
+       -0.00122
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 10.0,
+      "pivot": [
+       -0.07405,
+       0.0556,
+       -0.06707
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tongue"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tuberosity",
+     "volume_cm3": 25.35,
+     "triangles": 13238,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00488,
+       0.00199,
+       -0.00111
+      ],
+      "axis": [
+       0.1783,
+       -0.10983,
+       -0.97783
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.07714,
+       0.04314,
+       -0.0585
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tuberosity"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "sustentacular fragment",
+     "volume_cm3": 21.89,
+     "triangles": 13678
+    }
+   ],
+   "bytes": 152020
+  },
+  {
+   "id": "82B3",
+   "code": "82B3",
+   "name": "Calcaneus, partial articular fracture, tongue type, multifragmentary",
+   "segment": "82",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Ni M et al. Fracture mapping of complex intra-articular calcaneal fractures. Ann Transl Med 2021;9:333",
+     "pmid": "33708960",
+     "doi": "10.21037/atm-20-7824"
+    },
+    {
+     "ref": "Shi G et al. 3D mapping of intra-articular calcaneal fractures. Sci Rep 2023;13:8831",
+     "pmid": "37258588",
+     "doi": "10.1038/s41598-023-34711-w"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Shi G et al. Two and three-dimensional CT mapping of the sustentacular fragment in intra-articular calcaneal fractures. Sci Rep 2022;12:20456",
+     "pmid": "36443435",
+     "doi": "10.1038/s41598-022-24916-w"
+    },
+    {
+     "ref": "Guo X et al. Three-dimensional computed tomography mapping of 136 tongue-type calcaneal fractures from a single centre. Ann Transl Med 2021;9:1787",
+     "pmid": "35071481",
+     "doi": "10.21037/atm-21-6168"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Cottom JM et al. Restoring the anatomy of calcaneal fractures: a simple technique with radiographic review. Foot Ankle Spec 2017;10:420-6",
+     "pmid": "27903928",
+     "doi": "10.1177/1938640016679700"
+    },
+    {
+     "ref": "Varol A et al. An evaluation of the efficacy of the locked plate with bone grafting in Sanders type III and IV intra-articular calcaneus fractures. SAGE Open Med 2021;9:20503121211040954",
+     "pmid": "34434558",
+     "doi": "10.1177/20503121211040954"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the written results (abstracts) of the CT mapping studies cited. Lines were placed from the text, not traced from the map figures. Primary line: from the angle of Gissane back along the long calcaneal axis (about 11 degrees in the axial view, Shi 2023), through the posterior facet and down the medial wall, separating the sustentaculum and medial wall from the tuberosity (Ni 2021); the sustentaculum itself is not broken (Ni 2021; Shi 2022). The tongue is broken in two, and a lateral line runs from Gissane to the calcaneocuboid joint (Guo 2021: the anterior part of the calcaneus is involved in most tongue fractures, most often zones A and C).",
+   "note": "Multifragmentary tongue type. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "sustentacular fragment",
+   "file": "82B3_young.glb",
+   "files": {
+    "young": "82B3_young.glb",
+    "elderly": "82B3_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 55152,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tongue fragment 1",
+     "volume_cm3": 6.25,
+     "triangles": 8996,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00486,
+       0.00298,
+       -0.00122
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 10.0,
+      "pivot": [
+       -0.07405,
+       0.0556,
+       -0.06707
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tongue"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tongue fragment 2",
+     "volume_cm3": 6.4,
+     "triangles": 9924,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00486,
+       0.00298,
+       -0.00122
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 10.0,
+      "pivot": [
+       -0.07405,
+       0.0556,
+       -0.06707
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tongue"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tuberosity",
+     "volume_cm3": 25.56,
+     "triangles": 12112,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00488,
+       0.00199,
+       -0.00111
+      ],
+      "axis": [
+       0.1783,
+       -0.10983,
+       -0.97783
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.08037,
+       0.0435,
+       -0.05381
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tuberosity"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "anterolateral fragment",
+     "volume_cm3": 3.48,
+     "triangles": 5694,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00248,
+       -0.00099,
+       -0.00034
+      ],
+      "axis": [
+       -0.1783,
+       0.10983,
+       0.97783
+      ],
+      "deg": 5.0,
+      "pivot": [
+       -0.08037,
+       0.0435,
+       -0.05381
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_piece"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "sustentacular fragment",
+     "volume_cm3": 18.37,
+     "triangles": 18426
+    }
+   ],
+   "bytes": 212808
+  },
+  {
+   "id": "82C1",
+   "code": "82C1",
+   "name": "Calcaneus, complete articular fracture, joint depression, Sanders 2",
+   "segment": "82",
+   "tags": {
+    "sanders": "2"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Ni M et al. Fracture mapping of complex intra-articular calcaneal fractures. Ann Transl Med 2021;9:333",
+     "pmid": "33708960",
+     "doi": "10.21037/atm-20-7824"
+    },
+    {
+     "ref": "Shi G et al. 3D mapping of intra-articular calcaneal fractures. Sci Rep 2023;13:8831",
+     "pmid": "37258588",
+     "doi": "10.1038/s41598-023-34711-w"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Shi G et al. Two and three-dimensional CT mapping of the sustentacular fragment in intra-articular calcaneal fractures. Sci Rep 2022;12:20456",
+     "pmid": "36443435",
+     "doi": "10.1038/s41598-022-24916-w"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Cottom JM et al. Restoring the anatomy of calcaneal fractures: a simple technique with radiographic review. Foot Ankle Spec 2017;10:420-6",
+     "pmid": "27903928",
+     "doi": "10.1177/1938640016679700"
+    },
+    {
+     "ref": "Varol A et al. An evaluation of the efficacy of the locked plate with bone grafting in Sanders type III and IV intra-articular calcaneus fractures. SAGE Open Med 2021;9:20503121211040954",
+     "pmid": "34434558",
+     "doi": "10.1177/20503121211040954"
+    },
+    {
+     "ref": "Guo X et al. Evaluation of Sanders type 2 joint depression calcaneal fractures in 197 patients from a single center using three-dimensional mapping. Med Sci Monit 2021;27:e932748",
+     "pmid": "34294674",
+     "doi": "10.12659/MSM.932748"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the written results (abstracts) of the CT mapping studies cited. Lines were placed from the text, not traced from the map figures. Primary line: from the angle of Gissane back along the long calcaneal axis (about 11 degrees in the axial view, Shi 2023), through the posterior facet and down the medial wall, separating the sustentaculum and medial wall from the tuberosity (Ni 2021); the sustentaculum itself is not broken (Ni 2021; Shi 2022). Joint depression: the lateral part of the posterior facet is a separate piece pushed down into the body (Essex-Lopresti). Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more.",
+   "note": "Sanders 2: one line through the posterior facet (Guo 2021: 197 Sanders 2 maps). Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "sustentacular fragment",
+   "file": "82C1_young.glb",
+   "files": {
+    "young": "82C1_young.glb",
+    "elderly": "82C1_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 37158,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "depressed joint fragment",
+     "volume_cm3": 2.3,
+     "triangles": 4782,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0191,
+      -0.9368,
+      -0.3494
+     ],
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00307,
+       -0.00562,
+       -0.00263
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.0867,
+       0.05125,
+       -0.05576
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_joint_depression"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tuberosity",
+     "volume_cm3": 34.69,
+     "triangles": 17768,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00492,
+       -0.0,
+       -0.0009
+      ],
+      "axis": [
+       0.64173,
+       -0.12546,
+       -0.7566
+      ],
+      "deg": 8.1,
+      "pivot": [
+       -0.0802,
+       0.04551,
+       -0.05322
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tuberosity"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "sustentacular fragment",
+     "volume_cm3": 21.75,
+     "triangles": 14608
+    }
+   ],
+   "bytes": 145732
+  },
+  {
+   "id": "82C2",
+   "code": "82C2",
+   "name": "Calcaneus, complete articular fracture, joint depression, Sanders 3",
+   "segment": "82",
+   "tags": {
+    "sanders": "3"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Ni M et al. Fracture mapping of complex intra-articular calcaneal fractures. Ann Transl Med 2021;9:333",
+     "pmid": "33708960",
+     "doi": "10.21037/atm-20-7824"
+    },
+    {
+     "ref": "Shi G et al. 3D mapping of intra-articular calcaneal fractures. Sci Rep 2023;13:8831",
+     "pmid": "37258588",
+     "doi": "10.1038/s41598-023-34711-w"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Shi G et al. Two and three-dimensional CT mapping of the sustentacular fragment in intra-articular calcaneal fractures. Sci Rep 2022;12:20456",
+     "pmid": "36443435",
+     "doi": "10.1038/s41598-022-24916-w"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Cottom JM et al. Restoring the anatomy of calcaneal fractures: a simple technique with radiographic review. Foot Ankle Spec 2017;10:420-6",
+     "pmid": "27903928",
+     "doi": "10.1177/1938640016679700"
+    },
+    {
+     "ref": "Varol A et al. An evaluation of the efficacy of the locked plate with bone grafting in Sanders type III and IV intra-articular calcaneus fractures. SAGE Open Med 2021;9:20503121211040954",
+     "pmid": "34434558",
+     "doi": "10.1177/20503121211040954"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the written results (abstracts) of the CT mapping studies cited. Lines were placed from the text, not traced from the map figures. Primary line: from the angle of Gissane back along the long calcaneal axis (about 11 degrees in the axial view, Shi 2023), through the posterior facet and down the medial wall, separating the sustentaculum and medial wall from the tuberosity (Ni 2021); the sustentaculum itself is not broken (Ni 2021; Shi 2022). Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more.",
+   "note": "Sanders 3: two lines through the posterior facet, a central depressed piece. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "sustentacular fragment",
+   "file": "82C2_young.glb",
+   "files": {
+    "young": "82C2_young.glb",
+    "elderly": "82C2_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 42352,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "central depressed fragment",
+     "volume_cm3": 1.52,
+     "triangles": 5214,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0191,
+      -0.9368,
+      -0.3494
+     ],
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00307,
+       -0.00562,
+       -0.00263
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 7.0,
+      "pivot": [
+       -0.08608,
+       0.05313,
+       -0.05478
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_joint_depression"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "lateral joint fragment",
+     "volume_cm3": 0.72,
+     "triangles": 4548,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0191,
+      -0.9368,
+      -0.3494
+     ],
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00405,
+       -0.00562,
+       -0.00281
+      ],
+      "axis": [
+       -0.1783,
+       0.10983,
+       0.97783
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.08954,
+       0.05017,
+       -0.05611
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_joint_depression"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tuberosity",
+     "volume_cm3": 34.42,
+     "triangles": 17992,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00492,
+       -0.0,
+       -0.0009
+      ],
+      "axis": [
+       0.64173,
+       -0.12546,
+       -0.7566
+      ],
+      "deg": 8.1,
+      "pivot": [
+       -0.08182,
+       0.04623,
+       -0.054
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tuberosity"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "sustentacular fragment",
+     "volume_cm3": 22.07,
+     "triangles": 14598
+    }
+   ],
+   "bytes": 169512
+  },
+  {
+   "id": "82C3",
+   "code": "82C3",
+   "name": "Calcaneus, complete articular fracture, joint depression, Sanders 4",
+   "segment": "82",
+   "tags": {
+    "sanders": "4"
+   },
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "page": "S89-S100 (foot chapter)"
+    },
+    {
+     "ref": "Ni M et al. Fracture mapping of complex intra-articular calcaneal fractures. Ann Transl Med 2021;9:333",
+     "pmid": "33708960",
+     "doi": "10.21037/atm-20-7824"
+    },
+    {
+     "ref": "Shi G et al. 3D mapping of intra-articular calcaneal fractures. Sci Rep 2023;13:8831",
+     "pmid": "37258588",
+     "doi": "10.1038/s41598-023-34711-w"
+    },
+    {
+     "ref": "Yu Q et al. Calcaneal fracture maps and their determinants. J Orthop Surg Res 2022;17:36",
+     "pmid": "35062985",
+     "doi": "10.1186/s13018-022-02930-y"
+    },
+    {
+     "ref": "Shi G et al. Two and three-dimensional CT mapping of the sustentacular fragment in intra-articular calcaneal fractures. Sci Rep 2022;12:20456",
+     "pmid": "36443435",
+     "doi": "10.1038/s41598-022-24916-w"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Sanders R et al. Operative treatment in 120 displaced intraarticular calcaneal fractures. Results using a prognostic computed tomography scan classification. Clin Orthop Relat Res 1993;(290):87-95",
+     "pmid": "8472475"
+    },
+    {
+     "ref": "Cottom JM et al. Restoring the anatomy of calcaneal fractures: a simple technique with radiographic review. Foot Ankle Spec 2017;10:420-6",
+     "pmid": "27903928",
+     "doi": "10.1177/1938640016679700"
+    },
+    {
+     "ref": "Varol A et al. An evaluation of the efficacy of the locked plate with bone grafting in Sanders type III and IV intra-articular calcaneus fractures. SAGE Open Med 2021;9:20503121211040954",
+     "pmid": "34434558",
+     "doi": "10.1177/20503121211040954"
+    }
+   ],
+   "line_basis": "Compendium type definition plus the written results (abstracts) of the CT mapping studies cited. Lines were placed from the text, not traced from the map figures. Primary line: from the angle of Gissane back along the long calcaneal axis (about 11 degrees in the axial view, Shi 2023), through the posterior facet and down the medial wall, separating the sustentaculum and medial wall from the tuberosity (Ni 2021); the sustentaculum itself is not broken (Ni 2021; Shi 2022). Sanders 1993 counts the pieces of the posterior facet on the coronal CT: type II two pieces, III three, IV four or more. Shi 2023: 92.5 % of intra-articular fractures were comminuted.",
+   "note": "Sanders 4: the posterior facet in four or more pieces, plus an anterolateral fragment into the calcaneocuboid joint. Name and code written from the foot-chapter summary kept in CLAUDE.md: the printed pages (S89-S100) were not available in this session, so the exact printed wording and which qualification is drawn in bold must be checked by the owner.",
+   "anchor": "sustentacular fragment",
+   "file": "82C3_young.glb",
+   "files": {
+    "young": "82C3_young.glb",
+    "elderly": "82C3_elderly.glb"
+   },
+   "bone_quality": "young",
+   "bones": [
+    "Calcaneus.r"
+   ],
+   "triangles": 57522,
+   "fragments": [
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "central depressed fragment 1",
+     "volume_cm3": 0.77,
+     "triangles": 4748,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0191,
+      -0.9368,
+      -0.3494
+     ],
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00307,
+       -0.00562,
+       -0.00263
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 7.0,
+      "pivot": [
+       -0.0867,
+       0.05369,
+       -0.05723
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_joint_depression"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "central depressed fragment 2",
+     "volume_cm3": 0.37,
+     "triangles": 3108,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0191,
+      -0.9368,
+      -0.3494
+     ],
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00307,
+       -0.00562,
+       -0.00263
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 7.0,
+      "pivot": [
+       -0.0841,
+       0.05217,
+       -0.05578
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_joint_depression"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "central depressed fragment 3",
+     "volume_cm3": 0.5,
+     "triangles": 3150,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0191,
+      -0.9368,
+      -0.3494
+     ],
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00307,
+       -0.00562,
+       -0.00263
+      ],
+      "axis": [
+       0.98378,
+       0.0,
+       0.17938
+      ],
+      "deg": 7.0,
+      "pivot": [
+       -0.08584,
+       0.05361,
+       -0.05037
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_joint_depression"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "lateral joint fragment",
+     "volume_cm3": 0.6,
+     "triangles": 3878,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0191,
+      -0.9368,
+      -0.3494
+     ],
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00405,
+       -0.00562,
+       -0.00281
+      ],
+      "axis": [
+       -0.1783,
+       0.10983,
+       0.97783
+      ],
+      "deg": 6.0,
+      "pivot": [
+       -0.08969,
+       0.05023,
+       -0.05664
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_joint_depression"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "tuberosity",
+     "volume_cm3": 34.45,
+     "triangles": 17298,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00492,
+       -0.0,
+       -0.0009
+      ],
+      "axis": [
+       0.64173,
+       -0.12546,
+       -0.7566
+      ],
+      "deg": 8.1,
+      "pivot": [
+       -0.08395,
+       0.04576,
+       -0.04968
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_tuberosity"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "anterolateral fragment",
+     "volume_cm3": 2.62,
+     "triangles": 5764,
+     "pose": {
+      "unit": "piece",
+      "t": [
+       -0.00248,
+       -0.00099,
+       -0.00034
+      ],
+      "axis": [
+       -0.1783,
+       0.10983,
+       0.97783
+      ],
+      "deg": 5.0,
+      "pivot": [
+       -0.08395,
+       0.04576,
+       -0.04968
+      ],
+      "muscles": [],
+      "data": true
+     },
+     "displace": "calc_piece"
+    },
+    {
+     "bone": "calcaneus",
+     "mesh": "Calcaneus.r",
+     "name": "sustentacular fragment",
+     "volume_cm3": 19.39,
+     "triangles": 19576
+    }
+   ],
+   "bytes": 234744
+  }
+ ]
+}

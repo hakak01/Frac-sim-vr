@@ -137,5 +137,39 @@
     "frames": {
       "condyles": {"bone": "femur", "level": {"ref": "knee", "distal_mm": 0}, "band_mm": [-30, 2], "into": "proximal"}
     }
+  },
+  "foot_right": {
+    "_note": "Phase 7c: talus (81) and calcaneus (82). Both bones use the 'hindfoot' frame measured on the mesh (bone_model.py): long axis from the most posterior point to the centre of the most anterior joint surface; azimuth 0 = dorsal, 90 = medial, 180 = plantar, 270 = lateral; 'distal' = towards the toes. Landmarks: bone_model.py _landmarks_hindfoot (run 'python3 tools/bone_model.py foot_right' to list them).",
+    "side": "right",
+    "landmarks": "hindfoot",
+    "landmark_bone": "calcaneus",
+    "profiles": ["young", "elderly"],
+    "default_profile": {"81": "young", "82": "young"},
+    "default_profile_note": "Talus and calcaneus fractures are mostly high-energy injuries of young adults (e.g. median age 32 for talar head fractures, Hammarberg 2024, PMID 39259993; mean 37 for talar body fractures, Roddy 2026, PMID 42639242).",
+    "terms": {"anterior": "dorsal", "posterior": "plantar", "frontal plane": "transverse plane (seen from above)", "_note": "Words for the readout in this region: the frame's 'anterior' is dorsal, and its 'frontal' plane (long axis and medial) is the foot's transverse plane."},
+    "bones": {
+      "talus": {
+        "mesh": "Talus.r", "frame": "hindfoot",
+        "cortex_profiles": {
+          "young": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 1.0], [1.0, 1.0]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false},
+          "elderly": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 0.6], [1.0, 0.6]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false}
+        }
+      },
+      "calcaneus": {
+        "mesh": "Calcaneus.r", "frame": "hindfoot",
+        "cortex_profiles": {
+          "young": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 1.0], [1.0, 1.0]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false},
+          "elderly": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 0.6], [1.0, 0.6]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false}
+        }
+      }
+    }
   }
 }

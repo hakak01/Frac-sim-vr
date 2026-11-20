@@ -104,7 +104,7 @@ def plane_solid(bone, p, n, noise):
 def landmark_point(region, bone, spec):
     """A named landmark (bone_model.py) plus offsets in mm: distal, medial, anterior."""
     return (np.asarray(region.points[spec["landmark"]], float) + spec.get("distal_mm", 0) * bone.d
-            + spec.get("medial_mm", 0) * bone.e_med + spec.get("anterior_mm", 0) * bone.e_ant)
+            + spec.get("medial_mm", 0) * bone.e_med + (spec.get("anterior_mm", 0) + spec.get("dorsal_mm", 0)) * bone.e_ant)
 
 
 def point_spec(region, bone, t, through):
@@ -147,6 +147,22 @@ def plane_tool(region, bone, cut, noise):
     tilt = np.radians(cut.get("tilt_deg", 0))
     a = np.radians(cut.get("azimuth_deg", 0))
     ref = cut.get("reference", "bone")
+    if "points" in cut:                          # Phase 7c: plane through 3 landmark points, or through 2 points
+        P = [landmark_point(region, bone, s) for s in cut["points"]]       # and along the direction at 'along_azimuth_deg'
+        if len(P) == 3:
+            n = np.cross(P[1] - P[0], P[2] - P[0])
+        else:
+            line = unit(P[1] - P[0])
+            w = bone.direction(cut["along_azimuth_deg"]) if "along_azimuth_deg" in cut else -bone.d
+            w = unit(w - (w @ line) * line)
+            tw = np.radians(cut.get("twist_deg", 0))
+            w = np.cos(tw) * w + np.sin(tw) * np.cross(line, w)
+            n = np.cross(line, w)
+        n = unit(n)
+        side = cut.get("plus_side")              # which side is '+': proximal (default), or an azimuth
+        ref_dir = -bone.d if side is None else bone.direction(side)
+        n = n if n @ ref_dir > 0 else -n
+        return plane_solid(bone, np.mean(P, axis=0), n, noise), None
     if "from" in cut:
         p1, p2 = landmark_point(region, bone, cut["from"]), landmark_point(region, bone, cut["to"])
         line = unit(p2 - p1)
@@ -226,9 +242,21 @@ def plug_tool(region, bone, cut, noise):
                         cut["taper"]["to"] if "taper" in cut else None, cut.get("taper", {}).get("amount", 0.9))
         return tool, (-out * cut["impaction_mm"] if cut.get("impaction_mm") else None)
     if "at" in cut:                              # centred on a landmark (e.g. an epicondyle), facing out from the axis
-        origin = np.asarray(region.points[cut["at"]], float)
-        out = origin - bone.axis_point(bone.t_of(origin))
-        out = unit(out - (out @ bone.d) * bone.d)
+        origin = landmark_point(region, bone, {"landmark": cut["at"], **cut.get("offset", {})})
+        if cut["at"] in region.normals:          # a joint surface (Phase 7c): pushed in along its own normal
+            out = unit(np.asarray(region.normals[cut["at"]], float))
+            origin = bone.tri.nearest.on_surface(origin[None])[0][0]
+        else:
+            out = origin - bone.axis_point(bone.t_of(origin))
+            out = unit(out - (out @ bone.d) * bone.d)
+        if "out_azimuth_deg" in cut:             # or facing a given direction of the bone frame
+            out = bone.direction(cut["out_azimuth_deg"])
+        ey = -bone.d - (-bone.d @ out) * out     # outline y = towards proximal, as far as the surface allows
+        ey = unit(ey if np.linalg.norm(ey) > 0.2 else bone.e_ant - (bone.e_ant @ out) * out)
+        tool = extruded(chaikin(cut["outline_mm"]), cut.get("start_mm", -15.0), cut["depth_mm"], origin,
+                        np.cross(ey, out), ey, -out, noise,
+                        cut["taper"]["to"] if "taper" in cut else None, cut.get("taper", {}).get("amount", 0.9))
+        return tool, (-out * cut["impaction_mm"] if cut.get("impaction_mm") else None)
     else:
         t = region.level(bone, cut["level"])
         out = bone.direction(cut["azimuth_deg"])
@@ -295,6 +323,14 @@ TOOLS = {"plane": plane_tool, "prism": prism_tool, "plug": plug_tool, "spiral": 
 
 # ---------------------------------------------------------------- fragments
 def region_solid(box, tools, sides):
+    """sides: {cut id: '+' or '-'} = the intersection of those half-spaces; a LIST of such dicts = their union
+    (Phase 7c, e.g. a calcaneal tuberosity fragment that wraps round the sustentacular fragment)."""
+    if isinstance(sides, list):
+        r = None
+        for s in sides:
+            p = region_solid(box, tools, s)
+            r = p if r is None else r + p
+        return r
     r = box
     for c, sg in sides.items():
         r = r ^ tools[c] if sg == "+" else r - tools[c]
@@ -400,7 +436,9 @@ def build_fracture(region, row):
             subs = (shatter(bone, fr["name"], R, fr["shatter"], seed_of(row["id"], bkey, fr["name"]))
                     if "shatter" in fr else [(fr["name"], R)])
             named += [(n, r, fr["sides"]) for n, r in subs]
-        parts = [[n, bone.shell ^ r, bone.core ^ r, sides] for n, r, sides in named]
+        flat = lambda sd: ({k: v for d in sd for k, v in d.items() if all(x.get(k) == v for x in sd)}
+                           if isinstance(sd, list) else sd)     # a cut counts for a union only if every part agrees
+        parts = [[n, bone.shell ^ r, bone.core ^ r, flat(sides)] for n, r, sides in named]
         if rest_name:
             sh, co = bone.shell, bone.core
             for _, r, _ in named:
@@ -419,7 +457,7 @@ def build_fracture(region, row):
             total += vol
             prims = fragment_primitives(bone, sh, co, tree)
             f = {"bone": bkey, "mesh": bone.cfg["mesh"], "name": n, "volume_cm3": round(vol / 1000, 2),
-                 "triangles": int(sum(len(p[3]) for p in prims)), "prims": prims}
+                 "triangles": int(sum(len(p[3]) for p in prims)), "prims": prims, "solid": sh + co}
             cutv = [p[1] for p in prims if p[0].startswith("Fracture")]
             f["centroid"] = np.vstack([p[1] for p in prims]).mean(0)
             f["cutv"] = np.vstack(cutv) if cutv else np.zeros((0, 3))
@@ -632,6 +670,83 @@ def femur_landmarks(region, root):
             "source": "Measured on this femur by tools/femur_geometry.py (intact values = the normal side)"}
 
 
+# ---------------------------------------------------------------- poses written as data (Phase 7c)
+def fragment_spec(row, f):
+    base = f["name"].rsplit(" ", 1)[0] if f["name"].rsplit(" ", 1)[-1].isdigit() else f["name"]
+    return next((x for x in row["bones"][f["bone"]]["fragments"] if x["name"] == base), {})
+
+
+def data_poses(region, row, frags):
+    """Typical displacement written in fractures.json in foot words, per fragment ('pose'):
+    move_mm {dorsal, medial, distal (towards the toes)}, impaction (adds the depth cut for a depressed fragment),
+    turns in degrees about a pivot ('site' = middle of the fracture surfaces of this bone, 'centroid', or a landmark):
+    adduction_deg (front of the piece swings medially), plantarflexion_deg (front down, back up),
+    eversion_deg (dorsum tips laterally; negative = inversion / varus). Applied in that order.
+    Output: the same pose format as the muscle poses of Phase 6d (GLB axes, metres)."""
+    from scipy.spatial.transform import Rotation
+    anchor = None
+    for f in frags:
+        spec = fragment_spec(row, f)
+        if spec.get("main"):
+            anchor = f["name"] if anchor is None else anchor
+        q = spec.get("pose")
+        if not q:
+            continue
+        b = region.bones[f["bone"]]
+        mv = q.get("move_mm", {})
+        t = mv.get("dorsal", 0) * b.e_ant + mv.get("medial", 0) * b.e_med + mv.get("distal", 0) * b.d
+        if q.get("impaction") and f.get("impaction_mm"):
+            d = np.array(f["impaction_dir"])                          # stored in GLB axes: back to Z-Anatomy
+            t = t + f["impaction_mm"] * np.array([d[0], -d[2], d[1]])
+        R = Rotation.identity()
+        for key, ax in (("adduction_deg", b.e_ant), ("plantarflexion_deg", b.e_med), ("eversion_deg", b.d)):
+            if q.get(key):
+                R = Rotation.from_rotvec(np.radians(q[key]) * ax) * R
+        pv = q.get("pivot", "site")
+        piv = (f["site"] if pv == "site" else f["centroid"] if pv == "centroid"
+               else landmark_point(region, b, pv if isinstance(pv, dict) else {"landmark": pv}))
+        rv = R.as_rotvec()
+        deg = float(np.degrees(np.linalg.norm(rv)))
+        f["pose"] = {"unit": "piece", "t": GLBm(t), "axis": GLB(rv / np.linalg.norm(rv) if deg > 1e-6 else np.array([1.0, 0, 0])),
+                     "deg": round(deg, 1), "pivot": GLBm(piv), "muscles": [], "data": True}
+    return anchor
+
+
+def pose_overlaps(region, row, frags):
+    """Offline check of the data poses: volume (mm3) where a posed fragment enters an intact bone of the region
+    or another (posed) fragment. The page makes the start free of overlap anyway; this is for tuning the data."""
+    raw = np.load(os.path.join(ROOT, "model", region.id, "bones.npz"))
+    cut = {f["mesh"] for f in frags}
+    names = sorted({k.split("|")[0] for k in raw.files} - cut)
+    def placed(f):
+        q = f.get("pose")
+        if not q:
+            return f["solid"]
+        from scipy.spatial.transform import Rotation
+        axis = np.array([q["axis"][0], -q["axis"][2], q["axis"][1]])
+        R = Rotation.from_rotvec(np.radians(q["deg"]) * axis).as_matrix()
+        pv = np.array([q["pivot"][0], -q["pivot"][2], q["pivot"][1]]) * 1000
+        t = np.array([q["t"][0], -q["t"][2], q["t"][1]]) * 1000
+        M = np.hstack([R, (pv + t - R @ pv)[:, None]])
+        return f["solid"].transform(M)
+    out = []
+    solids = [placed(f) for f in frags]
+    others = {n: Manifold(Mesh(np.asarray(raw[n + "|V"] * 1000, "f4"), np.asarray(raw[n + "|F"], "u4"))) for n in names}
+    for i, f in enumerate(frags):                # only overlap that is NEW (bones that already touch at home are left out)
+        if not f.get("pose"):
+            continue
+        for n, m in others.items():
+            v = (solids[i] ^ m).volume() - (f["solid"] ^ m).volume()
+            if v > 5:
+                out.append(f"{f['name']} in {n}: {v:.0f} mm3")
+        for j, g in enumerate(frags):
+            if j > i or (j < i and not frags[j].get("pose")):
+                v = (solids[i] ^ solids[j]).volume() - (f["solid"] ^ g["solid"]).volume()
+                if v > 5:
+                    out.append(f"{f['name']} in {g['name']}: {v:.0f} mm3")
+    return out
+
+
 # ---------------------------------------------------------------- GLB output
 def write_glb(path, row, frags):
     """Minimal GLB writer. Metres, Y up (x, z, -y), same axes as the Phase 1 files."""
@@ -708,7 +823,7 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     index_path = os.path.join(out_dir, "index.json")
     old = {e["id"]: e for e in json.load(open(index_path))["fractures"]} if os.path.exists(index_path) else {}
-    entries, problems = [], []
+    entries, problems, overlaps = [], [], {}
     with tempfile.TemporaryDirectory() as tmp:
         for row in rows:
             base = row["id"].replace("(", "_").replace(")", "").replace(".", "_")
@@ -745,6 +860,12 @@ def main():
                 e["measured"] = row.pop("_measured")
             if musc and frags:
                 e.update({k: v for k, v in muscle_poses(regions[dq], frags, musc, mmodel).items() if v})
+            if frags:
+                anchor = data_poses(regions[dq], row, frags)          # 7c: poses and the main fragment as data
+                if anchor:
+                    e["anchor"] = anchor
+                if any(f.get("pose", {}).get("data") for f in frags):
+                    overlaps[row["id"]] = pose_overlaps(regions[dq], row, frags)
             if frags and region.cfg.get("followers"):           # e.g. the talus moves with the plafond fragment
                 fol = joint_followers(regions[dq], frags)
                 if fol:
@@ -755,7 +876,7 @@ def main():
                     e["files"], e["bone_quality"] = files, dq
             e["bones"] = sorted({f["mesh"] for f in frags})
             e["triangles"] = sum(f["triangles"] for f in frags)
-            e["fragments"] = [{k: v for k, v in f.items() if k not in ("prims", "centroid", "site", "cutv")} for f in frags]
+            e["fragments"] = [{k: v for k, v in f.items() if k not in ("prims", "centroid", "site", "cutv", "solid")} for f in frags]
             entries.append(e)
         if os.listdir(tmp):
             subprocess.run(["node", os.path.join(HERE, "draco_compress.mjs"), tmp, out_dir], check=True)
@@ -778,7 +899,8 @@ def main():
             elif f.get("no_muscle"):
                 f["displace"] = "wedge"               # loose piece with no muscle on it
     gl = lambda v: [round(float(v[0]), 5), round(float(v[2]), 5), round(float(-v[1]), 5)]   # to GLB axes
-    frames = {k: {"mesh": b.cfg["mesh"], "distal": gl(b.d), "anterior": gl(b.e_ant), "medial": gl(b.e_med)}
+    frames = {k: {"mesh": b.cfg["mesh"], "distal": gl(b.d), "anterior": gl(b.e_ant), "medial": gl(b.e_med),
+                  **({"terms": region.cfg["terms"]} if region.cfg.get("terms") else {})}
               for k, b in region.bones.items()}
     disp = dict(data.get("displacements", {}))
     if musc:
@@ -806,6 +928,8 @@ def main():
     for e in built[:12] if only else []:
         print("  ", e["id"], [(f["name"], f["volume_cm3"]) for f in e["fragments"]])
     for e in built:
+        for o in overlaps.get(e["id"], []):
+            print("   pose overlap", e["id"], o)
         if e.get("measured"):
             print("   measured", e["id"], e["measured"])
     print(f"{len(problems)} problems")

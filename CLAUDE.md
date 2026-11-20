@@ -64,7 +64,8 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
    hand occlusion, traction, haptics) – done (see PROGRESS.md). Owner's choices for 6b-6e: PROGRESS.md > Decisions.
 7. FOOT AND ANKLE (owner's plan, 18 Nov 2026, answers in PROGRESS.md > Decisions):
    7a assets (`foot_right` + talus as context in `leg_right`) – done (see PROGRESS.md); 7b joints + ligament tethers
-   (also for 43/44) – done, with the owner's extras: VR without pass-through as a choice, hide/isolate structures; 7c talus 81 + calcaneus 82 (CT-mapped); 7d 83-89 + dislocations;
+   (also for 43/44) – done, with the owner's extras: VR without pass-through as a choice, hide/isolate structures; 7c talus 81 + calcaneus 82 (CT-mapped) – done (see PROGRESS.md; printed names
+   still to be checked by the owner); 7d 83-89 + dislocations;
    7e tendon pull, readouts, CT slice plane; 7f VR/MR (grips, positions, Sawbones overlay, haptics).
 
 ## File map
@@ -82,7 +83,7 @@ Static site on GitHub Pages (HTTPS). No build step: three.js is copied into `ven
 | `fractures.json` | THE fracture data: one row per AO/OTA 2018 code (cuts, fragments, sources). Edit this to add or change a fracture. |
 | `bone_model.json` | Per-region bone settings: modelled cortex thickness (with sources), canal range, joint frames. |
 | `tools/fracture_engine.py` | Cuts the bones into fragments from `fractures.json`. Writes `assets/<region>/fractures/`. |
-| `tools/bone_model.py` | Used by the engine: bone axes, joint lines, AO square rule, modelled cortex (inner surface). |
+| `tools/bone_model.py` | Used by the engine: bone axes, joint lines, AO square rule, modelled cortex (inner surface); 7c: hindfoot frame + talus/calcaneus landmarks (`python3 tools/bone_model.py foot_right` lists them). |
 | `tools/preview.py` | Quick picture tiles of cut fractures for checking by eye (`--preview <dir>`). |
 | `model/<region>/bones.npz` | Raw bones (metres) + cartilage marking, written by `export_region.py`, read by the engine. |
 | `assets/<region>/fractures/*.glb` | Pre-cut fragments, one Draco GLB per fracture. `index.json` lists them; `FRACTURES.md` is the table. |
@@ -126,6 +127,7 @@ python3 tools/fracture_engine.py leg_right --preview /tmp/t 42A1  # also save ch
 python3 tools/femur_geometry.py thigh_right   # once, before the femur engine (axes, head, knee)
 python3 tools/export_muscles.py _source/blend/Z-Anatomy/Startup.blend regions/thigh_right.json  # once (bpy)
 python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualities, patella x 1), about 15 minutes
+python3 tools/fracture_engine.py foot_right   # 25 rows (talus, calcaneus x 2 bone qualities), about 30 seconds
 ```
 
 ## Facts about the Z-Anatomy file (learned in Phase 1)
@@ -245,6 +247,29 @@ python3 tools/fracture_engine.py thigh_right  # 80 rows (femur x 2 bone qualitie
   fragment without the tilt about the medial axis (the joint takes it up); femur rows (no `follow`) still use
   `femur.knee_centre`. A follower is out of bone collision; if its bone is not cut (4F, fibula-only 44), the talus
   stays home and IS a collider. Followers need a full re-cut (not `--meta`).
+
+## Talus and calcaneus fractures (Phase 7c)
+
+- `bone_model.json` > `foot_right`: `landmarks: "hindfoot"`, bones `talus`, `calcaneus` with `frame: "hindfoot"`: long axis from the most
+  posterior point to the centre of the most anterior cartilage patch (talar head / cuboid facet = long calcaneal axis); the frame's
+  "anterior" is DORSAL (azimuth 0 dorsal, 90 medial, 180 plantar, 270 lateral), "distal" = towards the toes. `terms` = readout words
+  (anterior -> dorsal, frontal plane -> transverse plane), copied to index `frames`. Cortex 1.0 / 0.6 mm (young / elderly), no canal, no source.
+- Landmarks (`_landmarks_hindfoot`, measured): `talus_dome`, `talus_head`, `talus_post_facet` (+ normals), `talus_dome_al/pm`, `talus_lat_process`,
+  `talus_post_process`, `talus_neck_dorsal`, `talus_neck_medial`, `talus_sinus`; `calc_post_facet`, `calc_mid_facet`, `calc_cuboid` (+ normals),
+  `calc_gissane` (= front edge of the posterior facet, lateral half), `calc_post_facet_back/front`, `calc_tuber`, `calc_tuber_top`,
+  `calc_ant_process_top`, `calc_sustentaculum`, `calc_medial/lateral_process`, `calc_lateral/medial_wall`, `calc_plantar`. Offsets: `distal_mm`,
+  `medial_mm`, `dorsal_mm` (= `anterior_mm`).
+- New cut options: plane `points` [3 landmark specs] or [2 specs + `along_azimuth_deg`, `twist_deg`], `plus_side` (azimuth of the + side; default
+  proximal); plug `at` a landmark with a normal = pushed in along the joint surface normal, plus `offset`, `out_azimuth_deg`, `impaction_mm`.
+- Fragment `sides` may be a LIST of dicts = union (calcaneal tuberosity wrapping round the sustentacular fragment). `main: true` = the fixed
+  fragment (index `anchor`). `pose` = typical displacement in foot words: `move_mm` {dorsal, medial, distal}, `impaction` (adds the cut depth),
+  `adduction_deg`, `plantarflexion_deg`, `eversion_deg` (negative = inversion/varus), `pivot` (site | centroid | landmark); written to the index
+  in the Phase 6d pose format with `data: true`. `displace` names the text entry in `displacements` (basis + sources only).
+- The engine prints "pose overlap" (new overlap in mm3 of each posed piece with other bones / pieces) for tuning; it is not written anywhere.
+- Viewer, foot data poses only (leg and thigh unchanged, checked on all 176 rows): a piece that touches a placed bone at home may keep touching
+  it at the start, but not deeper than the 2 mm inner shapes; slides to a free start at most 6 mm.
+- Preview tiles for 81/82: lateral, top, medial, back (110 mm window).
+- The rows were written with a one-off script (not kept); `fractures.json` is the source. AO chapter summary above was used for the names.
 
 ## Femur fractures (Phase 6b)
 

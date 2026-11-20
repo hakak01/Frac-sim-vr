@@ -267,7 +267,7 @@ function setLayer(id, on) {
   if (box) box.checked = on;
 }
 const SEGMENTS = { 41: '41 Proximal tibia', 42: '42 Tibial shaft', 43: '43 Distal tibia',
-  44: '44 Malleolar segment', '4F': '4F Fibula' };
+  44: '44 Malleolar segment', '4F': '4F Fibula', 81: '81 Talus', 82: '82 Calcaneus' };
 
 async function initFractures(loader) {
   const sel = document.getElementById('fx');
@@ -422,7 +422,13 @@ function typicalPose(f, placed, waiting) {
   // against everything placed so far, and the pieces still to be placed, at their home position
   // (pairs that already touch at home are left out)
   const blockers = waiting.filter((o) => !overlap(collider(o), a, I, I));
-  const hits = (pose) => placed.some(([c, w]) => overlap(c, a, w, pose)) || blockers.some((o) => overlap(o.collider, a, I, pose));
+  // Foot poses (7c): things this piece already touches at home (e.g. the talar head and the navicular, a joint) may
+  // keep touching, but not deeper than the inner shapes (2 mm smaller), as when the piece is held by hand.
+  // Leg and thigh fractures keep their Phase 4 rule (start positions unchanged).
+  const inner = (c) => (c.inner ||= makeCollider(c.obj, c.shrink + 0.002, 0.0016));
+  const homeTouch = new Set(f.preset.pose && f.preset.pose.data ? placed.filter(([c, w]) => overlap(c, a, w, I)).map(([c]) => c) : []);
+  const hits = (pose) => placed.some(([c, w]) => (homeTouch.has(c) ? overlap(inner(c), inner(a), w, pose) : overlap(c, a, w, pose)))
+    || blockers.some((o) => overlap(o.collider, a, I, pose));
   if (!hits(m)) return m;
   // Not free: try smaller versions of the deformity, cheapest first. Cost in "mm": shortening
   // given up counts 1 per mm; deformity given up counts 10 per 100 %; moving the fragment
@@ -433,7 +439,7 @@ function typicalPose(f, placed, waiting) {
   const moves = [[null, 0, 0]];
   if (pose) {                                // muscle pose: slide sideways past the other fragment (cheaper than losing the shift)
     for (const dir of [f.frame.M, f.frame.M.clone().negate(), f.frame.A, f.frame.A.clone().negate()]) {
-      for (let d = 2; d <= 16; d += 2) moves.push([dir, d, 0.8 * d]);
+      for (let d = 2; d <= (pose.data ? 6 : 16); d += 2) moves.push([dir, d, 0.8 * d]);   // foot poses (7c): short slides only
     }
   } else {
     for (let d = 1; d <= 10; d++) moves.push([axial, d, 1.5 * d]);

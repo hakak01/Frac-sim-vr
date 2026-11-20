@@ -42,11 +42,27 @@ class Bone:
         self.d = unit(band(0.75) - self.c0)               # long axis, pointing distally
         self.e_ant = unit(ANTERIOR - (ANTERIOR @ self.d) * self.d)
         self.e_med = np.cross(self.e_ant, self.d)         # medial for a right limb
+        self.facets = facets(self.tri, cart)
+        if cfg.get("frame") == "hindfoot":                # talus, calcaneus: lying bones (Phase 7c)
+            self._hindfoot_frame()
         t = (V - self.c0) @ self.d
         self.t0, self.t1 = t.min(), t.max()               # proximal end, distal end
         self.length = self.t1 - self.t0
         self.outer = to_manifold(V, F).as_original()
         self._inner(cache_dir)
+
+    def _hindfoot_frame(self):
+        """Frame of a talus or calcaneus, measured on the mesh. Long axis ('distal' = towards the toes):
+        from the most posterior point (posterior process / tuberosity) to the centre of the most anterior
+        joint surface (talar head / cuboid facet). For the calcaneus this is the long calcaneal axis of the
+        mapping papers. 'Anterior' of the long bones becomes DORSAL here (azimuth 0 dorsal, 90 medial,
+        180 plantar, 270 lateral); proximal = towards the heel."""
+        back = self.V[np.argmax(self.V @ -ANTERIOR)]
+        front = max(self.facets, key=lambda f: f["centre"] @ ANTERIOR)["centre"]
+        self.c0 = back
+        self.d = unit(front - back)
+        self.e_ant = unit(UP - (UP @ self.d) * self.d)    # dorsal
+        self.e_med = np.cross(self.e_ant, self.d)
 
     # ---- coordinates ---------------------------------------------------
     def t_of(self, P):
@@ -118,6 +134,30 @@ class Bone:
         self.core = self.inner                         # cancellous bone / medullary canal
 
 
+def facets(tri, cart, min_area=40.0):
+    """Joint surfaces of a bone: connected patches of cartilage faces (area mm2, centre, mean normal, faces)."""
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import connected_components
+    idx = np.where(cart)[0]
+    if not len(idx):
+        return []
+    adj = tri.face_adjacency
+    both = cart[adj[:, 0]] & cart[adj[:, 1]]
+    pos = -np.ones(len(cart), int)
+    pos[idx] = np.arange(len(idx))
+    a, b = pos[adj[both, 0]], pos[adj[both, 1]]
+    _, lab = connected_components(coo_matrix((np.ones(len(a)), (a, b)), shape=(len(idx),) * 2), directed=False)
+    out = []
+    w, c, n = tri.area_faces, tri.triangles_center, tri.face_normals
+    for L in np.unique(lab):
+        f = idx[lab == L]
+        if w[f].sum() < min_area:
+            continue
+        out.append({"area": float(w[f].sum()), "centre": (c[f] * w[f, None]).sum(0) / w[f].sum(),
+                    "normal": unit((n[f] * w[f, None]).sum(0)), "faces": f})
+    return out
+
+
 def section_area(tri, origin, normal):
     """Area (mm2) of the closed loop of a plane cut that goes round 'origin' (None if no such loop)."""
     p = tri.section(plane_origin=origin, plane_normal=normal)
@@ -152,10 +192,92 @@ class Region:
             n = c["mesh"]
             self.bones[key] = Bone(key, raw[n + "|V"].astype("f8") * 1000.0, raw[n + "|F"],
                                    raw[n + "|cartilage"], c, cache)
+        self.normals = {}                                    # outward normal at some landmarks (joint surfaces)
         if self.cfg.get("landmarks") == "femur":
             self._landmarks_femur(root)
+        elif self.cfg.get("landmarks") == "hindfoot":
+            self._landmarks_hindfoot()
         else:
             self._landmarks()
+
+    def _landmarks_hindfoot(self):
+        """Talus and calcaneus landmarks (Phase 7c), all measured on the mesh: joint surfaces = cartilage patches,
+        processes = extreme points in the bone's own frame. Names start with talus_ / calc_."""
+        P, Nn = {}, {}
+        up = UP
+        def pick(b, mask, score):
+            c = b.centroids[mask]
+            return c[np.argmax(score(c))]
+        def surface(b, p):
+            return b.tri.nearest.on_surface(np.asarray([p]))[0][0]
+        if "talus" in self.bones:
+            b = self.bones["talus"]
+            fs = b.facets
+            dome = max(fs, key=lambda f: f["normal"] @ up)
+            head = max(fs, key=lambda f: f["centre"] @ ANTERIOR)
+            post = min((f for f in fs if f is not head), key=lambda f: f["normal"] @ up)
+            n, t = b.tri.face_normals, b.t_of(b.centroids)
+            top = np.zeros(len(n), bool); top[dome["faces"]] = True
+            top &= n @ up > 0.6
+            hd = np.zeros(len(n), bool); hd[head["faces"]] = True
+            pf = np.zeros(len(n), bool); pf[post["faces"]] = True
+            P["talus_dome"], Nn["talus_dome"] = dome["centre"], dome["normal"]
+            P["talus_head"], Nn["talus_head"] = head["centre"], head["normal"]
+            P["talus_post_facet"], Nn["talus_post_facet"] = post["centre"], post["normal"]
+            P["talus_dome_al"] = pick(b, top, lambda c: -(c @ b.e_med) + (c @ b.d))     # anterolateral dome corner
+            P["talus_dome_pm"] = pick(b, top, lambda c: (c @ b.e_med) - (c @ b.d))      # posteromedial dome corner
+            Nn["talus_dome_al"] = Nn["talus_dome_pm"] = up
+            P["talus_lat_process"] = b.V[np.argmin(b.V @ b.e_med)]                     # tip of the lateral process
+            P["talus_post_process"] = b.c0.copy()                                       # most posterior point
+            # neck: halfway between the front edge of the dome and the back edge of the navicular surface
+            ta = t[top].max()
+            tb = t[hd & (n @ b.d > 0.3)].min()
+            tn = (ta + tb) / 2
+            tv = b.t_of(b.V)
+            band = np.abs(tv - tn) < 2
+            P["talus_neck_dorsal"] = b.V[band][np.argmax(b.V[band] @ b.e_ant)]
+            P["talus_neck_medial"] = b.V[band][np.argmax(b.V[band] @ b.e_med)]
+            # sinus tarsi / sulcus tali: under the neck, between the posterior facet and the middle facet
+            pa = b.centroids[pf][np.argmax(t[pf])]
+            low = hd & (n @ up < -0.3)
+            pb = b.centroids[low][np.argmin(t[low])]
+            P["talus_sinus"] = surface(b, (pa + pb) / 2)
+            self.talus_neck_t = float(tn)
+        if "calcaneus" in self.bones:
+            b = self.bones["calcaneus"]
+            fs = b.facets
+            cub = max(fs, key=lambda f: f["centre"] @ ANTERIOR)
+            ups = sorted((f for f in fs if f is not cub), key=lambda f: -f["area"])
+            post, mid = ups[0], (ups[1] if len(ups) > 1 else None)
+            n, t = b.tri.face_normals, b.t_of(b.centroids)
+            pf = np.zeros(len(n), bool); pf[post["faces"]] = True
+            P["calc_post_facet"], Nn["calc_post_facet"] = post["centre"], post["normal"]
+            P["calc_cuboid"], Nn["calc_cuboid"] = cub["centre"], cub["normal"]
+            if mid is not None:
+                P["calc_mid_facet"], Nn["calc_mid_facet"] = mid["centre"], mid["normal"]
+            lat = pf & (b.centroids @ b.e_med < post["centre"] @ b.e_med)
+            P["calc_gissane"] = b.centroids[lat][np.argmax(t[lat])]        # anterolateral edge of the posterior facet
+            P["calc_post_facet_back"] = b.centroids[pf][np.argmin(t[pf])]
+            P["calc_post_facet_front"] = b.centroids[pf][np.argmax(t[pf])]
+            P["calc_tuber"] = b.c0.copy()
+            tv = b.t_of(b.V)
+            tback = b.t_of(P["calc_post_facet_back"])
+            behind = tv < tback - 5
+            P["calc_tuber_top"] = b.V[behind][np.argmax(b.V[behind] @ up)]           # Boehler: top of the tuberosity
+            front = tv > b.t_of(P["calc_gissane"]) + 5
+            P["calc_ant_process_top"] = b.V[front][np.argmax(b.V[front] @ up)]       # Boehler: top of the anterior process
+            if mid is not None:
+                near = (np.abs(tv - b.t_of(mid["centre"])) < 8) & (b.V @ up > mid["centre"] @ up - 12)
+                P["calc_sustentaculum"] = b.V[near][np.argmax(b.V[near] @ b.e_med)]
+            lowp = behind & (b.V @ up < np.median(b.V[behind] @ up))
+            P["calc_medial_process"] = b.V[lowp][np.argmax(b.V[lowp] @ b.e_med)]
+            P["calc_lateral_process"] = b.V[lowp][np.argmin(b.V[lowp] @ b.e_med)]
+            atf = np.abs(tv - b.t_of(post["centre"])) < 4
+            P["calc_lateral_wall"] = b.V[atf][np.argmin(b.V[atf] @ b.e_med)]
+            P["calc_medial_wall"] = b.V[atf][np.argmax(b.V[atf] @ b.e_med)]
+            P["calc_plantar"] = b.V[np.argmin(b.V @ up)]
+        self.points, self.normals = P, Nn
+        self.square = {}
 
     def _landmarks_femur(self, root):
         """Femur landmarks, all measured on the mesh. Head centre, neck axis and knee centre come
@@ -319,6 +441,13 @@ if __name__ == "__main__":
     import sys
     r = Region(sys.argv[1] if len(sys.argv) > 1 else "leg_right")
     print(json.dumps(r.summary(), indent=1))
+    if r.cfg.get("landmarks") == "hindfoot":            # landmarks in each bone's own frame (mm)
+        for k, p in r.points.items():
+            b = r.bones["talus" if k.startswith("talus") else "calcaneus"]
+            q = p - b.c0
+            print(f"  {k:24s} along {q @ b.d:6.1f}  medial {q @ b.e_med:6.1f}  dorsal {q @ b.e_ant:6.1f}")
+        for k, b in r.bones.items():
+            print(k, "length", round(b.length, 1), "axis (Z-Anatomy)", b.d.round(3))
     if "tibia" not in r.bones:
         raise SystemExit
     b = r.bones["tibia"]

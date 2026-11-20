@@ -14,7 +14,8 @@ const deg = THREE.MathUtils.radToDeg, rad = THREE.MathUtils.degToRad;
 
 export function frameOf(index, bone) {
   const f = index.frames[bone];
-  return { D: V(f.distal), A: V(f.anterior), M: V(f.medial) };   // distal, anterior, medial
+  // distal, anterior, medial; T = words for this region (foot: the frame's 'anterior' is dorsal)
+  return { D: V(f.distal), A: V(f.anterior), M: V(f.medial), T: f.terms || null };
 }
 
 // ---- typical displacement ----------------------------------------------------
@@ -141,7 +142,7 @@ export function measure(f, ref) {
     varus: deg(Math.atan2(D2.dot(M), D2.dot(D))),        // + varus, - valgus
     apexAnterior: deg(Math.atan2(-D2.dot(A), D2.dot(D))), // + apex anterior, - apex posterior
     external: deg(Math.atan2(-A2.dot(M), A2.dot(A))),    // + external, - internal rotation
-    step: null, gap: null,
+    step: null, gap: null, T: f.frame.T,
   };
   out.translation = Math.hypot(out.lateral, out.posterior);
   if (f.edge.length) {                                   // joint surface: step along the bone axis, gap across it
@@ -162,6 +163,10 @@ const side = (v, pos, neg, unit) => (Math.abs(v) < 0.05 ? '' : unit === 'mm'
   ? `${Math.abs(v).toFixed(1)} mm ${v > 0 ? pos : neg}` : `${Math.abs(v).toFixed(0)}° ${v > 0 ? pos : neg}`);
 // Readout as short lines of text: [label, value]
 export function readoutLines(m) {
+  if (m.T) {                                     // e.g. the foot: anterior / posterior read dorsal / plantar
+    const w = (t) => Object.entries(m.T).filter(([k]) => !k.startsWith('_')).reduce((s, [k, x]) => s.split(k).join(x), t);
+    return readoutLines({ ...m, T: null }).map(([k, v]) => [k, w(v)]);
+  }
   const tr = [side(m.lateral, 'lateral', 'medial', 'mm'), side(m.posterior, 'posterior', 'anterior', 'mm')].filter(Boolean).join(', ');
   const rows = [['Translation', `${m.translation.toFixed(1)} mm` + (tr ? ` (${tr})` : '')]];
   if (m.piece) {

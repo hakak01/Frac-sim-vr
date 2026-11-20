@@ -11,6 +11,7 @@ VIEWS = {  # name: (image right, image up, towards viewer) in Z-Anatomy axes
     "below": ((1, 0, 0), (0, -1, 0), (0, 0, -1)),
     "medial": ((0, -1, 0), (0, 0, 1), (1, 0, 0)),
     "back": ((-1, 0, 0), (0, 0, 1), (0, 1, 0)),
+    "lateral": ((0, -1, 0), (0, 0, 1), (-1, 0, 0)),      # right foot seen from the outside, toes to the right
 }
 
 
@@ -46,7 +47,10 @@ def tiles(path_prefix, label, frags, seg, size=300, spread=10.0):
     site = next(f["site"] for f in frags if f["bone"] == main)
     second = {"41": "top", "43": "below", "44": "below", "31": "back"}.get(seg, "medial")
     small = {"34": 70.0}.get(seg)                          # the patella needs a closer view
-    for tag, view, win in (("a", "front", small or 170.0), ("b", second, small or (120.0 if second != "medial" else 170.0))):
+    views = (("a", "front", small or 170.0), ("b", second, small or (120.0 if second != "medial" else 170.0)))
+    if seg in ("81", "82"):                                # talus, calcaneus: outside, top and inside, close up
+        views = (("a", "lateral", 110.0), ("b", "top", 110.0), ("c", "medial", 110.0), ("d", "back", 110.0))
+    for tag, view, win in views:
         r, u, t = (np.array(v, float) for v in VIEWS[view])
         q = P - site
         px = ((q @ r) / win + 0.5) * size
