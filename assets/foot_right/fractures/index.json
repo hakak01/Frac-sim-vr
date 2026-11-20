@@ -385,7 +385,7 @@
      "doi": "10.1016/j.fcl.2018.04.009"
     }
    ],
-   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: lateral tubercle 11.9 % of talus fractures). Small piece at the tip of the process, as drawn on S90 (the larger McCrory-Bladin type II piece, reviewed by Tinner 2018, is not built). Exact position chosen by the engine author.",
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: lateral tubercle 11.9 % of talus fractures). Small piece at the tip of the process, as drawn on S90 (the larger McCrory-Bladin type II piece, reviewed by Tinner 2018, is not built). Exact position chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "anchor": "talus",
    "file": "81_1_A2_young.glb",
    "files": {
@@ -455,7 +455,7 @@
      "doi": "10.1111/os.14033"
     }
    ],
-   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: posterior tubercle 22.2 % of talus fractures). Both tubercles and the back of the posterior facet. Exact position chosen by the engine author.",
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: posterior tubercle 22.2 % of talus fractures). Both tubercles and the back of the posterior facet. Exact position chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "anchor": "talus",
    "file": "81_1_A3_young.glb",
    "files": {
@@ -525,7 +525,7 @@
      "doi": "10.1148/rg.2015140156"
     }
    ],
-   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium drawing; the exact position on this bone was chosen by the engine author. Placed on the anterolateral dome, a typical site of traumatic osteochondral fractures (Melenevsky 2015).",
+   "line_basis": "No CT mapping study of this fracture type was found (PubMed, 20 Nov 2026): no mapping source. Line placed from the Compendium drawing; the exact position on this bone was chosen by the engine author. Placed on the anterolateral dome, a typical site of traumatic osteochondral fractures (Melenevsky 2015). Checked against Roddy 2026 Figs 1-5 (sent by the owner): the dominant band crosses the middle of the dome from anteromedial to posterolateral and runs down through the body to the subtalar joint; coronal lines cross the middle of the dome; comminution and impaction are mostly plantar-medial.",
    "anchor": "talus",
    "file": "81_1_B1_young.glb",
    "files": {
@@ -600,7 +600,7 @@
      "doi": "10.1111/os.14033"
     }
    ],
-   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author.",
+   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author. Checked against Roddy 2026 Figs 1-5 (sent by the owner): the dominant band crosses the middle of the dome from anteromedial to posterolateral and runs down through the body to the subtalar joint; coronal lines cross the middle of the dome; comminution and impaction are mostly plantar-medial.",
    "note": "Drawing (S91): one line from the dome near its lateral edge down the lateral side of the body; it does not reach the subtalar joint, so the rest of the body joint surfaces stay on the neck (partial articular).",
    "anchor": "talus",
    "file": "81_1_B2_young.glb",
@@ -676,7 +676,7 @@
      "doi": "10.1111/os.14033"
     }
    ],
-   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author.",
+   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author. Checked against Roddy 2026 Figs 1-5 (sent by the owner): the dominant band crosses the middle of the dome from anteromedial to posterolateral and runs down through the body to the subtalar joint; coronal lines cross the middle of the dome; comminution and impaction are mostly plantar-medial.",
    "note": "As 81.1B2, the lateral piece broken in 3 (drawing S91; Roddy 2026 found comminution or impaction in 90 % of body fractures).",
    "anchor": "talus",
    "file": "81_1_B3_young.glb",
@@ -810,7 +810,7 @@
      "doi": "10.1111/os.14033"
     }
    ],
-   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author.",
+   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author. Checked against Roddy 2026 Figs 1-5 (sent by the owner): the dominant band crosses the middle of the dome from anteromedial to posterolateral and runs down through the body to the subtalar joint; coronal lines cross the middle of the dome; comminution and impaction are mostly plantar-medial.",
    "note": "Drawing (S91): one line from the dome through the whole body into the subtalar joint, medial of centre. Its direction follows Roddy 2026 (124 body fractures): the dominant line runs from the anteromedial body to posterolateral through the dome and the posterior facet (71 %; coronal shear 18 %, sagittal 8 %).",
    "anchor": "talus",
    "file": "81_1_C1_young.glb",
@@ -886,7 +886,7 @@
      "doi": "10.1111/os.14033"
     }
    ],
-   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author.",
+   "line_basis": "Compendium drawing plus the CT mapping abstract cited. Exact position on this bone chosen by the engine author. Checked against Roddy 2026 Figs 1-5 (sent by the owner): the dominant band crosses the middle of the dome from anteromedial to posterolateral and runs down through the body to the subtalar joint; coronal lines cross the middle of the dome; comminution and impaction are mostly plantar-medial.",
    "note": "Drawing (S91): several lines through the body. Built as the oblique line of 81.1C1 plus a coronal line that ends in the posterior facet; the posteromedial part is broken (Roddy 2026: comminution mostly plantar-medial).",
    "anchor": "head and neck",
    "file": "81_1_C3_young.glb",
@@ -1031,7 +1031,7 @@
      "doi": "10.1148/rg.2015140156"
     }
    ],
-   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "note": "Hawkins type 1: no displacement, so the fracture starts reduced.",
    "anchor": "talar body",
    "file": "81_2_A_young.glb",
@@ -1097,7 +1097,7 @@
      "doi": "10.1148/rg.2015140156"
     }
    ],
-   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "note": "Hawkins type 2. The body stays in the ankle; the head and the rest of the foot move (the calcaneus follows through its ligaments).",
    "torn": [
     "Talocalcaneal (subtalar) ligaments"
@@ -1194,7 +1194,7 @@
      "doi": "10.1016/s0030-5898(05)70193-0"
     }
    ],
-   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author. Medial neck comminution placed where Berlet 2001 describes it (it lets the neck fall into varus).",
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author. Medial neck comminution placed where Berlet 2001 describes it (it lets the neck fall into varus). Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "note": "Hawkins type 2, multifragmentary.",
    "torn": [
     "Talocalcaneal (subtalar) ligaments"
@@ -1344,7 +1344,7 @@
      "doi": "10.1148/rg.2015140156"
     }
    ],
-   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "note": "Hawkins type 3: the body is out of the ankle and the subtalar joint (Hawkins 1970; Canale 1978: avascular necrosis in 16 of 19 such fractures). The head and neck stay with the foot.",
    "torn": [
     "Talocalcaneal (subtalar) ligaments",
@@ -1437,7 +1437,7 @@
      "doi": "10.1148/rg.2015140156"
     }
    ],
-   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author.",
+   "line_basis": "Compendium type definition (Hawkins types) plus the mapping abstract cited (Wang 2024: talar neck 41.3 % of talus fractures). The neck line leaves the bone underneath in the sinus tarsi, in front of the posterior facet (Inokuchi's neck-body rule, as reviewed by Melenevsky 2015). No CT map of neck lines was found, so the obliquity was chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "note": "Canale and Kelly type 4: as type 3, and the head is also out of the talonavicular joint.",
    "torn": [
     "Talocalcaneal (subtalar) ligaments",
@@ -1540,7 +1540,7 @@
      "doi": "10.1016/j.injury.2024.111861"
     }
    ],
-   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author. Dorsal flake at the talonavicular capsule.",
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author. Dorsal flake at the talonavicular capsule. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "anchor": "talus",
    "file": "81_3_A_young.glb",
    "files": {
@@ -1616,7 +1616,7 @@
      "doi": "10.1016/j.injury.2024.111861"
     }
    ],
-   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author.",
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "note": "Drawing (S92): a line from the top of the head to the middle of its front surface; the lower head stays on the neck.",
    "anchor": "talus",
    "file": "81_3_B_a_young.glb",
@@ -1693,7 +1693,7 @@
      "doi": "10.1016/j.injury.2024.111861"
     }
    ],
-   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author.",
+   "line_basis": "Compendium type definition plus the mapping abstract cited (Wang 2024: talar head 7.1 % of talus fractures). No map of head lines was found; position chosen by the engine author. Checked against Wang 2024 Fig 2 and the subgroup maps (sent by the owner): neck lines cross the neck from dorsal-anterior down to the sinus tarsi; posterior tubercle and lateral process fractures are hot spots at their tips; head fractures form a ring at the head-neck junction.",
    "note": "The whole head joint surface (navicular and front calcaneal facets) is off the neck.",
    "anchor": "talus",
    "file": "81_3_C_a_young.glb",
@@ -1943,7 +1943,7 @@
      "pmid": "8472475"
     }
    ],
-   "line_basis": "Compendium drawing (S93) plus the CT mapping studies cited (Guo 2021: 136 tongue-type maps; Shi 2023 lateral-wall band running back from the angle of Gissane). Medial border of the tongue at the medial edge of the facet (Sanders line C).",
+   "line_basis": "Compendium drawing (S93) plus the CT mapping studies cited (Guo 2021: 136 tongue-type maps; Shi 2023 lateral-wall band running back from the angle of Gissane). Medial border of the tongue at the medial edge of the facet (Sanders line C). Guo 2021 maps (sent by the owner, Groups A, B, C): built as Group A (medial-lateral, 68 of 136, the commonest): the tongue line crosses the whole width of the calcaneus.",
    "note": "Two pieces, as drawn: the tongue (upper tuberosity with the posterior facet) and the rest of the calcaneus.",
    "anchor": "calcaneus (sustentaculum, anterior process, plantar tuberosity)",
    "file": "82B1_young.glb",
@@ -2038,7 +2038,7 @@
      "pmid": "8472475"
     }
    ],
-   "line_basis": "Compendium drawing (S93) plus the CT mapping studies cited (Guo 2021; Shi 2023).",
+   "line_basis": "Compendium drawing (S93) plus the CT mapping studies cited (Guo 2021; Shi 2023). Guo 2021 maps (sent by the owner, Groups A, B, C): built as Group A (medial-lateral, 68 of 136, the commonest): the tongue line crosses the whole width of the calcaneus.",
    "note": "As 82B1 with the tongue broken in 3 (drawing S93).",
    "anchor": "calcaneus (sustentaculum, anterior process, plantar tuberosity)",
    "file": "82B3_young.glb",

@@ -649,9 +649,15 @@ Lines (sources in every row; abstracts only, nothing traced from a map figure):
   sustentacular fragment; vertical lateral-wall line at the angle of Gissane (Compendium S94). Also Ni 2021 (PMID 33708960),
   Yu 2022 (PMID 35062985), Shi 2022 (PMID 36443435: sustentaculum rarely broken, aligned with the talus in 88 %), Guo 2021
   tongue (PMID 35071481) and Sanders 2 (PMID 34294674). The sustentacular ("constant") fragment is the fixed one in 82C.
-- Three more heat maps (types A, B, C, from cdn.amegroups.cn) were sent as Ni 2021; Ni 2021's abstract has no A/B/C types, and
-  the scale maxima (10, 8, 4) fit Guo 2021's tongue-type groups A, B, C (68, 48, 20 cases). Their view directions could not be
-  read with confidence at screenshot size, so they were used only to confirm the horizontal tongue line; to be checked.
+- Guo 2021 tongue-type maps (PMID 35071481, Groups A, B, C; sent by the owner, first labelled Ni 2021 and corrected by the
+  owner): 82B is built as Group A (medial-lateral, 68 of 136, the commonest), the tongue line crossing the whole width.
+- Talus maps sent by the owner (20 Nov 2026) confirm the talus rows, no line was moved:
+  - Roddy 2026 Figs 1-5 (PMID 42639242): dominant band across the middle of the dome, anteromedial to posterolateral, down
+    through the body to the subtalar joint (= 81.1.C1 and the oblique line of C3); coronal lines across the middle of the dome
+    (= the coronal line of C3); comminution and impaction mostly plantar-medial (= the broken posteromedial part).
+  - Wang 2024 Fig 2 and subgroup maps A-E (PMID 38485459): neck band from dorsal-anterior down to the sinus tarsi (= 81.2 neck
+    line); posterior tubercle and lateral process as hot spots at their tips (= 81.1.A3, A2); head fractures as a ring at the
+    head-neck junction (= 81.3.C).
 - Measured on these bones (`python3 tools/bone_model.py foot_right` lists them): talus 59.5 mm long (posterior process to
   head), calcaneus 78.4 mm (tuberosity to cuboid facet = the long calcaneal axis of the papers); facets from the cartilage
   marking; sustentaculum 31 mm medial of the axis; lateral process 23 mm lateral.
