@@ -1,0 +1,175 @@
+{
+  "_about": "Per-region bone settings for the fracture engine. All values are data; change them here, not in code.",
+  "leg_right": {
+    "side": "right",
+    "bones": {
+      "tibia": {
+        "mesh": "Tibia.r",
+        "cortex": {
+          "_note": "MODELLED cortex (owner's decision). Thickness in mm against position along the bone (0 = proximal end, 1 = distal end), straight lines between points. Same peak and end values as the owner's earlier Tibia Fracture Lab.",
+          "profile": [[0.0, 1.2], [0.10, 1.2], [0.22, 2.6], [0.38, 5.0], [0.62, 5.0], [0.80, 2.8], [0.90, 1.4], [1.0, 1.2]],
+          "anterior_boost": 0.35,
+          "canal_from_to": [0.2, 0.85],
+          "sources": [
+            {"claim": "Cortex is thickest toward the mid-diaphysis", "ref": "Capozza RF et al. J Anat 2010;216:470-81", "doi": "10.1111/j.1469-7580.2009.01201.x"},
+            {"claim": "Anterior cortex is thicker than posterior; medial and lateral do not differ", "ref": "Maeda K et al. J Exp Orthop 2020;7:78", "doi": "10.1186/s40634-020-00297-9"},
+            {"claim": "Medullary diameter 13-32 mm between 20 and 80 % of tibial length (used as a check of the model)", "ref": "Taylor CE et al. Anat Rec 2020;303:2847-56", "doi": "10.1002/ar.24479"}
+          ],
+          "values_measured": false
+        }
+      },
+      "fibula": {
+        "mesh": "Fibula.r",
+        "cortex": {
+          "_note": "MODELLED cortex. Same values as the owner's earlier Tibia Fracture Lab. No published source found for these numbers.",
+          "profile": [[0.0, 0.9], [0.10, 0.9], [0.25, 2.6], [0.75, 2.6], [0.90, 0.9], [1.0, 0.9]],
+          "anterior_boost": 0.0,
+          "canal_from_to": [0.15, 0.85],
+          "sources": [],
+          "values_measured": false
+        }
+      }
+    },
+    "landmark_bone": "tibia",
+    "followers": {
+      "_note": "Phase 7a: intact context bones that move with the fragment carrying a joint surface. The ankle is intact, so the talus goes with the tibial fragment that holds the plafond (most plafond cartilage) and keeps its own sagittal angle (the ankle takes up the tilt). Pivot = centre of the talar trochlea arc, measured on this talus. Talar shift from torn ligaments (44 fractures) is NOT modelled here: Phase 7b.",
+      "Talus.r": {"bone": "tibia", "end": "distal", "basis": "Ankle joint intact: talus follows the plafond fragment; pivot = circle fitted to the trochlea cartilage in the sagittal plane"}
+    },
+    "frames": {
+      "plateau": {"bone": "tibia", "level": {"ref": "knee", "distal_mm": 0}, "band_mm": [0, 14], "into": "distal"},
+      "plafond": {"bone": "tibia", "level": {"ref": "ankle", "distal_mm": 0}, "band_mm": [-14, -3], "into": "proximal"}
+    }
+  },
+  "thigh_right": {
+    "side": "right",
+    "landmarks": "femur",
+    "geometry": "femur_geometry.json",
+    "landmark_bone": "femur",
+    "profiles": [
+      "young",
+      "elderly"
+    ],
+    "default_profile": {
+      "31": "elderly",
+      "32": "young",
+      "33": "young",
+      "34": "young",
+      "_note": "Owner's decision 18 Nov 2026: neck and trochanteric fractures start as elderly bone; the page can switch."
+    },
+    "bones": {
+      "femur": {
+        "mesh": "Femur.r",
+        "cortex_profiles": {
+          "young": {
+            "_note": "MODELLED cortex (owner's decision). Thickness in mm against position along the femur (0 = proximal end, 1 = distal end), straight lines between points. No published ABSOLUTE thickness values were found in the sources checked; the young-to-elderly difference and the thin superolateral neck follow the sources. 'boosts' thicken the cortex towards one side (0 anterior, 90 medial, 180 posterior): posterior = linea aspera, medial at the lesser trochanter level = calcar region (no source for the amount).",
+            "profile": [[0.0, 1.2], [0.1, 1.2], [0.16, 2.2], [0.24, 4.5], [0.35, 7.0], [0.45, 8.0], [0.6, 7.5], [0.75, 4.5], [0.85, 2.0], [0.92, 1.2], [1.0, 1.2]],
+            "boosts": [
+              {"azimuth_deg": 180, "amount": 0.3, "s_from": 0.24, "s_to": 0.8},
+              {"azimuth_deg": 110, "amount": 1.5, "s_from": 0.1, "s_to": 0.24}
+            ],
+            "canal_from_to": [0.24, 0.8],
+            "sources": [
+              {
+                "claim": "Older femoral cortex is up to 1.5 mm thinner anteriorly and 2 mm thinner posteriorly than young (<40 y) bone; the isthmus is more distal in the elderly (CT, 919 femora)",
+                "ref": "Tucker D et al. Injury 2016;47:471-7",
+                "pmid": "26686594",
+                "doi": "10.1016/j.injury.2015.11.005"
+              },
+              {
+                "claim": "The superolateral femoral neck cortex is thin and thins with age (women 6.4 % per decade)",
+                "ref": "Mayhew PM et al. Lancet 2005;366:129-35",
+                "pmid": "16005335",
+                "doi": "10.1016/S0140-6736(05)66870-5"
+              },
+              {
+                "claim": "Femoral canal isthmus: mean diameter 10.49 +/- 1.52 mm, at 55 +/- 4.8 % of femoral height (3D CT, 204 femora); used as a CHECK of the modelled canal (young model 12 mm, elderly 16 mm)",
+                "ref": "Su XY et al. Biomed Res Int 2015:459612",
+                "pmid": "26137483",
+                "doi": "10.1155/2015/459612"
+              }
+            ],
+            "values_measured": false
+          },
+          "elderly": {
+            "_note": "MODELLED cortex (owner's decision). Thickness in mm against position along the femur (0 = proximal end, 1 = distal end), straight lines between points. No published ABSOLUTE thickness values were found in the sources checked; the young-to-elderly difference and the thin superolateral neck follow the sources. 'boosts' thicken the cortex towards one side (0 anterior, 90 medial, 180 posterior): posterior = linea aspera, medial at the lesser trochanter level = calcar region (no source for the amount). Elderly: about 1.5-2 mm thinner in the shaft, peak moved distally, 0.8 mm at the neck.",
+            "profile": [[0.0, 0.8], [0.1, 0.8], [0.16, 1.5], [0.24, 3.2], [0.4, 5.5], [0.55, 6.3], [0.68, 5.6], [0.8, 3.0], [0.88, 1.5], [0.93, 0.9], [1.0, 0.9]],
+            "boosts": [
+              {"azimuth_deg": 180, "amount": 0.2, "s_from": 0.24, "s_to": 0.84},
+              {"azimuth_deg": 110, "amount": 1.0, "s_from": 0.1, "s_to": 0.24}
+            ],
+            "canal_from_to": [0.2, 0.84],
+            "sources": [
+              {
+                "claim": "Older femoral cortex is up to 1.5 mm thinner anteriorly and 2 mm thinner posteriorly than young (<40 y) bone; the isthmus is more distal in the elderly (CT, 919 femora)",
+                "ref": "Tucker D et al. Injury 2016;47:471-7",
+                "pmid": "26686594",
+                "doi": "10.1016/j.injury.2015.11.005"
+              },
+              {
+                "claim": "The superolateral femoral neck cortex is thin and thins with age (women 6.4 % per decade)",
+                "ref": "Mayhew PM et al. Lancet 2005;366:129-35",
+                "pmid": "16005335",
+                "doi": "10.1016/S0140-6736(05)66870-5"
+              },
+              {
+                "claim": "Femoral canal isthmus: mean diameter 10.49 +/- 1.52 mm, at 55 +/- 4.8 % of femoral height (3D CT, 204 femora); used as a CHECK of the modelled canal (young model 12 mm, elderly 16 mm)",
+                "ref": "Su XY et al. Biomed Res Int 2015:459612",
+                "pmid": "26137483",
+                "doi": "10.1155/2015/459612"
+              }
+            ],
+            "values_measured": false
+          }
+        }
+      },
+      "patella": {
+        "mesh": "Patella.r",
+        "cortex": {
+          "_note": "MODELLED cortex. Thin shell all round (the patella is mostly cancellous bone). No published thickness value was found; no medullary canal.",
+          "profile": [[0.0, 1.2], [1.0, 1.2]],
+          "anterior_boost": 0.0,
+          "canal_from_to": [2.0, 2.0],
+          "sources": [],
+          "values_measured": false
+        }
+      }
+    },
+    "frames": {
+      "condyles": {"bone": "femur", "level": {"ref": "knee", "distal_mm": 0}, "band_mm": [-30, 2], "into": "proximal"}
+    }
+  },
+  "foot_right": {
+    "_note": "Phase 7c: talus (81) and calcaneus (82). Both bones use the 'hindfoot' frame measured on the mesh (bone_model.py): long axis from the most posterior point to the centre of the most anterior joint surface; azimuth 0 = dorsal, 90 = medial, 180 = plantar, 270 = lateral; 'distal' = towards the toes. Landmarks: bone_model.py _landmarks_hindfoot (run 'python3 tools/bone_model.py foot_right' to list them).",
+    "side": "right",
+    "landmarks": "hindfoot",
+    "landmark_bone": "calcaneus",
+    "profiles": ["young", "elderly"],
+    "default_profile": {"81": "young", "82": "young"},
+    "default_profile_note": "Talus and calcaneus fractures are mostly high-energy injuries of young adults (e.g. median age 32 for talar head fractures, Hammarberg 2024, PMID 39259993; mean 37 for talar body fractures, Roddy 2026, PMID 42639242).",
+    "terms": {"anterior": "dorsal", "posterior": "plantar", "frontal plane": "transverse plane (seen from above)", "_note": "Words for the readout in this region: the frame's 'anterior' is dorsal, and its 'frontal' plane (long axis and medial) is the foot's transverse plane."},
+    "bones": {
+      "talus": {
+        "mesh": "Talus.r", "frame": "hindfoot",
+        "cortex_profiles": {
+          "young": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 1.0], [1.0, 1.0]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false},
+          "elderly": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 0.6], [1.0, 0.6]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false}
+        }
+      },
+      "calcaneus": {
+        "mesh": "Calcaneus.r", "frame": "hindfoot",
+        "cortex_profiles": {
+          "young": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 1.0], [1.0, 1.0]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false},
+          "elderly": {"_note": "MODELLED cortex (owner's decision 16 Nov 2026), two bone qualities as for the femur (owner's Phase 7 plan, 18 Nov 2026). Tarsal bones are a thin cortical shell around cancellous bone with no medullary canal, so the thickness is the same all round and there is no marrow. NO published source was found for these numbers (PubMed, 20 Nov 2026): teaching values. Elderly = thinner shell, as for the femur profiles.",
+            "profile": [[0.0, 0.6], [1.0, 0.6]], "anterior_boost": 0.0, "canal_from_to": [2.0, 3.0],
+            "sources": [], "values_measured": false}
+        }
+      }
+    }
+  }
+}

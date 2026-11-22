@@ -1,0 +1,5982 @@
+{
+ "region": "leg_right",
+ "cortex": "modelled, not measured",
+ "frames": {
+  "tibia": {
+   "mesh": "Tibia.r",
+   "distal": [
+    0.04714,
+    -0.99809,
+    -0.0399
+   ],
+   "anterior": [
+    0.00188,
+    -0.03985,
+    0.9992
+   ],
+   "medial": [
+    0.99889,
+    0.04718,
+    -0.0
+   ]
+  },
+  "fibula": {
+   "mesh": "Fibula.r",
+   "distal": [
+    0.04789,
+    -0.99872,
+    -0.01637
+   ],
+   "anterior": [
+    0.00078,
+    -0.01635,
+    0.99987
+   ],
+   "medial": [
+    0.99885,
+    0.04789,
+    -0.0
+   ]
+  }
+ },
+ "follow": {
+  "Talus.r": {
+   "bone": "tibia",
+   "pivot": [
+    -0.0728,
+    0.06181,
+    -0.03317
+   ],
+   "arc_radius_mm": 23.9,
+   "basis": "Ankle joint intact: talus follows the plafond fragment; pivot = circle fitted to the trochlea cartilage in the sagittal plane"
+  }
+ },
+ "displacements": {
+  "_about": "Typical starting displacement (Phase 4). Shaft-type values describe the DISTAL part relative to the proximal part: shortening_mm, lateral_mm, posterior_mm, varus_deg (negative = valgus), apex_anterior_deg (negative = apex posterior), external_rotation_deg. Fragment-type values: away_mm (straight away from the fracture site), proximal_mm, use_impaction (use the impaction stored with a depressed fragment). Shortening is reduced automatically until the bone ends no longer overlap.",
+  "shaft_mid": {
+   "shortening_mm": 8,
+   "lateral_mm": 5,
+   "posterior_mm": 3,
+   "varus_deg": 6,
+   "apex_anterior_deg": 5,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    },
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "shaft_proximal": {
+   "shortening_mm": 4,
+   "posterior_mm": 5,
+   "varus_deg": -8,
+   "apex_anterior_deg": 7,
+   "sources": [
+    {
+     "ref": "Lang GJ et al. Clin Orthop Relat Res 1995;(315):64-74",
+     "pmid": "7634688",
+     "claim": "proximal third: valgus and apex anterior angulation; 1 cm or more displacement in 59 %"
+    },
+    {
+     "ref": "Freedman EL, Johnson EE. Clin Orthop Relat Res 1995;(315):25-33",
+     "pmid": "7634677",
+     "claim": "proximal third: tendency to valgus; anterior bow averaged 7 degrees (5-12)"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "distal_meta": {
+   "shortening_mm": 4,
+   "lateral_mm": 4,
+   "varus_deg": 6,
+   "sources": [
+    {
+     "ref": "Teitz CC, Carter DR, Frankel VH. J Bone Joint Surg Am 1980;62:770-6",
+     "pmid": "7391100",
+     "claim": "tibial shaft fracture with an intact fibula tends to varus (varus malunion in 26 %)"
+    },
+    {
+     "ref": "Sarmiento A et al. Clin Orthop Relat Res 1995;(315):8-24",
+     "pmid": "7634690",
+     "claim": "1000 closed tibial shaft fractures: mean initial shortening 4.25 mm, 95 % at most 12 mm; angulation at most 6 degrees in 90 %"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "plateau_split": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "condyle": {
+   "away_mm": 5,
+   "proximal_mm": -3,
+   "sources": [
+    {
+     "ref": "Honkonen SE. Clin Orthop Relat Res 1994;(302):199-205",
+     "pmid": "8168301",
+     "claim": "plateau: step-off up to 3 mm and condylar widening up to 5 mm were tolerated"
+    }
+   ],
+   "basis": "Set at the limits Honkonen found tolerable: 5 mm widening and 3 mm step-off."
+  },
+  "depressed": {
+   "use_impaction": true,
+   "sources": [],
+   "basis": "Moves into the crushed zone by the impaction depth stored with the fragment (4-6 mm). No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "pilon_split": {
+   "away_mm": 4,
+   "proximal_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "wedge": {
+   "away_mm": 5,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "avulsion": {
+   "away_mm": 4,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "tubercle_avulsion": {
+   "proximal_mm": 8,
+   "away_mm": 2,
+   "sources": [],
+   "basis": "Pulled proximally by the patellar tendon. No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "fibula_distal": {
+   "shortening_mm": 3,
+   "posterior_mm": 2,
+   "lateral_mm": 2,
+   "external_rotation_deg": 10,
+   "sources": [
+    {
+     "ref": "Yablon IG, Heller FG, Shouse L. J Bone Joint Surg Am 1977;59:169-73",
+     "pmid": "403191",
+     "claim": "the talus follows the displacement of the lateral malleolus"
+    }
+   ],
+   "basis": "Direction from the sources listed; the size in mm and degrees is a teaching value chosen by the engine author, not a measurement."
+  },
+  "fibula_shaft": {
+   "shortening_mm": 4,
+   "lateral_mm": 3,
+   "external_rotation_deg": 8,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "malleolus_medial": {
+   "away_mm": 3,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  },
+  "posterior_malleolus": {
+   "proximal_mm": 3,
+   "away_mm": 1,
+   "sources": [],
+   "basis": "No published source found for this pattern. Direction and size are teaching values chosen by the engine author."
+  }
+ },
+ "fractures": [
+  {
+   "id": "41A1.1",
+   "code": "41A1.1",
+   "name": "Tibia, proximal end segment, extraarticular, avulsion fracture, of the capsular attachments",
+   "segment": "41",
+   "qualification": "n Lateral (Segond)",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41A1_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 10270,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "capsular avulsion flake",
+     "volume_cm3": 0.37,
+     "triangles": 1820,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 317.05,
+     "triangles": 8450
+    }
+   ],
+   "bytes": 45108
+  },
+  {
+   "id": "41A1.2",
+   "code": "41A1.2",
+   "name": "Tibia, proximal end segment, extraarticular, avulsion fracture, of the tibial tubercle",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41A1_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 21018,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibial tubercle",
+     "volume_cm3": 3.16,
+     "triangles": 7296,
+     "displace": "tubercle_avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 314.26,
+     "triangles": 13722
+    }
+   ],
+   "bytes": 76324
+  },
+  {
+   "id": "41A1.3",
+   "code": "41A1.3",
+   "name": "Tibia, proximal end segment, extraarticular, avulsion fracture, of tibial spine (cruciate attachment)",
+   "segment": "41",
+   "qualification": "o Anterior",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41A1_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 16638,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibial spine",
+     "volume_cm3": 2.27,
+     "triangles": 4970,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 315.16,
+     "triangles": 11668
+    }
+   ],
+   "bytes": 64660
+  },
+  {
+   "id": "41A2.1",
+   "code": "41A2.1",
+   "name": "Tibia, proximal end segment, extraarticular, simple fracture, spiral fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41A2_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 98218,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 128.97,
+     "triangles": 49788,
+     "displace": "shaft_proximal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 188.46,
+     "triangles": 48430,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 271316
+  },
+  {
+   "id": "41A2.2",
+   "code": "41A2.2",
+   "name": "Tibia, proximal end segment, extraarticular, simple fracture, oblique fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41A2_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 22874,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 129.57,
+     "triangles": 12070,
+     "displace": "shaft_proximal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 187.86,
+     "triangles": 10804,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 86688
+  },
+  {
+   "id": "41A2.3",
+   "code": "41A2.3",
+   "name": "Tibia, proximal end segment, extraarticular, simple fracture, transverse fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41A2_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 22946,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 121.6,
+     "triangles": 12084,
+     "displace": "shaft_proximal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 195.82,
+     "triangles": 10862,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 87300
+  },
+  {
+   "id": "41A3.1",
+   "code": "41A3.1",
+   "name": "Tibia, proximal end segment, extraarticular, wedge or multifragmentary fracture, intact wedge fracture",
+   "segment": "41",
+   "qualification": "f Lateral",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41A3_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 37516,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 119.26,
+     "triangles": 12372,
+     "displace": "shaft_proximal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge",
+     "volume_cm3": 15.24,
+     "triangles": 14410,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 182.93,
+     "triangles": 10734,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 136764
+  },
+  {
+   "id": "41A3.2",
+   "code": "41A3.2",
+   "name": "Tibia, proximal end segment, extraarticular, wedge or multifragmentary fracture, fragmentary wedge fracture",
+   "segment": "41",
+   "qualification": "f Lateral",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41A3_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 53282,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 119.02,
+     "triangles": 12310,
+     "displace": "shaft_proximal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 1",
+     "volume_cm3": 3.53,
+     "triangles": 9754,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 2",
+     "volume_cm3": 5.02,
+     "triangles": 8308,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 3",
+     "volume_cm3": 6.7,
+     "triangles": 11158,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 183.15,
+     "triangles": 11752,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 202296
+  },
+  {
+   "id": "41A3.3",
+   "code": "41A3.3",
+   "name": "Tibia, proximal end segment, extraarticular, wedge or multifragmentary fracture, multifragmentary fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S50"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41A3_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 89316,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 105.28,
+     "triangles": 13652,
+     "displace": "shaft_proximal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 1",
+     "volume_cm3": 10.58,
+     "triangles": 14056,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 2",
+     "volume_cm3": 3.96,
+     "triangles": 11182,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 3",
+     "volume_cm3": 8.61,
+     "triangles": 10682,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 4",
+     "volume_cm3": 10.47,
+     "triangles": 17444,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 5",
+     "volume_cm3": 11.02,
+     "triangles": 12518,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 167.5,
+     "triangles": 9782,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 312716
+  },
+  {
+   "id": "41B1.1",
+   "code": "41B1.1",
+   "name": "Tibia, proximal end segment, partial articular, split fracture, lateral plateau fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    },
+    {
+     "ref": "Molenaars RJ et al. Tibial plateau fracture characteristics: CT mapping of lateral, medial and bicondylar fractures. J Bone Joint Surg Am 2015;97:1512-20",
+     "pmid": "26378267",
+     "doi": "10.2106/JBJS.N.00866"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Molenaars 2015: a lateral split fragment was present in 75 % of 127 plateau fractures.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B1_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 22326,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral split fragment",
+     "volume_cm3": 14.95,
+     "triangles": 8558,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 302.48,
+     "triangles": 13768
+    }
+   ],
+   "bytes": 83716
+  },
+  {
+   "id": "41B1.2",
+   "code": "41B1.2",
+   "name": "Tibia, proximal end segment, partial articular, split fracture, medial plateau fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    },
+    {
+     "ref": "Molenaars RJ et al. Tibial plateau fracture characteristics: CT mapping of lateral, medial and bicondylar fractures. J Bone Joint Surg Am 2015;97:1512-20",
+     "pmid": "26378267",
+     "doi": "10.2106/JBJS.N.00866"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B1_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 24560,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial split fragment",
+     "volume_cm3": 13.89,
+     "triangles": 9711,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 303.53,
+     "triangles": 14849
+    }
+   ],
+   "bytes": 89996
+  },
+  {
+   "id": "41B1.3",
+   "code": "41B1.3",
+   "name": "Tibia, proximal end segment, partial articular, split fracture, oblique, involving the tibial spines and 1 of the tibial plateaus",
+   "segment": "41",
+   "qualification": "h Medial",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B1_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 33730,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial plateau with tibial spines",
+     "volume_cm3": 50.21,
+     "triangles": 15738,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 267.22,
+     "triangles": 17992
+    }
+   ],
+   "bytes": 119752
+  },
+  {
+   "id": "41B2.1",
+   "code": "41B2.1",
+   "name": "Tibia, proximal end segment, partial articular, depression fracture, lateral plateau fracture",
+   "segment": "41",
+   "qualification": "u Posterolateral (PL)",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B2_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 26458,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 4.7,
+     "triangles": 8868,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 311.32,
+     "triangles": 17590
+    }
+   ],
+   "bytes": 100472
+  },
+  {
+   "id": "41B2.2",
+   "code": "41B2.2",
+   "name": "Tibia, proximal end segment, partial articular, depression fracture, medial plateau fracture",
+   "segment": "41",
+   "qualification": "x Central",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B2_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 28596,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 3.89,
+     "triangles": 8528,
+     "impaction_mm": 5,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 311.54,
+     "triangles": 20068
+    }
+   ],
+   "bytes": 103500
+  },
+  {
+   "id": "41B3.1",
+   "code": "41B3.1",
+   "name": "Tibia, proximal end segment, partial articular, split-depression fracture, lateral plateau fracture",
+   "segment": "41",
+   "qualification": "u Posterolateral (PL)",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    },
+    {
+     "ref": "Molenaars RJ et al. Tibial plateau fracture characteristics: CT mapping of lateral, medial and bicondylar fractures. J Bone Joint Surg Am 2015;97:1512-20",
+     "pmid": "26378267",
+     "doi": "10.2106/JBJS.N.00866"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B3_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 30168,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral split fragment",
+     "volume_cm3": 5.7,
+     "triangles": 6776,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 4.59,
+     "triangles": 6788,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 301.66,
+     "triangles": 16604
+    }
+   ],
+   "bytes": 118696
+  },
+  {
+   "id": "41B3.2",
+   "code": "41B3.2",
+   "name": "Tibia, proximal end segment, partial articular, split-depression fracture, medial plateau fracture",
+   "segment": "41",
+   "qualification": "v Anteromedial (AM)",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B3_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 31853,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial split fragment",
+     "volume_cm3": 2.94,
+     "triangles": 5342,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 6.2,
+     "triangles": 7948,
+     "impaction_mm": 5,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 304.21,
+     "triangles": 18563
+    }
+   ],
+   "bytes": 124488
+  },
+  {
+   "id": "41B3.3",
+   "code": "41B3.3",
+   "name": "Tibia, proximal end segment, partial articular, split-depression fracture, involving the tibial spines and 1 of the tibial plateaus",
+   "segment": "41",
+   "qualification": "f Lateral",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S51"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "41B3_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 65880,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 7.32,
+     "triangles": 11556,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral plateau with tibial spines",
+     "volume_cm3": 38.68,
+     "triangles": 35262,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 268.11,
+     "triangles": 19062
+    }
+   ],
+   "bytes": 228436
+  },
+  {
+   "id": "41C1.1",
+   "code": "41C1.1",
+   "name": "Tibia, proximal end segment, complete, simple articular, simple metaphyseal fracture, without intercondylar eminence fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C1_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 50754,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial condyle",
+     "volume_cm3": 85.31,
+     "triangles": 21616,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral condyle",
+     "volume_cm3": 41.94,
+     "triangles": 18246,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 190.17,
+     "triangles": 10892,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 164692
+  },
+  {
+   "id": "41C1.2",
+   "code": "41C1.2",
+   "name": "Tibia, proximal end segment, complete, simple articular, simple metaphyseal fracture, with intercondylar eminence fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C1_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 67310,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intercondylar eminence",
+     "volume_cm3": 5.4,
+     "triangles": 9050,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial condyle",
+     "volume_cm3": 58.55,
+     "triangles": 22742,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral condyle",
+     "volume_cm3": 63.52,
+     "triangles": 24224,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 189.97,
+     "triangles": 11294,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 224528
+  },
+  {
+   "id": "41C2.1",
+   "code": "41C2.1",
+   "name": "Tibia, proximal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, intact wedge fracture",
+   "segment": "41",
+   "qualification": "f Lateral",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C2_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 64506,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial condyle",
+     "volume_cm3": 72.05,
+     "triangles": 20338,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral condyle",
+     "volume_cm3": 51.51,
+     "triangles": 19990,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge",
+     "volume_cm3": 13.98,
+     "triangles": 13616,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 179.88,
+     "triangles": 10562,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 221356
+  },
+  {
+   "id": "41C2.2",
+   "code": "41C2.2",
+   "name": "Tibia, proximal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, fragmentary wedge fracture",
+   "segment": "41",
+   "qualification": "f Lateral",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C2_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 84540,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial condyle",
+     "volume_cm3": 71.92,
+     "triangles": 20434,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral condyle",
+     "volume_cm3": 51.41,
+     "triangles": 19998,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 1",
+     "volume_cm3": 3.16,
+     "triangles": 7980,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 2",
+     "volume_cm3": 6.14,
+     "triangles": 10814,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 3",
+     "volume_cm3": 4.71,
+     "triangles": 14166,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 180.08,
+     "triangles": 11148,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 288548
+  },
+  {
+   "id": "41C2.3",
+   "code": "41C2.3",
+   "name": "Tibia, proximal end segment, complete, simple articular, wedge or multifragmentary metaphyseal fracture, multifragmentary metaphyseal fracture",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C2_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 116460,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial condyle",
+     "volume_cm3": 62.7,
+     "triangles": 19840,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral condyle",
+     "volume_cm3": 48.0,
+     "triangles": 18126,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 1",
+     "volume_cm3": 8.98,
+     "triangles": 11366,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 2",
+     "volume_cm3": 6.95,
+     "triangles": 12796,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 3",
+     "volume_cm3": 8.04,
+     "triangles": 16150,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 4",
+     "volume_cm3": 6.48,
+     "triangles": 14132,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 5",
+     "volume_cm3": 12.63,
+     "triangles": 13848,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 163.64,
+     "triangles": 10202,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 402576
+  },
+  {
+   "id": "41C3.1",
+   "code": "41C3.1",
+   "name": "Tibia, proximal end segment, complete, fragmentary or multifragmentary metaphyseal fracture, fragmentary lateral plateau fracture",
+   "segment": "41",
+   "qualification": "d Simple metaphysis",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "Group name is printed this way in the Compendium (S52).",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C3_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 79087,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial condyle",
+     "volume_cm3": 68.22,
+     "triangles": 20800,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral plateau piece 1",
+     "volume_cm3": 36.68,
+     "triangles": 15520,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral plateau piece 2",
+     "volume_cm3": 7.76,
+     "triangles": 12544,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral plateau piece 3",
+     "volume_cm3": 18.29,
+     "triangles": 18685,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 186.47,
+     "triangles": 11538,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 262136
+  },
+  {
+   "id": "41C3.2",
+   "code": "41C3.2",
+   "name": "Tibia, proximal end segment, complete, fragmentary or multifragmentary metaphyseal fracture, fragmentary medial plateau fracture",
+   "segment": "41",
+   "qualification": "d Simple metaphysis",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C3_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 85412,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral condyle",
+     "volume_cm3": 74.12,
+     "triangles": 21992,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial plateau piece 1",
+     "volume_cm3": 22.82,
+     "triangles": 16590,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial plateau piece 2",
+     "volume_cm3": 15.7,
+     "triangles": 17676,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial plateau piece 3",
+     "volume_cm3": 17.42,
+     "triangles": 17504,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 187.36,
+     "triangles": 11650,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 281668
+  },
+  {
+   "id": "41C3.3",
+   "code": "41C3.3",
+   "name": "Tibia, proximal end segment, complete, fragmentary or multifragmentary metaphyseal fracture, multifragmentary medial and lateral plateau fracture",
+   "segment": "41",
+   "qualification": "d Simple metaphysis",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    },
+    {
+     "ref": "Molenaars RJ et al. Tibial plateau fracture characteristics: CT mapping of lateral, medial and bicondylar fractures. J Bone Joint Surg Am 2015;97:1512-20",
+     "pmid": "26378267",
+     "doi": "10.2106/JBJS.N.00866"
+    },
+    {
+     "ref": "Barei DP et al. Frequency and fracture morphology of the posteromedial fragment in bicondylar tibial plateau fracture patterns. J Orthop Trauma 2008;22:176-82",
+     "pmid": "18317051",
+     "doi": "10.1097/BOT.0b013e318169ef08"
+    },
+    {
+     "ref": "Yao X et al. 3D mapping and classification of tibial plateau fractures. Bone Joint Res 2020;9:258-67",
+     "pmid": "32728424",
+     "doi": "10.1302/2046-3758.96.BJR-2019-0382.R2"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Built from the four recurrent features of Molenaars 2015 (lateral split 75 %, posteromedial fragment 43 %, tibial tubercle fragment 16 %, central comminution with the tibial spine 28 %). Posteromedial fragment sized after Barei 2008 (about 58 % of the medial plateau surface, about 42 mm high). Yao 2020: fracture lines concentrate around the cruciate insertions and the inner lateral condyle.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C3_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 120932,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "central piece 1",
+     "volume_cm3": 3.25,
+     "triangles": 7508,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "central piece 2",
+     "volume_cm3": 2.05,
+     "triangles": 5600,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "central piece 3",
+     "volume_cm3": 1.85,
+     "triangles": 7018,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      0.0471,
+      -0.9981,
+      -0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral split fragment",
+     "volume_cm3": 31.16,
+     "triangles": 15932,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posteromedial fragment",
+     "volume_cm3": 5.97,
+     "triangles": 7010,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibial tubercle fragment",
+     "volume_cm3": 26.14,
+     "triangles": 18552,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anteromedial fragment",
+     "volume_cm3": 68.2,
+     "triangles": 48736,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 176.85,
+     "triangles": 10576,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 436196
+  },
+  {
+   "id": "41C-PM",
+   "code": "41C3",
+   "name": "CT-mapped pattern: bicondylar plateau fracture with a coronal posteromedial fragment",
+   "segment": "41",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S52"
+    },
+    {
+     "ref": "Barei DP et al. Frequency and fracture morphology of the posteromedial fragment in bicondylar tibial plateau fracture patterns. J Orthop Trauma 2008;22:176-82",
+     "pmid": "18317051",
+     "doi": "10.1097/BOT.0b013e318169ef08"
+    },
+    {
+     "ref": "Molenaars RJ et al. Tibial plateau fracture characteristics: CT mapping of lateral, medial and bicondylar fractures. J Bone Joint Surg Am 2015;97:1512-20",
+     "pmid": "26378267",
+     "doi": "10.2106/JBJS.N.00866"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Not a separate AO/OTA code. Barei 2008: a posteromedial fragment in 42 of 57 C-type fractures with medial articular involvement; mean 58 % of the medial plateau surface, mean height 42 mm, mean sagittal fracture angle 81 degrees.",
+   "followers": {
+    "Talus.r": "shaft"
+   },
+   "file": "41C-PM.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 60926,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral split fragment",
+     "volume_cm3": 30.66,
+     "triangles": 16168,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posteromedial fragment",
+     "volume_cm3": 5.75,
+     "triangles": 6812,
+     "displace": "plateau_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anteromedial fragment",
+     "volume_cm3": 102.1,
+     "triangles": 28216,
+     "displace": "condyle"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 178.91,
+     "triangles": 9730,
+     "displace": "shaft_proximal"
+    }
+   ],
+   "bytes": 228004
+  },
+  {
+   "id": "42A1",
+   "code": "42A1",
+   "name": "Tibia, diaphyseal segment, simple, spiral fracture",
+   "segment": "42",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S54"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "42A1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 69254,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 217.43,
+     "triangles": 35798,
+     "displace": "shaft_mid"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 100.0,
+     "triangles": 33456,
+     "displace": "shaft_mid"
+    }
+   ],
+   "bytes": 207956
+  },
+  {
+   "id": "42A2",
+   "code": "42A2",
+   "name": "Tibia, diaphyseal segment, simple, oblique fracture (>=30 degrees)",
+   "segment": "42",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S54"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "42A2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 13990,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 212.57,
+     "triangles": 8150,
+     "displace": "shaft_mid"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 104.85,
+     "triangles": 5840,
+     "displace": "shaft_mid"
+    }
+   ],
+   "bytes": 56056
+  },
+  {
+   "id": "42A3",
+   "code": "42A3",
+   "name": "Tibia, diaphyseal segment, simple, transverse fracture (<30 degrees)",
+   "segment": "42",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S54"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "42A3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 12614,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 214.31,
+     "triangles": 7470,
+     "displace": "shaft_mid"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 103.12,
+     "triangles": 5144,
+     "displace": "shaft_mid"
+    }
+   ],
+   "bytes": 54408
+  },
+  {
+   "id": "42B2",
+   "code": "42B2",
+   "name": "Tibia, diaphyseal segment, intact wedge fracture",
+   "segment": "42",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S54"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "42B2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 20948,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 209.21,
+     "triangles": 8278,
+     "displace": "shaft_mid"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge",
+     "volume_cm3": 8.14,
+     "triangles": 6780,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 100.08,
+     "triangles": 5890,
+     "displace": "shaft_mid"
+    }
+   ],
+   "bytes": 86792
+  },
+  {
+   "id": "42B3",
+   "code": "42B3",
+   "name": "Tibia, diaphyseal segment, fragmentary wedge fracture",
+   "segment": "42",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S54"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "42B3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 33588,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 209.79,
+     "triangles": 8148,
+     "displace": "shaft_mid"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 1",
+     "volume_cm3": 3.57,
+     "triangles": 8292,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 2",
+     "volume_cm3": 2.14,
+     "triangles": 4846,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge piece 3",
+     "volume_cm3": 2.5,
+     "triangles": 5834,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 99.43,
+     "triangles": 6468,
+     "displace": "shaft_mid"
+    }
+   ],
+   "bytes": 134028
+  },
+  {
+   "id": "42C2",
+   "code": "42C2",
+   "name": "Tibia, diaphyseal segment, multifragmentary, intact segmental fracture",
+   "segment": "42",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S55"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "42C2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 19458,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 194.8,
+     "triangles": 7876,
+     "displace": "shaft_mid"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "segment",
+     "volume_cm3": 31.56,
+     "triangles": 6498,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 91.06,
+     "triangles": 5084,
+     "displace": "shaft_mid"
+    }
+   ],
+   "bytes": 79568
+  },
+  {
+   "id": "42C3",
+   "code": "42C3",
+   "name": "Tibia, diaphyseal segment, multifragmentary, fragmentary segmental fracture",
+   "segment": "42",
+   "qualification": "j Pure diaphyseal",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S55"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "42C3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 59470,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "proximal fragment",
+     "volume_cm3": 202.71,
+     "triangles": 7662,
+     "displace": "shaft_mid"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "segment piece 1",
+     "volume_cm3": 5.41,
+     "triangles": 9014,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "segment piece 2",
+     "volume_cm3": 3.5,
+     "triangles": 5734,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "segment piece 3",
+     "volume_cm3": 2.05,
+     "triangles": 6874,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "segment piece 4",
+     "volume_cm3": 4.84,
+     "triangles": 10784,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "segment piece 5",
+     "volume_cm3": 4.68,
+     "triangles": 6450,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "segment piece 6",
+     "volume_cm3": 1.83,
+     "triangles": 6238,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 92.41,
+     "triangles": 6714,
+     "displace": "shaft_mid"
+    }
+   ],
+   "bytes": 231968
+  },
+  {
+   "id": "43A1.1",
+   "code": "43A1.1",
+   "name": "Tibia, distal end segment, extraarticular, simple fracture, spiral fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S56"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A1_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 91394,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 265.73,
+     "triangles": 47224,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 51.69,
+     "triangles": 44170,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 251100
+  },
+  {
+   "id": "43A1.2",
+   "code": "43A1.2",
+   "name": "Tibia, distal end segment, extraarticular, simple fracture, oblique fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S56"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A1_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 20906,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 272.09,
+     "triangles": 12068,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 45.34,
+     "triangles": 8838,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 78168
+  },
+  {
+   "id": "43A1.3",
+   "code": "43A1.3",
+   "name": "Tibia, distal end segment, extraarticular, simple fracture, transverse fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S56"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A1_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 17857,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 275.15,
+     "triangles": 10555,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 42.28,
+     "triangles": 7302,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 68280
+  },
+  {
+   "id": "43A2.1",
+   "code": "43A2.1",
+   "name": "Tibia, distal end segment, extraarticular, wedge fracture, posterolateral impaction fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A2_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 31370,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 268.41,
+     "triangles": 10054,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterolateral wedge",
+     "volume_cm3": 13.26,
+     "triangles": 11884,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 35.76,
+     "triangles": 9432,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 121708
+  },
+  {
+   "id": "43A2.2",
+   "code": "43A2.2",
+   "name": "Tibia, distal end segment, extraarticular, wedge fracture, anteromedial wedge fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A2_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 30184,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 269.41,
+     "triangles": 10292,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anteromedial wedge",
+     "volume_cm3": 9.43,
+     "triangles": 10656,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 38.59,
+     "triangles": 9236,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 113132
+  },
+  {
+   "id": "43A2.3",
+   "code": "43A2.3",
+   "name": "Tibia, distal end segment, extraarticular, wedge fracture, fracture extending into diaphysis",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A2_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 27386,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 248.56,
+     "triangles": 9684,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "wedge",
+     "volume_cm3": 12.48,
+     "triangles": 9824,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 56.39,
+     "triangles": 7878,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 106160
+  },
+  {
+   "id": "43A3.1",
+   "code": "43A3.1",
+   "name": "Tibia, distal end segment, extraarticular, multifragmentary fracture, with 3 intermediate fragments",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A3_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 52202,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 261.94,
+     "triangles": 8948,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 1",
+     "volume_cm3": 8.84,
+     "triangles": 11086,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 2",
+     "volume_cm3": 5.95,
+     "triangles": 9812,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 3",
+     "volume_cm3": 10.13,
+     "triangles": 12198,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 30.56,
+     "triangles": 10158,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 197856
+  },
+  {
+   "id": "43A3.2",
+   "code": "43A3.2",
+   "name": "Tibia, distal end segment, extraarticular, multifragmentary fracture, with more than 3 intermediate fragments",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A3_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 71274,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 261.18,
+     "triangles": 8910,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 1",
+     "volume_cm3": 3.94,
+     "triangles": 8026,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 2",
+     "volume_cm3": 4.14,
+     "triangles": 8550,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 3",
+     "volume_cm3": 5.07,
+     "triangles": 7812,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 4",
+     "volume_cm3": 2.84,
+     "triangles": 7262,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 5",
+     "volume_cm3": 5.88,
+     "triangles": 10108,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 6",
+     "volume_cm3": 3.57,
+     "triangles": 9204,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 30.8,
+     "triangles": 11402,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 274852
+  },
+  {
+   "id": "43A3.3",
+   "code": "43A3.3",
+   "name": "Tibia, distal end segment, extraarticular, multifragmentary fracture, extending into diaphysis",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "distal fragment"
+   },
+   "file": "43A3_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 73338,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 243.73,
+     "triangles": 7908,
+     "displace": "distal_meta"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 1",
+     "volume_cm3": 9.33,
+     "triangles": 11938,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 2",
+     "volume_cm3": 7.33,
+     "triangles": 10988,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 3",
+     "volume_cm3": 6.03,
+     "triangles": 9688,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 4",
+     "volume_cm3": 10.79,
+     "triangles": 11470,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "intermediate fragment 5",
+     "volume_cm3": 7.1,
+     "triangles": 10948,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "distal fragment",
+     "volume_cm3": 33.11,
+     "triangles": 10398,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 274772
+  },
+  {
+   "id": "43B1.1",
+   "code": "43B1.1",
+   "name": "Tibia, distal end segment, partial articular, split fracture, frontal/coronal fracture",
+   "segment": "43",
+   "qualification": "y Posterior Volkmann",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    },
+    {
+     "ref": "Topliss CJ, Jackson M, Atkins RM. Anatomy of pilon fractures of the distal tibia. J Bone Joint Surg Br 2005;87:692-7",
+     "pmid": "15855374",
+     "doi": "10.1302/0301-620X.87B5.15982"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Topliss 2005: pilon fractures fall into a coronal and a sagittal family.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "43B1_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 17902,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterior (Volkmann) fragment",
+     "volume_cm3": 5.12,
+     "triangles": 6018,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 312.31,
+     "triangles": 11884
+    }
+   ],
+   "bytes": 71424
+  },
+  {
+   "id": "43B1.2",
+   "code": "43B1.2",
+   "name": "Tibia, distal end segment, partial articular, split fracture, sagittal fracture",
+   "segment": "43",
+   "qualification": "z Medial articular surface including medial malleolus",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    },
+    {
+     "ref": "Topliss CJ, Jackson M, Atkins RM. Anatomy of pilon fractures of the distal tibia. J Bone Joint Surg Br 2005;87:692-7",
+     "pmid": "15855374",
+     "doi": "10.1302/0301-620X.87B5.15982"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "43B1_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 14134,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial fragment with medial malleolus",
+     "volume_cm3": 6.32,
+     "triangles": 4328,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 311.11,
+     "triangles": 9806
+    }
+   ],
+   "bytes": 59344
+  },
+  {
+   "id": "43B1.3",
+   "code": "43B1.3",
+   "name": "Tibia, distal end segment, partial articular, split fracture, fragmentary metaphyseal fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S57"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "43B1_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 25130,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial piece 1",
+     "volume_cm3": 2.13,
+     "triangles": 4780,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial piece 2",
+     "volume_cm3": 1.16,
+     "triangles": 4036,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial piece 3",
+     "volume_cm3": 3.58,
+     "triangles": 5654,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 310.56,
+     "triangles": 10660
+    }
+   ],
+   "bytes": 108928
+  },
+  {
+   "id": "43B2.1",
+   "code": "43B2.1",
+   "name": "Tibia, distal end segment, partial articular, split depression fracture, frontal/coronal fracture",
+   "segment": "43",
+   "qualification": "o Anterior",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "depressed fragment"
+   },
+   "file": "43B2_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 39068,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anterior split fragment",
+     "volume_cm3": 8.88,
+     "triangles": 9084,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 3.61,
+     "triangles": 7236,
+     "impaction_mm": 5,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 302.21,
+     "triangles": 22748
+    }
+   ],
+   "bytes": 143460
+  },
+  {
+   "id": "43B2.2",
+   "code": "43B2.2",
+   "name": "Tibia, distal end segment, partial articular, split depression fracture, sagittal fracture",
+   "segment": "43",
+   "qualification": "h Medial",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "depressed fragment"
+   },
+   "file": "43B2_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 29658,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial split fragment",
+     "volume_cm3": 5.79,
+     "triangles": 5420,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 3.39,
+     "triangles": 6196,
+     "impaction_mm": 5,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 305.78,
+     "triangles": 18042
+    }
+   ],
+   "bytes": 116120
+  },
+  {
+   "id": "43B2.3",
+   "code": "43B2.3",
+   "name": "Tibia, distal end segment, partial articular, split depression fracture, central fragment fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "central fragment"
+   },
+   "file": "43B2_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 36224,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial split fragment",
+     "volume_cm3": 4.14,
+     "triangles": 3744,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "central fragment",
+     "volume_cm3": 4.14,
+     "triangles": 8664,
+     "impaction_mm": 5,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 306.81,
+     "triangles": 23816
+    }
+   ],
+   "bytes": 132368
+  },
+  {
+   "id": "43B3.1",
+   "code": "43B3.1",
+   "name": "Tibia, distal end segment, partial articular, depression fracture, frontal/coronal fracture",
+   "segment": "43",
+   "qualification": "o Anterior",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "43B3_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 24486,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed anterior fragment",
+     "volume_cm3": 6.7,
+     "triangles": 7568,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 307.26,
+     "triangles": 16918
+    }
+   ],
+   "bytes": 93068
+  },
+  {
+   "id": "43B3.2",
+   "code": "43B3.2",
+   "name": "Tibia, distal end segment, partial articular, depression fracture, sagittal fracture",
+   "segment": "43",
+   "qualification": "h Medial",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "43B3_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 28980,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed medial fragment",
+     "volume_cm3": 4.96,
+     "triangles": 8282,
+     "impaction_mm": 5,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 310.2,
+     "triangles": 20698
+    }
+   ],
+   "bytes": 106196
+  },
+  {
+   "id": "43B3.3",
+   "code": "43B3.3",
+   "name": "Tibia, distal end segment, partial articular, depression fracture, fragmentary metaphyseal fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "anterior piece 3"
+   },
+   "file": "43B3_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 54644,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anterior piece 1",
+     "volume_cm3": 3.57,
+     "triangles": 7080,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anterior piece 2",
+     "volume_cm3": 2.9,
+     "triangles": 7604,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anterior piece 3",
+     "volume_cm3": 3.86,
+     "triangles": 8586,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 2.92,
+     "triangles": 7130,
+     "impaction_mm": 6,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 301.58,
+     "triangles": 24244
+    }
+   ],
+   "bytes": 198560
+  },
+  {
+   "id": "43C1.1",
+   "code": "43C1.1",
+   "name": "Tibia, distal end segment, complete, simple articular, simple metaphyseal fracture, without impaction",
+   "segment": "43",
+   "qualification": "r Sagittal plane",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    },
+    {
+     "ref": "Topliss CJ, Jackson M, Atkins RM. Anatomy of pilon fractures of the distal tibia. J Bone Joint Surg Br 2005;87:692-7",
+     "pmid": "15855374",
+     "doi": "10.1302/0301-620X.87B5.15982"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
+   "file": "43C1_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 31940,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial articular fragment",
+     "volume_cm3": 19.99,
+     "triangles": 10346,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral articular fragment",
+     "volume_cm3": 23.67,
+     "triangles": 10576,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 273.76,
+     "triangles": 11018,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 118800
+  },
+  {
+   "id": "43C1.2",
+   "code": "43C1.2",
+   "name": "Tibia, distal end segment, complete, simple articular, simple metaphyseal fracture, with epiphyseal depression",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "medial articular fragment"
+   },
+   "file": "43C1_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 45870,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "depressed fragment",
+     "volume_cm3": 1.84,
+     "triangles": 5306,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial articular fragment",
+     "volume_cm3": 20.14,
+     "triangles": 10558,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral articular fragment",
+     "volume_cm3": 21.35,
+     "triangles": 19066,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 273.16,
+     "triangles": 10940,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 171992
+  },
+  {
+   "id": "43C1.3",
+   "code": "43C1.3",
+   "name": "Tibia, distal end segment, complete, simple articular, simple metaphyseal fracture, extending into diaphysis",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S58"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
+   "file": "43C1_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 44988,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial articular fragment",
+     "volume_cm3": 28.9,
+     "triangles": 17296,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral articular fragment",
+     "volume_cm3": 40.36,
+     "triangles": 16698,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 248.16,
+     "triangles": 10994,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 154004
+  },
+  {
+   "id": "43C2.1",
+   "code": "43C2.1",
+   "name": "Tibia, distal end segment, complete, simple articular, multifragmentary metaphyseal fracture, with asymmetric impaction",
+   "segment": "43",
+   "qualification": "r Sagittal plane",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S59"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "The asymmetric impaction is a displacement (Phase 4); the fragments are cut in the reduced position.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
+   "file": "43C2_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 67858,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 1",
+     "volume_cm3": 9.58,
+     "triangles": 9782,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 2",
+     "volume_cm3": 5.59,
+     "triangles": 9088,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 3",
+     "volume_cm3": 6.12,
+     "triangles": 10466,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 4",
+     "volume_cm3": 6.29,
+     "triangles": 10184,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial articular fragment",
+     "volume_cm3": 14.73,
+     "triangles": 8702,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral articular fragment",
+     "volume_cm3": 13.35,
+     "triangles": 9880,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 261.76,
+     "triangles": 9756,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 260208
+  },
+  {
+   "id": "43C2.2",
+   "code": "43C2.2",
+   "name": "Tibia, distal end segment, complete, simple articular, multifragmentary metaphyseal fracture, without asymmetric impaction",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S59"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
+   "file": "43C2_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 65230,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 1",
+     "volume_cm3": 10.11,
+     "triangles": 9690,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 2",
+     "volume_cm3": 7.34,
+     "triangles": 12496,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 3",
+     "volume_cm3": 9.16,
+     "triangles": 15186,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial articular fragment",
+     "volume_cm3": 15.11,
+     "triangles": 8874,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral articular fragment",
+     "volume_cm3": 13.06,
+     "triangles": 9832,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 262.65,
+     "triangles": 9152,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 242168
+  },
+  {
+   "id": "43C2.3",
+   "code": "43C2.3",
+   "name": "Tibia, distal end segment, complete, simple articular, multifragmentary metaphyseal fracture, extending into diaphysis",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S59"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "lateral articular fragment"
+   },
+   "file": "43C2_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 90489,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 1",
+     "volume_cm3": 10.24,
+     "triangles": 12098,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 2",
+     "volume_cm3": 11.22,
+     "triangles": 11702,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 3",
+     "volume_cm3": 9.77,
+     "triangles": 13830,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 4",
+     "volume_cm3": 10.94,
+     "triangles": 11576,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 5",
+     "volume_cm3": 6.65,
+     "triangles": 12896,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial articular fragment",
+     "volume_cm3": 14.99,
+     "triangles": 8732,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "lateral articular fragment",
+     "volume_cm3": 12.94,
+     "triangles": 9934,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 240.66,
+     "triangles": 9721,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 331456
+  },
+  {
+   "id": "43C3.1",
+   "code": "43C3.1",
+   "name": "Tibia, distal end segment, complete, multifragmentary articular and metaphyseal fracture, epiphyseal fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S59"
+    },
+    {
+     "ref": "Cole PA et al. The pilon map: fracture lines and comminution zones in OTA/AO type 43C3 pilon fractures. J Orthop Trauma 2013;27:e152-6",
+     "pmid": "23360909",
+     "doi": "10.1097/BOT.0b013e318288a7e9"
+    },
+    {
+     "ref": "Topliss CJ, Jackson M, Atkins RM. Anatomy of pilon fractures of the distal tibia. J Bone Joint Surg Br 2005;87:692-7",
+     "pmid": "15855374",
+     "doi": "10.1302/0301-620X.87B5.15982"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Cole 2013 (38 type 43C3 fractures): a constant Y pattern from the fibular incisura, exiting in front of and behind the medial malleolus, gives three main fragments (anterior, posterior, medial); comminution in 95 %, mostly central and anterolateral.",
+   "followers": {
+    "Talus.r": "posterior fragment"
+   },
+   "file": "43C3_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 62386,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 1",
+     "volume_cm3": 1.67,
+     "triangles": 5036,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 2",
+     "volume_cm3": 0.89,
+     "triangles": 3874,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 3",
+     "volume_cm3": 1.26,
+     "triangles": 4484,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anterior fragment",
+     "volume_cm3": 8.18,
+     "triangles": 14186,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterior fragment",
+     "volume_cm3": 11.07,
+     "triangles": 10848,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial fragment",
+     "volume_cm3": 6.06,
+     "triangles": 8560,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 286.84,
+     "triangles": 15398,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 244976
+  },
+  {
+   "id": "43C3.2",
+   "code": "43C3.2",
+   "name": "Tibia, distal end segment, complete, multifragmentary articular and metaphyseal fracture, epiphyseal-metaphyseal fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S59"
+    },
+    {
+     "ref": "Cole PA et al. The pilon map: fracture lines and comminution zones in OTA/AO type 43C3 pilon fractures. J Orthop Trauma 2013;27:e152-6",
+     "pmid": "23360909",
+     "doi": "10.1097/BOT.0b013e318288a7e9"
+    },
+    {
+     "ref": "Topliss CJ, Jackson M, Atkins RM. Anatomy of pilon fractures of the distal tibia. J Bone Joint Surg Br 2005;87:692-7",
+     "pmid": "15855374",
+     "doi": "10.1302/0301-620X.87B5.15982"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Cole 2013 (38 type 43C3 fractures): a constant Y pattern from the fibular incisura, exiting in front of and behind the medial malleolus, gives three main fragments (anterior, posterior, medial); comminution in 95 %, mostly central and anterolateral.",
+   "followers": {
+    "Talus.r": "comminuted piece 3"
+   },
+   "file": "43C3_2.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 100522,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 1",
+     "volume_cm3": 0.71,
+     "triangles": 4260,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 2",
+     "volume_cm3": 0.81,
+     "triangles": 5344,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 3",
+     "volume_cm3": 2.13,
+     "triangles": 5740,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anterior fragment",
+     "volume_cm3": 9.68,
+     "triangles": 15642,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterior fragment",
+     "volume_cm3": 11.34,
+     "triangles": 10870,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial fragment",
+     "volume_cm3": 5.22,
+     "triangles": 8062,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 1",
+     "volume_cm3": 5.94,
+     "triangles": 8772,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 2",
+     "volume_cm3": 4.33,
+     "triangles": 8792,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 3",
+     "volume_cm3": 5.52,
+     "triangles": 9888,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 4",
+     "volume_cm3": 10.06,
+     "triangles": 11224,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 260.28,
+     "triangles": 11928,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 382732
+  },
+  {
+   "id": "43C3.3",
+   "code": "43C3.3",
+   "name": "Tibia, distal end segment, complete, multifragmentary articular and metaphyseal fracture, epiphyseal-metaphyseal-diaphyseal fracture",
+   "segment": "43",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S59"
+    },
+    {
+     "ref": "Cole PA et al. The pilon map: fracture lines and comminution zones in OTA/AO type 43C3 pilon fractures. J Orthop Trauma 2013;27:e152-6",
+     "pmid": "23360909",
+     "doi": "10.1097/BOT.0b013e318288a7e9"
+    },
+    {
+     "ref": "Topliss CJ, Jackson M, Atkins RM. Anatomy of pilon fractures of the distal tibia. J Bone Joint Surg Br 2005;87:692-7",
+     "pmid": "15855374",
+     "doi": "10.1302/0301-620X.87B5.15982"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Cole 2013 (38 type 43C3 fractures): a constant Y pattern from the fibular incisura, exiting in front of and behind the medial malleolus, gives three main fragments (anterior, posterior, medial); comminution in 95 %, mostly central and anterolateral.",
+   "followers": {
+    "Talus.r": "posterior fragment"
+   },
+   "file": "43C3_3.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 134092,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 1",
+     "volume_cm3": 1.01,
+     "triangles": 4104,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 2",
+     "volume_cm3": 0.86,
+     "triangles": 4074,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "comminuted piece 3",
+     "volume_cm3": 1.67,
+     "triangles": 4876,
+     "impaction_mm": 4,
+     "impaction_dir": [
+      -0.0471,
+      0.9981,
+      0.0399
+     ],
+     "displace": "depressed"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "anterior fragment",
+     "volume_cm3": 9.35,
+     "triangles": 15502,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterior fragment",
+     "volume_cm3": 11.1,
+     "triangles": 10326,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial fragment",
+     "volume_cm3": 5.39,
+     "triangles": 8690,
+     "displace": "pilon_split"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 1",
+     "volume_cm3": 11.63,
+     "triangles": 15480,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 2",
+     "volume_cm3": 5.77,
+     "triangles": 10230,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 3",
+     "volume_cm3": 7.34,
+     "triangles": 12762,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 4",
+     "volume_cm3": 3.97,
+     "triangles": 9432,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 5",
+     "volume_cm3": 7.82,
+     "triangles": 13406,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "metaphyseal piece 6",
+     "volume_cm3": 11.8,
+     "triangles": 12494,
+     "displace": "wedge"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "shaft",
+     "volume_cm3": 238.32,
+     "triangles": 12716,
+     "displace": "distal_meta"
+    }
+   ],
+   "bytes": 504660
+  },
+  {
+   "id": "44A1.1",
+   "code": "44A1.1",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic, isolated fibula injury, rupture of the lateral collateral ligament",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the lateral collateral ligament (no bone cut).",
+   "note": "Ligament injury only. No fragments are built.",
+   "bones": [],
+   "triangles": 0,
+   "fragments": [],
+   "torn": [
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "Printed name of the code."
+  },
+  {
+   "id": "44A1.2",
+   "code": "44A1.2",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic, isolated fibula injury, avulsion fracture of the tip of the lateral malleolus",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "44A1_2.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 8846,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 58.51,
+     "triangles": 6262,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "tip of lateral malleolus",
+     "volume_cm3": 1.0,
+     "triangles": 2584,
+     "displace": "avulsion"
+    }
+   ],
+   "bytes": 40032
+  },
+  {
+   "id": "44A1.3",
+   "code": "44A1.3",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic, isolated fibula injury, transverse fracture of the lateral malleolus",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "44A1_3.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 10474,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 53.57,
+     "triangles": 6572,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 5.95,
+     "triangles": 3902,
+     "displace": "fibula_distal"
+    }
+   ],
+   "bytes": 47168
+  },
+  {
+   "id": "44A2.1",
+   "code": "44A2.1",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic fibula injury with a medial malleolar fracture, rupture of the lateral collateral ligament",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the lateral collateral ligament (no bone cut).",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44A2_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 13902,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus (vertical shear)",
+     "volume_cm3": 3.58,
+     "triangles": 4038,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 313.85,
+     "triangles": 9864
+    }
+   ],
+   "bytes": 57248,
+   "torn": [
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "Printed name of the code."
+  },
+  {
+   "id": "44A2.2",
+   "code": "44A2.2",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic fibula injury with a medial malleolar fracture, avulsion fracture of the tip of the lateral malleolus",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44A2_2.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 22756,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 58.94,
+     "triangles": 6188,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "tip of lateral malleolus",
+     "volume_cm3": 0.58,
+     "triangles": 2362,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus (vertical shear)",
+     "volume_cm3": 4.21,
+     "triangles": 4214,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 313.21,
+     "triangles": 9992
+    }
+   ],
+   "bytes": 94744
+  },
+  {
+   "id": "44A2.3",
+   "code": "44A2.3",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic fibula injury with a medial malleolar fracture, transverse fracture of the lateral malleolus",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44A2_3.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 24908,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 53.66,
+     "triangles": 6554,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 5.85,
+     "triangles": 3908,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus (vertical shear)",
+     "volume_cm3": 3.99,
+     "triangles": 4344,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 313.44,
+     "triangles": 10102
+    }
+   ],
+   "bytes": 101824
+  },
+  {
+   "id": "44A3.1",
+   "code": "44A3.1",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic fibular injury with a posteromedial fracture, rupture of the lateral collateral ligament with a posteromedial fracture",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the lateral collateral ligament (no bone cut).",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44A3_1.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 13626,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posteromedial fragment",
+     "volume_cm3": 1.87,
+     "triangles": 3726,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 315.55,
+     "triangles": 9900
+    }
+   ],
+   "bytes": 58692,
+   "torn": [
+    "Lateral collateral ligament"
+   ],
+   "torn_basis": "Printed name of the code."
+  },
+  {
+   "id": "44A3.2",
+   "code": "44A3.2",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic fibular injury with a posteromedial fracture, avulsion fracture of the tip of the lateral malleolus with a posteromedial fracture",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44A3_2.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 22548,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 58.51,
+     "triangles": 6248,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "tip of lateral malleolus",
+     "volume_cm3": 1.01,
+     "triangles": 2534,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posteromedial fragment",
+     "volume_cm3": 2.36,
+     "triangles": 3792,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 315.06,
+     "triangles": 9974
+    }
+   ],
+   "bytes": 96120
+  },
+  {
+   "id": "44A3.3",
+   "code": "44A3.3",
+   "name": "Tibia/fibula, malleolar segment, infrasyndesmotic fibular injury with a posteromedial fracture, transverse fracture of the lateral malleolus with a posteromedial fracture",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S66"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44A3_3.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 24496,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 53.9,
+     "triangles": 6614,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 5.61,
+     "triangles": 3920,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posteromedial fragment",
+     "volume_cm3": 2.52,
+     "triangles": 3908,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 314.91,
+     "triangles": 10054
+    }
+   ],
+   "bytes": 105164
+  },
+  {
+   "id": "44B1.1",
+   "code": "44B1.1",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic isolated fibula fracture, simple fibula fracture",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S67"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "44B1_1.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 11654,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.3,
+     "triangles": 6764,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 11.21,
+     "triangles": 4890,
+     "displace": "fibula_distal"
+    }
+   ],
+   "bytes": 51528
+  },
+  {
+   "id": "44B1.2",
+   "code": "44B1.2",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic isolated fibula fracture, with a rupture of the anterior syndesmosis",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S67"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the anterior syndesmosis (no bone cut).",
+   "file": "44B1_2.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 10718,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.0,
+     "triangles": 6256,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 11.52,
+     "triangles": 4462,
+     "displace": "fibula_distal"
+    }
+   ],
+   "bytes": 47304,
+   "torn": [
+    "Anterior syndesmosis"
+   ],
+   "torn_basis": "Printed name of the code."
+  },
+  {
+   "id": "44B1.3",
+   "code": "44B1.3",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic isolated fibula fracture, wedge or multifragmentary fibula fracture",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S67"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "44B1_3.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 13270,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 46.79,
+     "triangles": 5156,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "wedge",
+     "volume_cm3": 2.32,
+     "triangles": 4144,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 10.41,
+     "triangles": 3970,
+     "displace": "fibula_distal"
+    }
+   ],
+   "bytes": 63588
+  },
+  {
+   "id": "44B2.1",
+   "code": "44B2.1",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic fibula fracture with a medial injury, with a rupture of the deltoid ligament and anterior syndesmosis",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S67"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the deltoid ligament and of the anterior syndesmosis (no bone cut).",
+   "file": "44B2_1.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 10890,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.35,
+     "triangles": 6356,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 11.17,
+     "triangles": 4534,
+     "displace": "fibula_distal"
+    }
+   ],
+   "bytes": 48444,
+   "torn": [
+    "Deltoid ligament",
+    "Anterior syndesmosis"
+   ],
+   "torn_basis": "Printed name of the code."
+  },
+  {
+   "id": "44B2.2",
+   "code": "44B2.2",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic fibula fracture with a medial injury, with a medial malleolus fracture and a rupture of the anterior syndesmosis",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S67"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the anterior syndesmosis (no bone cut).",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44B2_2.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 23808,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.23,
+     "triangles": 6362,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 11.28,
+     "triangles": 4500,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.46,
+     "triangles": 3540,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 314.97,
+     "triangles": 9406
+    }
+   ],
+   "bytes": 99376,
+   "torn": [
+    "Anterior syndesmosis"
+   ],
+   "torn_basis": "Printed name of the code."
+  },
+  {
+   "id": "44B2.3",
+   "code": "44B2.3",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic fibula fracture with a medial injury, wedge or multifragmentary fibula fracture with medial injury",
+   "segment": "44",
+   "qualification": "s Fracture of medial malleolus",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S67"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44B2_3.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 26378,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 46.51,
+     "triangles": 5154,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "wedge",
+     "volume_cm3": 2.61,
+     "triangles": 4340,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 10.39,
+     "triangles": 4094,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.46,
+     "triangles": 3430,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 314.97,
+     "triangles": 9360
+    }
+   ],
+   "bytes": 118736
+  },
+  {
+   "id": "44B3.1",
+   "code": "44B3.1",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic fibula fracture with a medial injury and fracture of the posterolateral rim (Volkmann's fragment), simple, with a deltoid ligament rupture",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "soft_tissue": "Rupture of the deltoid ligament (no bone cut).",
+   "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44B3_1.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 21864,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.17,
+     "triangles": 6418,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 11.34,
+     "triangles": 4592,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterolateral (Volkmann) fragment",
+     "volume_cm3": 0.98,
+     "triangles": 2214,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 316.45,
+     "triangles": 8640
+    }
+   ],
+   "bytes": 93920,
+   "torn": [
+    "Deltoid ligament"
+   ],
+   "torn_basis": "Printed name of the code."
+  },
+  {
+   "id": "44B3.2",
+   "code": "44B3.2",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic fibula fracture with a medial injury and fracture of the posterolateral rim (Volkmann's fragment), simple medial malleolus fracture",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44B3_2.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 26992,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.02,
+     "triangles": 6158,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 11.49,
+     "triangles": 4392,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.61,
+     "triangles": 3422,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterolateral (Volkmann) fragment",
+     "volume_cm3": 0.78,
+     "triangles": 2042,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 314.04,
+     "triangles": 10978
+    }
+   ],
+   "bytes": 119004
+  },
+  {
+   "id": "44B3.3",
+   "code": "44B3.3",
+   "name": "Tibia/fibula, malleolar segment, transsyndesmotic fibula fracture with a medial injury and fracture of the posterolateral rim (Volkmann's fragment), wedge or multifragmentary fibular fracture with a fracture of the medial malleolus",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44B3_3.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 31132,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 46.71,
+     "triangles": 5268,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "wedge",
+     "volume_cm3": 2.28,
+     "triangles": 4526,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "lateral malleolus",
+     "volume_cm3": 10.52,
+     "triangles": 4300,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.32,
+     "triangles": 3576,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterolateral (Volkmann) fragment",
+     "volume_cm3": 1.12,
+     "triangles": 2224,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 313.99,
+     "triangles": 11238
+    }
+   ],
+   "bytes": 140524
+  },
+  {
+   "id": "44C1.1",
+   "code": "44C1.1",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, simple diaphyseal fibula fracture, with a rupture of the deltoid ligament",
+   "segment": "44",
+   "qualification": "u Syndesmosis unstable",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the deltoid ligament (no bone cut).",
+   "file": "44C1_1.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 7102,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 39.07,
+     "triangles": 4008,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fibula",
+     "volume_cm3": 20.45,
+     "triangles": 3094,
+     "displace": "fibula_distal"
+    }
+   ],
+   "bytes": 33252,
+   "torn": [
+    "Deltoid ligament",
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
+  },
+  {
+   "id": "44C1.2",
+   "code": "44C1.2",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, simple diaphyseal fibula fracture, with a fracture of the medial malleolus",
+   "segment": "44",
+   "qualification": "u Syndesmosis unstable",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44C1_2.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 20348,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 39.18,
+     "triangles": 4076,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fibula",
+     "volume_cm3": 20.34,
+     "triangles": 3150,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.68,
+     "triangles": 3622,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 314.75,
+     "triangles": 9500
+    }
+   ],
+   "bytes": 87288,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
+  },
+  {
+   "id": "44C1.3",
+   "code": "44C1.3",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, simple diaphyseal fibula fracture, with a medial and a posterior malleolus fracture",
+   "segment": "44",
+   "qualification": "u Syndesmosis unstable",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44C1_3.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 24244,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 39.01,
+     "triangles": 4064,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fibula",
+     "volume_cm3": 20.51,
+     "triangles": 3162,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.52,
+     "triangles": 3570,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterolateral (Volkmann) fragment",
+     "volume_cm3": 1.0,
+     "triangles": 2206,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 313.91,
+     "triangles": 11242
+    }
+   ],
+   "bytes": 107432,
+   "torn": [
+    "Anterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior syndesmosis and interosseous membrane torn. The posterior syndesmosis stays on the posterior malleolus fragment (its tether moves with that fragment). The whole membrane is torn in this model."
+  },
+  {
+   "id": "44C2.1",
+   "code": "44C2.1",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, wedge or multifragmentary diaphyseal fibula fracture, with a rupture of the deltoid ligament",
+   "segment": "44",
+   "qualification": "u Syndesmosis unstable",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S69"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "soft_tissue": "Rupture of the deltoid ligament (no bone cut).",
+   "file": "44C2_1.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 9552,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 37.92,
+     "triangles": 3906,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "wedge",
+     "volume_cm3": 1.06,
+     "triangles": 2438,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fibula",
+     "volume_cm3": 20.53,
+     "triangles": 3208,
+     "displace": "fibula_distal"
+    }
+   ],
+   "bytes": 47372,
+   "torn": [
+    "Deltoid ligament",
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
+  },
+  {
+   "id": "44C2.2",
+   "code": "44C2.2",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, wedge or multifragmentary diaphyseal fibula fracture, with a fracture of the medial malleolus",
+   "segment": "44",
+   "qualification": "u Syndesmosis unstable",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S69"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44C2_2.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 22416,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 37.96,
+     "triangles": 3928,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "wedge",
+     "volume_cm3": 0.99,
+     "triangles": 2438,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fibula",
+     "volume_cm3": 20.57,
+     "triangles": 3192,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.39,
+     "triangles": 3466,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 315.04,
+     "triangles": 9392
+    }
+   ],
+   "bytes": 100040,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
+  },
+  {
+   "id": "44C2.3",
+   "code": "44C2.3",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, wedge or multifragmentary diaphyseal fibula fracture, with a fracture of the medial malleolus and posterior malleolus",
+   "segment": "44",
+   "qualification": "u Syndesmosis unstable",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S69"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44C2_3.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 27006,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 38.06,
+     "triangles": 3894,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "wedge",
+     "volume_cm3": 0.89,
+     "triangles": 2420,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fibula",
+     "volume_cm3": 20.56,
+     "triangles": 3226,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.48,
+     "triangles": 3516,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterolateral (Volkmann) fragment",
+     "volume_cm3": 0.92,
+     "triangles": 2486,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 314.02,
+     "triangles": 11464
+    }
+   ],
+   "bytes": 122496,
+   "torn": [
+    "Anterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior syndesmosis and interosseous membrane torn. The posterior syndesmosis stays on the posterior malleolus fragment (its tether moves with that fragment). The whole membrane is torn in this model."
+  },
+  {
+   "id": "44C3.1",
+   "code": "44C3.1",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, proximal fibula injury, with a medial side injury",
+   "segment": "44",
+   "qualification": "p Fibula neck fracture, s Fracture of medial malleolus",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S69"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44C3_1.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 22782,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibular head",
+     "volume_cm3": 11.44,
+     "triangles": 3650,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.07,
+     "triangles": 5636,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.34,
+     "triangles": 3838,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 315.09,
+     "triangles": 9658
+    }
+   ],
+   "bytes": 96364,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
+  },
+  {
+   "id": "44C3.2",
+   "code": "44C3.2",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, proximal fibula injury, with shortening and a medial side injury",
+   "segment": "44",
+   "qualification": "p Fibula neck fracture, s Fracture of medial malleolus",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S69"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "note": "Shortening is a displacement (Phase 4); the fragments are the same as 44C3.1.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44C3_2.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 23704,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibular head",
+     "volume_cm3": 11.43,
+     "triangles": 4406,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.09,
+     "triangles": 6368,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.39,
+     "triangles": 3508,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 315.04,
+     "triangles": 9422
+    }
+   ],
+   "bytes": 98860,
+   "torn": [
+    "Anterior syndesmosis",
+    "Posterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior and posterior syndesmosis and the interosseous membrane torn (the whole membrane in this model)."
+  },
+  {
+   "id": "44C3.3",
+   "code": "44C3.3",
+   "name": "Tibia/fibula, malleolar segment, suprasyndesmotic, proximal fibula injury, with a medial side injury and a posterior malleolus fracture",
+   "segment": "44",
+   "qualification": "p Fibula neck fracture, s Fracture of medial malleolus",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S69"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Posterior fragment after Haraguchi 2006 type I, posterolateral-oblique (67 % of 57 fractures; mean 11.7 % of the plafond cross-section). The modelled footprint covers 11.6 % of the plafond cartilage.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44C3_3.glb",
+   "bones": [
+    "Fibula.r",
+    "Tibia.r"
+   ],
+   "triangles": 26112,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibular head",
+     "volume_cm3": 11.35,
+     "triangles": 3674,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.16,
+     "triangles": 5712,
+     "displace": "fibula_distal"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "medial malleolus",
+     "volume_cm3": 2.47,
+     "triangles": 3380,
+     "displace": "malleolus_medial"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterolateral (Volkmann) fragment",
+     "volume_cm3": 1.0,
+     "triangles": 2244,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 313.95,
+     "triangles": 11102
+    }
+   ],
+   "bytes": 115868,
+   "torn": [
+    "Anterior syndesmosis",
+    "Interosseous membrane"
+   ],
+   "torn_basis": "Printed name and the 44C qualification 'u syndesmosis unstable': anterior syndesmosis and interosseous membrane torn. The posterior syndesmosis stays on the posterior malleolus fragment (its tether moves with that fragment). The whole membrane is torn in this model."
+  },
+  {
+   "id": "44-PM-I",
+   "code": "44",
+   "name": "CT-mapped pattern: posterior malleolar fracture, posterolateral-oblique type",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Not a separate AO/OTA code. Haraguchi type I: 38 of 57 (67 %); mean 11.7 % of the plafond cross-section.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44-PM-I.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 10942,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterior malleolar fragment",
+     "volume_cm3": 1.17,
+     "triangles": 2280,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 316.26,
+     "triangles": 8662
+    }
+   ],
+   "bytes": 47128
+  },
+  {
+   "id": "44-PM-II",
+   "code": "44",
+   "name": "CT-mapped pattern: posterior malleolar fracture, medial-extension type",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Not a separate AO/OTA code. Haraguchi type II: 11 of 57 (19 %); mean 29.8 % of the plafond cross-section; the line reaches the medial malleolus. Mangnus 2015 found type II to be a separate pattern.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44-PM-II.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 17418,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterior malleolar fragment",
+     "volume_cm3": 5.43,
+     "triangles": 5906,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 311.99,
+     "triangles": 11512
+    }
+   ],
+   "bytes": 69948
+  },
+  {
+   "id": "44-PM-III",
+   "code": "44",
+   "name": "CT-mapped pattern: posterior malleolar fracture, small-shell type",
+   "segment": "44",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S68"
+    },
+    {
+     "ref": "Haraguchi N et al. Pathoanatomy of posterior malleolar fractures of the ankle. J Bone Joint Surg Am 2006;88:1085-92",
+     "pmid": "16651584",
+     "doi": "10.2106/JBJS.E.00856"
+    },
+    {
+     "ref": "Mangnus L et al. Posterior malleolar fracture patterns. J Orthop Trauma 2015;29:428-35",
+     "pmid": "25785358",
+     "doi": "10.1097/BOT.0000000000000330"
+    }
+   ],
+   "line_basis": "Compendium drawing plus the written results of the CT mapping study cited. Lines were placed from the text, not traced from the map figure.",
+   "note": "Not a separate AO/OTA code. Haraguchi type III: 8 of 57 (14 %); small shell-shaped fragments at the posterior lip.",
+   "followers": {
+    "Talus.r": "tibia"
+   },
+   "file": "44-PM-III.glb",
+   "bones": [
+    "Tibia.r"
+   ],
+   "triangles": 9546,
+   "fragments": [
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "posterior malleolar fragment",
+     "volume_cm3": 0.33,
+     "triangles": 1458,
+     "displace": "posterior_malleolus"
+    },
+    {
+     "bone": "tibia",
+     "mesh": "Tibia.r",
+     "name": "tibia",
+     "volume_cm3": 317.09,
+     "triangles": 8088
+    }
+   ],
+   "bytes": 42568
+  },
+  {
+   "id": "4F1A",
+   "code": "4F1A",
+   "name": "Fibula, proximal end segment, simple fracture",
+   "segment": "4F",
+   "qualification": "n Extraarticular",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S62"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "4F1A.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 9038,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibular head",
+     "volume_cm3": 10.56,
+     "triangles": 3424,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.96,
+     "triangles": 5614,
+     "displace": "fibula_shaft"
+    }
+   ],
+   "bytes": 40940
+  },
+  {
+   "id": "4F1B",
+   "code": "4F1B",
+   "name": "Fibula, proximal end segment, multifragmentary fracture",
+   "segment": "4F",
+   "qualification": "n Extraarticular",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S62"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "4F1B.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 27704,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibular head",
+     "volume_cm3": 1.08,
+     "triangles": 3374,
+     "displace": "avulsion"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "piece 1",
+     "volume_cm3": 4.14,
+     "triangles": 7040,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "piece 2",
+     "volume_cm3": 0.93,
+     "triangles": 5456,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "piece 3",
+     "volume_cm3": 4.9,
+     "triangles": 6184,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 48.47,
+     "triangles": 5650,
+     "displace": "fibula_shaft"
+    }
+   ],
+   "bytes": 123008
+  },
+  {
+   "id": "4F2A",
+   "code": "4F2A",
+   "name": "Fibula, diaphyseal segment, simple fracture",
+   "segment": "4F",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S62"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "4F2A.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 7110,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "proximal fragment",
+     "volume_cm3": 29.98,
+     "triangles": 3506,
+     "displace": "fibula_shaft"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fragment",
+     "volume_cm3": 29.54,
+     "triangles": 3604,
+     "displace": "fibula_shaft"
+    }
+   ],
+   "bytes": 33192
+  },
+  {
+   "id": "4F2B",
+   "code": "4F2B",
+   "name": "Fibula, diaphyseal segment, wedge or multifragmentary fracture",
+   "segment": "4F",
+   "qualification": "b Middle 1/3",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S62"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "4F2B.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 10136,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "proximal fragment",
+     "volume_cm3": 29.86,
+     "triangles": 3620,
+     "displace": "fibula_shaft"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "wedge",
+     "volume_cm3": 1.07,
+     "triangles": 2674,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fragment",
+     "volume_cm3": 28.59,
+     "triangles": 3842,
+     "displace": "fibula_shaft"
+    }
+   ],
+   "bytes": 49680
+  },
+  {
+   "id": "4F3A",
+   "code": "4F3A",
+   "name": "Fibula, distal end segment (excluding lateral malleolar fractures 44), simple fracture",
+   "segment": "4F",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S63"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "4F3A.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 8318,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 47.61,
+     "triangles": 5042,
+     "displace": "fibula_shaft"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fragment",
+     "volume_cm3": 11.9,
+     "triangles": 3276,
+     "displace": "fibula_shaft"
+    }
+   ],
+   "bytes": 39868
+  },
+  {
+   "id": "4F3B",
+   "code": "4F3B",
+   "name": "Fibula, distal end segment (excluding lateral malleolar fractures 44), wedge or multifragmentary fracture",
+   "segment": "4F",
+   "sources": [
+    {
+     "ref": "Meinberg EG, Agel J, Roberts CS, Karam MD, Kellam JF. Fracture and Dislocation Classification Compendium-2018. J Orthop Trauma 2018;32 Suppl 1",
+     "pmid": "29256945",
+     "doi": "10.1097/BOT.0000000000001063",
+     "page": "S63"
+    }
+   ],
+   "line_basis": "Line follows the Compendium drawing and definition. The exact position on this bone was chosen by the engine author.",
+   "file": "4F3B.glb",
+   "bones": [
+    "Fibula.r"
+   ],
+   "triangles": 18654,
+   "fragments": [
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "fibula",
+     "volume_cm3": 45.6,
+     "triangles": 4592,
+     "displace": "fibula_shaft"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "piece 1",
+     "volume_cm3": 1.86,
+     "triangles": 3940,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "piece 2",
+     "volume_cm3": 0.71,
+     "triangles": 2624,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "piece 3",
+     "volume_cm3": 1.42,
+     "triangles": 3848,
+     "displace": "wedge"
+    },
+    {
+     "bone": "fibula",
+     "mesh": "Fibula.r",
+     "name": "distal fragment",
+     "volume_cm3": 9.91,
+     "triangles": 3650,
+     "displace": "fibula_shaft"
+    }
+   ],
+   "bytes": 96004
+  }
+ ]
+}

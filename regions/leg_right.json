@@ -1,0 +1,50 @@
+{
+  "id": "leg_right",
+  "title": "Right leg (knee to ankle)",
+  "side_suffix": ".r",
+  "main_bone": "Tibia.r",
+  "z_window_from": ["Tibia.r"],
+  "min_overlap_mm": 20,
+  "layers": {
+    "bones": {
+      "label": "Bones",
+      "bodyparts3d": { "Tibia.r": "FMA24477", "Fibula.r": "FMA24480", "Talus.r": "FMA24482" },
+      "context_only": ["Talus.r"]
+    },
+    "muscles": {
+      "label": "Muscles and tendons",
+      "descendants_of": [
+        "Anterior compartment of leg.g",
+        "Lateral compartment of leg.g",
+        "Posterior compartment of leg.g"
+      ]
+    },
+    "joints": {
+      "label": "Joint capsules and ligaments",
+      "descendants_of": ["Ankle joint.g", "Tibiofibular syndesmosis.g"],
+      "include": ["Interosseous membrane of leg.r"]
+    },
+    "arteries": {
+      "label": "Arteries",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Artery",
+      "include": ["Inferior lateral genicular artery.r", "Inferior medial genicular artery.r"]
+    },
+    "veins": {
+      "label": "Veins",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Vein"
+    },
+    "nerves": {
+      "label": "Nerves",
+      "collection": "7: Nervous system & Sense organs",
+      "material_prefix": "Nerve",
+      "include": ["Infrapatellar branch of saphenous nerve.r", "Intermediate dorsal cutaneous nerve of foot.r"]
+    },
+    "skin": {
+      "label": "Skin",
+      "descendants_of": ["Knee region.g", "Leg region.g", "Talocrural region.g"],
+      "material_prefix": "Skin"
+    }
+  }
+}

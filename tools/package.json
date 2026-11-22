@@ -1,0 +1,12 @@
+{
+  "name": "fracture-vr-tools",
+  "private": true,
+  "type": "module",
+  "description": "Offline build tools (not used by the web page).",
+  "dependencies": {
+    "@gltf-transform/core": "^4.2.0",
+    "@gltf-transform/extensions": "^4.2.0",
+    "@gltf-transform/functions": "^4.2.0",
+    "draco3dgltf": "^1.5.7"
+  }
+}

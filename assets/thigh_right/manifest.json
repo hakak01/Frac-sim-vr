@@ -1,0 +1,2899 @@
+{
+ "id": "thigh_right",
+ "title": "Right thigh (hip to knee)",
+ "main_bone": "Femur.r",
+ "units": "metres (true scale)",
+ "compression": "Draco, 14-bit positions (about 0.02 mm steps)",
+ "axes_glb": "x: patient left is +, y: up, z: patient front is +",
+ "z_window_m": [
+  0.4299,
+  0.8843
+ ],
+ "x_window_m": [
+  -0.1685,
+  0.0171
+ ],
+ "source": {
+  "name": "Z-Anatomy",
+  "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+  "commit": "cf1967839387baf412c50b47fc6a63fff30618a3",
+  "license": "CC BY-SA 4.0",
+  "derived_from": "BodyParts3D, (c) The Database Center for Life Science, CC BY-SA 2.1 Japan"
+ },
+ "bone_source": {
+  "name": "BodyParts3D 3.0 (polygon reduction 95% set)",
+  "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+  "mirror": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
+  "mirror_commit": "2c83c698788cff57f6317bddcf712e7acfbea7d8",
+  "license": "CC BY-SA 2.1 Japan",
+  "attribution": "BodyParts3D, (c) The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan"
+ },
+ "layers": {
+  "bones": {
+   "label": "Bones",
+   "file": "bones.glb",
+   "bytes": 139548,
+   "triangles": 35512,
+   "structures": [
+    {
+     "name": "Femur.r",
+     "group": "Bones of free part of lower limb.g",
+     "triangles": 12990,
+     "vertices": 6497,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24474",
+     "fit_to_z_anatomy": {
+      "scale": 1.03292,
+      "rotation_deg": 0.276,
+      "median_mm": 0.012,
+      "max_mm": 2.434,
+      "limit_mm": 2.5
+     },
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1487,
+      -0.0187,
+      0.4298
+     ],
+     "bbox_max": [
+      -0.0319,
+      0.0594,
+      0.8843
+     ],
+     "bytes_alone": 59020
+    },
+    {
+     "name": "Fibula.r",
+     "group": "Bones of free part of lower limb.g",
+     "triangles": 4622,
+     "vertices": 2313,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24480",
+     "fit_to_z_anatomy": {
+      "scale": 1.03304,
+      "rotation_deg": 0.272,
+      "median_mm": 0.007,
+      "max_mm": 0.734,
+      "limit_mm": 2.0
+     },
+     "context_only": true,
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1248,
+      0.0267,
+      0.0552
+     ],
+     "bbox_max": [
+      -0.0886,
+      0.0597,
+      0.4178
+     ],
+     "bytes_alone": 36124
+    },
+    {
+     "name": "Hip bone.r",
+     "group": "Bones of pelvic girdle.g",
+     "triangles": 9716,
+     "vertices": 4858,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA16586",
+     "fit_to_z_anatomy": {
+      "scale": 1.03227,
+      "rotation_deg": 0.017,
+      "median_mm": 0.043,
+      "max_mm": 1.225,
+      "limit_mm": 2.0
+     },
+     "context_only": true,
+     "materials": [
+      "Bone-1",
+      "Bone-6",
+      "Bone-7",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1349,
+      -0.0562,
+      0.7974
+     ],
+     "bbox_max": [
+      -0.003,
+      0.0867,
+      1.012
+     ],
+     "bytes_alone": 57132
+    },
+    {
+     "name": "Patella.r",
+     "group": "Bones of free part of lower limb.g",
+     "triangles": 1334,
+     "vertices": 669,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24486",
+     "fit_to_z_anatomy": {
+      "scale": 1.03258,
+      "rotation_deg": 0.237,
+      "median_mm": 0.008,
+      "max_mm": 0.321,
+      "limit_mm": 2.0
+     },
+     "materials": [
+      "Bone-1",
+      "Cartilage",
+      "Bone-2",
+      "Bone-3",
+      "Bone-4",
+      "Bone-5",
+      "Bone-6",
+      "Bone-7",
+      "Bone-8"
+     ],
+     "bbox_min": [
+      -0.1061,
+      -0.0189,
+      0.4237
+     ],
+     "bbox_max": [
+      -0.0627,
+      0.0042,
+      0.4647
+     ],
+     "bytes_alone": 27592
+    },
+    {
+     "name": "Tibia.r",
+     "group": "Bones of free part of lower limb.g",
+     "triangles": 6850,
+     "vertices": 3427,
+     "source_type": "mesh",
+     "source": "BodyParts3D 3.0 FMA24477",
+     "fit_to_z_anatomy": {
+      "scale": 1.033,
+      "rotation_deg": 0.276,
+      "median_mm": 0.006,
+      "max_mm": 0.994,
+      "limit_mm": 2.0
+     },
+     "context_only": true,
+     "materials": [
+      "Bone",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1158,
+      -0.0052,
+      0.0751
+     ],
+     "bbox_max": [
+      -0.0372,
+      0.063,
+      0.4332
+     ],
+     "bytes_alone": 43340
+    }
+   ]
+  },
+  "muscles": {
+   "label": "Muscles and tendons",
+   "file": "muscles.glb",
+   "bytes": 639428,
+   "triangles": 180492,
+   "structures": [
+    {
+     "name": "(Adductor minimus).r",
+     "group": "Adductor magnus.r",
+     "triangles": 948,
+     "vertices": 476,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0987,
+      -0.0275,
+      0.7251
+     ],
+     "bbox_max": [
+      -0.0186,
+      0.0138,
+      0.8295
+     ],
+     "bytes_alone": 24900
+    },
+    {
+     "name": "Adductor brevis.r",
+     "group": "Medial compartment of thigh.g",
+     "triangles": 2132,
+     "vertices": 1064,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0985,
+      -0.039,
+      0.6655
+     ],
+     "bbox_max": [
+      -0.0195,
+      0.0088,
+      0.8418
+     ],
+     "bytes_alone": 28844
+    },
+    {
+     "name": "Adductor longus.r",
+     "group": "Medial compartment of thigh.g",
+     "triangles": 3714,
+     "vertices": 1855,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0949,
+      -0.0529,
+      0.5768
+     ],
+     "bbox_max": [
+      -0.0118,
+      0.0069,
+      0.8416
+     ],
+     "bytes_alone": 35576
+    },
+    {
+     "name": "Adductor magnus.r",
+     "group": "Medial compartment of thigh.g",
+     "triangles": 8192,
+     "vertices": 4096,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1103,
+      -0.0168,
+      0.4626
+     ],
+     "bbox_max": [
+      -0.0128,
+      0.0357,
+      0.8204
+     ],
+     "bytes_alone": 50576
+    },
+    {
+     "name": "Gluteus maximus muscle.r",
+     "group": "Superficial gluteal muscles.g",
+     "triangles": 3326,
+     "vertices": 1663,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1468,
+      0.0149,
+      0.7097
+     ],
+     "bbox_max": [
+      -0.0014,
+      0.1119,
+      0.9792
+     ],
+     "bytes_alone": 32880
+    },
+    {
+     "name": "Gluteus medius muscle.r",
+     "group": "Superficial gluteal muscles.g",
+     "triangles": 5176,
+     "vertices": 2590,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Abductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1498,
+      -0.0219,
+      0.8291
+     ],
+     "bbox_max": [
+      -0.0607,
+      0.0697,
+      0.9972
+     ],
+     "bytes_alone": 41020
+    },
+    {
+     "name": "Gluteus minimus muscle.r",
+     "group": "Superficial gluteal muscles.g",
+     "triangles": 6250,
+     "vertices": 3127,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Abductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1503,
+      -0.0212,
+      0.8337
+     ],
+     "bbox_max": [
+      -0.0675,
+      0.0395,
+      0.9683
+     ],
+     "bytes_alone": 42116
+    },
+    {
+     "name": "Gracilis muscle.r",
+     "group": "Medial compartment of thigh.g",
+     "triangles": 4812,
+     "vertices": 2404,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0627,
+      -0.0426,
+      0.3435
+     ],
+     "bbox_max": [
+      -0.0096,
+      0.0481,
+      0.8371
+     ],
+     "bytes_alone": 38636
+    },
+    {
+     "name": "Iliacus muscle.r",
+     "group": "Iliopsoas muscle.g",
+     "triangles": 4354,
+     "vertices": 2179,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1187,
+      -0.0488,
+      0.7722
+     ],
+     "bbox_max": [
+      -0.0626,
+      0.0374,
+      1.0038
+     ],
+     "bytes_alone": 37432
+    },
+    {
+     "name": "Iliotibial tract.r",
+     "group": "Tensor fasciae latae.r",
+     "triangles": 48612,
+     "vertices": 24298,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Trapezius",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1612,
+      -0.0281,
+      0.3924
+     ],
+     "bbox_max": [
+      -0.0898,
+      0.0535,
+      0.9977
+     ],
+     "bytes_alone": 147052
+    },
+    {
+     "name": "Inferior gemellus muscle.r",
+     "group": "Deep gluteal muscles.g",
+     "triangles": 976,
+     "vertices": 490,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Internal rotator",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1269,
+      0.0091,
+      0.8298
+     ],
+     "bbox_max": [
+      -0.0541,
+      0.0634,
+      0.853
+     ],
+     "bytes_alone": 26236
+    },
+    {
+     "name": "Lateral head of gastrocnemius.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 4908,
+     "vertices": 2454,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Biarticular",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1346,
+      0.0285,
+      0.2201
+     ],
+     "bbox_max": [
+      -0.0805,
+      0.1064,
+      0.4894
+     ],
+     "bytes_alone": 39348
+    },
+    {
+     "name": "Lateral patellar retinaculum.r",
+     "group": "Anterior compartment of thigh.g",
+     "triangles": 148,
+     "vertices": 76,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1161,
+      -0.0099,
+      0.4353
+     ],
+     "bbox_max": [
+      -0.1022,
+      0.0391,
+      0.4582
+     ],
+     "bytes_alone": 22092
+    },
+    {
+     "name": "Long head of biceps femoris.r",
+     "group": "Posterior compartment of thigh.g",
+     "triangles": 7258,
+     "vertices": 3623,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1283,
+      0.0208,
+      0.3948
+     ],
+     "bbox_max": [
+      -0.0501,
+      0.0766,
+      0.8202
+     ],
+     "bytes_alone": 46880
+    },
+    {
+     "name": "Medial head of gastrocnemius.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 6462,
+     "vertices": 3233,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Biarticular",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0859,
+      0.0181,
+      0.2065
+     ],
+     "bbox_max": [
+      -0.0348,
+      0.1041,
+      0.5061
+     ],
+     "bytes_alone": 44564
+    },
+    {
+     "name": "Medial patellar retinaculum.r",
+     "group": "Anterior compartment of thigh.g",
+     "triangles": 184,
+     "vertices": 94,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0646,
+      -0.0114,
+      0.4412
+     ],
+     "bbox_max": [
+      -0.0318,
+      0.0344,
+      0.4549
+     ],
+     "bytes_alone": 22220
+    },
+    {
+     "name": "Obturator externus.r",
+     "group": "Medial compartment of thigh.g",
+     "triangles": 1156,
+     "vertices": 582,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "External rotation",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1235,
+      -0.0264,
+      0.8154
+     ],
+     "bbox_max": [
+      -0.024,
+      0.0318,
+      0.8463
+     ],
+     "bytes_alone": 25704
+    },
+    {
+     "name": "Obturator internus.r",
+     "group": "Deep gluteal muscles.g",
+     "triangles": 3760,
+     "vertices": 1882,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Internal rotator",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1186,
+      -0.0237,
+      0.8185
+     ],
+     "bbox_max": [
+      -0.0209,
+      0.0579,
+      0.8782
+     ],
+     "bytes_alone": 35928
+    },
+    {
+     "name": "Pectineus muscle.r",
+     "group": "Medial compartment of thigh.g",
+     "triangles": 1952,
+     "vertices": 974,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "External rotation",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0986,
+      -0.056,
+      0.7333
+     ],
+     "bbox_max": [
+      -0.0158,
+      0.0046,
+      0.8645
+     ],
+     "bytes_alone": 30144
+    },
+    {
+     "name": "Piriformis muscle.r",
+     "group": "Deep gluteal muscles.g",
+     "triangles": 1500,
+     "vertices": 752,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Abductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1337,
+      0.0148,
+      0.8562
+     ],
+     "bbox_max": [
+      -0.0237,
+      0.0741,
+      0.9193
+     ],
+     "bytes_alone": 26888
+    },
+    {
+     "name": "Plantaris muscle.r",
+     "group": "Superficial part of posterior compartment of leg.g",
+     "triangles": 4698,
+     "vertices": 2351,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Biarticular",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1046,
+      0.0056,
+      0.0282
+     ],
+     "bbox_max": [
+      -0.0497,
+      0.0853,
+      0.5105
+     ],
+     "bytes_alone": 38088
+    },
+    {
+     "name": "Popliteus muscle.r",
+     "group": "Deep part of posterior compartment of leg.g",
+     "triangles": 1132,
+     "vertices": 566,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "External rotation",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1171,
+      0.0262,
+      0.3399
+     ],
+     "bbox_max": [
+      -0.0579,
+      0.0627,
+      0.4651
+     ],
+     "bytes_alone": 26796
+    },
+    {
+     "name": "Psoas major.r",
+     "group": "Iliopsoas muscle.g",
+     "triangles": 5474,
+     "vertices": 2737,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.108,
+      -0.037,
+      0.7755
+     ],
+     "bbox_max": [
+      -0.0082,
+      0.0411,
+      1.1555
+     ],
+     "bytes_alone": 40836
+    },
+    {
+     "name": "Quadratus femoris muscle.r",
+     "group": "Deep gluteal muscles.g",
+     "triangles": 1646,
+     "vertices": 825,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "External rotation",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1224,
+      0.0237,
+      0.793
+     ],
+     "bbox_max": [
+      -0.0539,
+      0.0399,
+      0.8387
+     ],
+     "bytes_alone": 27492
+    },
+    {
+     "name": "Rectus femoris muscle.r",
+     "group": "Anterior compartment of thigh.g",
+     "triangles": 8276,
+     "vertices": 4136,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Biarticular",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1483,
+      -0.0603,
+      0.3705
+     ],
+     "bbox_max": [
+      -0.0667,
+      0.0091,
+      0.9158
+     ],
+     "bytes_alone": 48868
+    },
+    {
+     "name": "Sartorius muscle.r",
+     "group": "Anterior compartment of thigh.g",
+     "triangles": 4966,
+     "vertices": 2481,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Adductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1245,
+      -0.0575,
+      0.3488
+     ],
+     "bbox_max": [
+      -0.0213,
+      0.0326,
+      0.948
+     ],
+     "bytes_alone": 38636
+    },
+    {
+     "name": "Semimembranosus muscle.r",
+     "group": "Posterior compartment of thigh.g",
+     "triangles": 7442,
+     "vertices": 3725,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0788,
+      0.0141,
+      0.3854
+     ],
+     "bbox_max": [
+      -0.015,
+      0.0692,
+      0.8031
+     ],
+     "bytes_alone": 47284
+    },
+    {
+     "name": "Semitendinosus muscle.r",
+     "group": "Posterior compartment of thigh.g",
+     "triangles": 4316,
+     "vertices": 2158,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.0688,
+      0.0173,
+      0.3515
+     ],
+     "bbox_max": [
+      -0.0327,
+      0.0755,
+      0.8114
+     ],
+     "bytes_alone": 36912
+    },
+    {
+     "name": "Short head of biceps femoris.r",
+     "group": "Posterior compartment of thigh.g",
+     "triangles": 2476,
+     "vertices": 1238,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Flexion",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1235,
+      0.0142,
+      0.4032
+     ],
+     "bbox_max": [
+      -0.0867,
+      0.0561,
+      0.7046
+     ],
+     "bytes_alone": 31172
+    },
+    {
+     "name": "Superior gemellus muscle.r",
+     "group": "Deep gluteal muscles.g",
+     "triangles": 404,
+     "vertices": 204,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Internal rotator",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1264,
+      0.0083,
+      0.8483
+     ],
+     "bbox_max": [
+      -0.0429,
+      0.054,
+      0.8754
+     ],
+     "bytes_alone": 24104
+    },
+    {
+     "name": "Tensor fasciae latae.r",
+     "group": "Superficial gluteal muscles.g",
+     "triangles": 1862,
+     "vertices": 933,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Abductor",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1521,
+      -0.048,
+      0.8031
+     ],
+     "bbox_max": [
+      -0.113,
+      -0.0128,
+      0.9646
+     ],
+     "bytes_alone": 29412
+    },
+    {
+     "name": "Vastus intermedius muscle.r",
+     "group": "Anterior compartment of thigh.g",
+     "triangles": 6164,
+     "vertices": 3076,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1331,
+      -0.038,
+      0.3986
+     ],
+     "bbox_max": [
+      -0.0765,
+      0.0097,
+      0.8069
+     ],
+     "bytes_alone": 42788
+    },
+    {
+     "name": "Vastus lateralis muscle.r",
+     "group": "Anterior compartment of thigh.g",
+     "triangles": 9356,
+     "vertices": 4678,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.159,
+      -0.0435,
+      0.3836
+     ],
+     "bbox_max": [
+      -0.0849,
+      0.0357,
+      0.841
+     ],
+     "bytes_alone": 52296
+    },
+    {
+     "name": "Vastus medialis muscle.r",
+     "group": "Anterior compartment of thigh.g",
+     "triangles": 6460,
+     "vertices": 3232,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Extension",
+      "Tendon"
+     ],
+     "bbox_min": [
+      -0.1052,
+      -0.049,
+      0.3849
+     ],
+     "bbox_max": [
+      -0.0336,
+      0.0195,
+      0.7928
+     ],
+     "bytes_alone": 43656
+    }
+   ]
+  },
+  "joints": {
+   "label": "Joint capsules and ligaments",
+   "file": "joints.glb",
+   "bytes": 121628,
+   "triangles": 23280,
+   "structures": [
+    {
+     "name": "Acetabular labrum.r",
+     "group": "Hip joint.g",
+     "triangles": 1408,
+     "vertices": 704,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Cartilage",
+      "Bone-1"
+     ],
+     "bbox_min": [
+      -0.1018,
+      -0.0228,
+      0.8411
+     ],
+     "bbox_max": [
+      -0.0665,
+      0.0345,
+      0.8889
+     ],
+     "bytes_alone": 25764
+    },
+    {
+     "name": "Anterior cruciate ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 1576,
+     "vertices": 840,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0881,
+      0.0217,
+      0.4268
+     ],
+     "bbox_max": [
+      -0.0669,
+      0.0463,
+      0.4566
+     ],
+     "bytes_alone": 26584
+    },
+    {
+     "name": "Anterior meniscotibial ligament (Lateral meniscus).r",
+     "group": "Knee joint.g",
+     "triangles": 248,
+     "vertices": 126,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0801,
+      0.0224,
+      0.4289
+     ],
+     "bbox_max": [
+      -0.0739,
+      0.0337,
+      0.4319
+     ],
+     "bytes_alone": 22516
+    },
+    {
+     "name": "Anterior meniscotibial ligament (Medial meniscus).r",
+     "group": "Knee joint.g",
+     "triangles": 128,
+     "vertices": 66,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0708,
+      0.0178,
+      0.4297
+     ],
+     "bbox_max": [
+      -0.0608,
+      0.0251,
+      0.4343
+     ],
+     "bytes_alone": 22124
+    },
+    {
+     "name": "Arcuate popliteal ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 1288,
+     "vertices": 648,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1164,
+      0.0379,
+      0.4074
+     ],
+     "bbox_max": [
+      -0.0698,
+      0.0599,
+      0.4789
+     ],
+     "bytes_alone": 25500
+    },
+    {
+     "name": "Articular capsule of hip joint.r",
+     "group": "Hip joint.g",
+     "triangles": 1120,
+     "vertices": 630,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.1206,
+      -0.0228,
+      0.8102
+     ],
+     "bbox_max": [
+      -0.0665,
+      0.0345,
+      0.8889
+     ],
+     "bytes_alone": 25180
+    },
+    {
+     "name": "Articular capsule of knee joint.r",
+     "group": "Knee joint.g",
+     "triangles": 2944,
+     "vertices": 1671,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Articular capsule"
+     ],
+     "bbox_min": [
+      -0.115,
+      -0.0121,
+      0.4126
+     ],
+     "bbox_max": [
+      -0.0363,
+      0.064,
+      0.4985
+     ],
+     "bytes_alone": 31364
+    },
+    {
+     "name": "Deep part of tibial collateral ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 256,
+     "vertices": 132,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0668,
+      0.0131,
+      0.3916
+     ],
+     "bbox_max": [
+      -0.0329,
+      0.0389,
+      0.4544
+     ],
+     "bytes_alone": 22448
+    },
+    {
+     "name": "Descending part of iliofemoral ligament.r",
+     "group": "Hip joint.g",
+     "triangles": 608,
+     "vertices": 306,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament",
+      "Cartilage",
+      "Bone-1"
+     ],
+     "bbox_min": [
+      -0.1008,
+      -0.0179,
+      0.8106
+     ],
+     "bbox_max": [
+      -0.092,
+      0.0067,
+      0.8857
+     ],
+     "bytes_alone": 23484
+    },
+    {
+     "name": "Fibular collateral ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 80,
+     "vertices": 42,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1203,
+      0.0356,
+      0.4073
+     ],
+     "bbox_max": [
+      -0.1115,
+      0.0438,
+      0.4598
+     ],
+     "bytes_alone": 21820
+    },
+    {
+     "name": "Frenula capsulae.r",
+     "group": "Hip joint.g",
+     "triangles": 864,
+     "vertices": 495,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.12,
+      -0.0129,
+      0.8087
+     ],
+     "bbox_max": [
+      -0.0829,
+      0.0238,
+      0.8503
+     ],
+     "bytes_alone": 24404
+    },
+    {
+     "name": "Infrapatellar fat pad.r",
+     "group": "Knee joint.g",
+     "triangles": 768,
+     "vertices": 386,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Fat"
+     ],
+     "bbox_min": [
+      -0.0866,
+      0.0006,
+      0.4238
+     ],
+     "bbox_max": [
+      -0.0749,
+      0.0243,
+      0.4405
+     ],
+     "bytes_alone": 24056
+    },
+    {
+     "name": "Ischiofemoral ligament.r",
+     "group": "Hip joint.g",
+     "triangles": 672,
+     "vertices": 338,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament",
+      "Cartilage",
+      "Bone-1"
+     ],
+     "bbox_min": [
+      -0.1206,
+      0.0043,
+      0.8455
+     ],
+     "bbox_max": [
+      -0.0757,
+      0.0352,
+      0.8621
+     ],
+     "bytes_alone": 23756
+    },
+    {
+     "name": "Lateral meniscus.r",
+     "group": "Knee joint.g",
+     "triangles": 468,
+     "vertices": 236,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1101,
+      0.01,
+      0.4243
+     ],
+     "bbox_max": [
+      -0.0763,
+      0.0487,
+      0.4396
+     ],
+     "bytes_alone": 23184
+    },
+    {
+     "name": "Ligament of head of femur.r",
+     "group": "Hip joint.g",
+     "triangles": 780,
+     "vertices": 429,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0686,
+      -0.0157,
+      0.8428
+     ],
+     "bbox_max": [
+      -0.0549,
+      0.0168,
+      0.8673
+     ],
+     "bytes_alone": 24552
+    },
+    {
+     "name": "Medial meniscus.r",
+     "group": "Knee joint.g",
+     "triangles": 284,
+     "vertices": 144,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0674,
+      0.0166,
+      0.4192
+     ],
+     "bbox_max": [
+      -0.0416,
+      0.0613,
+      0.4341
+     ],
+     "bytes_alone": 22596
+    },
+    {
+     "name": "Meniscopatellar ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 152,
+     "vertices": 80,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1057,
+      -0.0103,
+      0.4311
+     ],
+     "bbox_max": [
+      -0.0586,
+      0.0187,
+      0.4439
+     ],
+     "bytes_alone": 22084
+    },
+    {
+     "name": "Oblique popliteal ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 368,
+     "vertices": 186,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0974,
+      0.035,
+      0.4111
+     ],
+     "bbox_max": [
+      -0.0538,
+      0.0655,
+      0.4821
+     ],
+     "bytes_alone": 22764
+    },
+    {
+     "name": "Popliteofibular ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 896,
+     "vertices": 450,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1178,
+      0.0484,
+      0.4076
+     ],
+     "bbox_max": [
+      -0.0904,
+      0.0632,
+      0.4376
+     ],
+     "bytes_alone": 24256
+    },
+    {
+     "name": "Posterior cruciate ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 788,
+     "vertices": 396,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0845,
+      0.0363,
+      0.4143
+     ],
+     "bbox_max": [
+      -0.0612,
+      0.0549,
+      0.4522
+     ],
+     "bytes_alone": 24012
+    },
+    {
+     "name": "Posterior meniscotibial ligament (Lateral meniscus).r",
+     "group": "Knee joint.g",
+     "triangles": 192,
+     "vertices": 98,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0871,
+      0.034,
+      0.4299
+     ],
+     "bbox_max": [
+      -0.0762,
+      0.042,
+      0.4338
+     ],
+     "bytes_alone": 22324
+    },
+    {
+     "name": "Posterior meniscotibial ligament (Medial meniscus).r",
+     "group": "Knee joint.g",
+     "triangles": 304,
+     "vertices": 154,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0746,
+      0.039,
+      0.4232
+     ],
+     "bbox_max": [
+      -0.0611,
+      0.059,
+      0.4324
+     ],
+     "bytes_alone": 22700
+    },
+    {
+     "name": "Pubofemoral ligament.r",
+     "group": "Hip joint.g",
+     "triangles": 392,
+     "vertices": 198,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0935,
+      -0.0154,
+      0.8065
+     ],
+     "bbox_max": [
+      -0.0592,
+      0.0181,
+      0.8512
+     ],
+     "bytes_alone": 22832
+    },
+    {
+     "name": "Superficial part of tibial collateral ligament.r",
+     "group": "Knee joint.g",
+     "triangles": 496,
+     "vertices": 250,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.0651,
+      0.0128,
+      0.3926
+     ],
+     "bbox_max": [
+      -0.0322,
+      0.0354,
+      0.4545
+     ],
+     "bytes_alone": 23068
+    },
+    {
+     "name": "Transverse acetabular ligament.r",
+     "group": "Hip joint.g",
+     "triangles": 568,
+     "vertices": 286,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.0723,
+      -0.0192,
+      0.8424
+     ],
+     "bbox_max": [
+      -0.0543,
+      0.0232,
+      0.8559
+     ],
+     "bytes_alone": 23444
+    },
+    {
+     "name": "Transverse ligament of knee.r",
+     "group": "Knee joint.g",
+     "triangles": 432,
+     "vertices": 218,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament"
+     ],
+     "bbox_min": [
+      -0.1012,
+      0.0106,
+      0.4283
+     ],
+     "bbox_max": [
+      -0.0564,
+      0.0228,
+      0.4358
+     ],
+     "bytes_alone": 23100
+    },
+    {
+     "name": "Transverse part of iliofemoral ligament.r",
+     "group": "Hip joint.g",
+     "triangles": 464,
+     "vertices": 234,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament",
+      "Cartilage",
+      "Bone-1"
+     ],
+     "bbox_min": [
+      -0.119,
+      -0.017,
+      0.8359
+     ],
+     "bbox_max": [
+      -0.0938,
+      -0.004,
+      0.8874
+     ],
+     "bytes_alone": 23104
+    },
+    {
+     "name": "Zona orbicularis.r",
+     "group": "Hip joint.g",
+     "triangles": 4736,
+     "vertices": 2368,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Ligament",
+      "Cartilage"
+     ],
+     "bbox_min": [
+      -0.1211,
+      -0.0055,
+      0.8081
+     ],
+     "bbox_max": [
+      -0.0902,
+      0.0242,
+      0.8531
+     ],
+     "bytes_alone": 37636
+    }
+   ]
+  },
+  "arteries": {
+   "label": "Arteries",
+   "file": "arteries.glb",
+   "bytes": 220644,
+   "triangles": 70848,
+   "structures": [
+    {
+     "name": "Deep femoral artery.r",
+     "group": "Femoral artery.r",
+     "triangles": 2304,
+     "vertices": 1164,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0947,
+      -0.0484,
+      0.591
+     ],
+     "bbox_max": [
+      -0.0522,
+      0.03,
+      0.8508
+     ],
+     "bytes_alone": 27920
+    },
+    {
+     "name": "Femoral artery.r",
+     "group": "Systemic arteries.g",
+     "triangles": 4320,
+     "vertices": 2172,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0774,
+      -0.0512,
+      0.5597
+     ],
+     "bbox_max": [
+      -0.0453,
+      0.0184,
+      0.8981
+     ],
+     "bytes_alone": 32968
+    },
+    {
+     "name": "Inferior gluteal artery.r",
+     "group": "Anterior division of internal iliac artery.r",
+     "triangles": 3744,
+     "vertices": 1908,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0708,
+      0.0157,
+      0.8102
+     ],
+     "bbox_max": [
+      -0.0297,
+      0.0657,
+      0.9261
+     ],
+     "bytes_alone": 32016
+    },
+    {
+     "name": "Inferior lateral genicular artery.r",
+     "group": "Popliteal artery.r",
+     "triangles": 2304,
+     "vertices": 1164,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1182,
+      -0.0039,
+      0.4289
+     ],
+     "bbox_max": [
+      -0.0744,
+      0.0669,
+      0.4558
+     ],
+     "bytes_alone": 28380
+    },
+    {
+     "name": "Lateral circumflex femoral artery.r",
+     "group": "__src__Deep femoral artery.r",
+     "triangles": 2880,
+     "vertices": 1464,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1428,
+      -0.0285,
+      0.8143
+     ],
+     "bbox_max": [
+      -0.0716,
+      0.0363,
+      0.862
+     ],
+     "bytes_alone": 30328
+    },
+    {
+     "name": "Medial circumflex femoral artery.r",
+     "group": "__src__Deep femoral artery.r",
+     "triangles": 3168,
+     "vertices": 1596,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1071,
+      -0.0267,
+      0.8186
+     ],
+     "bbox_max": [
+      -0.0721,
+      0.0257,
+      0.8637
+     ],
+     "bytes_alone": 30632
+    },
+    {
+     "name": "Middle genicular artery.r",
+     "group": "Popliteal artery.r",
+     "triangles": 4896,
+     "vertices": 2508,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1029,
+      0.044,
+      0.4633
+     ],
+     "bbox_max": [
+      -0.0497,
+      0.0615,
+      0.4889
+     ],
+     "bytes_alone": 35508
+    },
+    {
+     "name": "Obturator artery.r",
+     "group": "Anterior division of internal iliac artery.r",
+     "triangles": 1728,
+     "vertices": 876,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0549,
+      -0.0129,
+      0.8529
+     ],
+     "bbox_max": [
+      -0.0386,
+      0.038,
+      0.8966
+     ],
+     "bytes_alone": 26572
+    },
+    {
+     "name": "Patellar anastomosis.r",
+     "group": "Popliteal artery.r",
+     "triangles": 9504,
+     "vertices": 4812,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1169,
+      -0.0258,
+      0.3737
+     ],
+     "bbox_max": [
+      -0.0555,
+      0.0379,
+      0.5016
+     ],
+     "bytes_alone": 45784
+    },
+    {
+     "name": "Perforating femoral arteries.r",
+     "group": "__src__Deep femoral artery.r",
+     "triangles": 2304,
+     "vertices": 1200,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1271,
+      -0.0149,
+      0.6125
+     ],
+     "bbox_max": [
+      -0.0755,
+      0.0067,
+      0.7947
+     ],
+     "bytes_alone": 28012
+    },
+    {
+     "name": "Popliteal artery.r",
+     "group": "__src__Femoral artery.r",
+     "triangles": 2016,
+     "vertices": 1020,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0957,
+      0.0109,
+      0.3737
+     ],
+     "bbox_max": [
+      -0.0606,
+      0.0686,
+      0.5656
+     ],
+     "bytes_alone": 27436
+    },
+    {
+     "name": "Superficial epigastric artery.r",
+     "group": "__src__Femoral artery.r",
+     "triangles": 4032,
+     "vertices": 2040,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.075,
+      -0.1004,
+      0.8473
+     ],
+     "bbox_max": [
+      -0.0455,
+      -0.0447,
+      1.0677
+     ],
+     "bytes_alone": 31460
+    },
+    {
+     "name": "Superficial external pudendal artery.r",
+     "group": "__src__Femoral artery.r",
+     "triangles": 3744,
+     "vertices": 1896,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0531,
+      -0.0675,
+      0.7372
+     ],
+     "bbox_max": [
+      -0.0051,
+      -0.0453,
+      0.8545
+     ],
+     "bytes_alone": 31536
+    },
+    {
+     "name": "Superior gluteal artery.r",
+     "group": "Posterior division of internal iliac artery.r",
+     "triangles": 17280,
+     "vertices": 8832,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.078,
+      0.0153,
+      0.9109
+     ],
+     "bbox_max": [
+      -0.0297,
+      0.0732,
+      0.955
+     ],
+     "bytes_alone": 61132
+    },
+    {
+     "name": "Superior lateral genicular artery.r",
+     "group": "__src__Popliteal artery.r",
+     "triangles": 1728,
+     "vertices": 876,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.1196,
+      -0.0045,
+      0.4788
+     ],
+     "bbox_max": [
+      -0.072,
+      0.0356,
+      0.5284
+     ],
+     "bytes_alone": 26984
+    },
+    {
+     "name": "Superior medial genicular artery.r",
+     "group": "__src__Popliteal artery.r",
+     "triangles": 4896,
+     "vertices": 2484,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Artery"
+     ],
+     "bbox_min": [
+      -0.0777,
+      -0.0143,
+      0.4254
+     ],
+     "bbox_max": [
+      -0.0414,
+      0.0379,
+      0.5698
+     ],
+     "bytes_alone": 34776
+    }
+   ]
+  },
+  "veins": {
+   "label": "Veins",
+   "file": "veins.glb",
+   "bytes": 191100,
+   "triangles": 61344,
+   "structures": [
+    {
+     "name": "Deep femoral vein.r",
+     "group": "Femoral vein.r",
+     "triangles": 3168,
+     "vertices": 1596,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0929,
+      -0.0488,
+      0.5947
+     ],
+     "bbox_max": [
+      -0.0464,
+      -0.007,
+      0.8448
+     ],
+     "bytes_alone": 30312
+    },
+    {
+     "name": "External pudendal veins.r",
+     "group": "Great saphenous vein.r",
+     "triangles": 3168,
+     "vertices": 1608,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0362,
+      -0.0675,
+      0.7387
+     ],
+     "bbox_max": [
+      0.0007,
+      -0.0447,
+      0.8405
+     ],
+     "bytes_alone": 29960
+    },
+    {
+     "name": "Femoral vein.r",
+     "group": "Systemic veins.g",
+     "triangles": 4032,
+     "vertices": 2028,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0751,
+      -0.0517,
+      0.5651
+     ],
+     "bbox_max": [
+      -0.0356,
+      0.0195,
+      0.8853
+     ],
+     "bytes_alone": 32820
+    },
+    {
+     "name": "Genicular veins.r",
+     "group": "Popliteal vein.r",
+     "triangles": 10080,
+     "vertices": 5088,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1211,
+      -0.0165,
+      0.3678
+     ],
+     "bbox_max": [
+      -0.0364,
+      0.07,
+      0.5325
+     ],
+     "bytes_alone": 47412
+    },
+    {
+     "name": "Great saphenous vein.r",
+     "group": "__src__Femoral vein.r",
+     "triangles": 8352,
+     "vertices": 4200,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0719,
+      -0.0575,
+      0.0583
+     ],
+     "bbox_max": [
+      -0.0193,
+      0.0616,
+      0.8552
+     ],
+     "bytes_alone": 39952
+    },
+    {
+     "name": "Inferior gluteal veins.r",
+     "group": "Internal iliac vein.r",
+     "triangles": 4320,
+     "vertices": 2208,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0661,
+      0.0107,
+      0.8113
+     ],
+     "bbox_max": [
+      -0.0234,
+      0.0676,
+      0.9438
+     ],
+     "bytes_alone": 33256
+    },
+    {
+     "name": "Lateral circumflex femoral veins.r",
+     "group": "__src__Femoral vein.r",
+     "triangles": 3168,
+     "vertices": 1608,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1459,
+      -0.0492,
+      0.8195
+     ],
+     "bbox_max": [
+      -0.0401,
+      0.0378,
+      0.8641
+     ],
+     "bytes_alone": 30948
+    },
+    {
+     "name": "Medial circumflex femoral veins.r",
+     "group": "__src__Femoral vein.r",
+     "triangles": 3456,
+     "vertices": 1740,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1069,
+      -0.0469,
+      0.8338
+     ],
+     "bbox_max": [
+      -0.0476,
+      0.0272,
+      0.8655
+     ],
+     "bytes_alone": 31332
+    },
+    {
+     "name": "Perforating veins.r",
+     "group": "__src__Deep femoral vein.r",
+     "triangles": 2304,
+     "vertices": 1200,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1255,
+      -0.0338,
+      0.6171
+     ],
+     "bbox_max": [
+      -0.0765,
+      0.0046,
+      0.7858
+     ],
+     "bytes_alone": 27720
+    },
+    {
+     "name": "Popliteal vein.r",
+     "group": "__src__Femoral vein.r",
+     "triangles": 2016,
+     "vertices": 1020,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0938,
+      0.0115,
+      0.4076
+     ],
+     "bbox_max": [
+      -0.0657,
+      0.0704,
+      0.5717
+     ],
+     "bytes_alone": 27528
+    },
+    {
+     "name": "Small saphenous vein.r",
+     "group": "__src__Popliteal vein.r",
+     "triangles": 5760,
+     "vertices": 2892,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.1082,
+      0.0287,
+      0.0341
+     ],
+     "bbox_max": [
+      -0.0731,
+      0.1042,
+      0.4905
+     ],
+     "bytes_alone": 35100
+    },
+    {
+     "name": "Superficial epigastric vein.r",
+     "group": "__src__Great saphenous vein.r",
+     "triangles": 7200,
+     "vertices": 3648,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0836,
+      -0.1097,
+      0.8523
+     ],
+     "bbox_max": [
+      -0.0143,
+      -0.0457,
+      1.0659
+     ],
+     "bytes_alone": 39252
+    },
+    {
+     "name": "Superior gluteal veins.r",
+     "group": "Internal iliac vein.r",
+     "triangles": 4320,
+     "vertices": 2256,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Vein"
+     ],
+     "bbox_min": [
+      -0.0757,
+      0.0107,
+      0.9089
+     ],
+     "bbox_max": [
+      -0.0234,
+      0.0744,
+      0.9531
+     ],
+     "bytes_alone": 34140
+    }
+   ]
+  },
+  "nerves": {
+   "label": "Nerves",
+   "file": "nerves.glb",
+   "bytes": 133176,
+   "triangles": 50112,
+   "structures": [
+    {
+     "name": "Anterior branch of obturator nerve.r",
+     "group": "Obturator nerve.r",
+     "triangles": 1728,
+     "vertices": 876,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-6"
+     ],
+     "bbox_min": [
+      -0.0464,
+      -0.0394,
+      0.5574
+     ],
+     "bbox_max": [
+      -0.0191,
+      0.0138,
+      0.8619
+     ],
+     "bytes_alone": 24936
+    },
+    {
+     "name": "Anterior cutaneous branches of femoral nerve.r",
+     "group": "Femoral nerve.r",
+     "triangles": 1440,
+     "vertices": 732,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.0634,
+      -0.0418,
+      0.5007
+     ],
+     "bbox_max": [
+      -0.0494,
+      -0.0237,
+      0.8617
+     ],
+     "bytes_alone": 24020
+    },
+    {
+     "name": "Common fibular nerve.r",
+     "group": "Sciatic nerve.r",
+     "triangles": 2016,
+     "vertices": 1020,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.1232,
+      0.0393,
+      0.385
+     ],
+     "bbox_max": [
+      -0.076,
+      0.0616,
+      0.5402
+     ],
+     "bytes_alone": 25556
+    },
+    {
+     "name": "Femoral branch of genitofemoral nerve.r",
+     "group": "Genitofemoral nerve.r",
+     "triangles": 2592,
+     "vertices": 1320,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-8"
+     ],
+     "bbox_min": [
+      -0.0566,
+      -0.0548,
+      0.7983
+     ],
+     "bbox_max": [
+      -0.0354,
+      -0.0196,
+      1.0155
+     ],
+     "bytes_alone": 26744
+    },
+    {
+     "name": "Femoral nerve.r",
+     "group": "Branches of posterior part of lumbar plexus.g",
+     "triangles": 4032,
+     "vertices": 2052,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-2"
+     ],
+     "bbox_min": [
+      -0.0885,
+      -0.0437,
+      0.6284
+     ],
+     "bbox_max": [
+      -0.0113,
+      0.0293,
+      1.1009
+     ],
+     "bytes_alone": 29476
+    },
+    {
+     "name": "Ilio-inguinal nerve.r",
+     "group": "Anterior rami of lumbar nerves.g",
+     "triangles": 3744,
+     "vertices": 1884,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-5"
+     ],
+     "bbox_min": [
+      -0.1226,
+      -0.0541,
+      0.8453
+     ],
+     "bbox_max": [
+      -0.031,
+      0.0437,
+      1.1201
+     ],
+     "bytes_alone": 28744
+    },
+    {
+     "name": "Lateral femoral cutaneous nerve.r",
+     "group": "Branches of posterior part of lumbar plexus.g",
+     "triangles": 4608,
+     "vertices": 2340,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-4"
+     ],
+     "bbox_min": [
+      -0.1588,
+      -0.0589,
+      0.5545
+     ],
+     "bbox_max": [
+      -0.0505,
+      0.0568,
+      1.0796
+     ],
+     "bytes_alone": 29992
+    },
+    {
+     "name": "Medial crural cutaneous branches of saphenous nerve.r",
+     "group": "Saphenous nerve.r",
+     "triangles": 576,
+     "vertices": 300,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-3"
+     ],
+     "bbox_min": [
+      -0.0634,
+      -0.0527,
+      0.7611
+     ],
+     "bbox_max": [
+      -0.0248,
+      -0.0318,
+      0.8619
+     ],
+     "bytes_alone": 22904
+    },
+    {
+     "name": "Medial sural cutaneous nerve.r",
+     "group": "Tibial nerve.r",
+     "triangles": 288,
+     "vertices": 156,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-6"
+     ],
+     "bbox_min": [
+      -0.077,
+      0.0393,
+      0.41
+     ],
+     "bbox_max": [
+      -0.0701,
+      0.0909,
+      0.5403
+     ],
+     "bytes_alone": 22204
+    },
+    {
+     "name": "Nerve to quadratus femoris muscle.r",
+     "group": "Sacral plexus.g",
+     "triangles": 4320,
+     "vertices": 2208,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve"
+     ],
+     "bbox_min": [
+      -0.0896,
+      0.0051,
+      0.8123
+     ],
+     "bbox_max": [
+      -0.0194,
+      0.043,
+      1.0088
+     ],
+     "bytes_alone": 29844
+    },
+    {
+     "name": "Obturator nerve.r",
+     "group": "Branches of anterior part of lumbar plexus.g",
+     "triangles": 3456,
+     "vertices": 1764,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-6"
+     ],
+     "bbox_min": [
+      -0.0601,
+      -0.0152,
+      0.8612
+     ],
+     "bbox_max": [
+      -0.0163,
+      0.0236,
+      1.0792
+     ],
+     "bytes_alone": 28516
+    },
+    {
+     "name": "Posterior branch of obturator nerve.r",
+     "group": "__src__Obturator nerve.r",
+     "triangles": 1152,
+     "vertices": 588,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-6"
+     ],
+     "bbox_min": [
+      -0.0563,
+      -0.0229,
+      0.7028
+     ],
+     "bbox_max": [
+      -0.0397,
+      -0.0107,
+      0.8618
+     ],
+     "bytes_alone": 23908
+    },
+    {
+     "name": "Posterior femoral cutaneous nerve.r",
+     "group": "Sacral plexus.g",
+     "triangles": 2592,
+     "vertices": 1332,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.0726,
+      0.0179,
+      0.651
+     ],
+     "bbox_max": [
+      -0.0308,
+      0.0956,
+      0.9479
+     ],
+     "bytes_alone": 26832
+    },
+    {
+     "name": "Saphenous nerve.r",
+     "group": "__src__Femoral nerve.r",
+     "triangles": 6624,
+     "vertices": 3360,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-5"
+     ],
+     "bbox_min": [
+      -0.0731,
+      -0.0476,
+      0.1041
+     ],
+     "bbox_max": [
+      -0.0309,
+      0.1054,
+      0.8618
+     ],
+     "bytes_alone": 33028
+    },
+    {
+     "name": "Sciatic nerve.r",
+     "group": "Sacral plexus.g",
+     "triangles": 4896,
+     "vertices": 2484,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.0798,
+      0.0162,
+      0.5398
+     ],
+     "bbox_max": [
+      -0.0162,
+      0.0718,
+      0.9781
+     ],
+     "bytes_alone": 31100
+    },
+    {
+     "name": "Superior gluteal nerve.r",
+     "group": "Sacral plexus.g",
+     "triangles": 3456,
+     "vertices": 1764,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-1"
+     ],
+     "bbox_min": [
+      -0.1177,
+      0.0222,
+      0.9045
+     ],
+     "bbox_max": [
+      -0.0293,
+      0.0414,
+      0.9652
+     ],
+     "bytes_alone": 29088
+    },
+    {
+     "name": "Tibial nerve.r",
+     "group": "__src__Sciatic nerve.r",
+     "triangles": 2592,
+     "vertices": 1308,
+     "source_type": "curve",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Nerve-6"
+     ],
+     "bbox_min": [
+      -0.0961,
+      0.0378,
+      0.0575
+     ],
+     "bbox_max": [
+      -0.0563,
+      0.0659,
+      0.5405
+     ],
+     "bytes_alone": 26524
+    }
+   ]
+  },
+  "skin": {
+   "label": "Skin",
+   "file": "skin.glb",
+   "bytes": 72544,
+   "triangles": 5660,
+   "structures": [
+    {
+     "name": "Anterior region of knee.r",
+     "group": "Knee region.g",
+     "triangles": 748,
+     "vertices": 376,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-3",
+      "Skin-5",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1433,
+      -0.0539,
+      0.3798
+     ],
+     "bbox_max": [
+      -0.0197,
+      0.0412,
+      0.5061
+     ],
+     "bytes_alone": 27208
+    },
+    {
+     "name": "Anterior region of thigh.r",
+     "group": "Anterior region of thigh.g",
+     "triangles": 1888,
+     "vertices": 946,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-3",
+      "Skin-4",
+      "Skin-5",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1818,
+      -0.0797,
+      0.4997
+     ],
+     "bbox_max": [
+      -0.0036,
+      0.0461,
+      1.0159
+     ],
+     "bytes_alone": 32012
+    },
+    {
+     "name": "Femoral triangle.r",
+     "group": "__src__Anterior region of thigh.r",
+     "triangles": 212,
+     "vertices": 108,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-8",
+      "Skin-2",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1016,
+      -0.0808,
+      0.749
+     ],
+     "bbox_max": [
+      -0.0284,
+      -0.0489,
+      0.9308
+     ],
+     "bytes_alone": 25160
+    },
+    {
+     "name": "Gluteal fold.r",
+     "group": "Gluteal region.r",
+     "triangles": 52,
+     "vertices": 28,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-7",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.102,
+      0.0681,
+      0.7605
+     ],
+     "bbox_max": [
+      -0.0118,
+      0.1211,
+      0.779
+     ],
+     "bytes_alone": 22712
+    },
+    {
+     "name": "Gluteal region.r",
+     "group": "Gluteal region.g",
+     "triangles": 832,
+     "vertices": 418,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-3",
+      "Skin-4",
+      "Skin-5",
+      "Skin-7",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1706,
+      0.0177,
+      0.7698
+     ],
+     "bbox_max": [
+      0.0,
+      0.1483,
+      1.0153
+     ],
+     "bytes_alone": 29536
+    },
+    {
+     "name": "Hip region.r",
+     "group": "Regions of lower limb.g",
+     "triangles": 164,
+     "vertices": 84,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-4",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1803,
+      -0.038,
+      0.7949
+     ],
+     "bbox_max": [
+      -0.1506,
+      0.0682,
+      0.9031
+     ],
+     "bytes_alone": 23176
+    },
+    {
+     "name": "Popliteal fossa.r",
+     "group": "Posterior region of knee.r",
+     "triangles": 120,
+     "vertices": 62,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-1",
+      "Skin-2",
+      "Skin-5",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1215,
+      0.0576,
+      0.4637
+     ],
+     "bbox_max": [
+      -0.0406,
+      0.0786,
+      0.5054
+     ],
+     "bytes_alone": 25564
+    },
+    {
+     "name": "Posterior region of knee.r",
+     "group": "Posterior region of knee.g",
+     "triangles": 644,
+     "vertices": 324,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-3",
+      "Skin-5",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1422,
+      0.013,
+      0.3878
+     ],
+     "bbox_max": [
+      -0.019,
+      0.1033,
+      0.5077
+     ],
+     "bytes_alone": 27800
+    },
+    {
+     "name": "Posterior region of thigh.r",
+     "group": "Femoral region.g",
+     "triangles": 1000,
+     "vertices": 502,
+     "source_type": "mesh",
+     "source": "Z-Anatomy",
+     "materials": [
+      "Skin-2",
+      "Skin-3",
+      "Skin-4",
+      "Skin-5",
+      "Skin-6",
+      "Skin-in"
+     ],
+     "bbox_min": [
+      -0.1813,
+      0.0051,
+      0.5024
+     ],
+     "bbox_max": [
+      -0.0015,
+      0.1157,
+      0.8076
+     ],
+     "bytes_alone": 29720
+    }
+   ]
+  }
+ }
+}

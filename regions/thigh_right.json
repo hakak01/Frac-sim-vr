@@ -1,0 +1,81 @@
+{
+  "id": "thigh_right",
+  "title": "Right thigh (hip to knee)",
+  "side_suffix": ".r",
+  "main_bone": "Femur.r",
+  "z_window_from": ["Femur.r"],
+  "min_overlap_mm": 20,
+  "x_window_from": ["Femur.r", "Hip bone.r"],
+  "x_margin_mm": 20,
+  "layers": {
+    "bones": {
+      "label": "Bones",
+      "bodyparts3d": {
+        "Femur.r": "FMA24474",
+        "Patella.r": "FMA24486",
+        "Hip bone.r": "FMA16586",
+        "Tibia.r": "FMA24477",
+        "Fibula.r": "FMA24480"
+      },
+      "context_only": ["Hip bone.r", "Tibia.r", "Fibula.r"],
+      "fit_max_mm": { "Femur.r": 2.5 },
+      "fit_note": "Owner's decision 18 Nov 2026: femur accepted although 5 Z-Anatomy points at the adductor tubercle stand 1.5-2.4 mm proud of the BodyParts3D surface (rest: median 0.012 mm, 99% within 0.6 mm)."
+    },
+    "muscles": {
+      "label": "Muscles and tendons",
+      "descendants_of": ["Anterior compartment of thigh.g", "Medial compartment of thigh.g", "Posterior compartment of thigh.g", "Superficial gluteal muscles.g", "Deep gluteal muscles.g", "Iliopsoas muscle.g"],
+      "include": ["Lateral head of gastrocnemius.r", "Medial head of gastrocnemius.r", "Plantaris muscle.r", "Popliteus muscle.r"]
+    },
+    "joints": {
+      "label": "Joint capsules and ligaments",
+      "descendants_of": ["Hip joint.g", "Knee joint.g"]
+    },
+    "arteries": {
+      "label": "Arteries",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Artery",
+      "exclude": ["Dorsal artery of penis.r", "Deep artery of penis.r", "Right testicular artery.r", "Internal pudendal artery.r"],
+      "include": ["Superior gluteal artery.r"]
+    },
+    "veins": {
+      "label": "Veins",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Vein",
+      "exclude": ["Internal pudendal vein.r"],
+      "include": ["Superior gluteal veins.r"]
+    },
+    "nerves": {
+      "label": "Nerves",
+      "collection": "7: Nervous system & Sense organs",
+      "material_prefix": "Nerve",
+      "exclude": ["Pudendal nerve.r", "Genital branch of genitofemoral nerve.r"],
+      "include": ["Superior gluteal nerve.r"]
+    },
+    "skin": {
+      "label": "Skin",
+      "descendants_of": ["Gluteal region.g", "Anterior region of thigh.g", "Femoral region.g", "Knee region.g", "Posterior region of knee.g"],
+      "include": ["Hip region.r"],
+      "material_prefix": "Skin"
+    }
+  },
+  "muscle_attachments": {
+    "_note": "Read by tools/export_muscles.py. Z-Anatomy attachment areas are matched to muscles by name; 'areas' lists shared areas, 'contact' lists ends that have no area in Z-Anatomy (taken where the muscle mesh touches the bone).",
+    "areas": {
+      "Iliopsoas muscle": ["Iliacus muscle.r", "Psoas major.r"],
+      "Quadriceps femoris muscle": ["Rectus femoris muscle.r", "Vastus lateralis muscle.r", "Vastus medialis muscle.r", "Vastus intermedius muscle.r"],
+      "Biceps femoris muscle": ["Long head of biceps femoris.r", "Short head of biceps femoris.r"],
+      "Trochanteric insertion": ["Obturator internus.r", "Superior gemellus muscle.r", "Inferior gemellus muscle.r"],
+      "Patellar ligament": ["Patellar ligament"]
+    },
+    "contact": [
+      { "muscle": "Gluteus minimus muscle.r", "bone": "Femur.r", "near": "Gluteus medius muscle.er", "within_mm": 30 },
+      { "muscle": "Adductor brevis.r", "bone": "Femur.r" },
+      { "muscle": "Adductor brevis.r", "bone": "Hip bone.r" },
+      { "muscle": "(Adductor minimus).r", "bone": "Femur.r" },
+      { "muscle": "Obturator externus.r", "bone": "Femur.r", "near": "Trochanteric insertion.er", "within_mm": 20 },
+      { "muscle": "Tensor fasciae latae.r", "mesh": "Iliotibial tract.r", "bone": "Tibia.r" },
+      { "muscle": "Gluteus maximus muscle.r", "mesh": "Iliotibial tract.r", "bone": "Tibia.r" }
+    ],
+    "skip": ["Iliotibial tract.r", "Lateral patellar retinaculum.r", "Medial patellar retinaculum.r"]
+  }
+}

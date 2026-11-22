@@ -1,0 +1,69 @@
+{
+ "bone": "Femur.r",
+ "region": "thigh_right",
+ "units": "mm, Z-Anatomy axes (x patient left +, y back +, z up)",
+ "max_length_mm": 456.0,
+ "head_centre": [
+  -83.57,
+  5.13,
+  860.4
+ ],
+ "head_diameter_mm": 47.8,
+ "head_sphere_rms_mm": 0.36,
+ "head_points": 962,
+ "neck_axis_to_head": [
+  0.75024,
+  -0.18158,
+  0.63574
+ ],
+ "neck_min_section_centre": [
+  -107.71,
+  10.09,
+  835.37
+ ],
+ "neck_min_diameter_mm": 34.0,
+ "neck_min_section_beyond_head_surface_mm": 2,
+ "shaft_axis_point": [
+  -99.17,
+  4.29,
+  654.29
+ ],
+ "shaft_axis_to_knee": [
+  0.10676,
+  -0.00338,
+  -0.99428
+ ],
+ "knee_centre": [
+  -75.04,
+  30.75,
+  432.39
+ ],
+ "mechanical_axis_to_knee": [
+  0.0199,
+  0.05973,
+  -0.99802
+ ],
+ "posterior_condyle_medial": [
+  -50.39,
+  59.31,
+  454.6
+ ],
+ "posterior_condyle_lateral": [
+  -100.76,
+  57.48,
+  457.77
+ ],
+ "neck_shaft_angle_deg": 123.5,
+ "version_deg": 12.5,
+ "anterior_bow": {
+  "radius_mm": 874.0,
+  "direction": "anterior",
+  "sagitta_mm_15_85pct": 14.0
+ },
+ "mechanical_to_shaft_axis_deg": 6.2,
+ "reference": {
+  "neck_shaft_angle": "mean 128.8 deg (range 98-180), 5,089 healthy adult hips, radiographs; Boese 2016, PMID 26305058",
+  "femoral_torsion": "mean 5.1-8.8 deg (CT, Hernandez and Weiner methods), 55 adults; Vanhove 2019, PMID 30737593",
+  "anterior_bow": "radius 1,200 +/- 360 mm, 948 femora; Egol 2004, PMID 15289685"
+ }
+}

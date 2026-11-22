@@ -1,0 +1,127 @@
+{
+  "id": "foot_right",
+  "title": "Right foot and ankle (talus to toes)",
+  "side_suffix": ".r",
+  "main_bone": "Calcaneus.r",
+  "z_window_from": [
+    "Talus.r",
+    "Calcaneus.r",
+    "First metatarsal bone.r",
+    "Fifth metatarsal bone.r"
+  ],
+  "min_overlap_mm": 3,
+  "layers": {
+    "bones": {
+      "label": "Bones",
+      "bodyparts3d": {
+        "Talus.r": "FMA24482",
+        "Calcaneus.r": "FMA24497",
+        "Navicular bone.r": "FMA24500",
+        "Cuboid bone.r": "FMA24528",
+        "Medial cuneiform bone.r": "FMA24521",
+        "Intermediate cuneiform bone.r": "FMA24523",
+        "Lateral cuneiform bone.r": "FMA24525",
+        "First metatarsal bone.r": "FMA24507",
+        "Second metatarsal bone.r": "FMA24509",
+        "Third metatarsal bone.r": "FMA24511",
+        "Fourth metatarsal bone.r": "FMA24513",
+        "Fifth metatarsal bone.r": "FMA24515",
+        "Proximal phalanx of first finger of foot.r": "FMA43253",
+        "Proximal phalanx of second finger of foot.r": "FMA32634",
+        "Proximal phalanx of third finger of foot.r": "FMA32636",
+        "Proximal phalanx of fourth finger of foot.r": "FMA32638",
+        "Proximal phalanx of fifth finger of foot.r": "FMA32640",
+        "Middle phalanx of second finger of foot.r": "FMA32642",
+        "Middle phalanx of third finger of foot.r": "FMA32644",
+        "Middle phalanx of fourth finger of foot.r": "FMA32646",
+        "Middle phalanx of fifth finger of foot.r": "FMA230986",
+        "Distal phalanx of first finger of foot.r": "FMA32650",
+        "Distal phalanx of second finger of foot.r": "FMA32652",
+        "Distal phalanx of third finger of foot.r": "FMA32654",
+        "Distal phalanx of fourth finger of foot.r": "FMA32656",
+        "Distal phalanx of fifth finger of foot.r": "FMA32658",
+        "Sesamoid bones of foot.r": "FMA45097",
+        "Tibia.r": "FMA24477",
+        "Fibula.r": "FMA24480"
+      },
+      "context_only": [
+        "Tibia.r",
+        "Fibula.r"
+      ],
+      "fit_max_mm": {
+        "Navicular bone.r": 2.5
+      },
+      "fit_note": "Owner's decision 18 Nov 2026: navicular accepted although 4 Z-Anatomy points on the plantar-medial side, 7-13 mm from the tip of the tuberosity, stand 1.6-2.3 mm proud of the BodyParts3D surface (none on cartilage; 98% of points within 1 mm, median 0.08 mm)."
+    },
+    "muscles": {
+      "label": "Muscles, tendons and retinacula",
+      "descendants_of": [
+        "Muscles of foot.g",
+        "Anterior compartment of leg.g",
+        "Lateral compartment of leg.g",
+        "Posterior compartment of leg.g",
+        "Fibular tarsal tendon sheaths.g",
+        "Anterior tarsal tendon sheaths.g",
+        "Tibial tarsal tendon sheaths.g"
+      ],
+      "include": [
+        "Plantar aponeurosis.r",
+        "Superficial transverse metatarsal ligament.r",
+        "Flexor retinaculum of ankle.r",
+        "Superior extensor retinaculum of ankle.r",
+        "Inferior extensor retinaculum of ankle.r",
+        "Superior fibular retinaculum.r",
+        "Inferior fibular retinaculum.r",
+        "Subcutaneous bursa of lateral malleolus.r",
+        "Subcutaneous bursa of medial malleolus.r",
+        "Subcutaneous calcaneal bursa.r",
+        "Subtendinous calcaneal bursa.r",
+        "Subtendinous bursa of tibialis anterior.r"
+      ],
+      "exclude": [
+        "Popliteus muscle.r"
+      ]
+    },
+    "joints": {
+      "label": "Joint capsules and ligaments",
+      "descendants_of": [
+        "Ankle joint.g",
+        "Tibiofibular syndesmosis.g",
+        "Joints of foot.g"
+      ]
+    },
+    "arteries": {
+      "label": "Arteries",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Artery",
+      "include": [
+        "Anterior tibial artery.r"
+      ]
+    },
+    "veins": {
+      "label": "Veins",
+      "collection": "5: Cardiovascular system",
+      "material_prefix": "Vein"
+    },
+    "nerves": {
+      "label": "Nerves",
+      "collection": "7: Nervous system & Sense organs",
+      "material_prefix": "Nerve",
+      "include": [
+        "Superficial fibular nerve.r",
+        "Common plantar digital branches of medial plantar nerve"
+      ]
+    },
+    "skin": {
+      "label": "Skin",
+      "descendants_of": [
+        "Regions of foot.g",
+        "Talocrural region.g"
+      ],
+      "material_prefix": "Skin",
+      "include": [
+        "Nail plate (foot).r"
+      ]
+    }
+  }
+}
